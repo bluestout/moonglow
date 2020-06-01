@@ -1,0 +1,38 @@
+#shopify-section-team-template{
+    .team-template{
+        .team-block{
+            background-color: white;
+            padding: $padding*2/5;
+            margin-bottom: $margin*2/5;
+            .grid{
+                display: inline-flex;
+                @include media-query('medium-down'){
+                    display: block;
+                }
+                .info{
+                    img{
+                        width: 200px;
+                        float: left;
+                        margin-right: $margin*2/5;
+                        @include media-query('medium-down'){
+                            width: 100%;
+                        }
+                    }
+                    p{
+                        &.title{
+                            margin-top: $margin*2/5;
+                        }
+                        &.sub_title{
+                            color: #848484;
+                        }
+                    }
+                }
+                .pannel{
+                    margin: auto;
+                    display: table;
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

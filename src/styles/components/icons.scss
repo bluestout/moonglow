@@ -1,0 +1,97 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+
+  .no-svg & {
+    display: none;
+  }
+}
+
+.icon--wide {
+  width: 40px;
+}
+
+svg,
+symbol {
+  &.icon:not(.icon--full-color) {
+    circle,
+    ellipse,
+    g,
+    line,
+    path,
+    polygon,
+    polyline,
+    img {
+      max-width: 100%;
+    }
+
+    rect {
+      fill: inherit;
+      stroke: inherit;
+    }
+  }
+}
+
+// A generic way to visually hide content while
+// remaining accessible to screen readers (h5bp.com)
+.icon-fallback-text {
+  @include visually-hidden;
+
+  .no-svg & {
+    @include visually-shown(static);
+  }
+}
+
+// Payment icons
+.payment-icons {
+  user-select: none;
+  cursor: default;
+}
+
+
+.icon-links{
+  position: relative;
+  width: 100%;
+  top: 90%;
+  div{
+    
+    &.one-third{
+      @include media-query('medium-down'){
+       
+        height: 44px;
+      }
+      
+    }
+      display: inline-flex;
+      margin: auto;
+      img{
+          float: left;
+          width: 26px;
+          margin: auto;
+      }
+      p{
+          float: left;
+          padding-left: 20px;
+          color: white;
+          font-family: 'Montserrat Medium';
+          font-size: 14px;
+          line-height: 38px;
+          text-transform: uppercase;
+          @include media-query('medium-down'){
+              font-size: 10px;
+              line-height: 11px;
+              width: calc( 100% - 25px );
+              padding-left: 5px;
+              margin: auto;
+          }
+      }
+  }
+  
+  @include media-query('medium-down'){
+      left: 0px;
+      top: 70%;
+  }
+}

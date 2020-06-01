@@ -1,0 +1,93 @@
+
+{% for block in section.blocks %}
+    {% if block.type == 'image' %}
+        {% include 'find-moon-phase', item:block %}
+    {% elsif block.type == 'moon_phase' %}
+      {% include 'select-moon-phase' %}
+    {% elsif block.type == 'moon_review' %}
+        {% include 'moon-review' %}
+    {% elsif block.type == 'moon_product' %}
+        {% include 'product-per-moon' %}
+    {% endif %}
+{% endfor %}
+
+
+{% schema %}
+{
+    "name": "calculator template",
+    "settings": [
+
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Find moon form",
+            "settings": [
+              {
+                "type": "checkbox",
+                "id": "wide_display",
+                "label": "Wide display"
+              },
+              {
+                "type": "color",
+                "id": "bg_color",
+                "label": "Background color"
+              },
+              {
+                "type": "color",
+                "id": "color",
+                "label": "Font color"
+              },
+              {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+              },
+              {
+                "type": "checkbox",
+                "id": "devider_enable",
+                "label": "Devider enable ?"
+              },
+              {
+                "type": "select",
+                "id": "layout",
+                "label": "Image alignment",
+                "default": "left",
+                "options": [
+                  {
+                    "value": "left",
+                    "label": "Left"
+                  },
+                  {
+                    "value": "right",
+                    "label": "Right"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Image with text"
+              },
+              {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+              },
+              {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button label"
+              },
+              {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button link"
+              }
+            ]
+        }
+    ]
+}
+{% endschema %}

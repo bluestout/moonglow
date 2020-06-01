@@ -1,0 +1,108 @@
+{% comment %} 
+Function added to add line item properties to a product via dropdown variants for Merchant. 
+Added by MICA Interactive 18th of August 2018.
+{%endcomment%}
+
+<style>
+.selector-wrapper > label {
+  font-size: 13px;
+  line-height: 1.4;
+  font-family: "Montserrat",sans-serif;
+}
+</style>
+
+{% if product.tags contains 'chain_menu1' %}
+
+<div class="selector-wrapper">
+  <label style="font-weight:bold">Chain Length</label>
+  <select required name="properties[Chain Length]" id="productSelect" class="product-single__variants" aria-label="product selection">
+    <option value="16">16"</option>
+    <option value="18">18"</option>
+    <option value="20">20"</option>
+  </select>
+  
+</div>
+
+{%endif%}
+
+
+{% if product.tags contains 'chain_menu2'  %}
+<div class="selector-wrapper">
+  <label style="font-weight:bold">Chain Length</label>
+  <select required name="properties[Chain Length]" id="productSelect" class="product-single__variants" aria-label="product selection">
+    <option value="16">16"</option>
+    <option value="18">18"</option>
+    <option value="20">20"</option>
+    <option value="24">24"</option>
+  </select>
+  
+</div>
+
+{%endif%}
+
+{% if product.tags contains 'chain_menu3'  %}
+<div class="selector-wrapper">
+  <label style="font-weight:bold">Chain Length</label>
+  <select required name="properties[Chain Length]" id="productSelect" class="product-single__variants" aria-label="product selection">
+    <option value="16 - 20">16" - 20" </option>
+    <option value="21 - 24">21" - 24"</option>
+    <option value="30">30"</option>
+
+  </select>
+  
+</div>
+
+{%endif%}
+
+{% if product.tags contains 'chain_menu4'  %}
+<div class="selector-wrapper">
+  <label style="font-weight:bold">Chain Length</label>
+  <select required name="properties[Chain Length]" id="productSelect" class="product-single__variants" aria-label="product selection">
+    <option value="18-20">18" - 20" </option>
+    <option value="28">28"</option>
+  </select>
+  
+</div>
+
+{%endif%}
+
+{% if product.tags contains 'chain_menu5'  %}
+<div class="selector-wrapper">
+  <label style="font-weight:bold">Chain Length</label>
+  <select required name="properties[Chain Length]" id="productSelect" class="product-single__variants" aria-label="product selection">
+    <option value="16 - 20">16" - 20" </option>
+    <option value="21 - 24">21" - 24" </option>
+    <option value="21' Leather Cord">21" Leather Cord </option>
+    <option value="30">30"</option>
+  </select>
+  
+</div>
+
+{%endif%}
+
+{% if product.tags contains 'birthstone_menu' %}
+<div class="selector-wrapper" style="{% if canonical_url contains 'collection' %} display: flex;{%else%} display:block; {%endif%}
+flex-direction: column;
+max-width: 100%;">
+<label style="font-weight:bold">Birthstone</label><br>
+<select required name="properties[Birthstone]" id="productSelect" class="product-single__variants birthstone_select" aria-label="product selection">
+ <option value="none">Select - Birthstone</option>
+ <option value="January - Garnet">January - Garnet</option>
+ <option value="February - Amethyst">February - Amethyst</option>
+ <option value="March - Aqua Marine">March - Aqua Marine</option>
+ <option value="April - Diamond">April - Diamond</option>
+ <option value="May - Emerald">May - Emerald</option>
+ <option value="June - Light Amethyst">June - Light Amethyst</option>
+ <option value="July - Ruby">July - Ruby</option>
+ <option value="August - Peridot">August - Peridot</option>
+ <option value="September - Sapphire">September - Sapphire</option>
+ <option value="October - Rose Zircon">October - Rose Zircon</option>
+ <option value="November - Topaz">November - Topaz</option>
+ 
+ <option value="December - Blue Zircon" {% if product.tags contains 'no_december' %} disabled="disabled"{% endif %}>December - Blue Zircon</option>
+ 
+</select>
+</div>
+<p class="add_birthstone" style="display:none">&#8203;*
+Select your Birthstone</p>
+{%endif%}

@@ -1,0 +1,20 @@
+<section class="image-bar">
+    <div class="grid">
+        <div class="content grid__item one-half grid">
+                <div class="image grid__item ">
+                    <div class="info">
+                        <div class="img_element__wrap">
+                          <img class="lazyload" data-src="{{ block.settings.image_1 | img_url: 'original' }}" alt="{{ block.settings.title }}">
+                        </div>
+                        <div class="img_element__wrap">
+                          <img class="lazyload" data-src="{{ block.settings.image_2 | img_url: 'original' }}" alt="{{ block.settings.title }}" style="right: -11px; top: 70px;">
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="heading grid__item one-half" style="background-color: {{block.settings.bg_color}};">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+        </div>
+    </div>
+</section>

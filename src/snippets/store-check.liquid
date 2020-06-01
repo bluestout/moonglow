@@ -1,0 +1,16 @@
+<!-- Store-check -->
+<script>
+    {% if shop.permanent_domain == 'moonglow-canada.myshopify.com' %}
+   window.shopDomain = "ca";  
+   {% else %}
+   window.shopDomain = "usa";
+   {% endif %}
+</script>
+  {% case shop.permanent_domain %}
+  {% when 'moonglow-canada.myshopify.com' %}
+  {%  assign current_store = 'ca' %}
+  {% else %}
+  {% assign current_store = 'usa' %}
+  {% endcase %} 
+  
+  

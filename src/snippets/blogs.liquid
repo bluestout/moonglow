@@ -1,0 +1,17 @@
+<section>
+    <div class="grid blogs-block">
+        {% for block in section.blocks %}
+            {% if block.type =='article' %}
+                <div class="grid__item one-third medium-down--one-half small--one-whole animated">
+                    <div class="banner" style="background: url({{ block.settings.image | img_url: 'original'}}) no-repeat 50% 50% / cover;"></div>
+                    <div class="info">
+                        <img src="{{ 'quotes_ico.svg' | asset_url }}" alt="{{ item.settings.caption_title }}">
+                        {{ block.settings.text }}
+                    </div>
+                </div>
+
+            {% endif %}
+            
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,1092 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Turbo",
+    "theme_author": "Out of the Sandbox",
+    "theme_version": "5.0.3",
+    "theme_documentation_url": "https:\/\/help.outofthesandbox.com\/",
+    "theme_support_url": "https:\/\/help.outofthesandbox.com\/hc\/en-us\/requests\/new"
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "twitter_link",
+        "label": "Twitter link",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "facebook_link",
+        "label": "Facebook link",
+        "info": "https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "youtube_link",
+        "label": "YouTube link",
+        "info": "https:\/\/youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "vimeo_link",
+        "label": "Vimeo link",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_link",
+        "label": "Pinterest link",
+        "info": "https:\/\/pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "instagram_link",
+        "label": "Instagram link",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "snapchat_link",
+        "label": "Snapchat link",
+        "info": "https:\/\/www.snapchat.com\/add\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "houzz_link",
+        "label": "Houzz link",
+        "info": "https:\/\/www.houzz.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "linkedin_link",
+        "label": "LinkedIn link",
+        "info": "https:\/\/linkedin.com\/company\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "ticktok_link",
+        "label": "Ticktok link",
+        "info": "https:\/\/shopify.ticktok.com\/"
+      },
+      {
+        "type": "text",
+        "id": "email_link",
+        "label": "Email address"
+      },
+      {
+        "type": "image_picker",
+        "id": "og_image_fallback",
+        "label": "Social sharing image",
+        "info": "Used when an image cannot be found. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/115006910147-Specify-what-image-text-is-shown-when-someone-shares-your-site-on-Facebook-#section5)"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary",
+        "default": "#204a80",
+        "info": "Used for text links, and primary buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary",
+        "default": "#dcdcdc",
+        "info": "Used for secondary buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_borders",
+        "label": "Borders",
+        "default": "#e5e5e5"
+      },
+      {
+        "type": "header",
+        "content": "Body"
+      },
+      {
+        "type": "color",
+        "id": "color_body_bg",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "label": "Text",
+        "default": "#333333"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_bg",
+        "label": "Background",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_text",
+        "label": "Text",
+        "default": "#636363"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "checkbox",
+        "id": "favicon_enable",
+        "label": "Use custom icon"
+      },
+
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Icon"
+      },
+      {
+        "type": "header",
+        "content": "Free shipping Bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "enble_freeship",
+        "label": "Enable Freeshippig bar"
+      },
+      {
+        "type": "text",
+        "id": "free_ship_text",
+        "label": "Free shipping message"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "footer_social_enable",
+        "label": "Show social media icons"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": "Show newsletter field"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp form action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "select",
+        "id": "ajax_cart_method",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "enable-discount",
+        "label": "Enable Discount"
+      },
+      {
+        "type": "text",
+        "id": "discount-amount",
+        "label": "Discount Percentage"
+      }
+    ]
+  },
+  {
+    "name": "Instagram",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Instagram Content"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Enter Instagram Title"
+      },
+      {
+        "type": "text",
+        "id": "enter_insta_acc",
+        "label": "Enter Instagram Account ID"
+      },
+      {
+        "type": "text",
+        "id": "insta_access_Token",
+        "label": "Enter AccessToken"
+      },
+      {
+        "type": "text",
+        "id": "insta_limit",
+        "label": "Number Of Images"
+      }
+    ]
+  },
+  {
+    "name": "Customize Moon",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Customize Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "choose_img",
+        "label": "Choose Background",
+        "info": "1440x500"
+      },
+      {
+        "type": "image_picker",
+        "id": "choose_moonframe",
+        "label": "Choose Moon Frame",
+        "info": "268x328"
+      },
+      {
+        "type": "header",
+        "content": "Customize Details"
+      },
+      {
+        "type": "text",
+        "id": "enter_title",
+        "label": "Enter Customize Title"
+      },
+      {
+        "type": "text",
+        "id": "sub_note",
+        "label": "Enter Customize Sub Note"
+      },
+      {
+        "type": "textarea",
+        "id": "enter_question",
+        "label": "Enter Customize Heading"
+      },
+      {
+        "type": "text",
+        "id": "enter_text",
+        "label": "Enter Customize Note"
+      },
+      {
+        "type": "text",
+        "id": "enter_text_mobile",
+        "label": "Enter Customize Note For Mobile"
+      },
+      {
+        "type": "text",
+        "id": "enter_btn",
+        "label": "Enter Button Label"
+      },
+      {
+        "type": "url",
+        "id": "choose_url",
+        "label": "Choose Collection"
+      }
+    ]
+  },
+  {
+    "name": "Blog Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Search Bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_bar",
+        "label": "Enable Search Bar"
+      },
+      {
+        "type": "header",
+        "content": "Follow Us"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_social",
+        "label": "Enable Follow Us"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_social_link",
+        "label": "Enable Social Links"
+      },
+      {
+        "type": "text",
+        "id": "enter_followus",
+        "label": "Enter Heading"
+      },
+      {
+        "type": "header",
+        "content": "Subscribe"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_newsletter",
+        "label": "Enable Subscribe"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_form",
+        "label": "Enable Newsletter Form"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_heading",
+        "label": "Enter Newsletter Heading"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_note",
+        "label": "Enter Newsletter Note"
+      },
+      {
+        "type": "header",
+        "content": "Recent Blog Posts"
+      },
+      {
+        "type": "checkbox",
+        "id": "recent_post_enable",
+        "label": "Enable Recent Blog Post"
+      },
+      {
+        "type": "blog",
+        "id": "choose_most_blog",
+        "label": "Choose Most Blogs"
+      },
+      {
+        "type": "blog",
+        "id": "choose_top_blog",
+        "label": "Choose Top Blogs"
+      },
+      {
+        "type": "header",
+        "content": "Category"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_category",
+        "label": "Enable Category"
+      },
+      {
+        "type": "link_list",
+        "id": "blog_menu",
+        "label": "Choose Category Menu"
+      },
+      {
+        "type": "text",
+        "id": "category_heading",
+        "label": "Enter Category Heading"
+      },
+      {
+        "type": "header",
+        "content": "tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_tags",
+        "label": "Enable Tags"
+      }
+    ]
+  },
+  {
+    "name": "Product page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Engrave Character"
+      },
+      {
+        "type": "product",
+        "id": "engrave_pr",
+        "label": "Engrave Product"
+      },
+      {
+        "type": "image_picker",
+        "id": "fullmoon_img",
+        "label": "Full moon image"
+      }
+    ]
+  },
+  {
+    "name": "Free gift",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_freeproduct",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "freegift_vid",
+        "label": "Free gift variant id",
+        "default": "21513365258345"
+      },
+      {
+        "type": "select",
+        "id": "free_gift_type",
+        "label": "Free gift type",
+        "options": [
+          {
+            "value": "moon_stud",
+            "label": "Moon stud"
+          },
+          {
+            "value": "birthstone",
+            "label": "Birthstone "
+          }
+        ]
+      },
+      {
+        "type": "number",
+        "label": "Minimum item for moon stud",
+        "id": "min_item_moon_stud",
+        "default": 5
+      },
+      {
+        "type": "header",
+        "content": "Details for bithstone"
+      },
+      {
+        "type": "checkbox",
+        "id": "birthstone_add_auto",
+        "label": "Birthstone product add automatically?",
+        "default": true
+      },
+      {
+        "type": "number",
+        "label": "Minimum price for birthstone",
+        "id": "min_price_birthstone",
+        "default": 10000
+      },
+      {
+        "type": "product",
+        "label": "Birthstone product",
+        "id": "birthstone_product"
+      },
+      {
+        "type": "image_picker",
+        "label": "Birthstone lock image",
+        "id": "birthstone_lock_img"
+      },
+      {
+        "type": "image_picker",
+        "label": "Birthstone unlock image",
+        "id": "birthstone_unlock_img"
+      },
+      {
+        "type": "text",
+        "label": "Birthstone Spend msg",
+        "id": "birthstone_eligible_msg",
+        "default": "You are now eligible for free gift"
+      },
+      {
+        "type": "text",
+        "label": "Birthstone Spend msg",
+        "id": "birthstone_spend_msg",
+        "default": "Spend $ more to recieve a <b>FREE Birthstone Bracelet<\/b>"
+      },
+      {
+        "type": "text",
+        "label": "Birthstone Success msg",
+        "id": "birthstone_success_msg",
+        "default": "Congrats"
+      }
+    ]
+  },
+  {
+    "name": "Cookie Permission Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cookie_bar",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "richtext",
+        "id": "bar_content",
+        "label": "Content for bar"
+      },
+      {
+        "type": "text",
+        "id": "btn_context",
+        "label": "button text"
+      }
+    ]
+  },
+  {
+    "name": "Checkout page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Gift wrap"
+      },
+      {
+        "type": "checkbox",
+        "id": "checkout_giftwrap",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "label": "Gift title-1",
+        "id": "checkout_gift_title_1"
+      },
+      {
+        "type": "text",
+        "label": "Gift Price-1",
+        "id": "checkout_gift_price_1"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift image-1",
+        "id": "checkout_gift_img_1"
+      },
+      {
+        "type": "text",
+        "label": "Gift id-1",
+        "id": "checkout_gift_vid_1"
+      },
+      {
+        "type": "text",
+        "label": "Gift title-2",
+        "id": "checkout_gift_title_2"
+      },
+      {
+        "type": "text",
+        "label": "Gift Price-2",
+        "id": "checkout_gift_price_2"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift image-2",
+        "id": "checkout_gift_img_2"
+      },
+      {
+        "type": "text",
+        "label": "Gift id-2",
+        "id": "checkout_gift_vid_2"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift first image",
+        "id": "checkout_gift_first_image"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift second image",
+        "id": "checkout_gift_second_image"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift third image",
+        "id": "checkout_gift_third_image"
+      }
+    ]
+  },
+  {
+    "name": "Checkout gift page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Gift card"
+      },
+      {
+        "type": "checkbox",
+        "id": "checkout_giftcard",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "label": "Gift card title-1",
+        "id": "checkout_gift_title_card_1"
+      },
+      {
+        "type": "text",
+        "label": "Gift card Price-1",
+        "id": "checkout_gift_card_price_1"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift card image-1",
+        "id": "checkout_gift_card_img_1"
+      },
+      {
+        "type": "text",
+        "label": "Gift card id-1",
+        "id": "checkout_gift_card_vid_1"
+      },
+      {
+        "type": "text",
+        "label": "Gift card title-2",
+        "id": "checkout_gift_title_card_2"
+      },
+      {
+        "type": "text",
+        "label": "Gift card Price-2",
+        "id": "checkout_gift_card_price_2"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift card image-2",
+        "id": "checkout_gift_card_img_2"
+      },
+      {
+        "type": "text",
+        "label": "Gift card id-2",
+        "id": "checkout_gift_card_vid_2"
+      },
+      {
+        "type": "text",
+        "label": "Gift card title-3",
+        "id": "checkout_gift_title_card_3"
+      },
+      {
+        "type": "text",
+        "label": "Gift card Price-3",
+        "id": "checkout_gift_card_price_3"
+      },
+      {
+        "type": "image_picker",
+        "label": "Gift card image-3",
+        "id": "checkout_gift_card_img_3"
+      },
+      {
+        "type": "text",
+        "label": "Gift card id-3",
+        "id": "checkout_gift_card_vid_3"
+      }
+    ]
+  },
+  {
+    "name": "Checkout personlaize card",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "card_check",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "label": "Add to my order",
+        "id": "add_order"
+      },
+      {
+        "type": "text",
+        "label": "Variant card ID",
+        "id": "card_id"
+      },
+      {
+        "type": "text",
+        "label": "Enjoy free message",
+        "id": "free_msg"
+      },
+      {
+        "type": "text",
+        "label": "Product title",
+        "id": "p_title"
+      },
+      {
+        "type": "image_picker",
+        "id": "card_img",
+        "label": "Gift card image"
+      },
+      {
+        "type": "text",
+        "label": "Limited text",
+        "id": "l_text"
+      },
+      {
+        "type": "text",
+        "label": "Side cart free text",
+        "id": "free_text"
+      },
+      {
+        "type": "text",
+        "label": "Side cart sub text",
+        "id": "sub_text"
+      }
+    ]
+  },
+  {
+    "name": "Side-Gift-images",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "side_giftcard",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "side_img_1",
+        "label": "Gift card image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "side_img_2",
+        "label": "Gift card image 2"
+      }
+    ]
+  },
+  {
+    "name": "Email-popup",
+    "settings": [
+      {
+        "type": "color",
+        "id": "email_background_color",
+        "label": "Email Background Color",
+        "default": "#d2a1a1"
+      },
+      {
+        "type": "richtext",
+        "id": "newsletter_form_popup_extra",
+        "label": "Thank You Mesaage Extra text"
+      },
+      {
+        "type": "url",
+        "id": "newsletter_form_popup_link",
+        "label": "Thank You Mesaage CTA Link"
+      }
+    ]
+  },
+  {
+    "name": "GeoIP - Geolocation API",
+    "settings": [
+      {
+        "type": "header",
+        "content": "GeoIP App"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_geoip",
+        "label": "Enable GEOIP redirect?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Country Selector"
+      },
+      {
+        "type": "text",
+        "id": "geolocation_store_name",
+        "label": "Geolocation Store Name"
+      },
+      {
+        "type": "text",
+        "id": "geolocation_store_site",
+        "label": "Geolocation Store site Name"
+      },
+      {
+        "type": "text",
+        "id": "geolocation_r_store_name",
+        "label": "Geolocation RStore Name"
+      },
+      {
+        "type": "text",
+        "id": "geolocation_r_store_site",
+        "label": "Geolocation RStore site Name"
+      },
+      {
+        "type": "textarea",
+        "id": "excluded_geoip_ips",
+        "label": "Geolocation Excluded IPs"
+      }
+    ]
+  },
+  {
+    "name": "Apps settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "hotjar app javascript"
+      },
+      {
+        "type": "checkbox",
+        "id": "hotjar_enable",
+        "label": "Hotjar script enable"
+      },
+      {
+        "type": "header",
+        "content": "Sms app"
+      },
+      {
+        "type": "checkbox",
+        "id": "app_smstag",
+        "label": "Enable"
+      },
+      {
+        "type": "header",
+        "content": "Yotpo review"
+      },
+      {
+        "type": "checkbox",
+        "id": "app_yotpo",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "app_yotpo_key",
+        "label": "App key"
+      }
+    ]
+  },
+  {
+    "name": "Side cart images",
+    "settings": [
+      {
+        "type": "header",
+        "content": "cart images"
+      },
+      {
+        "type": "image_picker",
+        "label": "shopping cart image1",
+        "id": "s_img_one"
+      },
+      {
+        "type": "text",
+        "label": "collection name",
+        "id": "s_col_name"
+      },
+      {
+        "type": "text",
+        "label": "first collection link",
+        "id": "s_link_one"
+      },
+      {
+        "type": "image_picker",
+        "label": "shopping cart image1",
+        "id": "s_img_two"
+      },
+      {
+        "type": "text",
+        "label": "collection second name",
+        "id": "col_name"
+      },
+      {
+        "type": "text",
+        "label": "second collection link",
+        "id": "s_link_two"
+      }
+    ]
+  },
+  {
+    "name": "Checkout icons",
+    "settings": [
+      {
+        "type": "header",
+        "content": "checkout icons"
+      },
+      {
+        "type": "image_picker",
+        "label": "First icon",
+        "id": "icon_1"
+      },
+      {
+        "type": "text",
+        "label": "First icon text",
+        "id": "icon_text_1"
+      },
+      {
+        "type": "image_picker",
+        "label": "Second icon",
+        "id": "icon_2"
+      },
+      {
+        "type": "text",
+        "label": "second icon text",
+        "id": "icon_text_2"
+      },
+      {
+        "type": "image_picker",
+        "label": "third icon",
+        "id": "icon_3"
+      },
+      {
+        "type": "text",
+        "label": "Third icon text",
+        "id": "icon_text_3"
+      },
+      {
+        "type": "image_picker",
+        "label": "Fourth icon",
+        "id": "icon_4"
+      },
+      {
+        "type": "text",
+        "label": "Fourth icon text",
+        "id": "icon_text_4"
+      },
+      {
+        "type": "image_picker",
+        "label": "Fifth icon",
+        "id": "icon_5"
+      },
+      {
+        "type": "text",
+        "label": "Fifth icon text",
+        "id": "icon_text_5"
+      }
+    ]
+  },
+  {
+    "name": "React settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "pwa_enable",
+        "label": "React enable"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_blur",
+        "label": "Blur effect",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Kalviyo Email Popup",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "popup_check",
+        "label": "Enable Popup"
+      },
+      {
+        "type": "image_picker",
+        "id": "email_popup_image",
+        "label": "Email Popup Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "email_popup_image_mobile",
+        "label": "Email Popup Image Mobile"
+      },
+      {
+        "type": "text",
+        "label": "Email Popup Header",
+        "id": "email_popup_header"
+      },
+      {
+        "type": "textarea",
+        "label": "Email Popup text",
+        "id": "email_popup_text"
+      },
+      {
+        "type": "text",
+        "label": "Email Button Name",
+        "id": "popup_button_name"
+      },
+      {
+        "type": "textarea",
+        "label": "No,thanks email",
+        "id": "no_email"
+      },
+      {
+        "type": "richtext",
+        "id": "kalviyo_thankyou_msg",
+        "label": "Thank you messsage",
+        "info": "Displays only when a new customer join"
+      }
+    ]
+  },
+  {
+    "name": "Photo at checkout",
+    "settings": [
+      {
+        "type": "header",
+        "content": "photo-upload-checkout"
+      },
+      {
+        "type": "checkbox",
+        "id": "photo_upload",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "check_js",
+        "label": "Enable photo JS",
+        "default": true
+      },
+      {
+        "type": "text",
+        "label": "Enjoy one text",
+        "id": "enjoy_text"
+      },
+      {
+        "type": "text",
+        "label": "Upload photo text",
+        "id": "photo_txt"
+      },
+      {
+        "type": "text",
+        "label": "Text of change button",
+        "id": "change_one"
+      },
+      {
+        "type": "text",
+        "label": "Text of confirm button",
+        "id": "confirm_one"
+      },
+      {
+        "type": "text",
+        "label": "Sucessful Message",
+        "id": "sucess_msg"
+      },
+      {
+        "type": "image_picker",
+        "id": "order_img",
+        "label": "Image on order page"
+      }
+    ]
+  }
+]

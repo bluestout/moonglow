@@ -1,0 +1,214 @@
+.shopify-section{
+  section.image-with-text {
+    &.template_1{
+      .image-with-text__image {
+        position: relative;
+        .image-title{
+          max-width: 630px;
+          margin: auto;
+          padding: 10px 20px;
+          background-color: #ebeef0;
+          @include media-query('medium-down'){
+            padding: 10px 5px;
+          }
+          h3{
+            text-align: center;
+            color: #2e4676;
+          }
+          ul{
+            width: 100%;
+            li{
+              width: 33.3%;
+              float: left;
+              text-align: center;
+              display: inline-flex;
+              @include media-query('medium-down'){
+                display: block;
+              }
+              img, svg{
+                width: 20px;
+                height: 20px;
+                margin-top: 5px;
+                float: left;
+                margin-right: 5px;
+                @include media-query('small'){
+                  margin: auto;
+                  float: none;
+                  display: table;
+                }
+              }
+              span{
+                color: #2e4676;
+                font-size: 12px;
+                font-family: $font-heading;
+                height: 33px;
+                display: block;
+                line-height: 33px;
+                float: left;
+                @include media-query('small'){
+                  text-align: center;
+                  line-height: 15px;
+                  margin-top: 10px;
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+      .content{
+        max-width: $content_width;
+        margin: auto;
+        .image-with-text__text{
+          margin-top: $margin;
+          p{
+            text-align: right;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+    &.template_2{
+      padding: 0;
+      .content{
+        width: 100%;
+        .image-with-text__image{
+          position: relative;
+          width: auto;
+          display: table;
+          @include media-query('medium-down'){
+            display: block;
+          }
+          .mobile {
+            display: none;
+            @include media-query('medium-down'){
+              display: block;
+              img {
+                width: 100%;
+                height: auto !important;
+              }
+            }
+          }
+          .normal {
+            @include media-query('medium-down'){
+              display: none;
+            }
+          }
+          .img-title{
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            color: white;
+            font-family: $font-heading;
+            text-shadow: 1px 1px 4px black;
+            @include media-query('medium-down'){
+              bottom: 10px;
+              left: 15px;
+            }
+          }
+        }
+        .image-with-text__text{
+          width: calc(100% - 550px);
+          padding-left: $padding * 2;
+          @include media-query('medium-down'){
+            padding: 0;
+            margin: 0;
+            width: 100%;
+          }
+          .title{
+            position: absolute;
+            transform: rotate(90deg);
+            left: -$left * 12 / 5;
+            margin-top: $margin * 17 / 5;
+
+            @include media-query('medium-down'){
+              display: none;
+            }
+            h1{
+              font-size: $font_bg_size;
+              color: white;
+            }
+          }
+          .caption{
+            max-width: $basic_caption_width;
+            margin: auto;
+            padding: $padding * 2;
+            background: $image_text_caption_bg_color;
+            margin-top: $margin * 2;
+            @include media-query("medium-down"){
+              margin: 0px;
+              padding: $padding * 3 / 10 $padding * 2 / 5;
+              background: white;
+              left: 0px;
+              max-width: inherit;
+              padding-bottom: $padding;
+            }
+            h2{
+              @include media-query('medium-down'){
+                margin-bottom: 20px;
+              }
+
+            }
+            p{
+              margin: 0 0 $margin * 4 /5;
+              line-height: 24px;
+              @include media-query('medium-down'){
+                margin: $margin * 2 /5 0;
+              }
+            }
+            .button{
+              display: table;
+              width: $default_button_width;
+              padding: $padding * 3 / 10;
+              @include media-query("medium-down"){
+                margin: auto;
+              }
+            }
+          }
+        }
+        .image-with-text__image{
+          @include media-query("medium-down"){
+            max-height: $default_ipad_image_height;
+            overflow: hidden;
+            width: 100%;
+          }
+          @include media-query("small"){
+            max-height: $default_mobile_image_height;
+            overflow: hidden;
+            width: 100%;
+          }
+          img {
+            height: 800px;
+            float: right;
+          }
+        }
+      }
+    }
+    display: flex;
+    flex-wrap: wrap;
+    padding: $padding*12/5 0;
+    @include  media-query('medium-down'){
+      padding: 0;
+    }
+    .content{
+      .image-with-text__text {
+        @include  media-query('medium-down'){
+          margin: $margin * 2 / 5 0px;
+        }
+        .devider{
+          @include  media-query('medium-down'){
+            float: none!important;
+          }
+        }
+        p{
+          @include  media-query('medium-down'){
+            text-align: center!important;
+            padding: $padding / 5;
+          }
+        }
+      }
+    }
+  }
+}

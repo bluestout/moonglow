@@ -1,0 +1,40 @@
+<!-- Photo-checkout -->
+{%- if settings.photo_upload -%}
+ {% assign uploaded_photo  = blank %}
+  {%- if order.note contains 'ucarecdn' -%}
+    {% assign uploaded_photo  = order.note %}
+  {%- endif -%}
+  
+<div class="uploader-button hide">
+  <div class="down_side">
+    <div class="left_s">
+      <p class="enjoy_one" tabindex="0">{{settings.enjoy_text}}</p>
+      <p class="photo_one" tabindex="0">
+        {%- if uploaded_photo == blank -%}
+          {{settings.photo_txt}}
+        {%- else -%}
+          You have Uploaded your photo.
+        {%- endif -%}
+      </p>
+      {%- if uploaded_photo == blank -%}
+        <input type="hidden" role="uploadcare-uploader" class="upload_1" data-tabs="file camera" data-images-only='true' />
+      {%- endif -%}
+    </div>
+    <div class="right_s" image-note="{{order.note}}">
+      <img class="img_url" tabindex="0" src="
+      {%- if uploaded_photo  != blank -%}
+        {{uploaded_photo}}
+      {% else %}
+        {{settings.order_img | img_url: '400x'}}
+      {% endif %}"
+       alt="Your photo">
+       {%- if uploaded_photo == blank -%}
+          <div class="confirm_button hide">
+            <div class="btn_txt" tabindex="0">{{settings.confirm_one}}</div>
+          </div>
+      {%- endif -%}
+      <div class="img_upload hide">{{settings.sucess_msg}}</div>
+    </div> 
+  </div> 
+</div>
+{%- endif -%}

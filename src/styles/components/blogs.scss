@@ -1,0 +1,42 @@
+.blogs-block{
+    @include media-query('medium-down'){
+        margin-top: 50px;
+    }
+
+    .grid__item{
+        padding: 0px $padding;
+        opacity: 0;
+        .banner{
+            height: 250px;
+        }
+        .info{
+            padding: $padding/5 0px;
+            img{
+                float: left;
+                width: 20px;
+                margin-right: 10px;
+                margin-top: 5px;
+            }
+            
+            p{
+                line-height: 28px;
+                &:first-of-type{
+                    min-height: 90px;
+                }
+                strong{
+                    line-height: 10px;
+                    margin-top: $margin*3/5;
+                    display: block;
+                    font-family: $font-heading;
+                    font-weight: normal;
+                }
+                em{
+                    color: #CEC1B5;
+                    font-family: $font-heading;
+                    font-style: normal;
+                }
+            }
+        }
+    }
+}
+

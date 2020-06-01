@@ -1,0 +1,75 @@
+.placeholder-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border: 1px solid $placeholder_border_color;
+  background-color: $placeholder_bg_color;
+  fill: $placeholder_border_color;
+}
+
+.placeholder-svg--small {
+  width: 480px;
+}
+
+.placeholder-noblocks {
+  padding: 40px;
+  text-align: center;
+}
+
+// Mimic a background image by wrapping the placeholder svg with this class
+.placeholder-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .icon {
+    border: 0;
+  }
+}
+
+.alert{
+  background: $alert_bg_color;
+  padding: 3px $padding / 5;
+  margin-right: $margin / 5;
+  display: inherit;
+  position: relative;
+  text-transform: uppercase;
+  font-style: italic;
+  &:after{
+    content: '';
+    border: 5px solid transparent;
+    border-left-color: $alert_bg_color;
+    border-left-width: 5px;
+    position: absolute;
+    right: -10px;
+    top: 5px;
+  }
+}
+
+.alert-message{
+  width: 100%;
+  padding: 20px 40px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: none;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  top: 53px;
+  color: white !important;
+  @include media-query('medium-down'){
+    left: 0;
+    width: 100%;
+  }
+  &.alert-danger{
+      background-color: #b51111;
+  }
+  &.alert-success{
+      background-color: rgba(60, 118, 61, 0.84);
+  }
+}
+

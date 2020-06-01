@@ -1,0 +1,102 @@
+<footer class="grid bg_color__dark_blue">
+  <div class="grid__item medium-up--two-thirds">
+    {% for block in section.blocks %}
+      <div class="link-list grid__item  medium-up--one-third">
+        <h5 class="slide_btn">{{ linklists[block.settings.menu].title }}<img class="plus" src="{{ 'minus_ico.svg' | asset_url }}" alt="plus"><img class="minus" src="{{ 'plus_ico.svg' | asset_url }}" alt="minus"></h5>
+        <ul class="slide_content">
+          {% for link in linklists[block.settings.menu].links %}
+            <li><a href="{{ link.url }}" class="color__white hover_color__white">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+  </div>
+  {%- assign social_accounts = 'facebook, twitter, pinterest, instagram, snapchat, ticktok, youTube' | split: ', ' -%}
+  <div class="grid__item medium-up--one-third">
+    <ul class="social">
+      {% for social in social_accounts %}
+        {%- assign social_handle = social | handleize -%}
+        {% capture social_link %}{{ social_handle }}_link{% endcapture %}
+        {% capture social_icon %}{{ social_handle }}_ico.svg{% endcapture %}
+        {% if settings[social_link] != blank %}
+          <li>
+            <a target="_blank" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+              <img src="{{social_icon | asset_url}}" alt="{{ social }}">
+              <span class="icon-fallback-text">{{ social }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="grid__item">
+    <p class="text-right">© Moonglow, LLC. All rights reserved.<em class="color__light_white translate_field"></em></p>
+  </div>
+</footer>
+
+{% schema %}
+
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+     "type": "header",
+     "content": "Sub footer"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_designed_by",
+      "label": "Show theme designer credits",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_payment_methods",
+      "label": "Show payment method icons",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "This menu won't show drop-down items"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
+      }
+    ]
+  }
+}
+
+{% endschema %}

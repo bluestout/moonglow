@@ -1,0 +1,117 @@
+.shopify-section{
+  section.find-moon-form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $padding 0;
+    @include media-query('medium-down'){
+      padding: $padding 0!important;
+    }
+    .content{
+      max-width: $content_width;
+      margin: auto;
+      width: 100%;
+      .image-with-text__image {
+         
+          .responsive-image__wrapper {
+            @include media-query('small'){
+              max-width: 190px!important;
+            }
+            img{
+              float: right;
+              max-width: $padding*6;
+              width: 100%;
+              @include  media-query('medium-down'){
+                max-width: $padding*4!important;
+                margin: auto;
+                display: table;
+                float: none;
+              }
+            }
+          }
+          img{
+            float: right;
+            max-width: $padding*6;
+            width: 100%;
+            @include  media-query('medium-down'){
+              max-width: $padding*4!important;
+              margin: auto;
+              display: table;
+              float: none;
+            }
+          }
+          
+      }
+      
+      .image-with-text__text {
+        padding: $padding;
+        @include media-query('medium-down'){
+          padding: $padding*2/5;
+        }
+        .devider{
+          @include  media-query('medium-down'){
+            display: none!important;
+          }
+          &:before{
+            background-color: #92A8D5;
+          }
+        }
+        h3{
+          margin: $margin * 2 / 5 0 $margin*3/5;
+        }
+        p{
+          max-width: 440px;
+          margin: auto;
+          line-height: 22px;
+          text-transform: uppercase;
+          font-size: $h4_size;
+          text-align: center;
+          margin-bottom: 20px;
+          @include  media-query('medium-down'){
+            font-size: 14px;
+            margin: 0px;
+            margin: auto;
+          }
+        }
+        .pannel{
+          position: relative;
+          display: table;
+          margin: auto;
+          margin-top: $margin * 2 / 5;
+          @include media-query("medium-down"){
+            margin-top: 30px;
+          }
+          .form-control{
+            @include  media-query('medium-down'){
+              display: none;
+            }
+            .datepicker{
+              padding-left: 50px;
+             
+            }
+            img{
+              position: absolute;
+              margin-top: 8px;
+              margin-left: 15px;
+            }
+          }
+         
+         
+          .button.grey{
+            float: left;
+            width: 100%;
+            @include media-query("medium-down"){
+              float: none!important;
+              width: auto;
+              margin: auto;
+              display: table;
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,106 @@
+{% if section.settings.show_banner %}
+    {% include 'collection-banner' %}
+{% endif %}
+
+<section id="gf-products" class="collection-template">
+
+</section>
+ <div class="collection-list-banner hide">
+    <div class="banner-caption one-half medium-down--one-whole left">
+        <div class="one-half banner left lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.caption_banner %}"></div>
+        <div class="one-half info right" style="background-color: {{ section.settings.caption_bg_color }} ">
+            <div class="content">
+                <img src="{{ 'present_ico.svg' | asset_url }}" alt="{{ section.settings.caption_title }}">
+                <h3 class="mark">{{ section.settings.caption_title }}</h3>
+                <div class="devider left"></div>
+                <div class="desc">{{ section.settings.caption_text }}</div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+{% schema %}
+{
+    "name": "Colllection template",
+    "settings": [
+        {
+            "type": "header",
+            "content": "banner"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_banner",
+            "label": "Show banner"
+        },
+        {
+            "type": "image_picker",
+            "id": "default_banner",
+            "label": "Banner Image"
+        },
+        {
+            "type": "select",
+            "id": "title_position",
+            "label": "Title position",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "left"
+                },
+                {
+                    "value": "right",
+                    "label": "right"
+                },
+                {
+                    "value": "center",
+                    "label": "center"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "free gift card"
+        },
+        {
+            "type": "image_picker",
+            "id": "caption_banner",
+            "label": "Banner"
+        },
+        {
+            "type": "color",
+            "id": "caption_bg_color",
+            "label": "Caption background color"
+        },
+        {
+            "type": "text",
+            "id": "caption_title",
+            "label": "Caption title"
+        },
+        {
+            "type": "richtext",
+            "id": "caption_text",
+            "label": "Caption description"
+        }
+    ],
+    "max_blocks": 5,
+    "blocks": [
+        {
+            "type": "icon_link",
+            "name": "Icon link",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

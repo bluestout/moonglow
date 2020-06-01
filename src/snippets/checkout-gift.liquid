@@ -1,0 +1,67 @@
+<!-- checkout-gift -->
+{%- if settings.checkout_giftwrap -%}
+    <div class='gift_wrap with_gift_wrap'>
+        <div class="gift_wrap_title">
+            <h3>Gift wrap</h3>
+        </div>        
+        <div class='products'>
+            {%- for i in (1..2) -%}
+                {%- assign product_title = 'checkout_gift_title_' | append:i -%}
+                {%- assign product_img = 'checkout_gift_img_' | append:i -%}
+                {%- assign product_vid = 'checkout_gift_vid_' | append:i -%}
+                {%- assign product_vid = settings[product_vid]  | plus:0%}
+                {%- assign product_price = 'checkout_gift_price_' | append:i-%}
+                {% unless i == 1 %}
+                    <div class='gift gift_{{i}}' data-vid='{{product_vid}}'>
+                        <div class="product_block">
+                            <div class="radio_button block">
+                                <div class="radio_img"></div>
+                            </div>
+                            <div class="product_img block">
+                                <img class="gift_img" src="{{ settings[product_img] | img_url: '300x'}}" data-src='{{ settings[product_img] | img_url: 'grande'}}'>
+                                <a class="fancybox blur_img" rel="gallery" href="{{settings.checkout_gift_first_image | img_url: '1000x' }}"></a>
+                                <a class="fancybox blur_img " rel="gallery" href="{{settings.checkout_gift_second_image | img_url: '1000x'}}"></a>
+                                <a class="fancybox blur_img" rel="gallery" href="{{settings.checkout_gift_third_image | img_url: '1000x'}}"></a>
+                                <a class="view_larger_link" href="">View Larger</a>
+                            </div>
+                            <div class="left_side_block block">
+                                <div class="product_price">
+                                    <h3>{{settings[product_price]}}</h3>
+                                </div>
+                                <div class="title_gift">
+                                    <h3>{{settings[product_title]}}</h3>
+                                </div>
+                            </div>
+
+                            <div class="qty block">
+                                <label>Qty:</label>
+                                <div class="spinner">
+                                    <span class="min">-</span>
+                                    <label class="visuallyhiddentext">Quantity box</label>
+                                    <input type="number" name="quantity"  value="1" min="1" class="js-quantity-selector" aria-label="quantity box">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endunless %}
+            {%- endfor -%}
+            <div class="gift" data-nogift="true">
+                <div class='product_block'>
+                    <div class="radio_img"></div>
+                    <div class="no_gift_wrap_title">
+                        <h3>
+                            No Gift Wrap</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="save_button">
+                        <button type="" class="btn">
+                            <span>
+                                Update your cart
+                            </span>
+                        </button>
+                    </div> -->
+        </div>
+    </div>
+{%- endif -%}

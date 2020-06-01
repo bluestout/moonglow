@@ -1,0 +1,56 @@
+#shopify-section-moon-calculator-template{
+    .page_banner{
+        margin-bottom: 0px;
+        .caption{
+            left: 25%;
+            @include media-query('medium-down'){
+                top: 55px;
+                left: 19px;
+                transform: none;
+                width: auto;
+                h2{
+                    @include media-query('medium-down'){
+                        max-width: 300px;
+                        font-size: 18px;
+                        text-align: left;
+                    }
+                    
+                }
+            }
+        }
+    }
+    .find-moon-form{
+        padding: $padding * 2 0;
+    }
+
+    .pannel{
+        display: table;
+        margin: auto;
+        .form-control{
+            @include media-query('medium-down'){
+                display: none;
+            }
+        }
+        .button{
+            float: left;
+            @include media-query('medium-down'){
+                margin-top: 20px;
+            }
+            &.white{
+            
+                margin-left: 10px;
+                margin-top: 20px;
+            }
+        }
+        
+    }
+    .moon-review-block{
+        
+        margin-top: $margin;
+        @include media-query('medium-down'){
+            width: 100vw;
+            display: block;
+        }
+
+    }
+}

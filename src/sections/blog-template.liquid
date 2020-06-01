@@ -1,0 +1,104 @@
+{% include 'blog-image-text' %}
+{% assign page = 1 %}
+<section class="page-content">
+      <h3 class="title text-center">{{ section.settings.title }}</h3>
+      <div class="devider"></div>
+      <div class="filter_form">
+        <form action="/search" method="get">            
+          <input type="search" id="search_bar" class="input-group-field" name="q" placeholder="Search our blog" autocomplete="off">
+          <input type="hidden" name="type" value="article">
+          <button id="search-button" class="search-button button"><img alt="Moonglow Jewelry Search" src="{{ 'search_ico.svg' | asset_url }}" alt="search-blog"></button>
+        </form>
+      </div>
+      <div class="grid pagination">
+        {% for article in blog.articles %}
+          {% if page > 6 %}
+            <div class="grid__item one-third medium-down--one-half small--one-whole hide">
+                <div class="blog_item">
+                    {% if article.image %}
+                      <a href="{{ article.url }}">
+                        {% include 'responsive-image' with
+                          image: article.image,
+                          max_width: 1024,
+                          max_height: 1024,
+                          alt: {{ article.title }}
+                        %}
+                      </a>
+                    {% endif %}
+                    {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+                    <div class="info">
+                      <span>{{ date }}</span>
+                      <a href="{{ article.url }}"><h4 class="title"><span>{{ article.title }}</span></h4></a>
+                      <p>
+                        {{ article.content | strip_html | truncatewords: 30 }}
+                      </p>
+                    </div>
+                    <a href="{{ article.url }}" class="button grey small">{{ 'blogs.article.read_more' | t }} &rarr;</a>
+                </div>
+            </div>
+          {% else %}
+            <div class="grid__item one-third medium-down--one-half small--one-whole ">
+                <div class="blog_item">
+                    {% if article.image %}
+                      <a href="{{ article.url }}">
+                        {% include 'responsive-image' with
+                          image: article.image,
+                          max_width: 1024,
+                          max_height: 1024,
+                          alt: article.title
+                        %}
+                      </a>
+                    {% endif %}
+                    {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+                    <div class="info">
+                      <span>{{ date }}</span>
+                      <a href="{{ article.url }}"><h4 class="title"><span>{{ article.title }}</span></h4></a>
+                      <p>
+                        {{ article.content | strip_html | truncatewords: 30 }}
+                      </p>
+                    </div>
+                    <a href="{{ article.url }}" class="button grey small">{{ 'blogs.article.read_more' | t }} &rarr;</a>
+                </div>
+            </div>
+          {% endif %}
+          {% assign page = page | plus:1 %}
+        {% endfor %}
+        <button class="button load_more_btn">Load more</button>
+      </div>
+    
+    
+  </section>
+
+
+{% schema %}
+{
+    "name": "blog section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wide_display",
+        "label": "Wide display"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Page title"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "article",
+        "id": "link",
+        "label": "Banner blog"
+      }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+{% assign sizes = '360,480,765,900,1000,1200,1500,1900' | split: "," %}
+{%- if settings.image_blur -%}
+  {% assign blur_load = true %}
+  {% assign base_classes =  "lazyload img_blur blur-up" %}
+{% else  %}
+  {% assign base_classes =  "lazyload img_blur" %}
+{%- endif -%}
+{%- if asset_url -%}
+  <img alt="{{src_alt}}" {%- if blur_load -%} src="{{- src_name | asset_img_url: '50x' | split:'?' | first -}}" {%- else -%} src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" {%- endif -%} data-sizes="auto" data-src="{{- src_name | asset_img_url: 'grande' | split:'?' | first -}}" data-srcset="
+            {%- for size in sizes -%}
+            {%- assign size_x = size| append : 'x' | split:'?' | first -%}
+            {{- src_name | asset_img_url: size_x  | split:'?' | first }} {{size | append:'w' -}},
+            {%- endfor -%}" class="{{base_classes}}{% unless src_class == blank %} {{src_class}}{% endunless %}">
+{%- elsif file_url -%}
+  <img alt="{{src_alt}}" {%- if blur_load -%} src="{{- src_name | file_img_url: '50x' | split:'?' | first -}}" {%- else -%} src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" {%- endif -%} data-sizes="auto" data-src="{{- src_name | file_img_url: 'grande' | split:'?' | first -}}" data-srcset="
+            {%- for size in sizes -%}
+            {%- assign size_x = size| append : 'x' | split:'?' | first -%}
+            {{- src_name | file_img_url: size_x  | split:'?' | first }} {{size | append:'w' -}},
+            {%- endfor -%}" class="{{base_classes}}{% unless src_class == blank %} {{src_class}}{% endunless %}">
+{%-  else -%}
+  <img alt="{{src_alt}}" {%- if blur_load -%} src="{{- src_name | img_url: '50x' | format:'pjpg' | split:'?' | first -}}" {%- else -%} {%- unless no_base -%} src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" {%- endunless -%} {%- endif -%} data-sizes="auto" data-src="{{- src_name | img_url: 'grande' | format:'pjpg' | split:'?' | first -}}" data-srcset="
+            {%- for size in sizes -%}
+            {%- assign size_x = size| append : 'x' -%}
+            {{- src_name | img_url: size_x | format:'pjpg' | split:'?' | first }} {{size | append:'w' -}},
+            {%- endfor -%}" class="{{base_classes}} no_blur{% unless src_class == blank %} {{src_class}}{% endunless %}">
+{%- endif -%}

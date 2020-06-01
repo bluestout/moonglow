@@ -1,0 +1,31 @@
+{% if paeg.image %}
+    {% assign image = page.image %}
+{%- elsif block.settings.default_banner -%}
+    {% assign image = block.settings.default_banner %}
+{% endif %}
+
+{% if block.settings.title != 'blank' %}
+    {% assign title = block.settings.title  %}
+{%- elsif paeg.title != blank -%}
+    {% assign title = page.title %}
+{% endif %}
+
+{% style %}
+    .page_banner{
+    background: url({{ image | img_url: '2000x' }}) no-repeat 50% 50% / cover;
+    }
+    .caption h2{
+        color: {{ block.settings.title_color }}!important;
+    }
+{% endstyle %}
+
+<header class="page_banner" aria-label="{{ page.title }}">
+    {% if block.settings.enable_caption %}
+        <div class="caption captionOverlay--true">
+            <h2 class="mark">{{ title }}</h2>
+        </div>
+    {% endif %}
+</header>
+
+
+

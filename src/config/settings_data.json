@@ -1,0 +1,2178 @@
+{
+  "current": {
+    "twitter_link": "https:\/\/twitter.com\/Moon_Jewelry",
+    "facebook_link": "https:\/\/www.facebook.com\/MoonglowFineJewelry",
+    "youtube_link": "",
+    "vimeo_link": "",
+    "pinterest_link": "https:\/\/in.pinterest.com\/moonglowjewelry",
+    "instagram_link": "https:\/\/www.instagram.com\/moonglowjewelry",
+    "snapchat_link": "",
+    "houzz_link": "",
+    "linkedin_link": "",
+    "ticktok_link": "",
+    "email_link": "",
+    "og_image_fallback": "",
+    "color_primary": "#204a80",
+    "color_secondary": "#dcdcdc",
+    "color_borders": "#e5e5e5",
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#161d25",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_text": "#636363",
+    "favicon_enable": true,
+    "favicon": "shopify:\/\/shop_images\/android-chrome-192x192.png",
+    "enble_freeship": false,
+    "free_ship_text": "",
+    "footer_social_enable": false,
+    "footer_newsletter_enable": false,
+    "newsletter_form_action": "",
+    "cart_notes_enable": true,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "drawer",
+    "enable-discount": false,
+    "discount-amount": "",
+    "title": "",
+    "enter_insta_acc": "",
+    "insta_access_Token": "",
+    "insta_limit": "",
+    "choose_img": "",
+    "choose_moonframe": "",
+    "enter_title": "",
+    "sub_note": "",
+    "enter_question": "",
+    "enter_text": "",
+    "enter_text_mobile": "",
+    "enter_btn": "",
+    "choose_url": "",
+    "search_bar": false,
+    "enable_social": false,
+    "enable_social_link": false,
+    "enter_followus": "",
+    "enable_newsletter": false,
+    "newsletter_form": false,
+    "newsletter_heading": "",
+    "newsletter_note": "",
+    "recent_post_enable": false,
+    "choose_most_blog": "",
+    "choose_top_blog": "",
+    "enable_category": false,
+    "blog_menu": "",
+    "category_heading": "",
+    "enable_tags": false,
+    "engrave_pr": "",
+    "fullmoon_img": "",
+    "product_freeproduct": true,
+    "freegift_vid": "21513365258345",
+    "free_gift_type": "moon_stud",
+    "min_item_moon_stud": 5,
+    "birthstone_add_auto": true,
+    "min_price_birthstone": 10000,
+    "birthstone_product": "",
+    "birthstone_lock_img": "",
+    "birthstone_unlock_img": "",
+    "birthstone_eligible_msg": "You are now eligible for free gift",
+    "birthstone_spend_msg": "Spend $ more to recieve a <b>FREE Birthstone Bracelet<\/b>",
+    "birthstone_success_msg": "Congrats",
+    "cookie_bar": true,
+    "bar_content": "<p><strong>Your choice regarding cookies on this site<\/strong><\/p>\n<p>We use cookies to optimise site functionality and give you the best possible experience.<\/p>",
+    "btn_context": "Accept",
+    "checkout_giftwrap": true,
+    "checkout_gift_title_1": "Moon Message - I Love You To The Moon and Back",
+    "checkout_gift_price_1": "$4.00 -",
+    "checkout_gift_img_1": "shopify:\/\/shop_images\/bhvS9ptQ_240x240_fb5446e1-2f12-462b-9fee-ea2309210f5d.jpeg",
+    "checkout_gift_vid_1": "21795171795049",
+    "checkout_gift_title_2": "Pillow Box & Moon Tissue Paper",
+    "checkout_gift_price_2": "$5.00 -",
+    "checkout_gift_img_2": "shopify:\/\/shop_images\/01_14_MoonGlow8819v2_240x240_b7666730-f908-44d1-8686-3a51223d8a72.jpg",
+    "checkout_gift_vid_2": "21456377806953",
+    "checkout_gift_first_image": "shopify:\/\/shop_images\/01_14_MoonGlow8824v2_240x240_f0ba5334-5636-446a-8009-17219fad4d88.jpg",
+    "checkout_gift_second_image": "shopify:\/\/shop_images\/01_14_MoonGlow8819v2_240x240_b7666730-f908-44d1-8686-3a51223d8a72.jpg",
+    "checkout_gift_third_image": "shopify:\/\/shop_images\/01_14_MoonGlow8801readyv2_240x240_e18cbb7a-df09-48be-8710-2c7051d21a9f.jpg",
+    "checkout_giftcard": true,
+    "checkout_gift_title_card_1": "Moon Message - Thinking of You",
+    "checkout_gift_card_price_1": "$5.00",
+    "checkout_gift_card_img_1": "shopify:\/\/shop_images\/thinking_300x_0e103cde-b657-47a2-8620-ad6250db1379.jpg",
+    "checkout_gift_card_vid_1": "21795243098217",
+    "checkout_gift_title_card_2": "Special Edition Moon Message - I Love You To The Moon & Back",
+    "checkout_gift_card_price_2": "$5.00",
+    "checkout_gift_card_img_2": "shopify:\/\/shop_images\/redcard_300x_d5bff76b-2f5a-4510-aefc-580cdd85adb2.jpg",
+    "checkout_gift_card_vid_2": "31794530123881",
+    "checkout_gift_title_card_3": "Moon Kitty Pin",
+    "checkout_gift_card_price_3": "$8.00",
+    "checkout_gift_card_img_3": "shopify:\/\/shop_images\/moonkitty_300x_37c303ee-7fd3-4875-8d91-11e10f19ef10.jpeg",
+    "checkout_gift_card_vid_3": "12462587084905",
+    "side_giftcard": true,
+    "side_img_1": "",
+    "side_img_2": "",
+    "email_background_color": "#d2a1a1",
+    "newsletter_form_popup_extra": "",
+    "newsletter_form_popup_link": "",
+    "enable_geoip": true,
+    "geolocation_store_name": "",
+    "geolocation_store_site": "",
+    "geolocation_r_store_name": "",
+    "geolocation_r_store_site": "",
+    "excluded_geoip_ips": "",
+    "hotjar_enable": false,
+    "app_smstag": true,
+    "app_yotpo": true,
+    "app_yotpo_key": "tXYcRoLQo46eDLgFtyQJkW7Dr1GXeBe2cdUbjo9M",
+    "s_img_one": "",
+    "s_col_name": "",
+    "s_link_one": "",
+    "s_img_two": "",
+    "col_name": "",
+    "s_link_two": "",
+    "icon_1": "shopify:\/\/shop_images\/ico_shipping_126ce5f2-55ce-4fd5-ae81-46a967a66dd7.png",
+    "icon_text_1": "Free shipping on orders over $50",
+    "icon_2": "shopify:\/\/shop_images\/ico_glob_5e819933-c64f-412d-93ba-12adb10789ff.png",
+    "icon_text_2": "Fast International Shipping",
+    "icon_3": "shopify:\/\/shop_images\/ico_returns_894174c8-2e74-474f-aabc-04777aeec9ed.png",
+    "icon_text_3": "Free Returns Within 30 Days",
+    "icon_4": "shopify:\/\/shop_images\/ico_star_33a095f8-cb7b-4777-a329-9969d052f752.png",
+    "icon_text_4": "Industry Leading Customer Service",
+    "icon_5": "shopify:\/\/shop_images\/secure.png",
+    "icon_text_5": "Secure Shopping + Checkout",
+    "pwa_enable": false,
+    "image_blur": true,
+    "popup_check": false,
+    "email_popup_image": "",
+    "email_popup_image_mobile": "",
+    "email_popup_header": "",
+    "email_popup_text": "",
+    "popup_button_name": "",
+    "no_email": "",
+    "kalviyo_thankyou_msg": "",
+    "photo_upload": true,
+    "check_js": true,
+    "enjoy_text": "",
+    "photo_txt": "",
+    "change_one": "",
+    "confirm_one": "",
+    "sucess_msg": "",
+    "order_img": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_de452a31-7ef5-4196-ae2c-93d225763fa5.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#2e4676",
+    "checkout_button_color": "#2e4676",
+    "checkout_error_color": "#e32c2b",
+    "tumblr_link": "",
+    "Twitter_link": "",
+    "performance": "ludicrous",
+    "image_loading_style": "blur-up",
+    "custom_scripts": "",
+    "headline_color": "#ffffff",
+    "headline_footer_text_color": "#ffffff",
+    "sub_footer_text_color": "#ffffff",
+    "sale_color": "#ae3333",
+    "was_price_color": "#ae3333",
+    "product_hover_text_color": "#ffffff",
+    "shop_home_page_content_text_color": "#333333",
+    "top_bar_color": "#2e4676",
+    "top_bar_color_hover": "#9c0b41",
+    "nav_color": "#111010",
+    "nav_color_hover": "#9c0b41",
+    "link_color": "#2e4676",
+    "link_hover_color": "#9c0b41",
+    "sub_footer_link_color": "#d8d8d8",
+    "sub_footer_link_color_hover": "#ffffff",
+    "btn_color": "#21356f",
+    "banner_button_color": "#ffffff",
+    "btn_hover_color": "#ae3333",
+    "btn_text_color": "#ffffff",
+    "button_style": "square",
+    "read_more_style": "button",
+    "search_section_color": "#2e4676",
+    "search_section_bg_color": "#f8f7f5",
+    "modal_background_color": "#ffffff",
+    "modal_text_color": "#2b2e38",
+    "shop_bg_color": "#ffffff",
+    "top_bar_bg_color": "#000000",
+    "minicart_bg_color": "#ffffff",
+    "header_bg_color": "#ffffff",
+    "sub_footer_color": "#294172",
+    "mega_menu_1": false,
+    "mega_menu_2": false,
+    "mega_menu_3": false,
+    "mega_menu_4": false,
+    "mega_menu_5": false,
+    "search_option": "products",
+    "search_pagination_type": "basic_pagination",
+    "enable_autocomplete": true,
+    "search_to_display": 5,
+    "thumbnail_hover_enabled": false,
+    "display_vendor": false,
+    "collection_secondary_image": false,
+    "sale_banner_enabled": false,
+    "collection_swatches": false,
+    "mobile_products_per_row": "2",
+    "pagination_type": "load_more",
+    "align_height": false,
+    "collection_height": 200,
+    "notify_me_form": false,
+    "notify_me_richtext": "<p>Notify me when this product is available:<\/p>",
+    "product_form_style": "dropdown",
+    "display_product_quantity": false,
+    "limit_quantity": false,
+    "display_inventory_left": false,
+    "inventory_threshold": 10,
+    "display_price": false,
+    "sold_out_text": "Sold out",
+    "free_price_text": "Free",
+    "size_chart": "",
+    "enable_shopify_review_comments": false,
+    "enable_shopify_collection_badges": false,
+    "quick_shop_enabled": true,
+    "quick_shop_style": "popup",
+    "show_payment_button": true,
+    "quick_shop_display_vendor": false,
+    "quick_shop_display_savings": true,
+    "quick_shop_zoom": false,
+    "quick_shop_full_description": false,
+    "description_words": 30,
+    "quick_shop_product_description_position": "top",
+    "quick_shop_gallery_arrows": true,
+    "quick_shop_slideshow_animation": "slide",
+    "quick_shop_product_images_position": "left",
+    "quick_shop_product_thumbs": true,
+    "quick_shop_thumbnail_position": "bottom-thumbnails",
+    "cart_action": "ajax",
+    "show_lock_icon": true,
+    "display_tos_checkbox": false,
+    "tos_page": "",
+    "go_to_checkout": true,
+    "display_special_instructions": false,
+    "display_savings": false,
+    "cart_message": "",
+    "show_shipping_calculator": false,
+    "shipping_calculator_default_country": "United States",
+    "show_multiple_currencies": false,
+    "currency_format": "money_with_currency_format",
+    "supported_currencies": "USD CAD INR GBP AUD EUR JPY",
+    "default_currency": "USD",
+    "logo__font": "open_sans_n4",
+    "logo_font_style": "none",
+    "logo_font_size": 20,
+    "top_bar_font_size": 12,
+    "top_bar_letter_spacing": 1,
+    "nav__font": "open_sans_n4",
+    "nav_font_style": "none",
+    "nav_font_size": 14,
+    "nav_letter_spacing": 1,
+    "nav_shadow": true,
+    "button_weight": "normal",
+    "button_font_style": "none",
+    "button_font_size": 14,
+    "mega_text_font_size": 14,
+    "mega_text_letter_spacing": 1,
+    "headline__font": "open_sans_n4",
+    "headline_font_style": "none",
+    "headline_font_size": 24,
+    "headline_letter_spacing": 2,
+    "slideshow_headline__font": "open_sans_n4",
+    "slideshow_headline_font_style": "none",
+    "slideshow_headline_size": 56,
+    "slideshow_headline_letter_spacing": 1,
+    "slideshow_headline_shadow": true,
+    "slideshow_subtitle__font": "open_sans_n4",
+    "slideshow_subtitle_font_style": "none",
+    "slideshow_subtitle_size": 20,
+    "slideshow_subtitle_letter_spacing": 1,
+    "slideshow_shadow": true,
+    "regular__font": "open_sans_n4",
+    "regular_font_style": "none",
+    "regular_font_size": 15,
+    "footer_logo_font_size": 20,
+    "footer_heading_font_size": 18,
+    "footer_font_size": 14,
+    "mailchimp_link": "",
+    "secondary_newsletter_banner": true,
+    "newsletter_popup": false,
+    "newsletter_popup_close": true,
+    "newsletter_popup_mobile": false,
+    "newsletter_popup_form": true,
+    "display_first_name": false,
+    "display_last_name": false,
+    "use_newsletter_border": true,
+    "newsletter_bg": "",
+    "image_crop": "none",
+    "newsletter_popup_image_align": "left",
+    "newsletter_popup_title": "",
+    "newsletter_popup_text": "<p><\/p>",
+    "newsletter_popup_text_align": "center",
+    "popup_button1": "",
+    "popup_button1_link": "",
+    "popup_button1_highlight": false,
+    "popup_button2": "",
+    "popup_button2_link": "",
+    "popup_button2_highlight": false,
+    "newsletter_popup_seconds": 2,
+    "newsletter_popup_days": "30",
+    "disqus_enabled": false,
+    "disqus_shortname": "",
+    "swatch_style": "square",
+    "table_styles_enabled": false,
+    "slideshow_arrow_size": "regular",
+    "arrow_color": "#333333",
+    "slideshow_button_style": true,
+    "slideshow_nav_buttons": false,
+    "border_color": "#d3d3d3",
+    "headline_border_color": "#aaaaaa",
+    "headline_border": "1",
+    "divider_style": "solid",
+    "sub_footer_border_color": "#000000",
+    "banner_style": "square",
+    "sale_banner_color": "#ae3333",
+    "new_banner_color": "#ae3333",
+    "testimonial_color": "#ffffff",
+    "testimonial_bg_color": "#666666",
+    "featured_promotions_color": "#fff",
+    "featured_promotions_color_hover": "#fff",
+    "featured_promotions_background": "#000",
+    "featured_promotions_mobile_background": true,
+    "custom_bg": "",
+    "repeat_bg": "repeat",
+    "bg_fixed": false,
+    "bg_stretched": false,
+    "top_bar_cart_bg_color": "#d54d4d",
+    "banner_placeholder_background_color": "#666666",
+    "banner_background_color": "#000000",
+    "header_background": false,
+    "transparent_header": true,
+    "promo_bg_color": "#cccccc",
+    "shop_home_page_content_bg_color": "#ffffff",
+    "featured_links_background": "#ffffff",
+    "product_hover_bg_color": "#000000",
+    "footer_bg": "",
+    "footer_bg_stretched": false,
+    "newsletter_popup_background_color": "#ffffff",
+    "newsletter_section_background_color": "#ffffff",
+    "password_page_text_color": "#ffffff",
+    "password_page_background_color": "#000000",
+    "nav_color_home": "#ffffff",
+    "sidebar_nav_color": "#333333",
+    "sidebar_nav_color_hover": "#000000",
+    "regular_color": "#000000",
+    "promo_text_color": "#333333",
+    "newsletter_popup_color": "#333333",
+    "newsletter_section_color": "#333333",
+    "collection_filter_color": "#333333",
+    "logo_color": "#ffffff",
+    "banner_color": "#ffffff",
+    "color_accent": "#ff0000",
+    "color_main_bg": "#ffffff",
+    "font_heading": "helvetica_n4",
+    "font_body": "helvetica_n4",
+    "share_image": "",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "https:\/\/twitter.com\/outofthesandbox",
+    "social_facebook_link": "https:\/\/facebook.com\/ootsb",
+    "social_pinterest_link": "https:\/\/www.youtube.com\/user\/outofthesandbox",
+    "social_instagram_link": "https:\/\/www.instagram.com\/shopify\/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "https:\/\/www.instagram.com\/shopify\/",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1586477780928": {
+            "type": "empty_cart",
+            "settings": {
+              "best_seller_url": "shopify:\/\/collections\/jewelry",
+              "banner_img": "shopify:\/\/shop_images\/shopping_cart.png",
+              "banner_title": "New Arrivals",
+              "banner_url": "shopify:\/\/collections\/just-landed"
+            }
+          },
+          "1589927972302": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "CA",
+              "moon_phase_image": "shopify:\/\/shop_images\/CA_2bbc5da5-2263-4073-b1a2-87da008d7e83.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1589928377448": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "CD",
+              "moon_phase_image": "shopify:\/\/shop_images\/CD_b84a72d2-433b-4e88-96dd-992e9b67736e.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349516389": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "1A",
+              "moon_phase_image": "shopify:\/\/shop_images\/1A_216d2d71-df18-4828-9a8b-39b8ee5f9596.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349687828": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "1D",
+              "moon_phase_image": "shopify:\/\/shop_images\/1D_1964bfb4-3610-4eff-b602-9f2df46dd3d3.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349726732": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "2A",
+              "moon_phase_image": "shopify:\/\/shop_images\/2A_593c53e8-eb7b-4721-b875-8a40210afa3c.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349747595": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "2D",
+              "moon_phase_image": "shopify:\/\/shop_images\/2D_cc08abbd-0dbc-4255-ae3a-85a186ed045e.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349764780": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "3A",
+              "moon_phase_image": "shopify:\/\/shop_images\/3A_83578b49-d096-442e-8302-79ef3668c486.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349795191": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "3D",
+              "moon_phase_image": "shopify:\/\/shop_images\/3D_cc4f22ed-0f9f-48ff-b616-4b54a7db8e28.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349822410": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "4A",
+              "moon_phase_image": "shopify:\/\/shop_images\/4A_212cab86-7ae7-4987-bd10-5212e8ccdf04.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349837923": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "4D",
+              "moon_phase_image": "shopify:\/\/shop_images\/4D_9d3cca95-16a5-4058-b80d-ce4f534e3793.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349862794": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "5A",
+              "moon_phase_image": "shopify:\/\/shop_images\/5A_eb152ab2-d7a6-49be-aa37-5bceb2270aa8.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": ""
+            }
+          },
+          "1590349883699": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "5D",
+              "moon_phase_image": "shopify:\/\/shop_images\/5D_03e073e2-16bb-489b-b9d7-a1e115aacea5.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349900371": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "6A",
+              "moon_phase_image": "shopify:\/\/shop_images\/6A_4cdcf071-aa48-41a5-8ea2-416423ee9c52.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349923620": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "6D",
+              "moon_phase_image": "shopify:\/\/shop_images\/6D_a1c13a63-3674-45f7-837f-ef09d5c497ce.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349955835": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "7A",
+              "moon_phase_image": "shopify:\/\/shop_images\/7A_5aa70dc8-80cf-47b7-a9ed-ebd18c68679e.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590349972845": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "7D",
+              "moon_phase_image": "shopify:\/\/shop_images\/7D_38959f8d-fe46-4de0-803b-de04230cb566.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590350007042": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "LE",
+              "moon_phase_image": "shopify:\/\/shop_images\/LE_c5349d72-b14c-45f1-93f5-dc5738c5bf2c.jpg",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590350131290": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "NL",
+              "moon_phase_image": "shopify:\/\/shop_images\/NL.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590350148793": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "PL",
+              "moon_phase_image": "shopify:\/\/shop_images\/PL_0f5279e3-912b-424f-a1de-b7c3c0b99c3f.png",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          },
+          "1590350168370": {
+            "type": "moon_image_text",
+            "settings": {
+              "moon_phase_id": "SE",
+              "moon_phase_image": "shopify:\/\/shop_images\/SE.jpg",
+              "moon_phase_title": "Unique Waxing Gibbous Qualities",
+              "moon_phase_discripiton": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1586477780928",
+          "1589927972302",
+          "1589928377448",
+          "1590349516389",
+          "1590349687828",
+          "1590349726732",
+          "1590349747595",
+          "1590349764780",
+          "1590349795191",
+          "1590349822410",
+          "1590349837923",
+          "1590349862794",
+          "1590349883699",
+          "1590349900371",
+          "1590349923620",
+          "1590349955835",
+          "1590349972845",
+          "1590350007042",
+          "1590350131290",
+          "1590350148793",
+          "1590350168370"
+        ],
+        "settings": {
+          "announcement_bar_enabled": false,
+          "announcement_bar_home_page_only": true,
+          "announcement_bar_text": "You're 2 items away from your free gift—a pair of crescent moon studs!",
+          "announcement_bar_link": "",
+          "logo": "",
+          "logo_max_width": 250,
+          "shipping_rage": "50",
+          "menu": "main-menu-v2",
+          "first_banner": "shopify:\/\/shop_images\/img_holiday_menu_1_1.png",
+          "first_banner_url": "shopify:\/\/collections\/20-off-excluding-extra-sale-items",
+          "second_banner": "shopify:\/\/shop_images\/img_holiday_menu_2.png",
+          "second_banner_url": "shopify:\/\/collections\/anklets",
+          "related_product": "birthstone-zodiac-necklace-pewter"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1583986554169": {
+            "type": "link_list",
+            "settings": {
+              "menu": "extras-v2",
+              "social_icons_footer": false
+            }
+          },
+          "1583986580553": {
+            "type": "link_list",
+            "settings": {
+              "menu": "explore-v2",
+              "social_icons_footer": false
+            }
+          },
+          "1583986599729": {
+            "type": "link_list",
+            "settings": {
+              "menu": "help-v2",
+              "social_icons_footer": false
+            }
+          }
+        },
+        "block_order": [
+          "1583986554169",
+          "1583986580553",
+          "1583986599729"
+        ],
+        "settings": {
+          "copyright_text": "",
+          "display_designed_by": true,
+          "display_payment_methods": true
+        }
+      },
+      "1584071438877": {
+        "type": "homepage_slideshow",
+        "blocks": {
+          "1584071438877-0": {
+            "type": "collection",
+            "settings": {
+              "bg_image": "shopify:\/\/shop_images\/Untitled-1.png",
+              "mobile_banner_image": "shopify:\/\/shop_images\/hero_mobile.jpg",
+              "title_icon": "shopify:\/\/shop_images\/ui-element-li_symbol.png",
+              "caption_heading": "",
+              "caption_title": "<p>Featuring the moon from the date of your choice<\/p>",
+              "title_color": "#ffffff",
+              "button_label": "SHOP YOUR MOON",
+              "banner_link": ""
+            }
+          },
+          "1584071438877-1": {
+            "type": "collection",
+            "settings": {
+              "bg_image": "shopify:\/\/shop_images\/product_list_hero.png",
+              "mobile_banner_image": "shopify:\/\/shop_images\/product_2_2_c54a3f16-f280-408d-ba06-20db317b1877.png",
+              "title_icon": "shopify:\/\/shop_images\/ui-element-li_symbol.png",
+              "caption_heading": "",
+              "caption_title": "<p>Show you love her to the moon and back<\/p>",
+              "title_color": "#ffffff",
+              "button_label": "Shop your moon",
+              "banner_link": "shopify:\/\/collections\/anklets"
+            }
+          }
+        },
+        "block_order": [
+          "1584071438877-0",
+          "1584071438877-1"
+        ],
+        "settings": {
+        }
+      },
+      "1584110619143": {
+        "type": "collection-list",
+        "blocks": {
+          "1584110619143-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "womens-necklaces-1"
+            }
+          },
+          "1584110619143-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "bangle-bracelets"
+            }
+          },
+          "1584110619143-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "gifts-under-100"
+            }
+          },
+          "1589471673166": {
+            "type": "collection",
+            "settings": {
+              "collection": "engravable"
+            }
+          }
+        },
+        "block_order": [
+          "1584110619143-0",
+          "1584110619143-1",
+          "1584110619143-2",
+          "1589471673166"
+        ],
+        "settings": {
+          "content_type": "right-side",
+          "title": "Collections",
+          "desc": "Hand finished jewelry featuring the moon from the date of your choice"
+        }
+      },
+      "1584130961181": {
+        "type": "find-moon-form",
+        "settings": {
+          "wide_display": true,
+          "bg_color": "#2e4676",
+          "color": "#ffffff",
+          "image": "shopify:\/\/shop_images\/moon_animation.gif",
+          "devider_enable": true,
+          "layout": "left",
+          "title": "Want to Find Your Moon?",
+          "text": "<p>Discover the moon from your special date using our moon calculator.<\/p>",
+          "button_label": "Select Date",
+          "button_link": ""
+        }
+      },
+      "1584263506121": {
+        "type": "featured-products",
+        "blocks": {
+          "1587570461301": {
+            "type": "product",
+            "settings": {
+              "product": "positive-energy-moon-charm-bracelet-in-night-blue"
+            }
+          },
+          "1587570505014": {
+            "type": "product",
+            "settings": {
+              "product": "valentine-moon-bracelet"
+            }
+          },
+          "1587570305778": {
+            "type": "product",
+            "settings": {
+              "product": "milestone-moon-ring"
+            }
+          },
+          "1584263517644": {
+            "type": "product",
+            "settings": {
+              "product": "charmed-simplicity-moon-charm-necklace"
+            }
+          },
+          "1584263531354": {
+            "type": "product",
+            "settings": {
+              "product": "birthstone-pallene-bracelet-in-gold"
+            }
+          },
+          "1584263538450": {
+            "type": "product",
+            "settings": {
+              "product": "classic-black-swarovski-necklace"
+            }
+          },
+          "1584263557826": {
+            "type": "product",
+            "settings": {
+              "product": "birthstone-pallene-bracelet-in-gold"
+            }
+          },
+          "1584263580938": {
+            "type": "product",
+            "settings": {
+              "product": "calm-glow-beaded-bracelet"
+            }
+          },
+          "1584263590810": {
+            "type": "product",
+            "settings": {
+              "product": "celestial-moonrise-earrings"
+            }
+          },
+          "1584263603267": {
+            "type": "product",
+            "settings": {
+              "product": "double-moon-pallene-bracelet-in-gold"
+            }
+          },
+          "1584263625274": {
+            "type": "product",
+            "settings": {
+              "product": "charmed-simplicity-necklace-men"
+            }
+          },
+          "1584263647026": {
+            "type": "product",
+            "settings": {
+              "product": "unique-locket-necklace"
+            }
+          },
+          "1584263664618": {
+            "type": "product",
+            "settings": {
+              "product": "labradorite-beaded-bracelet-in-black"
+            }
+          }
+        },
+        "block_order": [
+          "1587570461301",
+          "1587570505014",
+          "1587570305778",
+          "1584263517644",
+          "1584263531354",
+          "1584263538450",
+          "1584263557826",
+          "1584263580938",
+          "1584263590810",
+          "1584263603267",
+          "1584263625274",
+          "1584263647026",
+          "1584263664618"
+        ],
+        "settings": {
+          "wide_display": false,
+          "title": "Best Sellers",
+          "item_per_page": 6,
+          "caption_banner": "shopify:\/\/shop_images\/complimentary_gift_wrap1.png",
+          "caption_bg_color": "#d0d9e5",
+          "caption_title": "Complimentary Gift Wrap",
+          "caption_text": "<p>No time to wrap your gift?<\/p>\n<p>We&rsquo;re got you covered. Select&nbsp;<\/p>\n<p>Gift Wrap in shopping cart to have your gifts wrapped in ribbon with love.<\/p>"
+        }
+      },
+      "1584285221459": {
+        "type": "image-bar",
+        "blocks": {
+          "1584285229845": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/blondegirldaily2.png",
+              "title": "STEPHANIE CALISE",
+              "desc": "@theblondegirldaily"
+            }
+          },
+          "1584285253965": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/as_we_grow2.png",
+              "title": "As We Grow",
+              "desc": "@as.we.grow"
+            }
+          }
+        },
+        "block_order": [
+          "1584285229845",
+          "1584285253965"
+        ],
+        "settings": {
+          "wide_display": false,
+          "heading_title": "Celebs Who Love Us to the Moon and Back"
+        }
+      },
+      "1584301566769": {
+        "type": "image-with-text_1",
+        "settings": {
+          "wide_display": true,
+          "image": "shopify:\/\/shop_images\/aurelie_julien.png",
+          "mobile_image": "shopify:\/\/shop_images\/aurelie_julien_1024x1024_685e9380-853d-4380-baa3-033aa33b1f5f.png",
+          "img_title": "Co-founders Aurelie & Julien",
+          "devider_enable": true,
+          "layout": "right",
+          "title": "Life's Moments Are To Be Cherished",
+          "bg_title": "Moments",
+          "text": "<p>Julien Plouffe and Aurelie Dudziak both believe that being alive on earth is a gift meant to be celebrated. And that being reminded of the most memorable moments in life we share, gives us a unique opportunity to connect more deeply with one another. With Moonglow, every moment has a moon, giving us the opportunity to share our lives and dreams with those we love.<\/p>",
+          "button_label": "Read more",
+          "button_link": "shopify:\/\/pages\/affiliate-application"
+        }
+      },
+      "1584428502251": {
+        "type": "banner_carousel",
+        "blocks": {
+          "1584428502251-0": {
+            "type": "collection",
+            "settings": {
+              "bg_image": "shopify:\/\/shop_images\/review_1_1.png",
+              "title_icon": "",
+              "stars": 5,
+              "caption_heading": "Over 250,000 people over the moon about their jewelry",
+              "caption_title": "<p>My daughter requested a moon phase bracelet as a gift. I used her January wedding date and chose the April birthstone because I thought the gemstone would be perfect. And the bracelet is perfect! It&rsquo;s absolutely gorgeous! I can&rsquo;t wait to give it to her!<\/p>\n<p><\/p>\n<p><strong>Holly S.<\/strong><\/p>\n<p>Verified buyer<\/p>",
+              "title_color": "#ffffff",
+              "button_label": "",
+              "link": ""
+            }
+          },
+          "1584428502251-1": {
+            "type": "collection",
+            "settings": {
+              "bg_image": "shopify:\/\/shop_images\/review_1_1_ad74d4a0-0215-403e-bfe3-0c73db3965c9.png",
+              "title_icon": "",
+              "stars": 5,
+              "caption_heading": "Over 250,000 people over the moon about their jewelry",
+              "caption_title": "<p>I got this for my Birthday, April 9, and it's beautiful!!! The quality is awesome, I just love it.<\/p>\n<p><\/p>\n<p><strong>Azucena B.<\/strong><\/p>\n<p>Verified buyer<\/p>",
+              "title_color": "#ffffff",
+              "button_label": "",
+              "link": ""
+            }
+          },
+          "1589476164355": {
+            "type": "collection",
+            "settings": {
+              "bg_image": "shopify:\/\/shop_images\/review_3_1.png",
+              "title_icon": "",
+              "stars": 5,
+              "caption_heading": "Over 250,000 people over the moon about their jewelry",
+              "caption_title": "<p>Bracelet is absolutely beautiful! I am so pleased with the quality and service. I would highly recommend it to anyone looking for a unique gift or a little something for yourself.<\/p>\n<p><\/p>\n<p><strong> Cristie K.<\/strong><\/p>\n<p>Verified buyer<\/p>",
+              "title_color": "#ffffff",
+              "button_label": "",
+              "link": ""
+            }
+          },
+          "1589476753284": {
+            "type": "collection",
+            "settings": {
+              "bg_image": "shopify:\/\/shop_images\/review4_153c016c-e07d-4d72-9d08-8c2143c31a73.png",
+              "title_icon": "",
+              "stars": 5,
+              "caption_heading": "Over 250,000 people over the moon about their jewelry",
+              "caption_title": "<p>I was in love the second I opened the box! The necklace is stunning, especially when it glows! I&rsquo;ve gotten so many compliments on it!<\/p>\n<p><\/p>\n<p><strong>Jordyn D<\/strong><\/p>\n<p>Verified buyer<\/p>",
+              "title_color": "#ffffff",
+              "button_label": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1584428502251-0",
+          "1584428502251-1",
+          "1589476164355",
+          "1589476753284"
+        ],
+        "settings": {
+          "wide_display": true
+        }
+      },
+      "1584456791032": {
+        "type": "instagram",
+        "settings": {
+          "wide_display": false,
+          "title": "Shop Our Instagram",
+          "enable_devider": true,
+          "token": "",
+          "item_per_row": 4,
+          "instagram_count": 8
+        }
+      },
+      "icons": {
+        "type": "icons",
+        "blocks": {
+          "1584602052947": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ico_returns.png",
+              "title": "<p>FREE RETURNS<\/p>\n<p>within 30 days<\/p>",
+              "url": "Subscribe"
+            }
+          },
+          "1584602091969": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ico_glob.png",
+              "title": "<p>Fast International Shipping<\/p>\n<p>direct from USA<\/p>",
+              "url": "Subscribe"
+            }
+          },
+          "1584602126191": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ico_shipping.png",
+              "title": "<p>FREE SHIPPING $50+ and<\/p>\n<p>rewards with every purchase<\/p>",
+              "url": "Subscribe"
+            }
+          },
+          "1584602148746": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_help.png",
+              "title": "<p>More Question?<\/p>\n<p><a href=\"https:\/\/www.moonglow.com\/apps\/help-center\" title=\"https:\/\/www.moonglow.com\/apps\/help-center\">Visit our FAQ<\/a><\/p>",
+              "url": "Subscribe"
+            }
+          }
+        },
+        "block_order": [
+          "1584602052947",
+          "1584602091969",
+          "1584602126191",
+          "1584602148746"
+        ],
+        "settings": {
+          "bar_size": "large",
+          "title_color": "#2e4676",
+          "bg_color": "#e9edf3"
+        }
+      },
+      "sign-up": {
+        "type": "sign-up",
+        "settings": {
+          "wide_display": false,
+          "title": "<p>Sign up for 10% off your fist purchase<\/p>\n<p>*Some exclusions apply<\/p>",
+          "btn_label": "sign up"
+        }
+      },
+      "collection-section": {
+        "type": "collection-section",
+        "blocks": {
+          "1584609747595": {
+            "type": "icon_link",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_crystals.png",
+              "title": "Semi-precious stones & crystals"
+            }
+          },
+          "1584626561716": {
+            "type": "icon_link",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_hand.png",
+              "title": "Hand Finished"
+            }
+          },
+          "1585767280020": {
+            "type": "icon_link",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_star.png",
+              "title": "250,000 people over the moon"
+            }
+          }
+        },
+        "block_order": [
+          "1584609747595",
+          "1584626561716",
+          "1585767280020"
+        ],
+        "settings": {
+          "show_banner": true,
+          "default_banner": "shopify:\/\/shop_images\/product_list_hero.png",
+          "title_position": "center",
+          "caption_banner": "shopify:\/\/shop_images\/bg.jpg",
+          "caption_bg_color": "#d0d9e5",
+          "caption_title": "Complimentory Gift Wrap",
+          "caption_text": "<p>No Time to wrap your v-day Gift? We&rsquo;re got you covered. Select Gift wrap at cart to have your gifts wrapped with love.<\/p>"
+        }
+      },
+      "instagram": {
+        "type": "instagram",
+        "settings": {
+          "wide_display": false,
+          "title": "shop our instagram",
+          "enable_devider": true,
+          "token": "",
+          "item_per_row": 4,
+          "instagram_count": 12
+        }
+      },
+      "product": {
+        "type": "product",
+        "blocks": {
+          "1584724489721": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_crystals_6300bc85-ba7d-43e3-9949-7e766dba87c7.png",
+              "svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"21.40926021895575\" width=\"22.40926021895666\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n  <g opacity=\"1\">\n    <path fill-opacity=\"0\" stroke=\"rgb(46,70,118)\" stroke-opacity=\"1\" stroke-width=\"2\" opacity=\"1\" fill-rule=\"evenodd\" d=\"M4.70463010947833 8.459330651902203L11.206630029213994 16.704630109477876L17.70463010947833 8.459330651902203L15.302117835723434 4.7046301094778755L7.288526407954647 4.7046301094778755L4.70463010947833 8.459330651902203Z\"><\/path>\n  <\/g>\n<\/svg>",
+              "title": "Swarovski Crystals"
+            }
+          },
+          "1584724530989": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_hand_ac21c8d6-fa3c-41e7-8aff-6e842b6c80df.png",
+              "svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"21.40926021895575\" width=\"23.40926021895666\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n  <g opacity=\"1\">\n    <path fill-opacity=\"0\" stroke=\"rgb(46,70,118)\" stroke-opacity=\"1\" stroke-width=\"2\" opacity=\"1\" fill-rule=\"evenodd\" d=\"M11.561845954533963 6.293759201509994C11.561845954533963 6.293759201509994 13.85413447430225 3.910065563461816 16.35878759808176 5.101912382485906C18.33459979997363 6.04210863779025 20.515512420713456 9.059699376221015 16.24278627890898 12.739884389122926C14.722475548333788 14.049358617034445 13.632370262173819 15.22777039570754 11.561845954533963 16.704630109477876C11.561845954533963 16.70463010947788 5.485928073298931 11.17444392753135 5.485928073298931 11.17444392753135C5.485928073298931 11.17444392753135 3.777642214561396 8.302194743731825 5.804474979315776 5.8613229533850495C8.468401556103833 3.583091240687617 11.561845954533963 6.293759201509994 11.561845954533963 6.293759201509994Z\"><\/path>\n  <\/g>\n<\/svg>",
+              "title": "Hand Finished"
+            }
+          },
+          "1584724564741": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_star_ca1bd897-05cc-470a-bd24-0a9f4d4da7da.png",
+              "svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"21.40926021895575\" width=\"21.40926021895666\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n  <g opacity=\"1\">\n    <path fill-opacity=\"0\" stroke=\"rgb(46,70,118)\" stroke-opacity=\"1\" stroke-width=\"2\" opacity=\"1\" fill-rule=\"evenodd\" d=\"M10.70463010947833 14.221929216620733L7.177918595723492 15.55873207572756L7.35947987387099 11.791535307884848L4.998291011707408 8.850528143228193L8.637213566398275 7.859075357499474L10.704630109478328 4.7046301094778755L12.772046652558384 7.859075357499474L16.410969207249252 8.850528143228189L14.04978034508567 11.791535307884846L14.23134162323317 15.558732075727558L10.70463010947833 14.221929216620733Z\"><\/path>\n  <\/g>\n<\/svg>",
+              "title": "Over 15,000 reviews"
+            }
+          },
+          "1584726473015": {
+            "type": "image-text",
+            "settings": {
+              "wide_display": true,
+              "template_num": "1",
+              "divider_status": true,
+              "icon": "",
+              "image_1": "shopify:\/\/shop_images\/hand_finished.png",
+              "image_2": "",
+              "title": "Beautifully Hand Finished",
+              "desc": "<p><strong>Select special date and display your cherished moon phases near your heart.<\/strong><\/p>\n<p><\/p>\n<p>Lorem ipsum dolor siLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud .<\/p>"
+            }
+          },
+          "1584745010533": {
+            "type": "image-text",
+            "settings": {
+              "wide_display": false,
+              "template_num": "2",
+              "divider_status": false,
+              "icon": "shopify:\/\/shop_images\/stars.png",
+              "image_1": "shopify:\/\/shop_images\/glow1.png",
+              "image_2": "shopify:\/\/shop_images\/glow2.png",
+              "title": "",
+              "desc": "<p><strong>Like the moon itself, each lunar charm is designed to absorb light by day to glow in dark environments&mdash;lighting up memories every time they glow.<\/strong><\/p>\n<p><\/p>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud .<\/p>"
+            }
+          },
+          "1584747025835": {
+            "type": "image-text",
+            "settings": {
+              "wide_display": false,
+              "template_num": "3",
+              "divider_status": false,
+              "icon": "shopify:\/\/shop_images\/diamond.png",
+              "image_1": "shopify:\/\/shop_images\/birthstoneproduct_page.png",
+              "image_2": "",
+              "title": "Swarovski Crystals",
+              "desc": "<p>Moonglow Jewelry is hand finished with care using both precious and semi-precious metals, genuine gemstones, and Swarovski and Zircon&nbsp;crystals.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1584724489721",
+          "1584724530989",
+          "1584724564741",
+          "1584726473015",
+          "1584745010533",
+          "1584747025835"
+        ],
+        "settings": {
+          "show_share_buttons": false
+        }
+      },
+      "careers-template": {
+        "type": "careers-template",
+        "blocks": {
+          "1585788838304": {
+            "type": "banner",
+            "settings": {
+              "enable_caption": true,
+              "default_banner": "shopify:\/\/shop_images\/careers_banner.png",
+              "title": "Careers with Moonglow Jewelry",
+              "title_color": "#2c578e"
+            }
+          }
+        },
+        "block_order": [
+          "1585788838304"
+        ],
+        "settings": {
+        }
+      },
+      "media-influencers-template": {
+        "type": "media-influencers-template",
+        "blocks": {
+          "1585799085806": {
+            "type": "banner",
+            "settings": {
+              "enable_caption": false,
+              "default_banner": "shopify:\/\/shop_images\/FAQ_hero.png",
+              "title": "",
+              "desc": "<p>We're always looking to collaborate with awesome influencers. Fill out the quick form below and we will reach out to you shortly.<\/p>",
+              "title_color": ""
+            }
+          },
+          "1585799117634": {
+            "type": "text",
+            "settings": {
+              "label": "name"
+            }
+          },
+          "1585799127544": {
+            "type": "text",
+            "settings": {
+              "label": "email"
+            }
+          },
+          "1585799749812": {
+            "type": "text",
+            "settings": {
+              "label": "instagram name"
+            }
+          },
+          "1585799765244": {
+            "type": "textarea",
+            "settings": {
+              "label": "message"
+            }
+          }
+        },
+        "block_order": [
+          "1585799085806",
+          "1585799117634",
+          "1585799127544",
+          "1585799749812",
+          "1585799765244"
+        ],
+        "settings": {
+        }
+      },
+      "affiliate-template": {
+        "type": "affiliate-template",
+        "blocks": {
+          "1585816903541": {
+            "type": "banner",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/affiliate_banner.png",
+              "title": "Become a glowing Moonglow Influencer!",
+              "devider_enable": true,
+              "button_label": "Sign up",
+              "button_link": "https:\/\/moonglow.refersion.com\/",
+              "text": "<p>Sign up to apply for the<\/p>\n<p>Moonglow affiliate program.<\/p>"
+            }
+          },
+          "1585827548323": {
+            "type": "text",
+            "settings": {
+              "title": "How it works",
+              "sub_title_1": "Join",
+              "desc_1": "<p>Submit Your Information via<\/p>\n<p>our sign up form. We will be in<\/p>\n<p>touch soon to set up your<\/p>\n<p>account.<\/p>",
+              "sub_title_2": "Share",
+              "desc_2": "<p>Share Products You Love with<\/p>\n<p>your friends, family, social<\/p>\n<p>media networks, and by word<\/p>\n<p>of mouth.<\/p>",
+              "sub_title_3": "Win",
+              "desc_3": "<p>Earn Uncapped Commission &amp;<\/p>\n<p>Rewards on every referral you<\/p>\n<p>bring in using your unique<\/p>\n<p>referral code.<\/p>"
+            }
+          },
+          "1585838194324": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/affiliate2.png",
+              "title": "Affiliate perks:",
+              "list": "<ul>\n<li>\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=3993362716897815177\"><p class=\"title\">Earn up to 10% commission on every sale<\/p>\n<\/li>\n<li>\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=3993362716897815177\"><p class=\"title\">Cookie tracking on sales - so you’ll never miss out on earnings from referral orders placed within 30 days<\/p>\n<\/li>\n<li>\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=3993362716897815177\"><p class=\"title\">Average order value of $70<\/p>\n<\/li>\n<\/ul>",
+              "button_label": "Sign up now",
+              "button_link": "https:\/\/moonglow.refersion.com\/",
+              "desc": ""
+            }
+          }
+        },
+        "block_order": [
+          "1585816903541",
+          "1585827548323",
+          "1585838194324"
+        ],
+        "settings": {
+          "title": "Join our glowing affiliate program",
+          "text": "<p>Submit your info. Share Moonglow products you love. Earn commission &amp; rewards!<\/p>\n<p>Does your instagram feed reach the moon and back? Are you a moon babe who<\/p>\n<p>loves wearing and sharing the story of your moon? If this sounds like you, our<\/p>\n<p>Moonglow Affiliate Program was made for you!<\/p>"
+        }
+      },
+      "about-template": {
+        "type": "about-template",
+        "blocks": {
+          "1585846376763": {
+            "type": "image",
+            "settings": {
+              "wide_display": false,
+              "layout": "template_1",
+              "image": "shopify:\/\/shop_images\/the_original.png",
+              "devider_enable": false,
+              "bg_title": "",
+              "title": "The Original",
+              "sub_title": "Moon Phase Jewelry",
+              "image_title": "",
+              "text": "<p>Always look for the Moonglow authentication sigil on the back of every pendant. This seal confirms the authenticity of your original Moonglow piece and is the signature seal of Canadian artist Luc, the designer of our iconic moon image.<\/p>"
+            }
+          },
+          "1585846447060": {
+            "type": "image",
+            "settings": {
+              "wide_display": false,
+              "layout": "template_2",
+              "image": "shopify:\/\/shop_images\/about-us-crystals_6d6cd05a-ebcc-48dc-9b2b-ea1f585d81ce.png",
+              "devider_enable": false,
+              "bg_title": "",
+              "title": "Swarovski Crystals",
+              "sub_title": "& Genuine Gemstones",
+              "image_title": "",
+              "text": "<p>Our unique birthstone jewelry is crafted with authentic Swarovski Crystals, available in the twelve colors symbollic of your birth month. The beaded bracelet collections are also crafted with genuine gemstones, offering unique crystal properties in every stone.<\/p>"
+            }
+          },
+          "1585846501057": {
+            "type": "image",
+            "settings": {
+              "wide_display": false,
+              "layout": "template_3",
+              "image": "shopify:\/\/shop_images\/about-engraving.png",
+              "devider_enable": false,
+              "bg_title": "",
+              "title": "Custom Jewelry",
+              "sub_title": "& Convenience",
+              "image_title": "",
+              "text": "<p>Enjoy the beauty and convenience of your customized Moonglow experience. We&rsquo;re proud to offer unparalleled customer service and fast, free shipping on all orders over $50. Simply select your special date, find your moon, and enter your customized engraving.<\/p>"
+            }
+          },
+          "1586540343429": {
+            "type": "header",
+            "settings": {
+              "title": "The Phases of Our Story",
+              "devider_enable": true
+            }
+          },
+          "1586540378918": {
+            "type": "carousel",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_1.png",
+              "title": "2011",
+              "text": "<p>Julien and Aurelie meld their visions and Moonglow is born.<\/p>"
+            }
+          },
+          "1586540448125": {
+            "type": "carousel",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_2.png",
+              "title": "2012",
+              "text": "<p>The Moonglow team takes their New York entrepreneurial spirit on the road to Miami, Florida and launches moonglow.com<\/p>"
+            }
+          },
+          "1586540476252": {
+            "type": "carousel",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_3.png",
+              "title": "2013",
+              "text": "<p>Moonglow opens it's first authorized retailer.<\/p>"
+            }
+          },
+          "1586540499231": {
+            "type": "carousel",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_2.png",
+              "title": "2014",
+              "text": "<p>Moonglow opens it's first authorized retailer.<\/p>"
+            }
+          },
+          "1586540515061": {
+            "type": "carousel",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_1.png",
+              "title": "2015",
+              "text": "<p>The Moonglow team takes their New York entrepreneurial spirit on the road to Miami, Florida and launches moonglow.com<\/p>"
+            }
+          },
+          "1585860136980": {
+            "type": "image",
+            "settings": {
+              "wide_display": true,
+              "layout": "template_4",
+              "image": "shopify:\/\/shop_images\/about-us--many-moons.png",
+              "devider_enable": true,
+              "bg_title": "Moments",
+              "title": "Many Moons Ago...",
+              "sub_title": "It started with a vision",
+              "image_title": "Cofounders Aurelie & Julien",
+              "text": "<p>Julien Plouffe and Aurelie Dudziak both believed that being alive on earth is a gift meant to be celebrated. And that by being reminded of the most memorable moments in life we share, gives us a unique opportunity to connect more deeply with one other. With Moonglow, every moment has a moon and gives us an opportunity to share our lives and dreams with those we love.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1585846376763",
+          "1585846447060",
+          "1585846501057",
+          "1586540343429",
+          "1586540378918",
+          "1586540448125",
+          "1586540476252",
+          "1586540499231",
+          "1586540515061",
+          "1585860136980"
+        ],
+        "settings": {
+          "display": true,
+          "default_banner": "shopify:\/\/shop_images\/about_us_list_hero.png",
+          "enable_caption": true,
+          "title": "Cherish your most precious moment in your favorite piece of jewelry.",
+          "title_color": "#ffffff",
+          "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/files\/About_Us_Video_1.mp4?616522"
+        }
+      },
+      "image-with-text_1": {
+        "type": "image-with-text_1",
+        "settings": {
+          "wide_display": true,
+          "image": "shopify:\/\/shop_images\/index_moments_bg_c746dcae-ba6b-4347-b97c-c265a51ed067.png",
+          "mobile_image": "",
+          "img_title": "",
+          "devider_enable": true,
+          "layout": "right",
+          "title": "Many Moons Ago... It started with a vision",
+          "bg_title": "moments",
+          "text": "<p>Julien Plouffe and Aurelie Dudziak both believed that being alive on earth is a gift meant to be celebrated. And that by being reminded of the most memorable moments in life we share, gives us a unique opportunity to connect more deeply with one other. With Moonglow, every moment has a moon and gives us an opportunity to share our lives and dreams with those we love.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "privacy-template": {
+        "type": "privacy-template",
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/privacy3.png",
+          "enable_caption": true,
+          "title": "PRIVACY POLICY",
+          "title_color": "#204a80"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "wide_display": false,
+          "title": "Shoot for the Moon Blog",
+          "bg_color": "#f8f7f5",
+          "image": "shopify:\/\/shop_images\/blog_featured.png",
+          "link": "shoot-for-the-moon-blog\/spring-2020-jewelry-trends"
+        }
+      },
+      "customer-reviews-template": {
+        "type": "customer-reviews-template",
+        "settings": {
+          "wide_display": false,
+          "enable_devider": true,
+          "bg_color": "#d0d9e5",
+          "image": "shopify:\/\/shop_images\/Moonglow245_raderproductions_3.jpg",
+          "layout": "right",
+          "title": "250,000 people over the moon",
+          "text": "<p>15,000+ Five star reviews<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "moon-calculator-template": {
+        "type": "moon-calculator-template",
+        "blocks": {
+          "1585927958234": {
+            "type": "icon_link",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_crystals.png",
+              "title": "Semi-precious stones & crystals"
+            }
+          },
+          "1585928013145": {
+            "type": "icon_link",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_hand.png",
+              "title": "Hand Finished"
+            }
+          },
+          "1585928047705": {
+            "type": "icon_link",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ico_star.png",
+              "title": "250,000 people over the moon"
+            }
+          },
+          "1585928078049": {
+            "type": "image",
+            "settings": {
+              "wide_display": true,
+              "bg_color": "#2e4676",
+              "color": "#ffffff",
+              "image": "shopify:\/\/shop_images\/moon_animation.gif",
+              "devider_enable": true,
+              "layout": "left",
+              "title": "Want to Find Your Moon?",
+              "text": "<p>Discover the moon from your special date using our moon calculator.<\/p>",
+              "button_label": "select date",
+              "button_link": ""
+            }
+          },
+          "1587335017280": {
+            "type": "moon_review",
+            "settings": {
+              "title": "Product Reviews"
+            }
+          }
+        },
+        "block_order": [
+          "1585927958234",
+          "1585928013145",
+          "1585928047705",
+          "1585928078049",
+          "1587335017280"
+        ],
+        "settings": {
+          "show_banner": true,
+          "default_banner": "shopify:\/\/shop_images\/calculator_hero.png",
+          "title": "Select the moon from the date of your choice"
+        }
+      },
+      "terms-conditions-template": {
+        "type": "terms-conditions-template",
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/tandc2.png",
+          "enable_caption": true,
+          "title": "",
+          "title_color": ""
+        }
+      },
+      "faq-template": {
+        "type": "faq-template",
+        "blocks": {
+          "1587514768533": {
+            "type": "header",
+            "settings": {
+              "heading_title": "Shipping"
+            }
+          },
+          "1587514771981": {
+            "type": "block",
+            "settings": {
+              "type": "Shipping",
+              "title": "what is moonglow?",
+              "desc": "<p>Moonglow is jewelry that features the picture of the moon from the date of your chopice. Pick any date you want to commemorate - the birth of a child, an anniversary, a graduation- and find the exact moon phase through our moon phase calculator. Once you have chosen your date, choose from our collection of bracelets, necklaces and more to carry your detailed hi-resolution image. As an added bonus, your moon will gently glow in the dark, reminding you of that special moment.<\/p>"
+            }
+          },
+          "1587514823309": {
+            "type": "header",
+            "settings": {
+              "heading_title": "Returns & Exchanges"
+            }
+          },
+          "1587514848020": {
+            "type": "block",
+            "settings": {
+              "type": "Returns & Exchanges",
+              "title": "WHAT ARE YOUR SHIPPING AND RETURN POLICIES?",
+              "desc": "<p>Please visit the following link for shipping and return information http:\/\/www.moonglow.com\/shipping-returns<\/p>\n<p>Certain items must be constructed on a per order basis. If the item needs to be handcrafted, there will be a message in the product description saying: This one-of-a-kind gem takes 14 days to construct.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1587514768533",
+          "1587514771981",
+          "1587514823309",
+          "1587514848020"
+        ],
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/faq1.png",
+          "enable_caption": false,
+          "title": "",
+          "title_color": ""
+        }
+      },
+      "wholesale-template": {
+        "type": "wholesale-template",
+        "blocks": {
+          "1585939666199": {
+            "type": "image",
+            "settings": {
+              "wide_display": true,
+              "layout": "left",
+              "image": "shopify:\/\/shop_images\/wholesale-image1_7fe9b7d2-062d-41a5-9994-e725bb3506a9.png",
+              "bg_color": "#f8fafb",
+              "title": "The Moonglow Jewelry Retailer Program",
+              "enable_devider": true,
+              "title_image_1": "shopify:\/\/shop_images\/skylight.png",
+              "title_image_2": "shopify:\/\/shop_images\/bangle.png",
+              "text": "<p>Moonglow Jewelry is custom-made and personalized, representing a significant moment in one&rsquo;s life. Customers choose a date of significance such as a birthday, anniversary, engagement or wedding day, Moonglow then provides the phase of the moon on that exact date and crafts a framed image of that phase. Each Moonglow pendant absorbs light during the day and glows at night, serving as a constant reminder of the special moment it represents.<\/p>"
+            }
+          },
+          "1585942168969": {
+            "type": "video",
+            "settings": {
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/235\/assets\/Tara_Video_1.mp4?v=623587456801414526",
+              "bg_color": "#2e4676",
+              "title_color": "#ffffff",
+              "stars": 1,
+              "title": "Meet Tara",
+              "sub_title": "Director of Sales",
+              "text": "<p>Have Question?<\/p>\n<p><strong>Tara@moonglow.com<\/strong><\/p>"
+            }
+          },
+          "1585962138837": {
+            "type": "header",
+            "settings": {
+              "title": "What Moonglow Retailers Are Saying",
+              "enable_devider": true
+            }
+          },
+          "1585962173169": {
+            "type": "article",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bangle8.png",
+              "text": "<p>Every time we sell a piece, that customer brings a friend or family member back because they \"Need\" one too!<\/p>\n<p><\/p>\n<p><\/p>\n<p><strong>Kathleen<\/strong><\/p>\n<p><em>Silver Moon Gallery<\/em><\/p>"
+            }
+          },
+          "1585962393510": {
+            "type": "article",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/charmed.png",
+              "text": "<p>Moonglow is a great line that moves well! Everybody loves looking up their special dates.<\/p>\n<p><\/p>\n<p><\/p>\n<p><strong>Victoria<\/strong><\/p>\n<p><em>Gift Gallery of Vienna<\/em><\/p>"
+            }
+          },
+          "1585962502225": {
+            "type": "article",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/regio.png",
+              "text": "<p>Moonglow has been our best seller for two years now. The interaction, design and price point of this product makes it a great line to carry.<\/p>\n<p><\/p>\n<p><strong>Christina<\/strong><\/p>\n<p><em>Sedona's Tree House<\/em><\/p>"
+            }
+          },
+          "1585965109030": {
+            "type": "image_bar",
+            "settings": {
+              "image_1": "shopify:\/\/shop_images\/2_d532a0ea-e07d-434f-8ff4-84648c5d0735.png",
+              "image_2": "shopify:\/\/shop_images\/1_ecac7b70-f135-48b6-9a62-a0fc9f66d78e.png",
+              "bg_color": "#f8f7f5",
+              "title": "The Moon Phase Guide",
+              "text": "<p>Our Moon Phase Guide makes it fun, interactive, and simple for your customers to look up a date, find their moon, and make their Moonglow purchase.&nbsp;<\/p>"
+            }
+          },
+          "1585966732475": {
+            "type": "form",
+            "settings": {
+              "wide_display": true,
+              "bg_color": "#2e4676",
+              "color": "#ffffff",
+              "image": "shopify:\/\/shop_images\/dummy_moon_img.png",
+              "devider_enable": true,
+              "layout": "left",
+              "title": "Want to Find Your Moon?",
+              "text": "<p>Discover the moon from your special date using our moon calculator.<\/p>",
+              "button_label": "select date",
+              "button_link": ""
+            }
+          },
+          "1586480957041": {
+            "type": "faq",
+            "settings": {
+              "title": "What are the Moonglow retailer qualifications?",
+              "text": "<p>You must have a brick and mortar store or a reputable online store. We do not sell or permit selling on Amazon or other third party websites. A minimum purchase is required.<\/p>"
+            }
+          },
+          "1587414309446": {
+            "type": "faq",
+            "settings": {
+              "title": "what does a moonglow retailer do?",
+              "text": "<p>Our Retail Partners are committed to appropriately stocking styles carried in store and following branding guidelines to present Moonglow Jewelry. Educational and marketing tools are provided to Retail Partners. Moonglow is incredibly unique, meaningful and affordable, a consistent seller in stores.<\/p>"
+            }
+          },
+          "1587414387242": {
+            "type": "faq",
+            "settings": {
+              "title": "what kind of products does moonglow offer?",
+              "text": "<p>Moonglow has spent the last ten years conceptualizing and delivering this unique, sentimental jewelry to a global audience. With Moonglow&rsquo;s ever-expanding selection, we constantly strive to offer pieces that are universally appealing. We offer a variety of pieces including necklaces, pendants, bracelets and rings. Each piece has its own moon-related title and description, giving it a personality of its own.<\/p>"
+            }
+          },
+          "1587414425806": {
+            "type": "faq",
+            "settings": {
+              "title": "where is moonglow jewelry made?",
+              "text": "<p>One of the biggest selling points is that Moonglow Jewelry is hand finished in North America. Moonglow&rsquo;s distribution hub is located in, and product ships from, Miami, Florid<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1585939666199",
+          "1585942168969",
+          "1585962138837",
+          "1585962173169",
+          "1585962393510",
+          "1585962502225",
+          "1585965109030",
+          "1585966732475",
+          "1586480957041",
+          "1587414309446",
+          "1587414387242",
+          "1587414425806"
+        ],
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/wholesalebanner2.png",
+          "enable_caption": false,
+          "title": "",
+          "title_color": ""
+        }
+      },
+      "rewards-template": {
+        "type": "rewards-template",
+        "blocks": {
+          "1586096975507": {
+            "type": "text",
+            "settings": {
+              "title": "How it works",
+              "sub_title_1": "Join",
+              "desc_1": "<p>Join the Moonglow VIP program and start earning.<\/p>",
+              "sub_title_2": "Earn moon points",
+              "desc_2": "<p>Earn moon points every time you shop.<\/p>",
+              "sub_title_3": "redeem",
+              "desc_3": "<p>Redeem moon points for Exclusive discounts.<\/p>"
+            }
+          },
+          "1586097415651": {
+            "type": "list",
+            "settings": {
+              "title": "",
+              "sub_title": "",
+              "bg_color_1": "#f8fafb",
+              "title_1": "Vega",
+              "sub_title_1": "spend: $0-499",
+              "list_1": "<ul>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>1x moon point multiplier<br>(1 point earned per $1 spent)<\/p>\n<\/li>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>Birthday Bonus (100 moon points)<\/p>\n<\/li>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>Free shipping when you spend over $50<\/p>\n<\/li>\n<\/ul>",
+              "bg_color_2": "#ebebeb",
+              "title_2": "Luna",
+              "sub_title_2": "spend: $500+",
+              "list_2": "<ul>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>1.5x moon point multiplier<br>(1.5 point earned per $1 spent)<\/p>\n<\/li>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>Free Shipping<\/p>\n<\/li>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>Birthday Bonus (150 moon points)<\/p>\n<\/li>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>Free Lip Balm with every order<\/p>\n<\/li>\n<li>\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2486\/3224\/t\/224\/assets\/moon_ico.svg?v=14676440242369786145\">\n<p>Entry Gift: 10% off Your Next Purchase when entering the tier<\/p>\n<\/li>\n<\/ul>"
+            }
+          },
+          "1587006202518": {
+            "type": "image",
+            "settings": {
+              "wide_display": true,
+              "layout": "template_2",
+              "image": "shopify:\/\/shop_images\/rewards_1.png",
+              "devider_enable": true,
+              "title": "Redeem for Discounts",
+              "sub_title": "",
+              "text": "<p>Redeeming your hard-earned moon points is easy! Simply apply your moon points balance at checkout.<\/p>"
+            }
+          },
+          "1587006795692": {
+            "type": "icon_block",
+            "settings": {
+              "title": "Ways to Earn Moon Points",
+              "sub_title": "Every 10 moon points earned = $1 in store credit",
+              "bg_color": "#2e4676",
+              "title_color": "#f8fafb",
+              "sub_title_color": "#f8fafb",
+              "title_2": "Refer Friends and Earn Moon Points",
+              "sub_title_2": "Refer new friends and get $20.",
+              "bg_color_2": "#92a8d5",
+              "title_color_2": "#ffffff",
+              "sub_title_color_2": "#030303"
+            }
+          }
+        },
+        "block_order": [
+          "1586096975507",
+          "1586097415651",
+          "1587006202518",
+          "1587006795692"
+        ],
+        "settings": {
+          "banner": "shopify:\/\/shop_images\/rewards3.png",
+          "bg_color": "#2e4676",
+          "title_color": "#ffffff",
+          "title": "Moonglow VIP",
+          "text": "<p>As a Moonglow VIP Member, you'll get access to exclusive perks and get closer to rewards every time you shop.<\/p>",
+          "btn_label_1": "Join In",
+          "btn_url_1": "\/account\/register",
+          "btn_label_2": "Sign In",
+          "btn_url_2": "\/account\/login"
+        }
+      },
+      "register-template": {
+        "type": "register-template",
+        "settings": {
+          "banner": "shopify:\/\/shop_images\/login4.png"
+        }
+      },
+      "login-template": {
+        "type": "login-template",
+        "settings": {
+          "banner": "shopify:\/\/shop_images\/login3_7aa4a2f9-eef2-4f99-aea9-e08540611148.png"
+        }
+      },
+      "1586187599949": {
+        "type": "new-arrival",
+        "blocks": {
+          "1586187701895": {
+            "type": "product",
+            "settings": {
+              "adver_image": "shopify:\/\/shop_images\/new_arrivals-2.png",
+              "title": "Mini Moon & Engravable Ring Set",
+              "title_color": "#422929",
+              "product": "mini-moon-engravable-ring-set"
+            }
+          },
+          "1586187733215": {
+            "type": "product",
+            "settings": {
+              "adver_image": "shopify:\/\/shop_images\/new_arrivals-1.png",
+              "title": "Milestone Moon Bracelet",
+              "title_color": "",
+              "product": "milestone-bracelet"
+            }
+          }
+        },
+        "block_order": [
+          "1586187701895",
+          "1586187733215"
+        ],
+        "settings": {
+          "content_type": "right-side",
+          "bg_color": "#f8f7f5",
+          "text_color": "",
+          "title": "New Arrivals",
+          "enable_baseline": true,
+          "btn_label": "shop all",
+          "btn_url": "shopify:\/\/collections\/just-landed"
+        }
+      },
+      "dashbord-template": {
+        "type": "dashbord-template",
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/account_hero.png"
+        }
+      },
+      "order-template": {
+        "type": "order-template",
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/account_hero.png"
+        }
+      },
+      "1586451810194": {
+        "type": "image-with-text",
+        "blocks": {
+          "1589990002934": {
+            "type": "image-title",
+            "settings": {
+              "heading": "HAND FINISHED WITH",
+              "mark-image-1": "",
+              "mark-svg-1": "<!--?xml version=\"1.0\" encoding=\"UTF-8\"?-->\n<svg width=\"31px\" height=\"31px\" viewbox=\"0 0 31 31\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <!-- Generator: sketchtool 51.3 (57544) - http:\/\/www.bohemiancoding.com\/sketch -->\n    <title>C136B3DA-572E-41D2-864A-9BA8D983B159<\/title>\n    <desc>Created with sketchtool.<\/desc>\n    <defs><\/defs>\n    <g id=\"style-guide\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"icons\" transform=\"translate(-828.000000, -162.000000)\" fill=\"#2E4676\" fill-rule=\"nonzero\">\n            <g id=\"ico_crystals\" transform=\"translate(829.000000, 162.000000)\">\n                <path d=\"M2.77415338,13.2358906 L8.23338654,5 L24.1229394,5 L29.2108819,13.2552566 L16.0039372,30.6535953 L2.77415338,13.2358906 Z M5.22584662,13.1571281 L16.0034471,27.3464047 L26.7891181,13.1377621 L23.006246,7 L9.30715364,7 L5.22584662,13.1571281 Z\" id=\"Path-8\"><\/path>\n                <polygon id=\"Path-9\" points=\"6.25 0 8.25 0 8.25 3 6.25 3\"><\/polygon>\n                <polygon id=\"Path-10\" points=\"1.29289322 1.70710678 2.70710678 0.292893219 4.70710678 2.29289322 3.29289322 3.70710678\"><\/polygon>\n                <polygon id=\"Path-11\" points=\"-0.554700196 4.83205029 0.554700196 3.16794971 3.5547002 5.16794971 2.4452998 6.83205029\"><\/polygon>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>",
+              "mark-title-1": "GENUINE GEMSTONES",
+              "mark-image-2": "",
+              "mark-svg-2": "<!--?xml version=\"1.0\" encoding=\"UTF-8\"?-->\n<svg width=\"31px\" height=\"31px\" viewbox=\"0 0 31 31\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <!-- Generator: sketchtool 51.3 (57544) - http:\/\/www.bohemiancoding.com\/sketch -->\n    <title>C136B3DA-572E-41D2-864A-9BA8D983B159<\/title>\n    <desc>Created with sketchtool.<\/desc>\n    <defs><\/defs>\n    <g id=\"style-guide\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"icons\" transform=\"translate(-828.000000, -162.000000)\" fill=\"#2E4676\" fill-rule=\"nonzero\">\n            <g id=\"ico_crystals\" transform=\"translate(829.000000, 162.000000)\">\n                <path d=\"M2.77415338,13.2358906 L8.23338654,5 L24.1229394,5 L29.2108819,13.2552566 L16.0039372,30.6535953 L2.77415338,13.2358906 Z M5.22584662,13.1571281 L16.0034471,27.3464047 L26.7891181,13.1377621 L23.006246,7 L9.30715364,7 L5.22584662,13.1571281 Z\" id=\"Path-8\"><\/path>\n                <polygon id=\"Path-9\" points=\"6.25 0 8.25 0 8.25 3 6.25 3\"><\/polygon>\n                <polygon id=\"Path-10\" points=\"1.29289322 1.70710678 2.70710678 0.292893219 4.70710678 2.29289322 3.29289322 3.70710678\"><\/polygon>\n                <polygon id=\"Path-11\" points=\"-0.554700196 4.83205029 0.554700196 3.16794971 3.5547002 5.16794971 2.4452998 6.83205029\"><\/polygon>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>",
+              "mark-title-2": "swarovski crystals",
+              "mark-image-3": "",
+              "mark-svg-3": "<!--?xml version=\"1.0\" encoding=\"UTF-8\"?-->\n<svg width=\"31px\" height=\"31px\" viewbox=\"0 0 31 31\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <!-- Generator: sketchtool 51.3 (57544) - http:\/\/www.bohemiancoding.com\/sketch -->\n    <title>C136B3DA-572E-41D2-864A-9BA8D983B159<\/title>\n    <desc>Created with sketchtool.<\/desc>\n    <defs><\/defs>\n    <g id=\"style-guide\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"icons\" transform=\"translate(-828.000000, -162.000000)\" fill=\"#2E4676\" fill-rule=\"nonzero\">\n            <g id=\"ico_crystals\" transform=\"translate(829.000000, 162.000000)\">\n                <path d=\"M2.77415338,13.2358906 L8.23338654,5 L24.1229394,5 L29.2108819,13.2552566 L16.0039372,30.6535953 L2.77415338,13.2358906 Z M5.22584662,13.1571281 L16.0034471,27.3464047 L26.7891181,13.1377621 L23.006246,7 L9.30715364,7 L5.22584662,13.1571281 Z\" id=\"Path-8\"><\/path>\n                <polygon id=\"Path-9\" points=\"6.25 0 8.25 0 8.25 3 6.25 3\"><\/polygon>\n                <polygon id=\"Path-10\" points=\"1.29289322 1.70710678 2.70710678 0.292893219 4.70710678 2.29289322 3.29289322 3.70710678\"><\/polygon>\n                <polygon id=\"Path-11\" points=\"-0.554700196 4.83205029 0.554700196 3.16794971 3.5547002 5.16794971 2.4452998 6.83205029\"><\/polygon>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>",
+              "mark-title-3": "semi precious metals"
+            }
+          }
+        },
+        "block_order": [
+          "1589990002934"
+        ],
+        "settings": {
+          "wide_display": true,
+          "bg_color": "#f7f9fb",
+          "image": "shopify:\/\/shop_images\/unique_jewelry.png",
+          "devider_enable": true,
+          "layout": "right",
+          "title": "Unique Jewelry for Special Moments.",
+          "text": "<p>Moonglow is handcrafted in Canada and our iconic moon image is an original design by Canadian artist Luc, carefully set in each unique piece. We cherish each Moonglow piece as much as you cherish your special moment.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "team-template": {
+        "type": "team-template",
+        "blocks": {
+          "1586529496219": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1_b003d813-d009-4c9e-a41b-23b7a27a99ae.png",
+              "name": "Julien Plouffe",
+              "auth": "CEO & Co-founder",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1586529565743": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2_fa8e8e69-25d7-41f3-b375-2039ace6ed0b.png",
+              "name": "Aurelie Dudziak",
+              "auth": "Creative Director & Co-founder",
+              "btn_url": "shopify:\/\/pages\/career",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663131285": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4_8d7b268c-f277-44a9-9c55-541afa55bbe1.png",
+              "name": "Tara McGowan",
+              "auth": "Director of Sales",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663177586": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3_9c837577-42af-4c13-94c2-686283642a7d.png",
+              "name": "Riaz Ali",
+              "auth": "Director of Operations",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663218011": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5_6b4f2e5c-c9de-4657-ae03-712778c9dcc7.png",
+              "name": "Dora Sobze",
+              "auth": "Head of Branding & Digital Content",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663299122": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/8_1574f164-2d6b-4426-9a4b-2410629fde80.png",
+              "name": "Solamy Galvez",
+              "auth": "Head of Fulfillment",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663408975": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6_e109234a-921f-442d-8c37-249a65d550d4.png",
+              "name": "Danni Matter",
+              "auth": "Customer Service Rep",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n<p><\/p>"
+            }
+          },
+          "1589663369670": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/7_68d5bb07-8c4c-4575-9982-37424f4de6ce.png",
+              "name": "Raven Nieto",
+              "auth": "Customer Service Rep",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663682886": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/9_1e0ff274-20c1-4acc-aebc-f8c68c0c1b40.png",
+              "name": "Fernando Basilio",
+              "auth": "Fulfillment",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663735629": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/10_67579cac-1139-4c51-a5eb-2e30bb4b8e9b.png",
+              "name": "Jacqueline Alonso",
+              "auth": "Retail Picker Packer",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663768774": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/11.png",
+              "name": "Katiya",
+              "auth": "",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663889287": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/13.png",
+              "name": "Kassandra Ordoqui",
+              "auth": "Fulfillment",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589663932154": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/12.png",
+              "name": "Milena Soledad",
+              "auth": "Retail Fulfillment",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          },
+          "1589664811107": {
+            "type": "team",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/14.png",
+              "name": "Mahe Fortes",
+              "auth": "Retail Picker Packer",
+              "btn_url": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1586529496219",
+          "1586529565743",
+          "1589663131285",
+          "1589663177586",
+          "1589663218011",
+          "1589663299122",
+          "1589663408975",
+          "1589663369670",
+          "1589663682886",
+          "1589663735629",
+          "1589663768774",
+          "1589663889287",
+          "1589663932154",
+          "1589664811107"
+        ],
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/team.png",
+          "title": "",
+          "title_color": "#ffffff",
+          "bg_color": "#f7f9fb"
+        }
+      },
+      "address-template": {
+        "type": "address-template",
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/terms_hero.png"
+        }
+      },
+      "collection-moon-section": {
+        "type": "collection-moon-section",
+        "settings": {
+          "show_moon_phase_control": true,
+          "image_banner": "shopify:\/\/shop_images\/pl_723ccbcd-aafe-4843-a7f4-a4370a77d6e2.png",
+          "title": "Unique Waxing Gibbous Qualities",
+          "desc": "<p>The Waxing Gibbous is the last phase before the Moon reaches maximum illumination. It appears close to full, but is not completely illuminated. Kind, caring and nurturing are characteristics of those born under this moon, making them amazing mentors. Relationships under this moon are very intense as emotions are amplified which create incredibly strong bonds. This is a time of communication, a time to share personal stories and love between friends and family members<\/p>",
+          "item_per_row": 4,
+          "caption_banner": "shopify:\/\/shop_images\/bg.jpg",
+          "caption_bg_color": "#d0d9e5",
+          "caption_title": "Complimentory Gift Wrap",
+          "caption_text": "<p>No Time to wrap your v-day Gift? We&rsquo;re got you covered. Select Gift wrap at cart to have your gifts wrapped with love.<\/p>"
+        }
+      },
+      "contact-template": {
+        "type": "contact-template",
+        "settings": {
+          "default_banner": "shopify:\/\/shop_images\/account_hero.png",
+          "enable_caption": false,
+          "title": "CONTACT US",
+          "title_color": ""
+        }
+      },
+      "header-simple": {
+        "type": "header-simple",
+        "settings": {
+          "announcement_bar_enabled": false,
+          "announcement_bar_home_page_only": true,
+          "announcement_bar_text": "Announce something here",
+          "announcement_bar_link": "",
+          "logo": "",
+          "logo_max_width": 250,
+          "shipping_rage": "",
+          "menu": "main-menu",
+          "first_banner": "",
+          "first_banner_url": "",
+          "second_banner": "",
+          "second_banner_url": "",
+          "related_product": ""
+        }
+      },
+      "moon-calculator-simple": {
+        "type": "moon-calculator-simple",
+        "blocks": {
+          "1590090297470": {
+            "type": "image",
+            "settings": {
+              "wide_display": true,
+              "bg_color": "#204a80",
+              "color": "#fffdfd",
+              "image": "shopify:\/\/shop_images\/moon_animation.gif",
+              "devider_enable": false,
+              "layout": "left",
+              "title": "Want to Find Your Moon?",
+              "text": "<p>DISCOVER THE MOON FROM YOUR SPECIAL DATE USING OUR MOON CALCULATOR.<\/p>",
+              "button_label": "select date",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1590090297470"
+        ],
+        "settings": {
+        }
+      },
+      "footer-simple": {
+        "type": "footer-simple",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1584071438877",
+      "1584110619143",
+      "1586451810194",
+      "1584130961181",
+      "1586187599949",
+      "1584263506121",
+      "1584285221459",
+      "1584301566769",
+      "1584428502251",
+      "1584456791032"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "collection-list-1": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "collection-list-2": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1",
+            "collection-list-2"
+          ],
+          "settings": {
+          }
+        },
+        "featured-collection": {
+          "type": "featured-collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "featured-product": {
+          "type": "featured-product",
+          "settings": {
+          }
+        }
+      },
+      "content_for_index": [
+        "collection-list",
+        "featured-collection",
+        "featured-product"
+      ]
+    }
+  }
+}

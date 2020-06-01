@@ -1,0 +1,83 @@
+{% include 'page_banner' %}
+<section class="team-template">
+    {% for block in section.blocks %}
+        <div class="team-block">
+            <div class="grid">
+                <div class="grid__item seven-tenths small--one-whole info">
+                    <img src="{{ block.settings.image | img_url : 'original' }}" alt="{{ block.settings.name }}">
+                    <p class="title">{{ block.settings.name }}</p>
+                    <p class="sub_title">{{ block.settings.auth }}</p>
+                    <p>{{ block.settings.text }}</p>
+                </div>
+                <div class="grid__item three-tenths small--one-whole pannel">
+                    <a href="{{ block.settings.btn_url }}" class="button right">read more</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+<style>
+    #shopify-section-team-template{
+        background-color: {{ section.settings.bg_color }};
+    }
+</style>
+{% schema %}
+{
+    "name": "team block",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "default_banner",
+            "label": "Banner image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "team",
+            "name": "Team",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Team Image"
+                },
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Team name"
+                },
+                {
+                    "type": "text",
+                    "id": "auth",
+                    "label": "Team auth"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button url"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Team description"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,46 @@
+<div class="text-list-block">
+    <div class="content">
+        <h3 class="text-center">{{ block.settings.title }}</h3>
+        <div class="devider"></div>
+        <div class="list-content grid medium-down--hide">
+            <div class="grid__item one-third">
+                <p class="brand"><img src="{{ '1_ico.svg' | asset_url }}" alt="{{block.settings.sub_title_1}}"> {{block.settings.sub_title_1}}</p>
+                <div class="desc_content">
+                    {{ block.settings.desc_1 }}
+                </div>
+            </div>
+            <div class="grid__item one-third">
+                <p class="brand"><img src="{{ '2_ico.svg' | asset_url }}" alt="{{block.settings.sub_title_2}}"> {{block.settings.sub_title_2}}</p>
+                <div class="desc_content">
+                    {{ block.settings.desc_2 }}
+                </div>
+            </div>
+            <div class="grid__item one-third">
+                <p class="brand"><img src="{{ '3_ico.svg' | asset_url }}" alt="{{block.settings.sub_title_3}}"> {{block.settings.sub_title_3}}</p>
+                <div class="desc_content">
+                    {{ block.settings.desc_3 }}
+                </div>
+            </div>
+        </div>
+        <div id="list-carousel" class="medium-down--show owl-carousel owl-theme">
+            <div class="item" data-merge="2.5" >
+                <p class="brand"><img src="{{ '1_ico.svg' | asset_url }}" alt="{{block.settings.sub_title_1}}"> {{block.settings.sub_title_1}}</p>
+                <div class="desc_content">
+                    {{ block.settings.desc_1 }}
+                </div>
+            </div>
+            <div class="item" data-merge="2.5" >
+                <p class="brand"><img src="{{ '2_ico.svg' | asset_url }}" alt="{{block.settings.sub_title_2}}"> {{block.settings.sub_title_2}}</p>
+                <div class="desc_content">
+                    {{ block.settings.desc_2 }}
+                </div>
+            </div>
+            <div class="item" data-merge="2.5" >
+                <p class="brand"><img src="{{ '3_ico.svg' | asset_url }}" alt="{{block.settings.sub_title_3}}"> {{block.settings.sub_title_3}}</p>
+                <div class="desc_content">
+                    {{ block.settings.desc_3 }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

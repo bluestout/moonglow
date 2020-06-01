@@ -1,0 +1,98 @@
+.new-arrival{
+    @include media-query("medium-down"){
+        padding: 0;
+        display: block!important;
+        max-width: inherit!important;
+        width: 100vw!important;
+    }
+    .grid{
+        display: inline-flex;
+        margin: $margin * 3 0 $margin*2;
+        padding: 0;
+        width: 100%;
+        float: right;
+        @include media-query("medium-down"){
+            display: block;
+            margin: 0;
+        }
+        .heading{
+            margin: auto;
+            @include media-query("medium-down"){
+                margin-top: $margin*2/5;
+                padding-bottom: 0;
+                padding-top: $padding * 2 / 5;
+            }
+            h3{
+                @include media-query("medium-down"){
+                    font-size: $h3_size;
+                    line-height: $h3_line_height;
+                }
+            }
+            .button.white{
+                width: $padding*4;
+                margin-top: $margin * 2 / 5;
+                display: table;
+                padding: $padding/5;
+                @include media-query("medium-down"){
+                    position: absolute;
+                    margin-top: $margin*5;
+                    max-width: $padding*4;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+        .content{
+            .img_element__wrap{
+                position: relative;
+                background-color: white;
+                img{
+                    margin: auto;
+                    display: table;
+                    width: 100%;
+                }
+                p{
+                    position: absolute;
+                    width: 100%;
+                    bottom: 20px;
+                    color: white;
+                    font-size: 13px;
+                    font-family: $font-heading;
+                }
+            }
+            @include media-query("medium-down"){
+                display: none;
+            }
+        }
+        #owl-new-arrival{
+            display: none!important;
+            @include media-query("medium-down"){
+                float: left;
+                height: 320px;
+                display: block!important;
+                margin:0px;
+            }
+            .owl-stage-outer{
+                padding: $padding * 2 /5 $padding * 2 /5 $padding * 2 $padding / 5;
+                .owl-item {
+                    .item{
+                        height: 200px;
+                        background-size: 100%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        position: relative;
+                        p{
+                            position: absolute;
+                            width: 100%;
+                            bottom: 20px;
+                            color: white;
+                            font-size: 13px;
+                            font-family: $font-heading;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+} 

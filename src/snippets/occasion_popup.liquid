@@ -1,0 +1,41 @@
+<div id="date-save-modal" class="modal" data-target="">
+    <a class="close">Back <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
+    <div class="modal-body">
+      <div class="grid">
+        <div class="grid__item one-half medium-down--one-whole">
+          <h5 class="title">My moonglow moment : </h5>
+          <h2 class="moon-date"></h2>
+        </div>
+        <div class="grid__item one-half medium-down--one-whole occasion_field">
+          <select class="form-control occasion">
+            <option value="" selected>Significance Of This Date</option>
+            <option value="My Birthday">My Birthday</option>
+            <option value="My child's Birthday">My Child's Birthday</option>
+            <option value="My parent's Birthday">My Parent's Birthday</option>
+            <option value="My Friend's Birthday">My Friend's Birthday</option>
+            <option value="My Spouse's Birthday">My Spouse's Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Wedding Date">Wedding Date</option>
+            <option value="Engagement Date">Engagement Date</option>
+            <option value="Graduation Date">Graduation Date</option>
+            <option value="Death Anniversary">Death Anniversary</option>
+            <option value="Milestone/Achievement">Milestone/Achievement</option>
+            <option value="Gotcha Day (Child)">Gotcha Day (Child)</option>
+            <option value="Gotcha Day (Pet)">Gotcha Day (Pet)</option>
+            <option value="Religious Ceremony">Religious Ceremony</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="error">Please select occation.</span>
+        </div>
+      </div>
+      <div class="grid">
+        <a class="button small save_ocassion_btn"  data-customer-id ="{{ customer.id }}" data-customer-email = "{{customer.email}}" 
+        data-product-id = "{{ product.id }}"
+        data-before="Save Favourite Date"
+        data-after="Removing Date"
+        data-process="Adding....."
+        data-remove="Removing...">save</a>
+      </div>
+      <div class="alert-message animated alert-danger bounceIn bounceOut modal_alert">Please select Correct date.</div>
+    </div>
+  </div>

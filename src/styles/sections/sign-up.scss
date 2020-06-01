@@ -1,0 +1,41 @@
+.sign-up{
+    display: table;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 0px!important;
+    .grid__item{
+        padding: 24px;
+        @include media-query("medium-down"){
+            padding: 0px;
+        }
+        p{
+            font-size: $h5_size;
+            line-height: $h5_line_height;
+            outline: none;
+            @include media-query("medium-down"){
+                font-size: $mobile_h5_size;
+                line-height: 17px;
+                letter-spacing: 0.05px;
+            }
+        }
+        input{
+            padding: 0 $padding * 3 / 10;
+            float: left;
+            background: $sign_up_input_bg_color;
+            border-radius: 0px;
+            width: 250px;
+            @include media-query("medium-down"){
+                width: calc( 100% - 160px );
+            }
+        }
+        button.grey{
+            width: auto;
+            padding: 10px 30px;
+            margin-left: 20px;
+            float: left;
+        }
+        &.pannel{
+            padding-top: $padding * 7 / 10;
+        }
+    }
+}

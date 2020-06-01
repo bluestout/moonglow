@@ -1,0 +1,42 @@
+.cookie_banner_popup{
+    display: none;
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 10000;
+    bottom: 0;
+    .cookie_banner_popup_inner{
+        padding: 20px;
+        display: table;
+        width: 100%;
+        .desktop_text{
+            p{
+                font-size: 13px;
+                @include media-query('medium-down'){
+                    font-size: 11px;
+                }
+                strong{
+                    color: #2E4676;
+                    font-family: $font-heading;
+                }
+            }
+        }
+        .custom_button_cookie{
+            width: 280px;
+            float: right;
+            padding-top: 10px;
+            @include media-query('medium-down'){
+                width: 100%;
+                padding-top: 30px;
+            }
+            a.button{
+                min-width: auto;
+                width: 45%;
+                margin: 0px;
+                margin-left: 10px;
+                float: left;
+                border: none;
+            }
+        }
+    }
+}

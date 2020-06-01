@@ -1,0 +1,95 @@
+{% comment %}add free gift using cart price{% endcomment %}
+{% if settings.product_freeproduct %}
+  {% assign min_price_for_free_gift = 10000 %}
+  {%- assign items = cart.items -%}
+  {%- if checkout_page -%}
+    {%- assign items = checkout.line_items -%}
+  {%- endif -%}
+{% if settings.free_gift_type == 'moon_stud' %}  
+{%- assign free_gift_vid = settings.freegift_vid  -%}
+{% elsif settings.free_gift_type == 'birthstone' and  settings.birthstone_product != blank and settings.birthstone_add_auto %}
+{%- assign free_gift_vid = all_products[settings.birthstone_product].variants[0].id  -%}
+{% endif %}
+{%- assign free_gift_vid = free_gift_vid | plus:0 -%}
+{%- assign birthstoneProduct = all_products[settings.birthstone_product] -%}
+<script>  
+  simply.enabledFreeGift = true;
+  simply.needToAddGift = true;
+  simply.freeGiftExist = false;
+  simply.cartCount = 0;
+  simply.freeGiftType = "{{settings.free_gift_type}}";
+  simply.freeGiftCount = {{settings.min_item_moon_stud}};
+  simply.freeGiftPrice = {{settings.min_price_birthstone}};
+  simply.birthstoneUrl = '/';
+  simply.birthstoneUrl = "{{birthstoneProduct.url}}";
+  simply.birthstoneAutoAdd = {{settings.birthstone_add_auto}};
+  {%- assign needToAddGift = true -%}
+  simply.free_product_vid = "{{free_gift_vid}}";
+  {%- assign cart_count = 0 -%}
+  {%- assign cart_price = 0 -%}
+  {%- for item in items -%}
+    {%- if item.variant_id  ==  free_gift_vid and item.properties['_FREEGIFT'] != blank -%}
+    {%- assign needToAddGift = false -%}
+    simply.needToAddGift = false;
+    simply.freeGiftExist = true;
+    {%- else -%}
+    {%- assign cart_price = cart_price | plus:item.line_price -%}
+    {%- endif -%}
+      {%- if item.product.tags contains 'hidden' or item.variant_id == free_gift_vid or item.product.tags contains 'mothers-day' -%}
+      {%- else -%}
+        {%- assign cart_count = item.quantity | plus:cart_count -%}
+      {%- endif -%}
+      
+  {%- endfor -%}
+
+  {% if simply.freeGiftType == 'moon_stud' %}
+      {%- if cart_count > simply.freeGiftCount  and needToAddGift -%}
+      simply.addFreeAuto  = true;
+      {%- endif -%}
+  {% elsif simply.freeGiftType == 'birthstone' %}
+    {%- if cart_price > simply.freeGiftPrice  and needToAddGift -%}
+    simply.addFreeAuto  = true;
+    {%- endif -%}
+  {% endif %}
+  
+  simply.cartCount = {{cart_count}};
+</script>
+
+{%- endif -%}
+
+{% comment %}add free gift using cart count{% endcomment %}
+
+{% comment %}{% if settings.product_freeproduct %}
+  {%- assign items = cart.items -%}
+  {%- if checkout_page -%}
+    {%- assign items = checkout.line_items -%}
+  {%- endif -%}
+{%- assign free_gift_vid = settings.freegift_vid  -%}
+{%- assign free_gift_vid = free_gift_vid | plus:0 -%}
+
+<script>
+  simply.enabledFreeGift = true;
+  simply.needToAddGift = true;
+  simply.freeGiftExist = false;
+  simply.cartCount = 0;
+  {%- assign needToAddGift = true -%}
+  simply.free_product_vid = "{{free_gift_vid}}";
+  {%- assign cart_count = 0 -%}
+  {%- for item in items -%}
+    {%- if item.variant_id  ==  free_gift_vid and item.properties['_FREEGIFT'] != blank -%}
+    {%- assign needToAddGift = false -%}
+    simply.needToAddGift = false;
+    simply.freeGiftExist = true;
+    {%- endif -%}
+      {%- if item.product.tags contains 'hidden' or item.variant_id == free_gift_vid or item.product.tags contains 'mothers-day' -%}
+      {%- else -%}
+        {%- assign cart_count = item.quantity | plus:cart_count -%}
+      {%- endif -%}
+  {%- endfor -%}
+  {%- if cart_count > 1  and needToAddGift -%}
+    simply.addFreeAuto  = true;
+  {%- endif -%}
+  simply.cartCount = {{cart_count}};
+</script>
+
+{% endif %}{% endcomment %}

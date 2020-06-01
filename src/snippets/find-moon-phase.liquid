@@ -1,0 +1,58 @@
+<section class="find-moon-form {% if item.settings.wide_display %} fluid-display {% endif %}">
+    <div class="content">
+      {% capture image_layout %}
+        <div class="image-with-text__image grid__item one-third medium-down--one-whole moon_phase">
+          {% if item.settings.image != blank %}
+           <img src="{{item.settings.image | img_url: 'original'}}" alt="find-moon-brand">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+      {% endcapture %}
+  
+      {% if item.settings.layout == 'left' %}
+        {{ image_layout }}
+      {% endif %}
+  
+      <div class="image-with-text__text grid__item two-thirds medium-down--one-whole">
+  
+        {% if item.settings.devider_enable %}
+          <div class="devider center"></div>
+        {% endif %} 
+  
+        {% if item.settings.title != blank %}
+          <h3 class="title text-center">{{ item.settings.title | escape }}</h3>
+        {% endif %}
+        
+        {% if item.settings.text != blank %}
+          {{ item.settings.text }}
+        {% endif %}
+        <div class="pannel">
+          <div class="grid__item three-fifths medium-down--one-whole form-control">
+            <img src="{{'calender_ico.svg' | asset_url }}" alt="calendar-icon">
+            <input type="text" class="moon_date right datepicker" placeholder="MM/DD/YYY">
+            
+          </div>
+          <div class="grid__item two-fifths medium-down--one-whole">
+            {% if item.settings.button_label != blank %}
+              <button class="button grey left select-moon">{{ item.settings.button_label | escape }}</button>
+            {% endif %}
+          </div>
+          <div class="alert-message animated alert-danger bounceIn bounceOut form_alert">Please select Correct date.</div>
+        </div>
+      </div>
+  
+      {% if item.settings.layout == 'right' %}
+        {{ image_layout }}
+      {% endif %}
+    </div>
+  </section> 
+
+  <style>
+    .find-moon-form{
+      background-color: {{ item.settings.bg_color }};
+    }
+    .find-moon-form h3, .find-moon-form p{
+        color: {{ item.settings.color }};
+      }
+  </style>

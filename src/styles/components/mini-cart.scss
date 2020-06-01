@@ -1,0 +1,357 @@
+.mini-cart {
+    display: none;
+    transition: $transition-duration $transition-timing;
+    position: absolute;
+    right: $mini_cart_width;
+    top: 0;
+    width: $mini_cart_width;
+    min-height: 100vh;
+    opacity: 0;
+    z-index: -10;
+    padding: $padding * 3 / 5;
+    @include media-query('small'){
+        padding: $padding*3/5 $padding*2/5;
+        width: 300px;
+    }
+    background-color: $mini_cart_bg_color;
+   
+    &.active {
+        display: block;
+        
+        right: 0px;
+        z-index: 10;
+        opacity: 1;
+        
+    }
+    .cart_field{
+        margin-right: -15px;
+        .card_text{
+            margin-bottom: 10px;
+            .text_wrap{
+                padding: 10px;
+                background: #2e4676;
+                border-radius: 10px;
+                border: 1px solid #2e4676;
+                h5{
+                    font-family: $font-heading;
+                    line-height: 12px;
+                    text-align: center;
+                    color: white;
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                }
+                h6{
+                    text-align: center;
+                    color: white;
+                    font-size: 12px;
+                    letter-spacing: 0;
+                    line-height: 16px;
+                }
+            }
+        }
+        .progress-bar{
+            padding: 0;
+            border: 0px solid transparent;
+            border-radius: 20px;
+            background-color: #CEC1B5;
+            position: relative;
+            overflow: hidden;
+            .progress{
+                height: 100%;
+                position: absolute;
+                background-color: #2E4676;
+                border: 1px solid transparent;
+                border-radius: 10px;
+                z-index: 1;
+            }
+            span{
+                line-height: 24px;
+                color: white;
+                z-index: 5;
+                position: relative;
+                width: 100%;
+                display: table;
+                text-align: center;
+            }
+        }
+        img{
+           &.lock_img{
+               margin-top: 10px;
+               width: 100%;
+           } 
+           &.unlock-img{
+            width: 100%;
+            margin-top: 10px;
+            } 
+        }
+        .cart-content{
+            height: calc(100vh - 380px);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            &.birth_stone{
+                height: calc(100vh - 510px);
+            }
+            .cart-list {
+                width: 100%;
+                li{
+                    a.remove{
+                        position: relative;
+                        right: -22px;
+                        margin-top: -17px;
+                        img{
+                            filter: brightness(0.5);
+                        }
+                    }
+                    display: table;
+                    padding: $margin/5;
+                    width: 100%;
+                    img.product-img {
+                        width: $cart_image_width;
+                        height: $cart_image_height;
+                        float: left;
+                    }
+                    .product-info {
+                        width: calc( 100% - 90px );
+                        margin-left: $margin/ 5;
+                        float: left;
+                        p {
+                            width: 100%;
+                            font-size: 13px;
+                            color: #000000;
+                            margin: 0px;
+                            &.attribute {
+                                font-size: 13px;
+                                color: #2E4676;
+                                opacity: 0.48;
+                                line-height: 21px;
+                            }
+                            &.price {
+                                font-family: 'Montserrat Medium';
+                            }
+                        }
+                    }
+                    .inline_displaying{
+                        display: block;
+                        margin-left: 50px;
+                        margin-top: 10px;
+                        float: left;
+                        clear: both;
+                        .qty{
+                            margin-top: 10px;
+                            .spinner{
+                                position: relative;
+                                display: inline-block;
+                                .min, .plus{
+                                    width: 30px;
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    border: 1px solid #ddd;
+                                    background: #eee;
+                                    font-size: 24px;
+                                    cursor: pointer;
+                                    line-height: 32px;
+                                    text-align: center;
+                                }
+                                .plus{
+                                    right: 0;
+                                    border-left: none
+                                }
+                                .min{
+                                    left: 0%;
+                                    border-right: none;
+                                }
+                                input{
+                                    text-align: center;
+                                    max-width: 40px;
+                                    margin: 0 30px;
+                                    padding: 8px 0;
+                                    border: 1px solid #ddd;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .main_gift_div{
+                        float: left;
+                        display: block;
+                        clear: both;
+                        margin-left: 50px;
+                        .adding_gift{
+                            margin-top: 15px;
+                            font-weight: bold;
+                            font-size: 12px;
+                            cursor: pointer;
+                            width: 100%;
+                            position: relative;
+                            padding-left: 22px;
+                            &:before{
+                                border: 2px solid;
+                                content: "";
+                                height: 18px;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                                width: 18px;
+                            }
+                            &.gifted:after{
+                                content: "";
+                                border: 3px solid #000;
+                                border-left: 0;
+                                border-top: 0;
+                                height: 12px;
+                                left: 6px;
+                                position: absolute;
+                                top: 2px;
+                                transform: rotate(45deg);
+                                transition: opacity 0.2s ease-in-out;
+                                width: 6px;
+                                opacity: 1;
+                            }
+                        }
+                        .view_gift_larger{
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+            .relate-product{
+                position: relative;
+                display: table;
+                width: 100%;
+                padding: $margin*2/5 $margin*3/5;
+                background-color: #D0D9E5;
+                margin: 20px 0px;
+                &:hover{
+                    .add_cart_form .button{
+                        display: block!important;
+                    }
+                }
+                p.desc{
+                    font-size: 13px;
+                    color: #2E4676;
+                    text-align: center;
+                    margin-bottom: $margin/5;
+                    display: table;
+                }
+                img.product-img {
+                    width: $cart_image_width;
+                    height: $cart_image_height;
+                    float: left;
+                }
+                .product-info {
+                    width: calc( 100% - 90px );
+                    margin-left: $margin * 2 / 5;
+                    float: left;
+                    p {
+                        font-size: 13px;
+                        margin: 0px;
+                        &.attribute {
+                            opacity: 0.48;
+                            line-height: 21px;
+                        }
+                        &.price {
+                            font-family: 'Montserrat Medium';
+                        }
+                    }
+                    .add_cart_form{
+                        
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        @include media-query('medium-down'){
+                            display: block;
+                        }
+                        .button{
+                            display: none;
+                            min-width: auto;
+                            &.disabled{
+                                display: none!important;
+                            }
+                        }
+                        .product-alert{
+                            position: absolute;
+                            width: 335px;
+                            right: -16px;
+                            left: auto;
+                            top: 102px;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .cart-form {
+            .sub-total {
+                margin-top: 10px;
+                display: table;
+                width: 100%;
+                p {
+                    font-size: 1.2rem;
+                    font-family: 'Montserrat Medium';
+                    text-transform: uppercase;
+                }
+            }
+            .checkout {
+                a.button{
+                    display: table;
+                    margin-top: 0;
+                }
+                p {
+                    font-style: italic;
+                    font-size: 13px;
+                    margin-bottom: 5px;
+                    margin-top: 15px;
+                    &:last-child{
+                        font-style: normal;
+                    }
+                    a{
+                        color: black;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .best-seller{
+        padding: 20px 10px;
+        margin: 10px 0px;
+        background-color: #D0D9E5;
+        p{
+            font-family: $font-heading;
+        }
+    }
+    .banner{
+        img{
+            width: 100%;
+        }
+        h3{
+            text-align: center;
+            margin-top: -$margin;
+            color: white;
+        }
+    }
+    .heading-title {
+        text-transform: uppercase;
+        @include medium-font ('Montserrat Medium');
+        span.close_btn {
+            filter: brightness(0.5);
+            cursor: pointer;
+            float: right;
+            @include normal-font ('Montserrat Light Italic');
+            font-style: italic;
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 13px;
+            vertical-align: top;
+            line-height: 14px;
+            display: inline-flex;
+            img {
+                margin-top: 0px;
+                margin-right: 5px;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,164 @@
+{% raw %}
+  {% assign swatch_options = '' | downcase | replace: ', ', ',' | split: ","  %}
+  {% assign image_options  = '' | downcase | replace: ', ', ',' | split: ","  %}
+  {% assign text_options   = '' | downcase | replace: ', ', ',' | split: ","  %}
+  {% assign show_selected_variant_info = false %}
+
+  {% assign image_size     = '500x500' %}
+  {% assign images_count   = product.images | size %}
+  {% assign variants_count =  product.variants | size %}
+  {% assign options_count  = product.options | size %}
+
+  {% assign no_image = 'https://cdn.shopify.com/s/images/themes/product-1.png' %}
+
+  {% assign featured_image            = product.featured_image %}
+  {% assign product_price             = bold_price %}
+  {% assign product_compare_at_price  = bold_compare_at_price %}
+  {% assign second_image_index        = 2 %}
+  {% assign selected_or_first_available_variant = product.first_available_variant %}
+
+  {% if show_selected_variant_info and bold_selected_or_first_available_variant %}
+    {% assign selected_or_first_available_variant = bold_selected_or_first_available_variant %}
+    {% include 'bold-variant' with selected_or_first_available_variant, output: 'none' %}
+    {% assign product_price             = selected_or_first_available_variant.price %}
+    {% assign product_compare_at_price  = selected_or_first_available_variant.compare_at_price %}
+    {% if selected_or_first_available_variant.image %}
+      {% assign featured_image  = selected_or_first_available_variant.image %}
+    {% endif %}
+    {% for image in product.images %}
+      {% if image.id == featured_image.id %}
+        {% if forloop.index == images_count %}
+          {% assign second_image_index = 1 %}
+        {% else %}
+          {% assign second_image_index = forloop.index | plus: 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+
+    {% assign collection_handles                = product.collections | map: 'handle' %}
+    {% assign tag_handles                       = product.tags | map: 'tag' %}
+    {% assign shop_currency                     = '{% endraw %}{{shop.currency}}{% raw %}' %}
+    {% assign shop_name                         = '{% endraw %}{{shop.name}}{% raw %}' %}
+
+    {% assign collection_sidebar                = {% endraw %}{{settings.collection_sidebar}}{% raw %} %}
+    {% assign image_loading_style               = '{% endraw %}{{settings.image_loading_style}}{% raw %}' %}
+
+    {% assign collection_secondary_image        = {% endraw %}{{settings.collection_secondary_image}}{% raw %} %}
+    {% assign thumbnail_hover_enabled           = {% endraw %}{{settings.thumbnail_hover_enabled}}{% raw %} %}
+    {% assign quick_shop_enabled                = {% endraw %}{{settings.quick_shop_enabled}}{% raw %} %}
+    {% assign sale_banner_enabled               = {% endraw %}{{settings.sale_banner_enabled}}{% raw %} %}
+    {% assign enable_shopify_collection_badges  = {% endraw %}{{settings.enable_shopify_collection_badges}}{% raw %} %}
+    {% assign display_vendor_collection         = {% endraw %}{{settings.display_vendor_collection}}{% raw %} %}
+    {% assign description_words                 = {% endraw %}{{settings.description_words}}{% raw %} %}
+    {% assign free_price_text                   = '{% endraw %}{{settings.free_price_text}}{% raw %}' %}
+    {% assign product_form_style                = '{% endraw %}{{settings.product_form_style}}{% raw %}' %}
+    {% assign limit_quantity                    = {% endraw %}{{settings.limit_quantity}}{% raw %} %}
+    {% assign display_inventory_left            = {% endraw %}{{settings.display_inventory_left}}{% raw %} %}
+    {% assign cart_action                       = '{% endraw %}{{settings.cart_action}}{% raw %}' %}
+    {% assign inventory_threshold               = '{% endraw %}{{settings.inventory_threshold}}{% raw %}' %}
+    {% assign collection_swatches               = {% endraw %}{{settings.collection_swatches}}{% raw %} %}
+
+    {% assign sale                        = '{% endraw %}{{ 'collections.general.sale' | t }}{% raw %}' %}
+    {% assign sold_out                    = '{% endraw %}{{ 'products.product.sold_out' | t }}{% raw %}' %}
+    {% assign new                         = '{% endraw %}{{ 'collections.general.new' | t }}{% raw %}' %}
+    {% assign from                        = '{% endraw %}{{ 'products.general.from' | t }}{% raw %}' %}
+    {% assign coming_soon                 = '{% endraw %}{{ 'collections.general.coming_soon' | t }}{% raw %}' %}
+    {% assign pre_order                   = '{% endraw %}{{ 'collections.general.pre_order' | t }}{% raw %}' %}
+    {% assign quick_shop                  = '{% endraw %}{{ 'collections.general.quick_shop' | t }}{% raw %}' %}
+    {% assign view_product_details_html   = '{% endraw %}{{ 'collections.general.view_product_details_html' | t }}{% raw %}' %}
+
+    {% assign items_left_count_one        = '{% endraw %}{{ 'products.product.items_left_count.one' | t }}{% raw %}' %}
+    {% assign items_left_count_other      = '{% endraw %}{{ 'products.product.items_left_count.other' | t }}{% raw %}' %}
+    {% assign quantity                    = '{% endraw %}{{ 'products.product.quantity' | t }}{% raw %}' %}
+    {% assign add_to_cart                 = '{% endraw %}{{ 'products.product.add_to_cart' | t }}{% raw %}' %}
+
+    <div class="grid__item two-eighths medium-down--one-half small--one-half thumbnail" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+      <div class="product-wrap">
+        <div class="relative product_image swap-{{ collection_secondary_image }}">
+          <a href="{{ product.url }}" itemprop="url">
+            <div class="image__container">
+              <div class="image-element__wrap">
+                <img
+                  class="gflazyload"
+                  src="{{featured_image.src | img_url: image_size}}"
+                  data-src="{{featured_image.src | img_lazyload_url}}"
+                  data-sizes="auto"
+                  data-aspectratio="{{featured_image.aspect_ratio}}"
+                  data-parent-fit="contain"
+                  alt="{{featured_image.alt | escape}}"
+                  />
+              </div>
+            </div>
+          </a>
+          <div class="banner_holder">
+              {% if product_compare_at_price > product_price %}<div translatable class="sale_banner thumbnail_banner">on sale</div>{% endif %}
+              {% if collection_handles contains 'just-landed' %}<div translatable class="new_banner thumbnail_banner">new</div>{% endif %}
+              {% if collection_handles contains 'coming-soon' %}<div translatable class="new_banner thumbnail_banner">coming soon</div>{% endif %}
+              {% if collection_handles contains 'pre-order' %}<div translatable class="new_banner thumbnail_banner">pre order</div>{% endif %}
+              {% if product.tags contains 'deal' %}<div translatable class="deal_banner thumbnail_banner">deal</div>{% endif %}
+              {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">not on promotion</div>{% endif %}
+          </div>
+        </div>
+        <a class="product-info__caption {% if thumbnail_hover_enabled %}hidden{% endif %}" href="{{ product.url }}" itemprop="url">
+          <div class="product-details">
+            <p class="text-center title" translatable itemprop="name"><span>{{ product.title | truncate: 50, '...' }}</span></p>
+            {% if enable_shopify_collection_badges %}<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>{% endif %}
+            {% if display_vendor_collection %}<span itemprop="brand" class="brand">{{ product.vendor }}</span>{% endif %}
+            {% unless collection_handles contains 'coming-soon' %}
+              <span translatable class="price {% if product_compare_at_price > product_price %}sale{% endif %}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="price" content="{{ product_price | money_without_currency }}" />
+                <meta itemprop="priceCurrency" content="{% endraw %}{{ shop_currency }}{% raw %}" />
+                <meta itemprop="seller" content="{% endraw %}{{ shop_name | escape }}{% raw %}" />
+                <meta itemprop="availability" content="{% if product.available %}in_stock{% else %}out_of_stock{% endif %}" />
+                <meta itemprop="itemCondition" content="New" />
+                {% if product.available %}
+                  <div class="review-sec">
+                    <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
+                  </div>
+                  {% if product.price_min > 0 %}
+                    <h4 class="text-center">{{ product.price_min | money }}</h4>
+                  {% else %}
+                    {{ free_price_text }}
+                  {% endif %}
+                {% else %}
+                  <h4 class="sold_out">{{ sold_out }}</h4>
+                {% endif %}
+                {% if product_compare_at_price > product_price %}
+                  <del class="was_price">{{ product_compare_at_price | money }}</del>
+                {% endif %}
+
+              </span>
+            {% endunless %}
+          </div>
+        </a>
+      </div>
+      {% if collection_swatches %}
+        {% assign file_extension = 'png' %}
+        {% for option in product.options %}
+          {% assign downcased_option = option.name | downcase %}
+          {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+            {% assign option_index = forloop.index0 %}
+            {% assign optionIndex = "option" | append: forloop.index %}
+            {% assign values = '' %}
+            <div class="collection_swatches">
+              {% for variant in product.variants %}
+                {% include 'bold-variant' with variant, hide_action: 'skip' %}
+                {% assign value = variant[optionIndex] %}
+                {% unless values contains value %}
+                  {% assign values = values | join: ',' %}
+                  {% assign values = values | append: ',' | append: value %}
+                  {% assign values = values | split: ',' %}
+                  <a href="{{ variant.url | within: collection }}" class="swatch" data-swatch-name="meta-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}">
+                    <span data-image="{% if variant.image.src %}{{ variant.image.src | img_url: '500x' }}{% else %}{{ featured_image.src | img_url: '500x' }}{% endif %}" style="background-image: url({{ value | handle | append: '.' | append: file_extension | asset_img_url: '50x' | prepend: 'https:' }}); background-color: {{ value | split: ' ' | last | handle }};"></span>
+                  </a>
+                {% endunless %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+{% endraw %}

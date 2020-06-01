@@ -1,0 +1,45 @@
+{% if product.metafields["global"]["first-banner-title"] != blank and  product.metafields['global']['first-banner-image'] != blank %}
+  <div class="image-with-text__image grid__item nine-twelfths medium-down--one-whole right">
+    {% if product.metafields['global']['first-banner-image'] != blank %}
+      <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: product.metafields['global']['first-banner-image'] %}"></div>
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+
+  <div class="image-with-text__text grid__item three-twelfths medium-down--one-whole left">
+    <div class="caption_content">
+      {% if product.metafields["global"]["first-banner-title"] != blank %}
+        <h3>{{ product.metafields["global"]["first-banner-title"] }}</h3>
+        <div class="devider"></div>
+      {% endif %}
+
+      {% if product.metafields["global"]["first-banner-content"] != blank %}
+        {{ product.metafields["global"]["first-banner-content"] }}
+      {% endif %}
+    </div>
+  </div>
+{% else %}
+      <div class="image-with-text__image grid__item nine-twelfths medium-down--one-whole right">
+        {% if block.settings.image_1 != blank %}
+          <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: block.settings.image_1 %}"></div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__text grid__item three-twelfths medium-down--one-whole left">
+        <div class="caption_content">
+          {% if block.settings.title != blank %}
+            <h3>{{ block.settings.title }}</h3>
+            {% if block.settings.divider_status %}
+              <div class="devider"></div>
+            {% endif %}
+          {% endif %}
+
+          {% if block.settings.desc != blank %}
+            {{ block.settings.desc }}
+          {% endif %}
+        </div>
+      </div>
+{% endif %}

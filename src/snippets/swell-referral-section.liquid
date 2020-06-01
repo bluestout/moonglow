@@ -1,0 +1,42 @@
+<div class="swell-referral-section {% if customer %} swell-logged-in-refer {% endif %}">
+    <div class="swell-referral-loader">
+      <img class="big-spinner" src="{{'swell-loader.svg' | asset_url }}" alt ="spinner">
+    </div>
+    
+    <div class="swell-referral-section-container" style="display: none;">
+      <div class="swell-referral">
+      </div>
+      {% if customer %}
+      <div class="redeem-holder">
+        <div class="check-reward-balance"> 
+          <a class="check-reward-balance-heading" href="/pages/rewards">Check rewards balance</a> 
+        </div>
+        <div class="refer-details">
+          <div class="swell-section-content">
+            <div class="swell-section-heading">
+              <h2 class="heading">Your Referrals</h2>
+            </div>
+            <div class="table-wrapper">
+              <table class="swell-referral-table">
+                <thead>
+                  <tr class="swell-table-row">
+                    <th class="swell-th">Email</th>
+                    <th class="swell-th">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="table-data swell-referral-activity">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="heading-area">
+          <div class="heading-holder">
+            <h4 class="heading">How Do I Redeem My Moon Points?</h4>
+          </div>
+          <p class="heading-text">Now, the fun part! Simply redeem your Moon Points directly at checkout.</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>

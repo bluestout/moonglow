@@ -1,0 +1,159 @@
+.button{
+  display: table;
+  text-decoration: none!important;
+  width: 100%;
+  padding: $padding / 5;
+  margin-top: $padding * 2 / 5;
+  font-family: 'Montserrat SemiBold';
+  font-size: $btn_font_size;
+  font-weight: $btn_font_weight;
+  letter-spacing: $btn_letter_spacing;
+  line-height: $btn_line_height;
+  text-align: center;
+  border: $btn_border_width solid;
+  border-color: $btn_border_color;
+  border-radius: $btn_border_radius;
+  background-color: $btn_color;
+  color: $btn_text_color;
+  margin-bottom: $margin / 5;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover{
+    color: $btn_text_color;
+    background-color: $btn_hover_color;
+    border-color: $btn_hover_color;
+  }
+  &.disabled{
+    opacity: 0.4;&:hover{
+      background-color: $btn_color;
+    }
+  }
+  &.grey{
+      background-color: $btn_color_grey;
+      border-color: $btn_border_color_grey;
+      width: 270px;
+      padding: $padding / 5;
+      margin: auto;
+      display: table;
+      color: $btn_grey_text_color;
+      &:hover{
+        background-color: $btn_grey_hover_color;
+        border-color: $btn_grey_hover_color;
+        color: $btn_grey_text_color!important;
+    }
+  }
+  &.white{
+    margin: auto;
+    border-color: $btn_border_color_white;
+    background: $btn_color_white;
+    color: $btn_white_text_color;
+    &:hover{
+        background-color: $btn_white_hover_color;
+        color: $btn_white_text_color!important;
+    }
+  }
+  &.load_more_btn{
+    background-color: $btn_load_more_color;
+    color: $btn_load_more_font_color;
+    border:none;
+    padding: $padding / 5;
+    margin-top: $margin * 3 / 5;
+  }
+  &.small{
+    min-width: 200px;
+    display: table;
+    width: auto;
+  }
+  &.large{
+    padding: $padding * 2 / 5;
+  }
+}
+
+button .checkmark {
+  display: none;
+  margin: auto;
+  path {
+    stroke-dasharray: 19.79 19.79;
+    stroke-dashoffset: 19.79;
+    stroke: white;
+    opacity: 0;
+  }
+  &.checkmark-active path {
+    -webkit-animation: drawCheckmark 0.5s linear alternate forwards;
+    animation: drawCheckmark 0.5s linear alternate forwards;
+  }
+}
+
+@keyframes drawCheckmark {
+  from {
+    stroke-dashoffset: 19.79;
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes drawCheckmark {
+  from {
+    stroke-dashoffset: 19.79;
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.ie
+button
+.checkmark {
+  path {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  &.checkmark-active path{
+    -webkit-animation: fadeCheckmark 0.5s linear alternate forwards;
+    animation: fadeCheckmark 0.5s linear alternate forwards;
+  }
+}
+
+@-webkit-keyframes fadeCheckmark {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeCheckmark {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  button
+  .checkmark {
+    path {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+    &.checkmark-active path{
+      animation: fadeCheckmark 0.5s linear alternate forwards;
+    }
+  }
+  @keyframes fadeCheckmark {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

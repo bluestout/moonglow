@@ -1,0 +1,40 @@
+
+
+{% for block in section.blocks %}
+    {% if block.type == 'icon_block' %}
+        <div id="rewards-page-campaigns-region">
+            <div class="first">
+                <section class="title-bar-block fluid-display" style="background-color : {{ block.settings.bg_color }}">
+                    <h2 class="text-center" id="guest_earn_header" style="color: {{ block.settings.title_color }}">{{ block.settings.title }} </h2>
+                <h4 class="title text-center uppercase" id="guest_earn_subtitle" style="color: {{ block.settings.sub_title_color }}">{{ block.settings.sub_title }}</p>
+                </section>
+                <div class="main-block earn-section rewards-page-campaigns-section-image rewards-page-campaigns-section-color">
+                    <div class="container">
+                        <div class="row">
+                            <div id="rp-campaigns-region">
+                                <div class="rewards-page-preloader" style="padding: 15px; text-align: center; overflow: hidden; font-size: 30px;">
+                                    <div>
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="refer-block hide">
+                <section class="title-bar-block fluid-display"  style="background-color : {{ block.settings.bg_color_2 }}">
+                    <h2 class="text-center" id="guest_earn_header" style="color: {{ block.settings.title_color_2 }}">{{ block.settings.title_2 }}</h2>
+                    <h4 class="title text-center uppercase" id="guest_earn_subtitle" style="color: {{ block.settings.sub_title_color_2 }}">{{ block.settings.sub_title_2 }}</h4>
+                    {% if customer %}
+                        <a href="/pages/refer" class="button small center"> Start referring here </a>
+                    {% else %}
+                        <a href="/account/login?checkout_url=https://f1xcwgdpjqfownsq-24863224.shopifypreview.com/pages/refer" class="button small center"> Start referring here </a>
+                    {% endif %}
+                     
+                </section>
+                <div class="main-block earn-section rewards-page-campaigns-section-image rewards-page-campaigns-section-color"></div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

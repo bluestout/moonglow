@@ -1,0 +1,52 @@
+<section>
+    <div class ="container">
+      {% if customer %}
+          <div class ="wishlist_product_data">
+            <h3 class="page_title">My Wishlist</h3>
+            <div class="devider"></div>
+            <div class ="data_response grid product-wrap">
+            </div>
+          </div>
+          <div class='wish_product_clone hide'>
+
+            <div class='grid__item medium-down--one-third one-quarter small--one-half product_me'>
+              <div class="prouduct margin_t">
+                <div class ="remove_div">
+                  <a class='remove_wish' data-customer-id ="{{ customer.id }}" data-customer-email = "{{customer.email}}">&times;</a>
+                </div>
+                <a  href="{{ product.url }}" class="image-wrap image_one">
+                  {%- assign src_name = product.featured_image -%}
+                  {%- assign src_alt = product.title -%}
+                  {%-  include 'srcset' -%}
+                </a> 
+                <div class="content text-left">
+                  <a class="h7 prod-heading">{{product.title}}</a>
+                  <div class ="price_inline">
+                    <div class="price-wrap">
+                      <p class="price h7" tabindex="0" title="{{product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}">{% assign geolizr_price = product.price  %}{% include 'geolizr-currency' with geolizr_price %}{{product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}</p>               
+                      <del>
+                      </del>
+                    </div>
+                  </div>  
+                  <div class="review-sec">
+                    <div class="yotpo bottomLine" >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class ="null_wish_list hide">
+            <p tabindex="0" title="Browse our collections to add items to your wish list">Browse our collections to add items to your Wishlist</p>
+            <a class=" button assure shop_wish" href="https://www.moonglow.com/collections/all" tabindex="0" title="shop your button">Shop Your Moon</a>
+          </div>
+      {% else %}
+          <div class ="wishlist_popup_login">
+            <div class ="title_wishlist">
+              Login to view your wishlist
+            </div>
+            <a class=" btn assure wishlist_page" href="/account/login?checkout_url={{shop.url}}/pages/my-wishlist">LOG IN</a>
+          </div>
+      {% endif %}
+    </div>
+  </section>

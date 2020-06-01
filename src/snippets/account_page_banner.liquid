@@ -1,0 +1,41 @@
+{% if paeg.image %}
+    {% assign image = page.image %}
+{%- elsif section.settings.default_banner -%}
+    {% assign image = section.settings.default_banner %}
+{% endif %}
+
+{% if paeg.title != 'blank' %}
+    {% assign title = 'customer.account.title' | t %}
+{%- elsif section.settings.title -%}
+    {% assign title = section.settings.title %}
+{% endif %}
+
+{% style %}
+    .account_page_banner{
+    background: url({{ image | img_url: '2000x' }}) no-repeat 50% 50% / cover;
+    }
+    .headline{
+        color: {{ section.settings.title_color }}
+    }
+{% endstyle %}
+
+<header class="account_page_banner">
+    <div class="caption captionOverlay--true">
+        <h2 class="mark">{{ title }}</h2>
+    </div>
+    <div class="icon-links">
+        {% for block in section.blocks %}
+            {% if block.type == 'icon_link' %}
+                <div class="grid__item one-third">
+                    <div>
+                        <img src="{{ block.settings.icon | img_url: 'original' }}">
+                        <p>{{ block.settings.title }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</header>
+
+
+

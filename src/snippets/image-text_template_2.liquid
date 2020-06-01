@@ -1,0 +1,65 @@
+
+{% if product.metafields["global"]["second-banner-title"] != blank and product.metafields["global"]["second-banner-image-two"] != blank and product.metafields["global"]["second-banner-image-one"] != blank %}
+  <div class="image-with-text__image grid__item three-eighths medium-down--one-half left">
+    {% if block.settings.image_1 != blank %}
+    <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: product.metafields["global"]["second-banner-image-one"] %}"></div>
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+
+  <div class="image-with-text__image grid__item three-eighths medium-down--one-half right">
+    {% if block.settings.image_2 != blank %}
+    <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: product.metafields["global"]["second-banner-image-two"] %}"></div>
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+
+  <div class="image-with-text__text grid__item two-eighths medium-down--one-whole left">
+    <div class="caption_content">
+      <div class="info">
+        <img src="{{ block.settings.icon | img_url: 'original' }}" alt="{{ product.metafields["global"]["second-banner-title"] | escape }}">
+        {% if product.metafields["global"]["second-banner-title"] != blank %}
+          <p><strong>{{ product.metafields["global"]["second-banner-title"] }}</strong></p>
+        {% endif %}
+        {% if product.metafields["global"]["second-banner-content"] != blank %}
+          <div class="left">{{ product.metafields["global"]["second-banner-content"] }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% else %}
+      <div class="image-with-text__image grid__item three-eighths medium-down--one-half left">
+        {% if block.settings.image_1 != blank %}
+        <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: block.settings.image_1 %}"></div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__image grid__item three-eighths medium-down--one-half right">
+        {% if block.settings.image_2 != blank %}
+        <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: block.settings.image_2 %}"></div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__text grid__item two-eighths medium-down--one-whole left">
+        <div class="caption_content">
+          <div class="info">
+            <img src="{{ block.settings.icon | img_url: 'original' }}" alt="{{ block.settings.title | escape }}">
+            {% if block.settings.title != blank %}
+              <p><strong>{{ block.settings.title }}</strong></p>
+            {% endif %}
+            {% if block.settings.divider_status %}
+                <div class="devider"></div>
+            {% endif %}
+            {% if block.settings.desc != blank %}
+              <div class="left">{{ block.settings.desc }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+{% endif %}

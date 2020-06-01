@@ -1,0 +1,391 @@
+/*!
+ * hoverIntent v1.9.0 // 2017.09.01 // jQuery v1.7.0+
+ * http://briancherne.github.io/jquery-hoverIntent/
+ *
+ * You may use hoverIntent under the terms of the MIT license. Basically that
+ * means you are free to use hoverIntent as long as this header is left intact.
+ * Copyright 2007-2017 Brian Cherne
+ */
+!function(factory){"use strict";"function"==typeof define&&define.amd?define(["jquery"],factory):jQuery&&!jQuery.fn.hoverIntent&&factory(jQuery)}(function($){"use strict";var cX,cY,_cfg={interval:100,sensitivity:6,timeout:0},INSTANCE_COUNT=0,track=function(ev){cX=ev.pageX,cY=ev.pageY},compare=function(ev,$el,s,cfg){if(Math.sqrt((s.pX-cX)*(s.pX-cX)+(s.pY-cY)*(s.pY-cY))<cfg.sensitivity)return $el.off(s.event,track),delete s.timeoutId,s.isActive=!0,ev.pageX=cX,ev.pageY=cY,delete s.pX,delete s.pY,cfg.over.apply($el[0],[ev]);s.pX=cX,s.pY=cY,s.timeoutId=setTimeout(function(){compare(ev,$el,s,cfg)},cfg.interval)},delay=function(ev,$el,s,out){return delete $el.data("hoverIntent")[s.id],out.apply($el[0],[ev])};$.fn.hoverIntent=function(handlerIn,handlerOut,selector){var instanceId=INSTANCE_COUNT++,cfg=$.extend({},_cfg);$.isPlainObject(handlerIn)?(cfg=$.extend(cfg,handlerIn),$.isFunction(cfg.out)||(cfg.out=cfg.over)):cfg=$.isFunction(handlerOut)?$.extend(cfg,{over:handlerIn,out:handlerOut,selector:selector}):$.extend(cfg,{over:handlerIn,out:handlerIn,selector:handlerOut});var handleHover=function(e){var ev=$.extend({},e),$el=$(this),hoverIntentData=$el.data("hoverIntent");hoverIntentData||$el.data("hoverIntent",hoverIntentData={});var state=hoverIntentData[instanceId];state||(hoverIntentData[instanceId]=state={id:instanceId}),state.timeoutId&&(state.timeoutId=clearTimeout(state.timeoutId));var mousemove=state.event="mousemove.hoverIntent.hoverIntent"+instanceId;if("mouseenter"===e.type){if(state.isActive)return;state.pX=ev.pageX,state.pY=ev.pageY,$el.off(mousemove,track).on(mousemove,track),state.timeoutId=setTimeout(function(){compare(ev,$el,state,cfg)},cfg.interval)}else{if(!state.isActive)return;$el.off(mousemove,track),state.timeoutId=setTimeout(function(){delay(ev,$el,state,cfg.out)},cfg.timeout)}};return this.on({"mouseenter.hoverIntent":handleHover,"mouseleave.hoverIntent":handleHover},cfg.selector)}});
+(function() {
+  $(document).on("swell:initialized", function() {
+    if($('.main-content.index_no_margin').length>0){
+      $('.main-content.index_no_margin').append('<div class="swell-campaign-index-section"> <div class="swell-campaign-index-holder"> <ul class="swell-campaign-index-list"> <li class="swell-campaign"> <div class="swell-campaign-content swell-campaign-link add-hover-index" onclick="location.href = \'/pages/rewards\'" style="cursor:pointer;"> <div class="swell-campaign-icon"> <span class="swell-campaign-icon-content"> <i class="swell-icon-Fb"></i> </span> </div> <div class="swell-campaign-type"> <span class="swell-campaign-type-content">Earn 10 Moon Points</span> </div> <div class="swell-campaign-value"> <span class="swell-campaign-value-content">Follow on Facebook</span> </div> </div> </li><li class="swell-campaign"> <div class="swell-campaign-content swell-campaign-link add-hover-index" onclick="location.href = \'/pages/rewards\'" style="cursor:pointer;"> <div class="swell-campaign-icon"> <span class="swell-campaign-icon-content"> <i class="swell-icon-share"></i> </span> </div> <div class="swell-campaign-type"> <span class="swell-campaign-type-content">Earn 15 Moon Points</span> </div> <div class="swell-campaign-value"> <span class="swell-campaign-value-content">Share on Facebook</span> </div> </div> </li> <li class="swell-campaign"> <div class="swell-campaign-content swell-campaign-link add-hover-index" onclick="location.href = \'/pages/rewards\'" style="cursor:pointer;"> <div class="swell-campaign-icon"> <span class="swell-campaign-icon-content"> <i class="swell-icon-Instagram"></i> </span> </div> <div class="swell-campaign-type"> <span class="swell-campaign-type-content">Earn 15 Moon Points</span> </div> <div class="swell-campaign-value"> <span class="swell-campaign-value-content">Follow on Instagram</span> </div> </div> </li></ul> </div> </div>');
+    }
+    SwellConfig.Redemption.initializeProductRedemptions(".swell-free-product-list");
+  });
+  $(document).on("swell:setup", function() {
+    SwellConfig.CartRedemption.addFreeProduct();
+    if(typeof $.fn.slick == 'function'){
+      SwellConfig.Redemption.applySlickSlider(".swell-free-product-list");
+      $(".swell-free-product-list-container").show();
+      $(".swell-free-product-list").slick('refresh');
+    }
+    Swell.Campaign.initializeCampaigns(".swell-campaign-list", SwellConfig.Campaign.opts);
+    SwellConfig.Campaign.authenticate();
+    $(".swell-campaign:nth-child(5)").after($(".swell-campaign.swell-campaign-refer").detach().show());
+
+    Swell.Referral.initializeReferral(".swell-referral", SwellConfig.Referral.opts);
+    $(".swell-referral-section-container").show();
+    $(".swell-post-checkout").show();
+    if(spapi.authenticated) {
+      SwellConfig.Referral.populateReferrals('.swell-referral-activity');
+    }
+    if(spapi.activeVipTiers.length === 1){
+      SwellConfig.Tier.initializeDummyTier();
+    }
+    SwellConfig.Tier.initializeTiers();
+
+    $(".swell-post-checkout .swell-referral-back-link").click(function() {
+      $(".swell-post-checkout").hide();
+    });
+    SwellConfig.Redemption.activateProductRedemption();
+    $(".big-spinner").hide();
+  });
+
+  $(document).ready(function(){
+    $(document).on("swell:referral:error", function(jqXHR, textStatus, errorThrown) {
+      if(textStatus && textStatus === "EMAILS_ALREADY_PURCHASED"){
+        $(".refer-customer-error").remove();
+        $(".swell-referral-form-body").prepend('<p class="refer-customer-error">Sorry! Looks like this person has already made a purchase. Try referring another friend.</p>');
+      }
+
+      if(textStatus && textStatus === "Please enter a valid email address"){
+        $(".refer-customer-error").remove();
+        $(".swell-referral-form-body").prepend('<p class="refer-customer-error">Please enter valid email addresses seperated with commas</p>');
+      }
+    });
+
+    $(document).on("swell:referral:success", function(){
+      if(spapi.authenticated) {
+        swellAPI.refreshCustomerDetails(function(){
+          SwellConfig.Referral.populateReferrals('.swell-referral-activity');
+        });
+      }
+    });
+   SwellConfig.Link.initializeLinks(".swell-btn-sign-in, .swell-btn-join, .swell-link .swell-link-login, .swell-link .swell-link-register");
+   return SwellConfig.LocalStorage.initializeLocalStorage();
+   debugger;
+  $('.swell-redemption-product.slick-slide.slick-current.slick-active').removeAttr('role aria-describedby aria-hidden');
+  $('.swell-redemption-product.slick-slide.slick-active').removeAttr('role aria-describedby aria-hidden');
+  $('.swell-redemption-product.slick-slide.slick-cloned').removeAttr('role aria-describedby aria-hidden');
+  });
+
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.Campaign = {
+    opts: {
+      templates: {
+        campaign: '<li class="swell-campaign"> <div class="swell-campaign-content add-hover" data-display-mode="modal" data-campaign-id="<%= campaign.id %>"> <div class="swell-campaign-icon"> <span class="swell-campaign-icon-content"> <i class="<%= campaign.icon %>"></i> </span> </div> <div class="swell-campaign-type"> <span class="swell-campaign-type-content"><%= campaign.reward_text %></span> </div> <div class="swell-campaign-value"> <span class="swell-campaign-value-content"><%= campaign.title %></span> </div> </div> </li>',
+        campaignHover: "<div class=\"swell-campaign-hover\">\n  <div class=\"swell-campaign-hover-content\">\n    <ul class=\"swell-link-list\">\n      <li class=\"swell-link\">\n        <a href=\"/account/login\" class=\"swell-link-login\">Sign In</a>\n      </li>\n      <li class=\"swell-link\">\n        <a href=\"/account/register\" class=\"swell-link-register\">Sign Up</a>\n      </li>\n    </ul>\n  </div>\n</div>"
+      }
+    },
+    authenticate: function() {
+      if (!spapi.authenticated) {
+        spapi.$(document).off("click", ".swell-campaign-content");
+        $(".swell-campaign").addClass("swell-campaign-login");
+        return $(".swell-campaign-content.add-hover").hover(function() {
+          return $(this).append(SwellConfig.Campaign.opts.templates.campaignHover);
+        }, function() {
+          return $(this).find(".swell-campaign-hover").remove();
+        });
+      } else {
+        $(".swell-campaign-content.add-hover").css('cursor', 'pointer');
+      }
+    }
+  };
+
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.Referral = {
+    opts: {
+      localization: {
+        referralRegisterHeading: "Give <%= referralCampaign.reward_text %>, Get <%= referralCampaign.reward_text %>",
+        referralRegisterDetails: "<%= referralCampaign.details %>",
+        referralRegisterFormEmail: "Submit your email to get started",
+        referralRegisterFormSubmit: '<i class="swell-referral-form-list-submit-icon swell-icon-moon"><span class="path1"></span> <span class="path2"></span></i>',
+
+        referralReferHeading: "Give <%= referralCampaign.reward_text %>, Get <%= referralCampaign.reward_text %>",
+        referralReferDetails: "<%= referralCampaign.details %>",
+        referralReferFormEmails: "your friends' emails (separated by commas)",
+        referralReferFormSubmit: '<i class="swell-referral-form-list-submit-icon swell-icon-moon"><span class="path1"></span> <span class="path2"></span></i>',
+
+        referralReferMediaDetails: "You can also share your link with the buttons below",
+
+        referralShareSMS: "SMS",
+        referralShareFacebook: "Share",
+        referralShareTwitter: "Twitter",
+        referralShareMessage: "Message",
+        referralShareCopy: "Copy Link",
+
+        referralSMSIcon: "swell-icon-sms",
+        referralFacebookIcon: "swell-icon-share",
+        referralMessageIcon: "swell-icon-Message",
+        referralLinkIcon: "swell-icon-Copy-link",
+
+        referralThanksHeading: "Thanks for Referring!",
+        referralThanksDetails: "Remind your friends to check their emails.",
+
+        referralCopyHeading: "",
+        referralCopyButton: "Copy Link",
+        referralCopyDetails: "Copy link and share with your friends."
+      },
+      templates: {
+        referralRefer: '<h2 class="heading">Thank You for shopping here</h2> <div class="swell-referral-refer"> <span class="swell-referral-heading-refer">Refer a friend</span> <h2 class="swell-referral-heading"><%= localization.referralReferHeading %></h2> <p class="swell-referral-details"><%= localization.referralReferDetails %></p> <div class="swell-referral-form-wrapper"> <form class="swell-referral-form" name="swell-referral-refer-form" id="swell-referral-refer-form" method="POST" action="."> <div class="swell-referral-form-body"> <ul class="swell-referral-form-list"> <li class="swell-referral-form-list-field"> <input class="swell-referral-form-list-field-input" type="text" name="swell-referral-refer-emails" id="swell-referral-refer-emails" swellrequired="swellrequired" placeholder="<%= localization.referralReferFormEmails %>"> <input class="swell-referral-form-list-submit" type="submit" name="swell-referral-refer-submit" id="swell-referral-refer-submit">  </li> </ul> </div> </form> </div> <div class="swell-referral-media-wrapper"> <p class="swell-referral-media-details"><%= localization.referralReferMediaDetails %></p> <ul class="swell-referral-media-list"> <li class="swell-referral-medium swell-share-referral-facebook"> <div class="swell-referral-medium-content"> <i class="swell-referral-media-icon <%= localization.referralFacebookIcon %>" aria-hidden="true"></i>&nbsp;<%= localization.referralShareFacebook %> </div> </li>  <li class="swell-referral-medium swell-share-referral-twitter"> <div class="swell-referral-medium-content"> <i class="swell-referral-media-icon fa fa-twitter" aria-hidden="true"></i>&nbsp;<%= localization.referralShareTwitter %> </div> </li> <li class="swell-referral-medium swell-share-referral-sms swell-mobile"> <div class="swell-referral-medium-content"> <i class="swell-referral-media-icon <%= localization.referralSMSIcon %>" aria-hidden="true"></i>&nbsp;<%= localization.referralShareSMS %> </div> </li> <li class="swell-referral-medium swell-share-referral-messenger"> <div class="swell-referral-medium-content"> <i class="swell-referral-media-icon <%= localization.referralMessageIcon %>" aria-hidden="true"></i>&nbsp;<%= localization.referralShareMessage %> </div> </li> <li class="swell-referral-medium swell-share-referral-copy"> <div class="swell-referral-medium-content"> <i class="swell-referral-media-icon <%= localization.referralLinkIcon %>" aria-hidden="true"></i>&nbsp;<%= localization.referralShareCopy %> </div> </li> </ul> </div> </div>',
+        referralRegister: '<div class="swell-referral-content-container"> <div class="swell-referral-content-main"> <div class="swell-referral-register"> <span class="swell-referral-heading-refer">Refer a friend</span> <h2 class="swell-referral-heading"><%= localization.referralRegisterHeading %></h2> <p class="swell-referral-details"><%= localization.referralRegisterDetails %></p> <div class="swell-referral-form-wrapper"> <form name="swell-referral-register-form" id="swell-referral-register-form" method="POST" action="."> <div class="swell-referral-form-body"> <ul class="swell-referral-form-list"> <li class="swell-referral-form-list-field"> <input class="swell-referral-form-list-field-input" type="email" name="swell-referral-register-email" id="swell-referral-register-email" swellrequired="swellrequired" placeholder="<%= localization.referralRegisterFormEmail %>"> <input class="swell-referral-form-list-submit" type="submit" name="swell-referral-register-submit" id="swell-referral-register-submit"> </li> </ul> </div> </form> </div> </div> </div> </div>'
+      }
+    },
+    populateReferrals: function(containerSelector) {
+      $(containerSelector).html("");
+      referral_receipts = spapi.customer.referral_receipts;
+      if (referral_receipts.length != 0) {
+        $.each(referral_receipts, function(index, referral_receipt) {
+          status = "Invited";
+          if (referral_receipt.completed_at != null){
+            status =  "<span>Purchased</span>"+" ("+spapi.activeReferralCampaign.reward_text + " earned" +")";
+          }
+          $(containerSelector).append("<tr class='swell-table-row'><td class='swell-td swell-trurncate'>"+ referral_receipt.email+ "</td><td class='swell-td'>" + status + "</td></tr>");
+        });
+      }
+    }
+  };
+
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.Tier = {
+    getCustomerTierRank: function() {
+      var customer_tier, intro_tier, rank, tiers;
+      customer_tier = spapi.customer.vip_tier;
+      tiers = spapi.activeVipTiers;
+      if (customer_tier && customer_tier.id) {
+        rank = $.grep(tiers, function(e) {
+          return e.id === customer_tier.id;
+        })[0].rank;
+        return rank;
+      } else {
+        intro_tier = $.grep(tiers, function(e) {
+          return e.swellrequiredAmountSpent === "$0" && e.swellrequiredAmountSpentCents === 0 && e.swellrequiredPointsEarned === 0 && e.swellrequiredPurchasesMade === 0 && e.swellrequiredReferralsCompleted === 0;
+        });
+        if (intro_tier.length > 0) {
+          return intro_tier[0].rank;
+        } else {
+          return null;
+        }
+      }
+    },
+    getTierByRank: function(rank) {
+      var tiers;
+      tiers = spapi.activeVipTiers;
+      return $.grep(tiers, function(e) {
+        return e.rank === rank;
+      })[0];
+    },
+    setupCustomerTierStatus: function() {
+
+      var customer_tier_rank = SwellConfig.Tier.getCustomerTierRank();
+      if(customer_tier_rank || customer_tier_rank === 0){
+        var next_tier = SwellConfig.Tier.getTierByRank(customer_tier_rank + 1);
+        var encourgement = "";
+        if (customer_tier_rank == 0) {
+          $(".swell-vip-tier-list-vega .swell-vip-tier-first-list").prepend("<span class='swell-current-status'>Current Status</span>");
+          encourgement = "Your current status is <span class='bold'>" + SwellConfig.Tier.getTierByRank(customer_tier_rank).name + "</span>, Spend $" + (next_tier.amount_spent_cents - spapi.customer.vip_tier_stats.amount_spent_cents)/100 + " more for Luna Status.";
+        } else {
+          $(".swell-vip-tier-list-luna .swell-vip-tier-first-list").prepend("<span class='swell-current-status'>Current Status</span>");
+          encourgement = "Your current status is <span class='bold'>" + SwellConfig.Tier.getTierByRank(customer_tier_rank).name + "</span>."
+        }
+
+      }else{
+        encourgement = "Spend $" + (SwellConfig.Tier.getTierByRank(0).amount_spent_cents - spapi.customer.vip_tier_stats.amount_spent_cents)/100 + " more for "+SwellConfig.Tier.getTierByRank(0).name+" Status.";
+      }
+
+      $(".vip-tier-encourgement").append(encourgement);
+    },
+    initializeDummyTier: function() {
+      var k, len, tier, tiers;
+      tiers = spapi.activeVipTiers;
+      for (k = 0, len = tiers.length; k < len; k++) {
+        tier = tiers[k];
+        tier.rank += 1;
+      }
+      return tiers.unshift({
+        id: -1,
+        rank: 0,
+        name: "Vega",
+        prettyAmountSpent: "$0&ndash;499",
+        swellrequiredAmountSpent: "$0",
+        swellrequiredAmountSpentCents: 0,
+        swellrequiredPointsEarned: 0,
+        swellrequiredPurchasesMade: 0,
+        swellrequiredReferralsCompleted: 0
+      });
+    },
+    initializeTiers: function(containerSelector) {
+      tier = SwellConfig.Tier.getTierByRank(1);
+      if (tier && $(".swell-vip-tier-list-luna").length > 0) {
+        $(".swell-vip-tier-list-luna .tier-name").text(tier.name);
+        $(".swell-vip-tier-list-luna .spend-required").text(tier.prettyAmountSpent + "+");
+      }
+
+      $(".swell-vip-tier-list-container").show();
+      if (spapi.authenticated) {
+        return SwellConfig.Tier.setupCustomerTierStatus();
+      }
+    }
+  };
+
+}).call(this);
+
+// Changing Landing Page
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.Link = {
+    initializeLinks: function(containerSelector) {
+      return $(document).on("click", containerSelector, function(e) {
+        var href;
+        e.preventDefault();
+        href = $(this).attr("href");
+        localStorage.setItem("swell-location", "/pages/rewards");
+        return window.location = href;
+      });
+    }
+  };
+
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.LocalStorage = {
+    initializeLocalStorage: function() {
+      var location;
+      location = localStorage.getItem("swell-location");
+      if (location && (window.location.pathname === '/account' || window.location.pathname === '/')) {
+        localStorage.removeItem("swell-location");
+        return window.location = location;
+      }
+    }
+  };
+
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.Redemption = {
+    initializeProductRedemptions: function(containerSelector){
+      spapi.activeRedemptionOptions.forEach(function(redemption){
+        if(redemption.discount_type === "product"){
+          $(containerSelector).append('<li class="swell-redemption-product" data-redemption-option-id="'+ redemption.id +'"> <div class="swell-redemption-product-content"> <div class="swell-redemption-product-image"><img src="'+ redemption.background_image_url +'" alt="swell product images"></div> <div class="swell-redemptisrc="'+ redemption.background_image_url +'"on-product-value">'+ redemption.name +'</div> <div class="swell-redemption-product-cost">'+ redemption.cost_text +'</div> <div class="swell-redemption-product-button swell-link-redeem" data-redemption-option-id="'+ redemption.id +'" data-variant-id="'+ redemption.applies_to_id +'">Redeem Now</div> </div> </li>');
+        }
+      });
+    },
+    activateProductRedemption: function(){
+      if(spapi.authenticated){
+        $('.swell-link-redeem').addClass('swell-buy-product-btn');
+      }
+      swellAPI.refreshEmbeds();
+    },
+    applySlickSlider : function(containerSelector){
+      $(containerSelector).slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: false,
+        arrows: true,
+
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            }
+          }
+       ]
+      });
+    }
+  };
+
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.CartRedemption = {
+    addFreeProduct: function() {
+
+      var SWELL_TIER_TAG = "swell_vip_luna";
+      var SWELL_PRODUCT_VARIANT_ID = 12462608253033;
+
+      if(window.location.href.includes("cart") || window.location.href.includes("checkout") || $("#side_cart").length > 0){
+        $('body').on('click',".remove-SwellFreeProductInterval",()=>{
+          clearInterval(addFreeProductSwellInterval);
+        });
+        var addFreeProductSwellInterval = setInterval(function(){
+        var check = true;
+        if(spapi.authenticated && spapi.customer.tags.includes(SWELL_TIER_TAG)){
+          jQuery.getJSON("/cart.js",function(response){
+            var cartproducts = response.items;
+            if(cartproducts.length>0){
+              cartproducts.forEach(function (cp) {
+
+                if(cp.variant_id == SWELL_PRODUCT_VARIANT_ID){
+                  if(cartproducts.length==1){
+                    jQuery.post('/cart/clear.js', {
+                      "note": null,
+                      "attributes": {},
+                      "total_price": 0,
+                      "total_weight": 0,
+                      "item_count": 0,
+                      "items": [],
+                      "requires_shipping": false,
+                      success: function(res){
+                        setTimeout(function(){
+                          simply.miniCartInit();
+                        },1000);
+                      }
+                    });
+                  }
+                  if(cp.quantity>1){
+                    jQuery.post('/cart/change.js', {id: SWELL_PRODUCT_VARIANT_ID, quantity: 1});
+                    setTimeout(function(){
+                      simply.miniCartInit();
+                    },1000);
+                  }
+                  check = false;
+                  $(".mini_cart .cart_data .product_class[data-vid='12462608253033'] .remove a").addClass("remove-SwellFreeProductInterval");
+                }
+              });
+              if(check){
+                jQuery.post('/cart/add.js', {
+                  quantity: 1,
+                  id: SWELL_PRODUCT_VARIANT_ID,
+                  },
+                  function( data ) {
+                    setTimeout(function(){
+                      simply.miniCartInit("open");
+                  },1000);
+                }, "json");
+              }
+            }
+          });
+        }
+      }, 2000);
+    }
+
+    }
+  };
+
+}).call(this);

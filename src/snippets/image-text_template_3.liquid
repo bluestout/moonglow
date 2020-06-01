@@ -1,0 +1,67 @@
+{% if product.metafields['global']['third-banner-image'] != blank and product.metafields['global']['third-banner-title'] != blank %}
+  <div class="image-with-text__image grid__item one-half medium-down--one-whole">
+    {% if product.metafields['global']['third-banner-image'] != blank %}
+    <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: product.metafields['global']['third-banner-image'] %}"></div>
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+
+  <div class="image-with-text__text grid__item one-half medium-down--one-whole">
+      <div class="caption_content">
+        <div class="info">
+          <svg width="72px" height="80px" viewBox="0 0 72 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+            <title>3F393C2A-3458-4EC4-9495-2664C5AB5077</title>
+            <desc>Created with sketchtool.</desc>
+            <defs></defs>
+            <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="icons" transform="translate(-450.000000, -91.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g id="diamond_ico" transform="translate(452.000000, 92.000000)">
+                        <path d="M-1.22689793,20.3774094 L12.9796415,-1 L55.990609,-1 L69.2118677,20.3968105 L34.0107059,66.650914 L-1.22689793,20.3774094 Z M1.22689793,20.2985131 L34.0102163,63.349086 L66.7881323,20.279112 L54.8754164,1 L14.0518891,1 L1.22689793,20.2985131 Z" id="Path-8"></path>
+                        <path d="M-1.22689793,32.3774094 L12.9796415,11 L55.990609,11 L69.2118677,32.3968105 L34.0107059,78.650914 L-1.22689793,32.3774094 Z M1.22689793,32.2985131 L34.0102163,75.349086 L66.7881323,32.279112 L54.8754164,13 L14.0518891,13 L1.22689793,32.2985131 Z" id="Path-8"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+          <h3>{{ product.metafields["global"]["third-banner-title"] }}</h3>
+          {{ product.metafields["global"]["third-banner-content"] }}
+        </div>
+      </div>
+  </div>
+{% else %}
+      <div class="image-with-text__image grid__item one-half medium-down--one-whole">
+        {% if block.settings.image_1 != blank %}
+        <div class="responsive_image lazyload"  data-bgset="{% include 'responsive-bg-image', image: block.settings.image_1 %}"></div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__text grid__item one-half medium-down--one-whole">
+          <div class="caption_content">
+            <div class="info">
+              <svg width="72px" height="80px" viewBox="0 0 72 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+                <title>3F393C2A-3458-4EC4-9495-2664C5AB5077</title>
+                <desc>Created with sketchtool.</desc>
+                <defs></defs>
+                <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="icons" transform="translate(-450.000000, -91.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <g id="diamond_ico" transform="translate(452.000000, 92.000000)">
+                            <path d="M-1.22689793,20.3774094 L12.9796415,-1 L55.990609,-1 L69.2118677,20.3968105 L34.0107059,66.650914 L-1.22689793,20.3774094 Z M1.22689793,20.2985131 L34.0102163,63.349086 L66.7881323,20.279112 L54.8754164,1 L14.0518891,1 L1.22689793,20.2985131 Z" id="Path-8"></path>
+                            <path d="M-1.22689793,32.3774094 L12.9796415,11 L55.990609,11 L69.2118677,32.3968105 L34.0107059,78.650914 L-1.22689793,32.3774094 Z M1.22689793,32.2985131 L34.0102163,75.349086 L66.7881323,32.279112 L54.8754164,13 L14.0518891,13 L1.22689793,32.2985131 Z" id="Path-8"></path>
+                        </g>
+                    </g>
+                </g>
+              </svg>
+              <h3>{{ block.settings.title }}</h3>
+              {% if block.settings.divider_status %}
+                <div class="devider"></div>
+              {% endif %}
+
+              {{ block.settings.desc }}
+            </div>
+          </div>
+      </div>
+{% endif %}

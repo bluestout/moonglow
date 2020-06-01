@@ -1,0 +1,281 @@
+
+// Grid
+$grid-small: 37.85em;
+$grid-medium: 61.85em;
+$grid-large: 61.85em;
+$grid-widescreen: 87.5em;
+$grid-max-width: 73.75em;
+$grid-gutter: 5px;
+// Breakpoints used with the media-query mixin
+$small: 'small';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$widescreen: 'widescreen';
+$breakpoints: ( $small '(max-width: #{$grid-small - 1})', $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})', $medium-down '(max-width: #{$grid-large - 1})', $medium-up '(min-width: #{$grid-medium})', $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})', $large-down '(max-width: #{$grid-widescreen - 1})', $large-up '(min-width: #{$grid-large})', $widescreen '(min-width: #{$grid-widescreen})');
+$breakpoint-has-widths: ($medium-up, $medium-down, $small);
+$breakpoint-has-push: ();
+@mixin title_style() {
+    color: #030303;
+    font-family: 'Montserrat Light';
+    font-weight: 300;
+    letter-spacing: 0.6px;
+    line-height: 18px;
+    text-align: center;
+}
+
+
+
+/////////////////////////////////////////// font color
+// Body 
+$base_link_color: #2E4676;
+$base_link_hover_color: rgb(60, 81, 122);
+$body_title_color: #2A323F;
+$mobile_title_color: #030303;
+//Header
+$header_title_color: #FFFFFF;
+$header_title_icon_color: #FFFFFF;
+$header_menu_color: #2E4676;
+$header_menu_hover_color: rgb(70, 96, 146);
+
+//Menu
+$mega_menu_color: #030303;
+$mega_menu_hover_color: #2E4676;
+
+//Placeholder
+$placeholder_bg_color : #F4F4F4;
+$placeholder_border_color : #D7DEE8;
+
+//////////////////////////////////////////// background color
+
+// Body
+$base_color: #FFFFFF;
+$border_color: #D0D9E5;
+
+// Header
+$header_bg_color: #2E4676;
+$menu_bg_color: white;
+// Menu
+$mega_menu_bg: #FFFFFF;
+$search_box_bg: #F8F7F5;
+
+// Input
+$input_bg_color: #FFFFFF;
+$input_hover_bg_color: #F8FAFB;
+$input_border_color: #D0D9E5;
+
+// Mini-cart
+$mini_cart_bg_color: #FFFFFF;
+
+// Button
+$btn_color: #2E4676;
+$btn_color_white: white;
+$btn_color_grey: #CEC1B5;
+
+
+$btn_hover_color: #203153;
+$btn_white_hover_color: #D0D9E5;
+$btn_grey_hover_color: #A69B90;
+
+$btn_border_color: #2E4676;
+$btn_border_color_grey: #CEC1B5;
+$btn_border_color_white: #2E4676;
+
+$btn_text_color: #FFFFFF;
+$btn_white_text_color: #2E4676;
+$btn_grey_text_color: #FFFFFF;
+
+$btn_load_more_color: #F8F7F5;
+$btn_load_more_font_color: #2E4676;
+
+// Modal
+$modal_title_color: #2E4676;
+
+// product list
+$product_list_bg_color: #f7f7f7;;
+$mark_color: #2E4676;
+$form_pannel_bg_color: #F0F3F7;
+$form_pannel_width: 380px;
+$desc_bg_color: #F0F3F7;
+
+// product page
+$desc_color: #3D3D3D;
+$label_bg_color: #F0F3F7;
+
+//affiliate page
+$affiliate_image_text_bg_color: #D0D9E5;
+
+////////////////////////////////////////// Typography
+$font-body: 'Montserrat Light';
+$font-heading: "Montserrat Medium";
+$font_title: 'Montserrat Regular';
+$font_brand: 'Montserrat SemiBold';
+$mark_font_size : 20px;
+// Body
+$font-body-weight: 300;
+$font-body-style: 'normal';
+$font-body-bold-weight: 500;
+$base_font-size: 13px;
+$font_icon_size: 17px;
+$body_line_height: 18px;
+// Header
+$header_font_size: 12px;
+
+// Menu
+$mega_menu_title_size: 14px;
+
+// Button
+$btn_font_size: 14px;
+$btn_font_weight: 600;
+$btn_icon_size: 21px;
+$btn_line_height: 18px;
+$btn_letter_spacing: 0.6px;
+
+// Heading title
+$h1_size: 45px;
+$h1_line_height: 55px;
+$h1_letter_spacing: 2.08;
+
+$h2_size: 32px;
+$mobile_h2_size: 16px;
+$mobile_h2_line_height: 19px;
+$h2_line_height: 39px;
+$h2_letter_spacing: 1.09px;
+
+$h3_size: 24px;
+$mobile_h3_size: 16px;
+$h3_letter_spacing: 0.82px;
+$h3_line_height: 29px;
+
+$h4_size: 18px;
+$mobile_h4_size : 13px;
+$h4_line_height: 22px;
+$h4_letter_spacing: 0.77px;
+$mobile_h4_line_height: 15px;
+
+$h5_size: 16px;
+$mobile_h5_size: 13px;
+$h5_line_height: 28px;
+$h5_letter_spacing: 0.5px;
+
+$h6_size: 13px;
+$mobile_h5_size: 13px;
+$h6_line_height: 28px;
+$h6_letter_spacing: 0.5px;
+
+$input_line_height: 50px;
+
+$label_size: 13px;
+$label_line_height: 22px;
+$label_letter_specing: 0.43px;
+
+$p_size: 14px;
+$p_line_height: 18px;
+$p_desc_line_height: 24px;
+$mobile_p_size: 13px;
+
+$span_size: 11px;
+$span_line_height: 14px;
+$span_letter_spacing: 0.47px;
+
+$link_size: 12px;
+
+// Product Page
+$thumb_img_width: 95px;
+$thumb_img_height: 95px;
+$product_image_text_height: 450px;
+$mobile_product_image_text_height: 200px;
+$ipad_product_image_text_height: 400px;
+
+// Collection
+$collection_banner_bg_color: #F8F7F5;
+$collection_banner_height: 400px;
+$moon_icon_size: 80px;
+$moon_icon_bg_color: #D0D9E5;
+
+// Footer
+$footer_bg_color: #2E4676;
+$footer_title_color: white;
+
+
+//////////////////////////////////////////// width
+
+$header_height: 70px;
+$content_width: 1240px;
+$padding: 50px;
+$margin: 50px;
+$border_width: 1px;
+$left: 50px;
+$right: 50px;
+$top: 50px;
+$bottom: 50%;
+$product_grid_width: 1200px;
+$basic_caption_width : 600px;
+$default_button_width: 200px;
+$default_mobile_image_height:300px;
+$default_ipad_image_height: 500px;
+$default_banner_height: 400px;
+$default_mobile_banner_height: 200px;
+$default_ipad_banner_height: 300px;
+//Button
+$btn_border_width: 1px;
+$btn_border_radius: 3px;
+
+// Mini-Cart
+$mini_cart_width: 400px;
+$cart_image_width: 50px;
+$cart_image_height: 50px;
+
+//Modal
+$modal_bg_color : white;
+$modal_width: 900px;
+$modal_body_width: 900px;
+$modal_close_size: 20px;
+
+// Alert
+$alert_bg_color: #D0D9E5;
+
+//Slideshow
+$slide_show_height: 510px;
+$mobile_slide_show_height: 350px;
+$ipad_slide_show_height: 450px;
+$mobile_slide_show_img_height: 200px;
+$ipad_slide_show_img_height: 300px;
+$slide_caption_title_color: #2E4676;
+$caption_desc_color: #2E4676;
+$ipad_caption_height: 150px;
+$mobile_caption_height: 135px;
+$caption_width: 460px;
+$caption_bg_color: #D0D9E5;
+$ipad_banner_slide_height:670px;
+$mobile_banner_slide_height:600px;
+// Carousel
+$carousel_height: 400px;
+$ipad_carousel_height: 250px;
+$mobile_carousel_height: 220px;
+
+// Image bar
+$sub_desc_color: #CEC1B5;
+$iamge_bar_bg_color: #D0D9E5;
+
+// Image text
+$font_bg_color: #D7DEE8;
+$font_bg_size: 75px;
+$image_text_caption_bg_color: #F8F7F5;
+
+// Banner carousel
+$banner_caption_bg_color: #2E4676;
+$caption_title_color : white;
+
+// instagram
+$instagram_hover_color: rgba(46, 70, 118, 0.6196078431372549);
+
+// sign up
+$sign_up_input_bg_color: #E0E6ED;
+
+////////////////////////////////////////// Transitions
+$transition-duration: 300ms;
+$transition-timing: ease;

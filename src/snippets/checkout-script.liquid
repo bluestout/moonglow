@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    window.cart_data = [];
+    window.checkoutLineItem = [];
+    $(".loading_me").appendTo('body');
+    simply.shopDomain = "{{shop.domain}}";
+    {%- for item in checkout.line_items -%}  
+    {%- if item.properties['_gift_wrap'] == blank -%}
+    var item  = {};
+    item.id = '{{item.variant_id}}';
+    item.quantity = '{{item.quantity}}';
+    properties = {};
+    {%- for pro in item.properties -%}
+    {% if pro.last == 'cod' %}
+    {%- assign cod = true -%}
+    {% endif %}
+    properties['{{pro.first}}'] = '{{pro.last}}';
+    {%- endfor -%}
+    item.properties = properties;
+    window.cart_data.push(item);
+    {% endif %}
+    {%- endfor -%}
+  </script>
+  {%- include 'free-gift-code' -%}
+  <script src='{{ 'simply-checkout.js' | asset_url}}' type="text/javascript"></script>
+  {{ 'engraving.js' | asset_url | script_tag }}
+  <script type="text/javascript">
+      $(document).ready(function () {
+          window.updateEngravingLetterItems(function () {});
+      });
+  </script>

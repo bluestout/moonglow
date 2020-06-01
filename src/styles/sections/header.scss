@@ -1,0 +1,920 @@
+#shopify-section-header, #shopify-section-header-simple {
+    @include media-query('medium-down'){
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+    }
+    section {
+        padding: 0px;
+        background-color: $menu_bg_color;
+        .header-title {
+            padding: $padding/10 $padding!important;
+            background-color: $header_bg_color;
+            @include media-query('medium-down') {
+                p {
+                    margin: auto;
+                    float: none;
+                    text-align: center!important;
+                    padding: 0px;
+                }
+                .account-button {
+                    display: none!important;
+                }
+            }
+            p {
+                color: $header_title_color;
+                margin: 0px;
+                font-size: $base_font-size;
+            }
+            .account-button {
+                position: absolute;
+                top: 3px;
+                right: 70px;
+                float: right;
+                display: table;
+                width: auto;
+                img{
+                    vertical-align: bottom;
+                    filter: brightness(10);
+                }
+            }
+        }
+        .header-menu {
+            min-height: 85px;
+            clear: both;
+            border-bottom: $border_width solid $border_color;
+            padding: $padding / 10 $padding;
+            padding-right: 20px;
+            @media only screen and (max-width: 1446px) {
+                padding: 5px 20px!important;
+                padding-right: 0!important;
+            }
+            @include media-query('large-down'){
+                padding: 0!important;
+            }
+            @include media-query('small'){
+                min-height: inherit;
+            }
+            nav.menu {
+                width: auto;
+                @include media-query('medium-down') {
+                    padding: 0;
+                }
+                .nav-btn {
+                    padding: 19px;
+                    display: none;
+                    cursor: pointer;
+                    img{
+                        vertical-align: bottom;
+                    }
+                    @include media-query('large-down') {
+                        display: block;
+                    }
+                    @include media-query('medium-down'){
+                        padding: 25px;
+                    }
+                }
+                ul {
+                    margin: auto;
+                    
+                    li {
+                        float: left;
+                        list-style: none;
+                        height: $header_height;
+                        display: table;
+                        i {
+                            float: left;
+                            padding-top: $padding / 2;
+                            padding-right: $padding / 5;
+                            color: $header_menu_color;
+                        }
+                        a {
+                            color: $header_menu_color;
+                            padding-top: $padding / 2;
+                            padding-right: $padding * 4 / 5;
+                            display: block;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            img{
+                                transform: rotate(-90deg);
+                                width: 5px;
+                                vertical-align: middle;
+                                padding-top: 5px;
+                            }
+                            &:hover{
+                                color: $header_menu_hover_color;
+                            }
+                           
+                        }
+                        
+                        .sub-link {
+                            display: none;
+                            padding: $padding;
+                            position: absolute;
+                            background: $mega_menu_bg;
+                            top: 100px;
+                            left: 0;
+                            z-index: 100;
+                            min-height: 400px;
+                            width: 100%;
+                            ul{
+                                li {
+                                    
+                                    a {
+                                        color: $mega_menu_color;
+                                        font-size: $mega_menu_title_size;
+                                        font-weight: 500;
+                                        &:hover {
+                                            &:hover {
+                                                color: $header_menu_hover_color;
+                                                &:before{
+                                                    content: " ";
+                                                    background: url('https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/dimond_ico.svg?v=4321893028173185640') no-repeat center;
+                                                    width: 12px;
+                                                    height: 15px;
+                                                    display: table;
+                                                    position: absolute;
+                                                    margin-left: -20px;
+                                                    margin-top: 2px;
+                                                    background-size: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .child-link {
+                                        margin-top: 15px;
+                                        li {
+                                            width: 100%;
+                                            height: auto;
+                                            a {
+                                                color: $mega_menu_color;
+                                                line-height: 27px;
+                                                font-family: $font-body;
+                                                letter-spacing: 0.5px;
+                                                padding-top: 0;
+                                                font-size: $mega_menu_title_size;
+                                                text-transform: capitalize;
+                                                &:hover {
+                                                    &:hover {
+                                                        color: $mega_menu_hover_color;
+                                                        &:before{
+                                                            content: " ";
+                                                            background: url('https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/dimond_ico.svg?v=4321893028173185640') no-repeat center;
+                                                            width: 12px;
+                                                            height: 15px;
+                                                            display: table;
+                                                            position: absolute;
+                                                            margin-left: -20px;
+                                                            margin-top: 5px;
+                                                            background-size: 100%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .img{
+                                                display: none;
+                                                position: absolute;
+                                                right: 0px;
+                                                top: 29px;
+                                                width: 40%;
+                                                height: 320px;
+                                                div{
+                                                    position: relative;
+                                                    float: none;
+                                                    text-align: center;
+                                                    margin: auto;
+                                                    img{
+                                                        height: 100%;
+                                                    }
+                                                    .title{
+                                                        text-align: center;
+                                                        margin-top: -35px;
+                                                        color: white;
+                                                        text-transform: uppercase;
+                                                        font-family: $font-heading;
+                                                    }
+                                                    &.banner{
+                                                        width: 240px;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        float: left;
+                                                        margin: 0 20px;
+                                                        img{
+                                                            position: absolute;
+                                                            z-index: -1;
+                                                            transform: translateX(50%);
+                                                            right: 50%;
+                                                        }
+                                                        .title{
+                                                            bottom: 0px;
+                                                            position: absolute;
+                                                            left: 50%;
+                                                            transform: translateX(-50%);
+                                                            width: 100%;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                            }
+                                            &:hover{
+                                                .img{
+                                                    display: inline-flex;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .img_banner{
+                                display: inline-flex;
+                                position: absolute;
+                                right: 0px;
+                                top: 29px;
+                                width: 50%;
+                                    div{
+                                        position: relative;
+                                        float: none;
+                                        text-align: center;
+                                        margin: auto;
+                                        
+                                       
+                                        .title{
+                                            text-align: center;
+                                            margin-top: -35px;
+                                            color: white;
+                                            text-transform: uppercase;
+                                            font-family: $font-heading;
+                                        }
+                                        &.banner{
+                                            min-width: 240px;
+                                            float: left;
+                                            margin: 0 20px;
+                                            a{
+                                                padding: 0;
+                                                img{
+                                                    transform: none;
+                                                    width: auto;
+                                                    padding: 0;
+                                                }
+                                                .title{
+                                                    bottom: 10px;
+                                                    position: absolute;
+                                                    left: 50%;
+                                                    transform: translateX(-50%);
+                                                    width: 100%;
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                            }
+                            &.gifts{
+                                ul.medium-up--two-thirds{
+                                    margin-left: 130px;
+                                    li{
+                                        a{
+                                            white-space: nowrap;
+                                        }
+                                        .img{
+                                            width: 50%;
+                                        }
+                                    }
+                                }  
+                            }
+                            .brand {
+                                img {
+                                    height: 330px;
+                                }
+                            }
+                        }
+                    }
+                    &.mobile-menu {
+                        background-color: $mega_menu_bg;
+                        display: none;
+                        z-index: 11;
+                        overflow-y: scroll;
+                        max-height: calc(100vh - 109px);
+                        &.show{
+                            display: block;
+                            padding-top: 0;
+                        }
+                        @include media-query('large-down') {
+                            position: absolute;
+                            width: 100%;
+                            left: 0;
+                            padding: $padding * 2 /5 0px;
+                        }
+                        .search-box {
+                            background-color: $search_box_bg;
+                            display: inline-flex;
+                            width: 100%;
+                            padding: 10px 20px;
+                            margin-bottom: 15px;
+                            img {
+                                vertical-align: middle;
+                            }
+                            .inner_div{
+                                width: 100%;
+                                input {
+                                    width: 100%;
+                                    background: transparent;
+                                    border: 0px;
+                                    float: right;
+
+                                    &::placeholder {
+                                        font-style: italic;
+                                        color: #2E4676;
+                                    }
+                                }  
+                            }
+                        }
+                        li {
+                            width: 100%;
+                            height: auto;
+                            a {
+                                padding: 10px;
+                                color: #030303;
+                                font-size: $p_size;
+                                letter-spacing: 0.5px;
+                                line-height: 18px;
+                                margin-bottom: 10px;
+                                text-transform: capitalize;
+                                img {
+                                    float: right;
+                                    &.left{
+                                        width: 15px;
+                                        transform: none;
+                                        margin-right: 5px;
+                                        padding-top: 2px;
+                                        height: 16px;
+                                    }
+                                    &.right{
+                                        transform: rotate(-180deg);
+                                    }
+                                }
+                                &.creat_account{
+                                    max-width: 375px;
+                                    span{
+                                        &:after{
+                                            right: auto;
+                                            left:-10px;
+                                            border-left-color: transparent;
+                                            border-right-color: #D0D9E5;
+                                        }
+                                    }
+                                }
+                                &.active{
+                                    img.right{
+                                        transform: rotate(-90deg);
+                                    }
+                                }
+                            }
+                            .child-link{
+                                display: none;
+                                .child-item{
+                                    min-height: 150px;
+                                    a{
+                                        color: #030303;
+                                        padding: 0;
+                                        text-align: center;
+                                        line-height: 34px;
+                                        font-size: 14px;
+                                        font-family: $font-body;
+                                        &:before{
+                                            content: none;
+                                        }
+                                        .img{
+                                            display: table;
+                                            img{
+                                                transform: none;
+                                                width: 100%;
+                                            }
+                                        }
+                                        span{
+                                            display: table;
+                                            line-height: 17px;
+                                            font-size: 12px;
+                                            margin-top: 10px;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                li{
+                                    a{
+                                        font-family: $font-body;
+                                        padding: 0;
+                                        padding-left: 30px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.normal-menu {
+                        display: table;
+                        @include media-query('large-down') {
+                            display: none;
+                        }
+                        li:hover {
+                            .sub-link {
+                                display: table;
+                            }
+                        }
+                    }
+                }
+            }
+            .mark-simple {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                margin-top: 10px;
+            }
+            .mark {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                margin-top: 10px;
+                @include media-query('large-down'){
+                    left: 35px;
+                    transform: none;
+                }
+                @include media-query('small') {
+                    position: absolute;
+                    transform: inherit;
+                    left: 50px;
+                }
+                
+                a {
+                    @include media-query('small') {
+                        display: inline-block;
+                        line-height: 38px;
+                        vertical-align: bottom;
+                    }
+                    svg {
+                        @include media-query('large-down'){
+                            height: 40px;
+                            margin-top: 8px;
+                        }
+                        @include media-query('small') {
+                            min-width: auto;
+                            vertical-align: bottom;
+                            height: 25px;
+                            margin-top: 14px;
+                            width: 135px
+                        }
+                        
+                    }
+                }
+            }
+            header.banner {
+                width: auto;
+                float: right;
+                display: table;
+                padding: 0px;
+                .grid__item {
+                    &.side-menu {
+                        margin: $margin / 5 0;
+                        margin-bottom: 0;
+                        height: 65px;
+                        float: right;
+                        @include media-query('medium-down'){
+                            height: inherit;
+                        }
+                        a {
+                            &.wishlist-button{
+                                @include media-query('medium-down'){
+                                    padding-left: 12px;
+                                }
+                                svg{
+                                    vertical-align: bottom;
+                                    path{
+                                        fill: #2E4676;
+                                    }
+                                    &:hover{
+                                        path{
+                                            fill: #a3b6db!important;
+                                        }
+                                    }
+                                }
+                            }
+                            &.search-button {
+                                img{
+                                    width: 17px;
+                                    vertical-align: bottom;
+                                }
+                                @include media-query('medium-down') {
+                                    display: none;
+                                }
+                                
+                                &:hover{
+                                    ul.search_menu{
+                                        display: block;
+                                    }
+                                }
+                            }
+                            
+                            &.cart {
+                                img{
+                                    width: 15px;
+                                    vertical-align: bottom;
+                                }
+                                span{
+                                    vertical-align: top;
+                                }
+                            }
+                            &.reward {
+                                @include media-query('medium-down') {
+                                    display: none;
+                                }
+                            }
+                            &.moon-phase {
+                                width: 250px;
+                                font-size: 1em;
+                                padding: 15px 0px;
+                                
+                                img{
+                                    padding: 0 $padding / 10;
+                                    vertical-align: text-top;
+                                }
+                                &.mobile {
+                                    display: none;
+                                    @include media-query('medium-down') {
+                                        display: inline-block;
+                                        width: 55px;
+                                        line-height: 11px;
+                                        text-align: center;
+                                        padding: 0px!important;
+                                        font-size: 10px;
+                                        img {
+                                            display: block;
+                                            margin: auto;
+                                            padding: 5px;
+                                        }
+                                    }
+                                }
+                                &.normal {
+                                    display: inline-block;
+                                    @include media-query('medium-down') {
+                                        display: none;
+                                    }
+                                }
+                                
+                                @include media-query('medium-down') {
+                                    margin: 0px;
+                                }
+                            }
+                        }
+                        ul.search_menu{
+                            display: none;
+                            position: absolute;
+                            z-index: 10;
+                            right: 45px;
+                            margin-top: 11px;
+                            padding: 6px 20px;
+                            background-color: #f4f6f8;
+                            box-shadow: 0px 15px 20px -15px rgba(0,0,0,0.45);
+                            &:before{
+                                content: " ";
+                                position: absolute;
+                                width: 0px;
+                                height: 0px;
+                                display: table;
+                                border: 15px solid #F4F6F7;
+                                border-top: 0px;
+                                border-left-color: transparent;
+                                border-right-color: transparent;
+                                margin-top: -21px;
+                                right: 45px;
+                            }
+                            input{
+                                width: 300px;
+                            }
+                        }
+                    }
+                    a {
+                        padding: $padding / 5 $padding * 2 / 5;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        display: inline-block;
+                        vertical-align: middle;
+                        color: $header_menu_color;
+                        @include media-query('small'){
+                            padding: $padding / 5 $padding/10;
+                        }
+                        &.logo-image {
+                            float: none;
+                            margin: auto;
+                            display: table;
+                        }
+                        i {
+                            font-size: 1.5em;
+                            color: $header_menu_color;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    #moon-phase{
+        width: 65%;
+        left: 17.5%;
+        padding: 35px 20px;
+        height: 85vh;
+        max-height: 635px;
+        overflow-y: scroll;
+        /* width */
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #2E4676;
+            border-radius: 30px;
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #2E4676;
+        }
+        @include media-query('medium-down'){
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            max-height: none;
+            padding: 30px 0;
+            &.active{
+                display: inline-flex!important;
+            }
+        }
+
+        &.product-moon-phase{
+            .modal-body{
+                .start{
+                    display: none;
+                }
+                .calendars{
+                    display: block;
+                }
+            }
+        }
+        .modal-body{
+            padding: 40px 0;
+            @include media-query('medium-down'){
+                margin: auto;
+                max-height: calc(100vh - 90px);
+                overflow-y: scroll;
+                display: block;
+            }
+            .start{
+           
+                h3{
+                    margin-bottom: $margin;
+                    text-transform: capitalize;
+                    @include media-query('small'){
+                        margin: auto;
+                        margin-bottom: 25px;
+                        width: 300px;
+                        margin-bottom: $margin/2;
+                    }
+                }
+                h4{
+                    @include media-query('medium-down'){
+                        padding: 35px;
+                        padding-top: 0;
+                    }
+                    img{
+                        margin-top: $margin*2;
+                        @include media-query('medium-down'){
+                            width: 100%;
+                            margin-top: $margin;
+                        }
+                        
+                    }
+                    .select.box{
+                        margin-top: $margin*2;
+                    }
+                }
+            }
+            .calendars{
+                display: none;
+                
+                .calendar{
+                    display: table;
+                    margin: auto;
+                    .date-header{
+                        display: table;
+                        border: 1px solid #D0D9E5;
+                        width: 300px;
+                        margin: auto;
+                        background: #D0D9E5;
+                        border-radius: 30px;
+                        padding: 10px;
+                        img{
+                            filter: brightness(0);
+                            margin-left: 50px;
+                            margin-top: 3px;
+                            float: left;
+                        }
+                        p{
+                            width: 100%;
+                            text-align: center;
+                            a{
+                                text-align: center;
+                                &.active{
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                    .content{
+                        .modal_alert{
+                            width: 300px;
+                            bottom: 50px;
+                            left: 50%;
+                            height: 50px;
+                            top: auto;
+                            position: inherit;
+                            margin: auto;
+                        }
+                    }
+                    .content-field{
+                        margin-top: 40px;
+                        p{
+                            text-align: center;
+                            margin-bottom: 20px;
+                            color: #92A8D5;
+                        }
+                        ul{
+                            max-width: 360px;
+                            width: 100%;
+                            li{
+                                font-size: $h4_size;
+                                color: #030303;
+                                text-align: center;
+                                padding: 5px;
+                                cursor: pointer;
+                                &:hover{
+                                    font-family: $font_brand;
+                                    color: #CEC1B5;
+                                }
+                                &.active{
+                                    font-family: $font_brand;
+                                    color: #2E4676;
+                                }
+                            }
+                            /* width */
+                            &::-webkit-scrollbar {
+                                width: 5px;
+                            }
+                            
+                            /* Track */
+                            &::-webkit-scrollbar-track {
+                                background: #f1f1f1; 
+                            }
+                            
+                            /* Handle */
+                            &::-webkit-scrollbar-thumb {
+                                background: #2E4676;
+                                border-radius: 30px;
+                            }
+                            
+                            /* Handle on hover */
+                            &::-webkit-scrollbar-thumb:hover {
+                                background: #2E4676;
+                            }
+                        }
+                        &.year-field{
+                            ul{
+                                height: 300px;
+                                display: block;
+                                overflow-y: scroll;
+                            }
+                        }
+                        &.month-field{
+                            display: none;
+                            ul{
+                                
+                                li{
+                                    width: 50%;
+                                    float: left;
+                                }
+                            }
+                        }
+                        &.date-field{
+                            display: none;
+                            ul{
+                                li{
+                                    width: 14.2%;
+                                    height: 50px;
+                                    float: left;
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .save-field{
+                        display: none;
+                        .content-img{
+                            position: relative;
+                            @include media-query('small'){
+                                width: 200px;
+                                float: none;
+                                display: table;
+                                margin: auto;
+                                margin-bottom: 20px;
+                            }
+                            img{
+                                width: 100%;
+                                margin-bottom: -2px;
+                            }
+                            .moon-icon{
+                                width: 50px;
+                                padding: 10px;
+                                background-color: #F8F7F5;
+                                position: absolute;
+                                right: 5px;
+                                margin-top: -50px;
+                            }
+                        }
+                        .grid{
+                            display: inline-flex;
+                            @include media-query('medium-down'){
+                                display: block;
+                            }
+                            .content-info{
+                                display: table;
+                                margin: auto;
+                                float: left;
+                                padding-left: 50px;
+                                @include media-query('medium-down'){
+                                    padding: 15px;
+                                }
+                                p{
+                                    line-height: 24px;
+                                    color: black;
+                                    text-align: left;
+                                    @include media-query('medium-down'){
+                                        text-align: center!important;
+                                    }
+                                    &.mark{
+                                        margin-bottom: 10px;
+                                        color: black;
+                                        text-align: left;
+                                        
+                                    }
+                                }
+                            }
+                            
+                        }
+                        .content-pannel{
+                            position: relative;
+                            display: block;
+                            width: 300px;
+                            margin: auto;
+                            margin-top: 0px;
+                            p.mark{
+                                margin-bottom: 20px;
+                                text-transform: uppercase;
+                                color: #2E4676;
+                                cursor: pointer;
+                            }
+                            .button{
+                                margin: auto;
+                            }
+                            .select-phase{
+                                display: none;
+                            }
+                            .moon-code{
+                                font-size: $h1_size;
+                            }
+
+                            
+                        }
+                       
+                    }
+                }
+            }
+            
+        }
+        &.product-moon-phase{
+            .save-date, .shop-date{
+                display: none!important;
+            }
+            .select-phase{
+                display: block!important;
+            }
+        }
+        
+    }
+}
+#shopify-section-header-simple{
+    margin-bottom: 20px;
+}

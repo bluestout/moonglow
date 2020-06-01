@@ -1,0 +1,91 @@
+{% assign size_val = 0 %}
+{% for block in section.blocks %}
+  {% if block.type == 'collection'%}
+  {% assign size_val =  size_val | plus: 1 %}
+  {% endif %}
+{% endfor %}
+{%if size_val == 2%}
+    {% assign class_name = 'one-half' %}
+{% elsif size_val == 3 %}
+  {% assign class_name = 'one-third' %}
+{% else %}
+  {% assign class_name = 'two-eighths' %}
+{% endif %}
+
+<section class="image-bar {% if section.settings.wide_display %} fluid-display {% endif %} ">
+    <div class="grid">
+        <div class="content grid__item one-half grid">
+            {% for block in section.blocks %}
+                    <div class="image grid__item {{ class_name}}">
+                        <div class="info">
+                            <div class="img_element__wrap">
+                              {% include 'responsive-image' with
+                              image: block.settings.image,
+                              max_width: 300,
+                              max_height: 300,
+                              alt: block.settings.title
+                              %}
+                            </div>
+                            <p class="uppercase brand">{{ block.settings.title }}</p>
+                            <p class="brand desc"> {{ block.settings.desc }} </p>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+        <div class="heading grid__item one-half">
+            <div class="mark">
+                <img src="{{ 'big_starts_ico.svg' | asset_url }}" alt="{{ section.settings.heading_title }}">
+            </div>
+            <h3>{{ section.settings.heading_title }}</p>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Image bar",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "wide_display",
+                "label": "Wide display"
+            },
+            {
+                "type": "text",
+                "id": "heading_title",
+                "label": "Title",
+                "default": "Your headline"
+            }
+        ],
+        "max_blocks": 4,
+        "blocks":[
+            {
+                "type": "collection",
+                "name": "Image text",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "desc",
+                        "label": "Description"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Image",
+                "name":"Image Bar"
+            }
+        ]
+    }
+{% endschema %}

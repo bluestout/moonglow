@@ -1,0 +1,152 @@
+#shopify-section-cart-template{
+    background-color: #f9fafb;
+    @include media-query('medium-down'){
+        background-color: white;
+    }
+    h1{
+        @include media-query('medium-down'){
+            font-size: 24px;
+        }
+    }
+    .cart-template{
+        padding-top: 100px;
+        @include media-query('medium-down'){
+            padding-top: 20px;
+            display: block;
+            width: 100vw;
+        }
+        .content{
+            margin-top: 20px;
+            .grid__item{
+                &.product-list{
+                    padding: 20px 20px 50px; 
+                    background-color: white;
+                    .responsive-table{
+                        width: 100%;
+                        @include media-query('small'){
+                            display: none;
+                        }
+                        thead{
+                            tr{
+                                th{
+                                    text-align: center;
+                                    font-size: 14px;
+                                    font-family: $font_title;
+                                    text-align: left;
+                                    padding: 20px 10px;
+                                    border-bottom: 1px solid #ddd;
+                                }
+                            }
+                        }
+                        tbody{
+                            tr{
+                                td{
+                                    border-bottom: 1px solid #f4f6f8dd;
+                                    padding: 20px 10px;
+                                    input{
+                                        width: 60px;
+                                    }
+                                    span{
+                                        font-size: 13px;
+                                        display: block;
+                                    }
+                                    a{
+                                        display: block;
+                                    }
+                                }
+                            }
+                            & :last-child{
+                                td{
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                    .product-item{
+                        display: none;
+                        @include media-query('small'){
+                            display: block;
+                            width: 100%;
+                            border-bottom: 1px solid #ebeef0;
+                        }
+                        width: 100%;
+                        li{
+                            display: inline-flex;
+                            width: 100%;
+                            .img{
+                                float: left;
+                                margin-right: 20px;
+                            }
+                            .title{
+                                margin: auto;
+                                width: calc(100% - 0px);
+                                float: left;
+                            }
+                            .header_title{
+                                width: 160px;
+                                float: left;
+                                font-size: 14px;
+                                padding: 20px;
+                            }
+                            .desc{
+                                float: left;
+                                padding: 20px;
+                                &.quantity{
+                                    padding: 10px;
+                                    input{
+                                        width: 50px;
+                                    }
+                                }
+                                span{
+                                    font-size: $h4_size;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                &.form-pannel{
+                    padding: 0 20px;
+                    @include media-query('medium-down'){
+                        padding: 0px;
+                    }
+                    .info{
+                        display: table;
+                        padding: 30px;
+                        background: white;
+                        label{
+                            font-family: $font_title;
+                        }
+                        textarea{
+                            margin-bottom: 20px;
+                        }
+                        p{
+                            display: block;
+                            float: left;
+                            margin-top: 25px;
+                            margin-bottom: 10px;
+                            span{
+                                font-size: $h4_size;
+                                font-family: $font-heading;
+                            }
+                            &.sub-title{
+                                font-size: 11px;
+                                width: 100%;
+                                text-align: center
+                            }
+                        }
+                        .button{
+                            width: calc(50% - 5px);
+                            margin: 0;
+                        }
+                        .alert-cart{
+                            position: relative;
+                            float: left;
+                            top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

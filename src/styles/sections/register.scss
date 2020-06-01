@@ -1,0 +1,92 @@
+#shopify-section-register-template, #shopify-section-login-template{
+    .register, .login{
+        padding: 0;
+        .grid{
+            padding: 0;
+            position: relative;
+            .banner{
+                height: 770px;
+                @include media-query('medium-down'){
+                    height: $default_ipad_banner_height;
+                }
+                @include media-query('small'){
+                    height: $default_mobile_banner_height;
+                }
+            }
+            .pannel{
+                background-color: #F8F7F5;
+                position: absolute;
+                display: inline-flex;
+                height: 100%;
+                @include media-query('medium-down'){
+                    padding: $padding*2/5;
+                    position: static;
+                }
+                .content{
+                    max-width: 390px;
+                    margin: auto;
+                    form{
+                        width: 100%;
+                        float: left;
+                        label{
+                            float: left;
+                            width: 100%;
+                        }
+                        input{
+                            border-radius: 0px;
+                            margin-bottom: 15px;
+                            &.button:focus{
+                                background-color: #2E4676;
+                            }
+                        }
+                        input[type="checkbox"]{
+                            display: none;
+                        }
+                        p{
+                            float: left;
+                        }
+                        span{
+                            position: relative;
+                            line-height: 50px;
+                            padding: 0px 10px 0px 30px;
+                            font-family: "Montserrat Light";
+                            color: #2A323F;
+                            &:before{
+                                content: " ";
+                                width: 17px;
+                                height: 17px;
+                                margin-top: -9px;
+                                background-color: #D0D9E5;
+                                border: none;
+                                margin-right: 8px;
+                                display: block;
+                                vertical-align: top;
+                                float: left;
+                                border-radius: 1px;
+                                position: absolute;
+                                left: 0;
+                                top: 50%;
+                            }
+                            &.checked{
+                                &:after{
+                                    content: "\2713";
+                                    color: white;
+                                    width: 17px;
+                                    height: 17px;
+                                    background: #2E4676;
+                                    padding: 0px 4px;
+                                    left: -1px;
+                                    margin-top: -9px;
+                                    position: absolute;
+                                    top: 50%;
+                                    line-height: 16px;
+                                }
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+    }
+}

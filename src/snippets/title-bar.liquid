@@ -1,0 +1,18 @@
+<section class="title-bar-block fluid-display" style="background-color: {{ block.settings.bg_color }};">
+    <h2 class="text-center" style=" color: {{ block.settings.title_color }};">{{ block.settings.title }}</h2>
+    
+    {% if block.settings.enable_devider %}
+        <div class="devider"></div>
+    {% endif %}
+    
+    {% if block.settings.enable_title %}
+        <h4 class="title text-center uppercase" style="color: {{ block.settings.sub_title_color }};"> {{ block.settings.sub_title }} </h4> 
+    {% else %}
+        <p class="text-center" style="color: {{ block.settings.sub_title_color }};"> {{ block.settings.sub_title }} </p>
+    {% endif %}
+    
+    {% if block.settings.btn_label != blank %}
+        <button class="button small center"> {{block.settings.btn_label}} </button>
+    {% endif %}
+</section>
+

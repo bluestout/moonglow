@@ -1,0 +1,33 @@
+<section>
+    <div class="grid video-text__block">
+        <div class="grid__item one-third medium-down--one-whole video-text__text">
+            <div class="info">
+                <div class="stars">
+                    {% for i in (1..block.settings.stars) %}
+                        <img src="{{ 'star_ico.svg' | asset_url}}" alt="star icon">
+                    {% endfor %}
+                </div>
+                <h2> {{ block.settings.title}} </h2>
+                <h4> {{block.settings.sub_title}} </h4>
+                <div class="devider left "></div>
+                <div class="desc"> {{ block.settings.text }} </div>
+            </div>
+        </div>
+        <div class="grid__item two-thirds medium-down--one-whole video-text__video">
+            <video id="videoTara" controls="controls" width="100%" poster="{{'meettara1.png' | asset_url}}" >
+                <source src="{{ 'Tara_Video_1.mp4' | asset_url }}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+<style>
+    .video-text__block{
+        background-color: {{ block.settings.bg_color }};
+    }
+    .video-text__block h2, .video-text__block  h4, .video-text__block  p{
+        color: {{ block.settings.title_color }};
+    }
+    .video-text__block .devider::before{
+        background-color: {{ block.settings.title_color }};
+    }
+</style>

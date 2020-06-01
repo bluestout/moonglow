@@ -1,0 +1,36 @@
+<!-- Checkout-personalize-card -->
+{%- if settings.card_check -%}
+<div class="gift_wrap card_block">
+  <div class="title">{{settings.add_order}}</div>
+  {% if settings.cart_notes_enable %}
+  <div class="CartSpecialInstruction" tabindex="0">
+    <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+    <textarea name="checkout[note]" class="input-full" id="CartSpecialInstructions" maxlength="600" aria-describedby="cart" aria-labelledby="cart">{{ checkout.note }}</textarea>
+  </div>
+  {% endif %}
+  <div class='gift giftcard_{{i}}' data-vid='{{settings.card_id}}'>
+   <div class="product_block">
+    <div class="sub_title">
+     <div class="radio_button block checkbox_wrap ">
+      <div class="radio_img"></div>
+    </div>
+    <h4>{{settings.free_msg}}</h4>
+  </div>
+  <div class="product_title">
+    <h6>{{settings.p_title}}</h6>
+  </div>
+  <div class="img_block">
+    <div class="img_wrap_one">
+      <img class ="gift_img" src="{{ settings.card_img | img_url: '700x'}}" alt="Front-image"> 
+    </div>
+  </div>
+</div>
+</div>
+<div class="limited_txt">
+  <h6>{{settings.l_text}}</h6>
+</div>
+</div>
+{%- endif -%}
+
+
+

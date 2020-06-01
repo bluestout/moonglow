@@ -1,0 +1,59 @@
+{% if section.settings.wide_display %}
+    {% assign wide_display = 'fluid-display' %}    
+{% endif %}
+
+{% if page.image != blank %}
+    {% assign image = page.image %}
+{% else %}
+    {% assign image = section.settings.image %}    
+{% endif %}
+
+{% if section.settings.title != blank %}
+    {% assign title = section.settings.title %}
+{% else %}
+    {% assign title = page.title %}
+{% endif %} 
+
+{% if page.content != blank %}
+    {% assign text = page.content %}
+{% else %}
+    {% assign text = section.settings.text %}
+{% endif %}
+<section class="iamge-text-block{{ wide_display }}">
+    {% capture image_layout %}
+        <div class="image-with-text__image grid__item three-fifths medium-down--one-whole {% if section.settings.layout == 'right' %}right{% else %}left{% endif %}">
+        {% if image != blank %}
+            <img src="{{ image | img_url: 'original'}}">
+        {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %} 
+        </div>
+    {% endcapture %}
+    {{ image_layout }}
+
+    <div class="image-with-text__text grid__item two-fifths medium-down--one-whole left">
+        <div class="info">
+            {% if section.settings.enable_devider %}
+                <div class="devider"></div>
+            {% endif %}
+
+            {% if title != blank %}
+                <h2>{{ title | escape }}</h2>
+            {% endif %}
+
+            <div class="stars"> <img src="{{ 'stars.svg' | asset_url }}" alt="star icon"> <img src="{{ 'stars.svg' | asset_url }}" alt="star icon"> <img src="{{ 'stars.svg' | asset_url }}" alt="star icon"> <img src="{{ 'stars.svg' | asset_url }}" alt="star icon"> <img src="{{ 'stars.svg' | asset_url }}" alt="star icon"></div>
+            
+            {% if text != blank %}
+                <div class="text">{{ text }}</div>
+            {% endif %}
+            {% if section.settings.button_label != blank %}
+                <button class="button small">{{ section.settings.button_label }}</button>
+            {% endif %}
+        </div>
+    </div>
+</section> 
+<style>
+    .image-with-text__text{
+        background-color: {{ section.settings.bg_color }};
+    }
+</style>

@@ -1,0 +1,29 @@
+.banner_holder{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    .thumbnail_banner{
+        font-size: 11px;
+        line-height: 14px;
+        color: white;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-family: $font-brand;
+        margin: 10px;
+        &.new_banner{
+            background-color: #D0D9E5;
+        }
+        &.deal_banner{
+            background-color: #2E4676;
+        }
+        &.not_promotion_banner{
+            background-color: #CEC1B5;
+        }
+        &.exc_promotion_banner{
+            background-color: #CEC1B5;
+        }
+        &.sale_banner{
+            background-color: #2E4676;
+        }
+    }
+}

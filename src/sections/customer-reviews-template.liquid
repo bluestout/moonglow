@@ -1,0 +1,74 @@
+{% include 'review-image-text' %}
+<section class="grid">
+  <div id="Reviews">
+    <div class="container">
+    <script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/tXYcRoLQo46eDLgFtyQJkW7Dr1GXeBe2cdUbjo9M/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script>
+    <div id='yotpo-testimonials-custom-tab'></div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "review section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wide_display",
+        "label": "Wide display"
+      },
+      {
+          "type": "checkbox",
+          "id": "enable_devider",
+          "label": "Enable devider"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ]
+}
+{% endschema %}

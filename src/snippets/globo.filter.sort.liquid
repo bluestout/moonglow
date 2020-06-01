@@ -1,0 +1,33 @@
+{% raw %}
+<div class="gf-sort-wrap">
+  <h3 href="javascript:void(0)" class="gf-refine-toggle-mobile" tabindex="0" aria-label="Filter By">
+    <span onclick="globofilter.toggleCanvas()">Filter</span>
+  </h3>
+  
+  <div class="sort-by left">
+    <label for="changeSortBy" class="sort-by-toggle" role="button" tabindex="0" aria-expanded="false">Sort</label>
+    <select id="changeSortBy" class="sortby-select hide" onchange="changeSortBy(this.value); return false;">
+      <option value="best-selling">Best Selling</option>
+      <option value="title-ascending">Alphabetically, A-Z</option>
+      <option value="title-descending">Alphabetically, Z-A</option>
+      <option value="price-ascending">Price, low to high</option>
+      <option value="price-descending">Price, high to low</option>
+      <option value="created-descending">Date, new to old</option>
+      <option value="created-ascending">Date, old to new</option>
+    </select>
+    <ul class="select-box"> 
+       <li data-target="best-selling">Best Selling</li>
+      <li data-target="title-ascending">Alphabetically, A-Z</li>
+      <li data-target="title-descending">Alphabetically, Z-A</li>
+      <li data-target="price-ascending">Price, low to high</li>
+      <li data-target="price-descending">Price, high to low</li>
+      <li data-target="created-descending">Date, new to old</li>
+      <li data-target="created-ascending">Date, old to new</li>
+    </ul>
+  </div>
+  <div class="medium-down--hide">  
+    <button class="filter left">filter</button>
+  </div>
+  </div>
+{% endraw %}
+ 

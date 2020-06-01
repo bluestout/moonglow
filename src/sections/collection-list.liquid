@@ -1,0 +1,121 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Collection list" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the collection list section
+  - Collection
+{%- endcomment -%}
+
+<section class="collection-list {{ section.settings.content_type }} ">
+  {% if section.settings.title != blank %}
+    <div class="collection-list__title">
+      <h3>{{ section.settings.title | escape }}</h3> <div class="devider"></div> <h5>{{ section.settings.desc }}</h5>
+      <a class="see-all" href="/collections/all">See All</a>
+    </div>
+  {% endif %}
+  <div id="owl-collection" class="owl-carousel owl-theme">
+    {% for block in section.blocks%}
+    {%- assign collection = collections[block.settings.collection] -%}
+        {% assign product = all_products[block.settings.product] %}
+        <a href="{{ collection.url | default: "#" }}">
+            <div class="item" data-merge="2.5">
+              {% if collection.image != blank or collection.products.first != blank %}
+                {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+                <div class="collection-list__image zoom">
+                  {% include 'responsive-image' with
+                    image: image_object,
+                    max_width: 600,
+                    max_height: 600,
+                    image.alt: collection.title
+                  %}
+                </div>
+              {% elsif collection == empty %}
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+              {% endif %}
+
+              {%- assign default_label = 'homepage.onboarding.collection_title' | t -%}
+              <h4 class="title">{{ collection.title | default: default_label }}</h4>
+            </div>
+        </a>
+
+    {% endfor %}
+  </div>
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "select",
+        "id": "content_type",
+        "label": "Content_type",
+        "options": [
+          {
+            "label": "default display",
+            "value": ""
+          },
+          {
+            "label": "Fulid display",
+            "value": "fluid-display"
+          },
+          {
+            "label": "Left display",
+            "value": "left-side"
+          },
+          {
+            "label": "Right display",
+            "value": "right-side"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Collection list"
+      },
+      {
+        "type": "text",
+        "id": "desc",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection list",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

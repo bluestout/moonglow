@@ -1,0 +1,575 @@
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="cart-form form-vertical mutliMoonForm">
+
+    {% if product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+    <input type="hidden" name="properties[engraving]" id="field-engraving" value="" />
+    {% if product.tags contains 'engraving 2' %}
+    <input type="hidden" name="properties[engraving2]" id="field-engraving2" value="" />
+    {% endif %}
+    {% endif %}
+
+    {% if product.tags contains 'engrave' %}
+    {% assign pr = all_products[settings.engrave_pr] %}
+    <div class='character_variant'>
+      {% for vari in pr.variants %}
+      {%- include 'bold-variant' with vari, hide_action: 'skip' -%}
+      <div class='engrave_pr' data-id="{{ vari.id }}" data-title="{{ vari.title }}" tabindex="0"></div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% assign count = 0 %}
+    {% assign flag= false %}
+
+    {% for tag in product.tags %}
+    {% if tag contains "moon_" %}
+    {% assign flag = true %}
+    {% assign count = tag | remove: 'moon_' | plus: 0 %}
+    {% endif %}
+    {% endfor %}
+    <script type="text/javascript">
+      simply.multiMoon = {};
+      simply.multiMoon['count'] = {{count}};
+      simply.multiMoon['moons'] = {};
+    </script>
+    {% if flag == true %}
+    <div class="moon_class" data-moon="yes"></div>
+    <div class="prod-tab-slider" id="phase_slider">
+      {% if count > 1 %}
+      <div class="prod-tab">
+        {% for i in (1..count) %}
+        {% assign j =  i | replace: 1, "1st" | replace: 2, "2nd" | replace: 3, "3rd" | replace: 4, "4th" | replace: 5, "5th" | replace: 6, "6th" %}
+        <div class="prod-tab-heading sm-down--hide " data-tab="moon_{{i}}">moon {{i}}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="prod-slider">
+
+        {% for i in (1..count) %}
+        {% if i == 1 or i == 2 or i == 3 or i == 4 or i == 5 or i == 6 %}
+        {% assign j =  i | replace: 1, "1st" | replace: 2, "2nd" | replace: 3, "3rd" | replace: 4, "4th" | replace: 5, "5th" | replace: 6, "6th" %}
+        <div class="single-prod-desc m_tab multi-prod" data-num="{{i}}">
+
+          <div class="logo-close-wrap header-logo-bar ">
+            <div class="header-logo-bar-inner">
+              <div class="logo">
+                <a href="/">
+                  <img alt="Moonglow Jewelry" src=" {{ 'logo.png' | asset_img_url: '230x230' }} "  alt="{{shop.name}}" />
+                </a>
+              </div>
+              <a class="close">
+                <img alt="close" src=" {{ 'Close.png' | asset_img_url: '230x230' }} "  />
+              </a>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="grid__item">
+              {% if count > 1%}
+              <h5 class="text-center" tabindex="0">Select your {{j}} moon phase:</h5>
+              {% else %}
+              <h5 class="text-center" tabindex="0">Select your moon phase:</h5>
+              {% endif %}
+            </div>
+            <div class="grid__item prod-calc clearfix">
+              <div class="grid">
+                <div class="grid__item text-center one-third sm--one-half md--one-half xs--one-whole xm--one-half img_one_width" data-tab="moon_{{i}}">
+                  <div class="moon-image" data-tab="moon_{{i}}">
+                    <img alt="Moonglow Jewelry Moonphase" src="https://cdn.shopify.com/s/files/1/2486/3224/files/small.png?v=1577858132">
+                    <div class="image-wrap">
+                      <img src="{{ 'PL.jpeg' | asset_img_url: '230x230' }}" alt="Full Moon" />
+                    </div>
+                    <div class="date-name" tabindex="0">
+                      <span class="date"></span>
+                      <span class="name"> What's your moon phase? </span>
+                    </div>
+                    <div class="moon-name active" tabindex="0">
+                      <span class="name">What's your moon phase?</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid__item two-thirds sm--one-half  md--one-half xs--one-whole xm--one-half img_second_width">
+                  <div class="shop-moon-wrap" data-tab="moon_{{i}}">
+                    <div class="h8 drop-heading">select by date:</div>
+                    <div class="shop-moon-drop">
+                      <div class="month-dropdown dropdown">
+                        <label for="month_{{i}}" class="visuallyhiddentext">month_{{i}}</label>
+                        <select class="month basic-example" data-tab="moon_{{i}}" id="month_{{i}}">
+                          <option value="month" selected>Month</option>
+                          {% for month in months%}
+                          {% assign current_month =  "now" | date: "%B" %}
+                          {% if forloop.index > 9 %}
+                          <option value="{{forloop.index}}">{{month}}</option>
+                          {% else %}
+                          <option value="0{{forloop.index}}">{{month}}</option>
+                          {% endif %}
+                          {% endfor %}
+                        </select>
+                      </div>
+                      <div class="date-dropdown dropdown">
+                        <label for="day_{{i}}" class="visuallyhiddentext">day_{{i}}</label>
+                        <select class="date basic-example" data-tab="moon_{{i}}" id="day_{{i}}">
+                          <option value="day" selected>Day</option>
+                          {% for d in (1..31) %}
+                          {% assign current_date =  "now" | date: "%d"  | plus:0 %}
+                          {% if forloop.index > 9 %}
+                          <option value="{{d}}" >{{d}}</option>
+                          {% else %}
+                          <option value="0{{d}}" >{{d}}</option>
+                          {% endif %}
+                          {% endfor %}
+                        </select>
+                      </div>
+                      <div class="year-dropdown dropdown">
+                        <label for="year_{{i}}" class="visuallyhiddentext">year_{{i}}</label>
+                        <select class="year basic-example" data-tab="moon_{{i}}" id="year_{{i}}">
+                          <option value="year" selected>Year</option>
+                          {% for y in (1900..2020) reversed  %}
+                          {% assign current_year =  "now" | date: "%Y" | plus:0 %}
+                          <option value="{{y}}">{{y}}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                      <button type="button" class="moon-btn  btn" data-tab="moon_{{i}}">
+
+                        <span>SELECT THIS DATE</span>
+                      </button>
+
+                      <button class="moon-btn-for-mobiledate" style="display: none;"> <div class="visuallyhiddentext">moon-btn</div></button>
+
+                    </div>
+                    <p class="shop-error red" tabindex="0">* Please Select Date!</p>
+                    <div class="result has_date" style="display:none">
+                      <h5 tabindex="0"><span>Your Results</span></h5>
+                      <div class="moon-data" style="">
+                        <div class="results-sec res-sate" tabindex="0">
+                          <h8>Date:</h8>
+                          <p class="h8 result-date" data-resultdata=""></p>
+                        </div>
+                        <div class="results-sec res-sate" tabindex="0">
+                          <h8>Moon on that day:</h8>
+                          <p class="h8 result-text"></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div  class='xs-show'>
+                      {% include 'customize-or-select' %}
+                    </div>
+                    {% if current_store == 'usa' %}
+                    {%- include 'fav-moon-btn'-%}
+                    {% if customer %}
+                    <div class="select dropdown fav_dates">
+                      <label for="favdates-{{'now' | date: "%s" }}" class="visuallyhiddentext">month</label>
+                      <select class="favDates basic-example" id="favdates-{{'now' | date: "%s" }}">
+                      </select>
+                    </div>
+                    {% else %}
+                    <a href="/account/login?checkout_url={{shop.url}}{{product.url}}">
+                      <div class="select dropdown fav_dates">
+                        <label for="favdates-{{'now' | date: "%s" }}" class="visuallyhiddentext">month</label>
+                        <select class="favDates basic-example" id="favdates-{{'now' | date: "%s" }}">
+                          <option value="ocassion" selected>Login to see your favorite Dates</option>
+                        </select>
+                      </div>
+                    </a>
+                    {% endif %}
+                    {% endif %}
+                  </div>
+                  <div  class='xs-hide'>
+                    {% include 'customize-or-select' %}
+                  </div>
+
+                  <div class="or-section" tabindex="0"><span>or</span></div>
+
+                  <div class="custom-input-wrapper  phase-checkbox custom-checkbox" data-tab="moon_{{i}}">
+                    <input type="checkbox" id="moon_{{i}}" placeholder="name" class="check-toggle">
+                    <label for="moon_{{i}}"> I know which phase I want, I don't need a date.</label>
+                  </div>
+
+                  <div class="select-moon-section moon_or_btn_wrap" data-tab="moon_{{i}}">
+                   <div class='swatches_box deactive'>
+                    {% include 'moon-swatch'%}
+
+                    <div class="result xs_result_nodate no_date">
+                      <h5 tabindex="0"><span>Your Results</span></h5>
+                      <div class="moon-data" style="">
+                        <div class="results-sec res-sate" tabindex="0">
+                          <h8>Phase:</h8>
+                          <p class="h8 result-date" data-resultdata=""></p>
+                        </div>
+                        <div class="results-sec res-sate" tabindex="0">
+                          <h8>Moon on that day:</h8>
+                          <p class="h8 result-text"></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='text-center'>
+                     <button type="button" class="moon-btn xs_moon_btn btn hide" data-moon="{{i}}">
+                      <img class="" src="{{ 'button-aero.png' | asset_img_url }}" alt="Full Moon">
+                    </button>
+                  </div>
+                </div>
+
+                <div class="result no_date" style="display:none">
+                  <h5 tabindex="0"><span>Your Results</span></h5>
+                  <div class="moon-data" style="">
+                    <div class="results-sec res-sate" tabindex="0">
+                      <h8>Date:</h8>
+                      <p class="h8 result-date" data-resultdata=""></p>
+                    </div>
+                    <div tabindex="0" class="results-sec res-sate">
+                      <h8>Moon on that day:</h8>
+                      <p class="h8 result-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="btn_mob" style="display:none">
+              <a class="reset_mob" data-num="{{i}}"> Reset</a>
+              <a class="select_moon_mob" data-num="{{i}}">select Moon phase</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+   <!--  <div class="customize_or_select">
+      <div class="or_title"><h6>OR SELECT ECLIPSE:</h6></div>
+      <div class="phase_section">
+        <div class="lunar_phase" data-value="LE">
+          <span>Lunar Eclipse</span>
+        </div>
+        <div class="solar_phase" data-value="SE">
+          <span>Solar Eclipse</span>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+
+  {% if flag == true %}
+  {% assign invetry_pr = all_products['moon-phase-hidden'] %}
+  {% assign invetry_pr2 = all_products['charm-hidden'] %}
+  {% assign invetry_pr3 = all_products['charm-2-hidden'] %}
+
+  {% assign inv_pr = '' %}
+  {% assign has_sub = 'false' %}
+  {% assign has_color = 'false' %}
+
+  {% for tag in product.tags %}
+  {% if tag contains 'sub_' %}
+  {% assign has_sub = 'false' %}
+  {% assign in_pr = tag | remove:'sub_' %}
+  {% assign inv_pr = inv_pr | append : in_pr | append:',' %}
+  {% endif %}
+
+  {% if tag contains 'color' %}
+  {% assign has_color = 'true' %}
+  {% endif %}
+
+  {% endfor %}
+
+  {% if has_sub == 'true' %}
+  <div class="has_inve yes"></div>
+  <div class="inventry_hidden_pr" data-tag="{{ inv_pr }}">
+    {% for variant in invetry_pr.variants %}
+    {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
+    <div data-id="{{ variant.id }}" data-name="{{ variant.title }}" tabindex="0"></div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="has_inve no" tabindex="0"></div>
+  {% endif %}
+
+  <div class="prod-bottom {% if has_color == 'true' %}product_color{% endif %} prod-bottom-multi clearfix">
+    {%- if product.tags contains 'engraving charm' -%}
+    {%- include 'engraving-charm' -%}
+    {% endif -%}
+    {% if product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+    <div class="engraving-options-wrapper engraving-options-wrapper-desktop">
+      <div class="custom-input-wrapper custom-checkbox engraving-options" data-tab="engraving-enable">
+        <input type="checkbox" id="engraving-enable" class="check-toggle" tabindex="0">
+        <label for="engraving-enable">&nbsp; I'd like to add engraved tag</label>
+      </div>
+      <div class="engraving-fields" style="display:none;">
+        <div class="engraving-fields-line">
+          <input class="engraving-input" data-target="#field-engraving" placeholder="Engraving{% if product.tags contains 'engraving 2' %} (Side 1){% endif %}" maxlength="20" />
+          <div class="engraving-input-limit">0/20</div>
+        </div>
+        {% if product.tags contains 'engraving 2' %}
+        <div class="engraving-fields-line">
+          <input class="engraving-input" data-target="#field-engraving2" placeholder="Engraving (Side 2)"max-length="20" /><div class="engraving-input-limit">0/20</div>
+        </div>
+        {% endif %}
+        <div class="engraving-fields-line" tabindex="0">
+          <small>Engraving costs are based on the number of characters.</small>
+          <ul class="engraving-pricing">
+            <li> 1-5 = $10</li>
+            <li>6-10 = $15</li>
+            <li>11-20 = $20</li>
+          </ul>
+          {% comment %}
+          {% if product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+          <div class=" mobile_refund  standard_non_refund engraving_non_refund">*Engraving is Non-Refundable*</div>
+          {%- endif -%}
+          {% endcomment %}
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="prod-bottom-wrap grid">
+      <div class="grid__item seven-twelfths sm--one-whole sm-down--one-whole">
+        <div class=" selected-moon-wrap">
+          <div class="sub-heading sm-down--show hide" tabindex="0"> Select Your Moon Phase(s): </div>
+          <h8 class="sm-down--hide" tabindex="0">Moon(s) Selected:</h8>
+          <div class="selected-moon">
+            {% assign inve_pr = '' %}
+            {% for i in (1..count) %}
+            <div class="select-moon-mobile  image-wrap tabMoon_{{i}}" data-thumb="moon_{{i}}" style="display:block" data-moon="{{i}}">
+              <span class='alter_select-moon-mobile'></span>
+              <div class="moon-image">
+               <img src="{{ 'PL.jpeg' | asset_img_url: '230x230' }}" alt= " " />
+             </div>
+
+             <div class="select-moon-content hide sm-down--show">
+              <div class="prod-tab-heading " data-tab="moon_{{i}}" tabindex="0">{{i}} Moon Phase </div>
+              <span class="name moon_phase" tabindex="0">Select moon Phase</span>
+
+              <div class="result" style="display:none">
+                <div class="moon-data" style="">
+                  <span class="results-sec res-sate" tabindex="0">
+                    <p class="h8 result-date" data-resultdata=""></p>
+                  </span>
+                  <span class="results-sec res-sate" tabindex="0">
+                    <p class="h8 result-text"></p>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            <span class="edit" tabindex="0"> edit </span>
+
+            <input required class="required" id="phase{{i}}" type="hidden" name="properties[Phase{{i}}]"  value="">
+
+
+          </div>
+          {% endfor %}
+          {% if has_sub == 'true'%}
+          <input required class="required" id="inventry" type="hidden" name="properties[inventory]"  value="{{ inve_pr | split:',' | join:',' }}">
+          {% endif %}
+        </div>
+      </div>
+      <div class="moon-check-wrap"
+      {% comment %}
+      style="{% unless product.tags contains 'chain_menu1' or product.tags contains 'chain_menu2' or product.tags contains 'chain_menu3' or product.tags contains 'chain_menu4' or product.tags contains 'chain_menu5' or product.tags contains 'birthstone_menu' %}display:none;{% endunless %}"
+      {% endcomment %}
+      >
+      <div class="prod-swatch-wrap">
+        <div class='option_box'>
+          {% for option in product.options_with_values %}
+          <div class="radio-wrapper js product-form__item">
+            <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
+            for="SingleOptionSelector-{{ forloop.index0 }}">
+            {{ option.name | escape }}
+          </label>
+          <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input {{option.name | handleize}}"
+          id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+{%- assign optName = 'options' | append: forloop.index -%}
+{%- assign option_values = [optName] | default: option.values -%}
+{%- for value in option_values -%}
+          <option value="{{ value | escape }}" {% if option.selected_value==value %} selected="selected"
+          {% endif %}>
+          {%- assign new_value = value -%}
+          {%- for moon in moons -%}
+          {%- assign moon_handle = moon | handleize -%}
+          {%- assign value_handle = value | handleize -%}
+          {%- if moon_handle contains value_handle -%}
+          {%- assign new_value = moon -%}
+          {%- endif -%}
+          {%- endfor -%}
+          {{ new_value | escape }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="prod-varient">
+    <label for="productSelect" class="visuallyhiddentext">productSelect</label>
+    <select name="id[]" id="productSelect" class="product-single__variants single_variants" >
+      {% for variant in product.variants %}
+      {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
+      {% if variant.available %}
+      <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {% assign geolizr_price =  bold_variant_price  %}{% include 'geolizr-currency' with geolizr_price %}{{ bold_variant_price | money_with_currency | prepend: geolizr_prepend_code | append: geolizr_append_code }}</option>
+      {% else %}
+      <option disabled="disabled" data-title='{{variant.title}}'>
+        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+      </option>
+      {% endif %}
+      {% endfor %}
+    </select>
+
+    {% include 'prod-enhancers' %}
+  </div>
+
+  {% if section.settings.enable_free_giftbox %}
+  <div class="custom-input-wrapper phase-checkbox custom-checkbox gift_box">
+    <input type="checkbox" id="giftbox_check" data-product="{{all_products[section.settings.choose_gift_prod].title}}">
+    <label for="giftbox_check">{{section.settings.gift_note}}</label>
+  </div>
+  {% endif %}
+
+  {% if product.tags contains 'engrave' %}
+
+  <div class="engrave-pro" style="padding-bottom:15px;">
+
+    <div class="h8 engrave-heading">add engraving:</div>
+    <div class="engrave-text">
+      <input type="text" maxlength="20" class="engrave_chr yes" name='properties[Engraving]'/>
+      <span class="char_remian"><p id="chars">0</p>/20</span>
+      <!--                         <input type="hidden" class="engrave_id" name='properties[Engrave_id]'/> -->
+      <input type="hidden" name="id[]" class="engrave_product" value="">
+      <input type="hidden" class="random_num" name='properties[Engrave_id]'value="" />
+      <span tabindex="0">$3 per character</span>
+    </div>
+    <div class="engrave-close char_clear">
+      <img src="{{ 'Close.png' | asset_img_url:'original' }}" alt="close icon">
+    </div>
+  </div>
+  {% endif %}
+
+  {% if has_color == 'true' %}
+  <div class="swatch-wrap clearfix">
+    <span>Color</span>
+    {% for tag in product.tags %}
+    {% if tag contains 'color' %}
+    {% assign swatch = tag | split: '_' %}
+    {% assign color_handle = swatch | last %}
+    <label class="swatch_color {{ swatch[1] | handleize }} {% if product.handle == color_handle %} selected{% endif %}"><a {% if product.handle == color_handle %} class="selected"{% else %}data-href="/products/{{ swatch | last }}"{% endif %}><p>{% if swatch[1] == 'rose-gold' %}Rose Gold {% else %}{{ swatch[1] | capitalize }}{% endif %}</p></a></label>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class='not_moon'>
+    {% for option in product.options %}
+    {% assign swatch = option %}
+    {% include 'swatch' with swatch %}
+    {% endfor %}
+  </div>
+</div>
+</div>
+{% if product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+<div class="engraving-options-wrapper engraving-options-wrapper-mobile">
+  <div class="custom-input-wrapper custom-checkbox engraving-options" data-tab="engraving-enable-mobile">
+    <input type="checkbox" id="engraving-enable-mobile" class="check-toggle" tabindex="0">
+    <label for="engraving-enable-mobile">&nbsp; I'd like to add engraved tag</label>
+  </div>
+  <div class="engraving-fields" style="display:none;">
+    <div class="engraving-fields-line">
+      <input class="engraving-input" data-target="#field-engraving" placeholder="Engraving{% if product.tags contains 'engraving 2' %} (Side 1){% endif %}" maxlength="20" />
+      <div class="engraving-input-limit">0/20</div>
+    </div>
+    {% if product.tags contains 'engraving 2' %}
+    <div class="engraving-fields-line">
+      <input class="engraving-input" data-target="#field-engraving2" placeholder="Engraving (Side 2)" max-length="20" /><div class="engraving-input-limit">0/20</div>
+    </div>
+    {% endif %}
+    <div class="engraving-fields-line" tabindex="0">
+      <small>Engraving costs are based on the number of characters.</small>
+      <ul class="engraving-pricing">
+        <li> 1-5 = $10</li>
+        <li>6-10 = $15</li>
+        <li>11-20 = $20</li>
+      </ul>
+        {% comment %}
+        {% if product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+        <div class =" quick_view standard_non_refund engraving_non_refund">*Engraving is Non-Refundable*</div>
+        {% endif %}
+        {% endcomment %}
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+<div class="grid__item five-twelfths sm--one-half sm-down--one-whole">
+ {% include 'product-delivery' %}
+ {% unless product.handle == 'moon-phase-hidden' %}
+ {% if bold_price > 0 %}
+ <button class="btn  btn-full btn-secondary  AddToCart disabled" disabled="disabled" type="submit" name="add" >add to cart </button>
+ <p class="add-more-msg" style="display:none">&#8203;* Please add <span id="more-to-check">{{ count }}</span> more moons..</p>
+ <p class="add-left-msg" style="display:none"></p>
+ {%- if product.available -%}
+ <p class='soldout_text'>
+  Please select another variant
+</p>
+{% endif %}
+{% endif %}
+{% endunless %}
+{%- include 'wishlist-btn' -%}
+</div>
+
+
+
+</div>
+</div>
+{% endif %}
+<script>
+  $(document).ready(function () {
+    {% include 'mobileSelect_js' with count %}
+  });
+</script>
+
+</div>
+
+{% else %}
+<div class="moon_class" data-moon="no"></div>
+<div class="single-add-cart">
+ {% if product.tags contains 'custom_bracelete'%}
+ <label class="custom_brac">Birthstone</label>
+ {% endif %}
+ <select name="id[]" id="productSelect" class="product-single__variants{% if bold_variants_size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %} hide{% endif %}" aria-label="product selection">
+  {% for variant in product.variants %}
+{%- include 'bold-variant' with variant, hide_action: 'skip' -%}
+  {% if variant.available %}
+  <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {% assign geolizr_price =  bold_variant_price  %}{% include 'geolizr-currency' with geolizr_price %}{{ bold_variant_price | money_with_currency | prepend: geolizr_prepend_code | append: geolizr_append_code }}</option>
+  {% else %}
+  <option disabled="disabled" data-title='{{variant.title}}'>
+    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+  </option>
+  {% endif %}
+  {% endfor %}
+</select>
+{% include 'prod-enhancers' %}
+
+<div class="single_lineItem">
+
+</div>
+
+{% if section.settings.enable_free_giftbox %}
+<div class="custom-input-wrapper phase-checkbox custom-checkbox gift_box">
+  <input type="checkbox" id="giftbox_check" data-product="{{all_products[section.settings.choose_gift_prod].title}}">
+  <label for="giftbox_check"> {{section.settings.gift_note}}</label>
+</div>
+{% endif %}
+{% unless product.handle == 'moon-phase-hidden' %}
+{% if bold_price > 0 %}
+<button class="btn btn-secondary AddToCart" type="submit" name="add" > add to cart </button>
+{% endif %}
+{% endunless %}
+
+</div>
+{% endif %}
+</form>
+
+{% unless bundle_loaded == 'true' %}
+{% include 'shappify-bdl-load-bundle' %}
+{% assign bundle_loaded = 'true' %}
+{% endunless %}

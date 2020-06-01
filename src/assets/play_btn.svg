@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="67px" height="67px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>4C75F79A-A2FF-47C2-A20A-83037996F61F</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons" transform="translate(-657.000000, -99.000000)" fill="#FFFFFF">
+            <g id="play_btn" transform="translate(658.000000, 100.000000)">
+                <circle id="Oval-9" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.602581522" cx="32.5" cy="32.5" r="32.5"></circle>
+                <path d="M47.4222912,34.7888544 L25.8944272,45.5527864 C24.9064702,46.0467649 23.7051241,45.6463162 23.2111456,44.6583592 C23.0722902,44.3806483 23,44.0744222 23,43.763932 L23,22.236068 C23,21.1314985 23.8954305,20.236068 25,20.236068 C25.3104902,20.236068 25.6167163,20.3083582 25.8944272,20.4472136 L47.4222912,31.2111456 C48.4102482,31.7051241 48.8106969,32.9064702 48.3167184,33.8944272 C48.123191,34.281482 47.809346,34.595327 47.4222912,34.7888544 Z" id="Triangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>

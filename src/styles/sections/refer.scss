@@ -1,0 +1,54 @@
+.swell-moon-glow .swell-referral-section {
+    .redeem-holder{
+        max-width: inherit;
+        width: 50%;
+        @include media-query('medium-down'){
+            width: 100%;
+        }
+        .heading{
+            color: white;
+            font-family: $font-brand;
+            margin: 10px;
+        }
+        .heading-text{
+            color: white;
+        }
+    }
+    .fa-twitter{
+        display: none;
+    }
+    .swell-referral{
+        max-width: inherit;
+        width: 50%;
+        @include media-query('medium-down'){
+            width: 100%;
+        }
+        h2.swell-referral-heading{
+            font-family: $font-brand;
+            font-size: $h2_size!important;
+            margin: 10px 0;
+        }
+        p.swell-referral-details{
+            margin-top: 10px;
+            font-family: $font-heading;
+        }
+        .swell-referral-form-wrapper{
+            form{
+                ul.swell-referral-form-list{
+                    width: 100%;
+                    li.swell-referral-form-list-field{
+                        .swell-referral-form-list-field-input{
+                            border: 0;
+                            border-bottom-right-radius: 0;
+                            border-top-right-radius: 0;
+                        }
+                        .swell-referral-form-list-submit{
+                            border-bottom-left-radius: 0;
+                            border-top-left-radius: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

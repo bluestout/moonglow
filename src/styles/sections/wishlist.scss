@@ -1,0 +1,71 @@
+#shopify-section-wishlist-template{
+    .container{
+        margin: 50px auto;
+
+        .wishlist_product_data{
+            .page_title{
+                text-align: center;
+                font-size: $h2_size;
+            }
+            .product-wrap{
+                margin-top: 30px;
+                .prouduct{
+                    .remove_div{
+                        position: absolute;
+                        z-index: 1;
+                        margin-top: 10px;
+                        a.remove_wish{
+                            padding: 10px;
+                            font-size: 32px;
+                        }
+                    }
+                    background-color: #f7f7f7;
+                    margin-bottom: 10px;
+                    img{
+                        filter: brightness(0.97);
+                        width: 100%;
+                    }
+                    .content{
+                        padding: 20px;
+                        @include media-query('small'){
+                            padding: 20px 0;
+                        }
+                        .prod-heading{
+                            height: 40px;
+                            display: block;
+                            text-align: center;
+                            font-size: 14px;
+                            line-height: 18px;
+                            margin: 0px;
+                            font-family: "Montserrat Light";
+                            font-weight: 300;
+                            letter-spacing: 0.6px;
+                            @include media-query("medium-down"){
+                                height: 60px;
+                            }
+                        }
+                        .price_inline{
+                            margin: 10px 0;
+                            .price-wrap{
+                                p.price{
+                                    text-align: center;
+                                    font-size: 18px;
+                                    line-height: 22px;
+                                    letter-spacing: 0.77px;
+                                    color: #2A323F;
+                                    font-family: "Montserrat Light";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .null_wish_list{
+            padding: 20px;
+            text-align: center;
+            margin-top: -50px;
+        }
+    }
+}

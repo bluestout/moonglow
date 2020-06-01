@@ -1,0 +1,23 @@
+<section class="reward-banner fluid-display">
+    <div class="banner-iamge"></div>
+    <div class="caption">
+        <h1 class="mark">{{ section.settings.title }}</h1>
+        <div class="desc"> {{ section.settings.text }} </div>
+        <div class="button-field">
+            <a href="{{ section.settings.btn_url_1 }}" class="button small white">{{ section.settings.btn_label_1 }}</a>
+            <a href="{{ section.settings.btn_url_2 }}" class="button small grey"> {{ section.settings.btn_label_2 }} </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .reward-banner .banner-iamge{
+        background: url({{section.settings.banner | img_url: 'original'}}) no-repeat 50% 50% / cover;
+    }
+    .caption{
+        background-color: {{ section.settings.bg_color }};
+    }
+    .caption h1, .caption p{
+        color: {{ section.settings.title_color }};
+    }
+</style>

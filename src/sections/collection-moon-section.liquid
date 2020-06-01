@@ -1,0 +1,78 @@
+{% include 'collection_image_text' %}
+
+<section id="gf-products" class="collection-template">
+
+</section>
+
+<div class="collection-list-banner hide">
+    <div class="banner-caption one-half medium-down--one-whole left">
+        <div class="one-half banner left lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.caption_banner %}"></div>
+        <div class="one-half info right" style="background-color: {{ section.settings.caption_bg_color }} ">
+            <div class="content">
+                <img src="{{ 'present_ico.svg' | asset_url }}" alt="{{ section.settings.caption_title }}">
+                <h3 class="mark">{{ section.settings.caption_title }}</h3>
+                <div class="devider left"></div>
+                <div class="desc">{{ section.settings.caption_text }}</div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+{% schema %}
+{
+    "name": "Colllection moon template",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_moon_phase_control",
+            "label": "Show moon phase control",
+            "default": true
+        },
+        {
+            "type": "image_picker",
+            "id": "image_banner",
+            "label": "Banner image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "desc",
+            "label": "Description",
+            "default": "<p>Your headline</p>"
+        },
+        {
+            "type": "range",
+            "id": "item_per_row",
+            "label": "Item per row",
+            "min": 1,
+            "max": 4,
+            "step": 1,
+            "default": 1
+        },
+        {
+            "type": "image_picker",
+            "id": "caption_banner",
+            "label": "Banner"
+        },
+        {
+            "type": "color",
+            "id": "caption_bg_color",
+            "label": "Caption background color"
+        },
+        {
+            "type": "text",
+            "id": "caption_title",
+            "label": "Caption title"
+        },
+        {
+            "type": "richtext",
+            "id": "caption_text",
+            "label": "Caption description"
+        }
+    ]
+}
+{% endschema %}

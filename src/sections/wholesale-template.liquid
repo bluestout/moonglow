@@ -1,0 +1,319 @@
+{% include 'page_banner' %}
+
+{% for block in section.blocks %}
+    {% if block.type =='image' %}
+        {% include 'image_text_with_title_image' %}
+        <div class="page-content">
+            <div class="form-group">
+                <div class="info">
+                    <h3 class="uppercase text-center">Learn More About Becoming a Moonglow Retail Partner</h3>
+                    <div class="devider"></div>
+                    <!-- <h5 class="left">We have a simple program for you to provide custom moons for your customers on the spot. We set you up responsibly for success.</h5> -->
+                </div>
+                <div>
+                    <iframe src="https://formbuilder.hulkapps.com/corepage/customform?id=UMPnPkypOko2_Mcrp9yWUQ" id="frame_UMPnPkypOko2_Mcrp9yWUQ" frameborder="0" width="100%" style="height: 600px;"></iframe>
+                </div>
+            </div>
+        </div>
+    {% elsif block.type == 'video' %}
+        {% include 'video_text' %}
+    {% elsif block.type == 'header' %}
+        <section>
+            <h3 class="text-center">{{ block.settings.title }}</h3>
+            {% if block.settings.enable_devider %}
+                <div class="devider"></div>
+            {% endif %}
+        </section>
+        {% include 'blogs' %}
+    {% elsif block.type == 'image_bar' %}
+        {% include 'image_bar' %}
+    {% elsif block.type == 'form' %}
+        {% include 'find-moon-phase', item:block %}
+    {% endif %}
+{% endfor %}
+{% include 'faq-block' %}
+{% schema %}
+{
+    "name": "wholesale section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "default_banner",
+            "label": "Banner image"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_caption",
+            "label": "Enable caption"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "faq",
+            "name": "Faq block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "name": "Image text",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "wide_display",
+                    "label": "Wide display "
+                },
+                {
+                    "type": "select",
+                    "id": "layout",
+                    "label": "Image alignment",
+                    "default": "left",
+                    "options": [
+                      {
+                        "value": "left",
+                        "label": "Left"
+                      },
+                      {
+                        "value": "right",
+                        "label": "Right"
+                      }
+                    ]
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Banner"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background color"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "enable_devider",
+                    "label": "Enable devider"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "title_image_1",
+                    "label": "Title image 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "title_image_2",
+                    "label": "Title image 2"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "description"
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "name": "Video",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "video_url",
+                    "label": "Video url"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background color"
+                },
+                {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color"
+                },
+                {
+                    "type": "range",
+                    "id": "stars",
+                    "label": "Stars",
+                    "min": 1,
+                    "max": 5,
+                    "step": 1,
+                    "default": 1
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Description"
+                }
+
+            ]
+        },
+        {
+            "type": "header",
+            "name": "Header",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "enable_devider",
+                    "label": "Enable devider"
+                }
+            ]
+        },
+        {
+            "type": "article",
+            "name": "Article",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                }
+            ]
+        },
+        {
+            "type": "image_bar",
+            "name": "Image bar",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image_1",
+                    "label": "Image 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_2",
+                    "label": "Image 2"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Caption background color"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "form",
+            "name": "Find moon form",
+            "settings": [
+              {
+                "type": "checkbox",
+                "id": "wide_display",
+                "label": "Wide display"
+              },
+              {
+                "type": "color",
+                "id": "bg_color",
+                "label": "Background color"
+              },
+              {
+                "type": "color",
+                "id": "color",
+                "label": "Font color"
+              },
+              {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+              },
+              {
+                "type": "checkbox",
+                "id": "devider_enable",
+                "label": "Devider enable ?"
+              },
+              {
+                "type": "select",
+                "id": "layout",
+                "label": "Image alignment",
+                "default": "left",
+                "options": [
+                  {
+                    "value": "left",
+                    "label": "Left"
+                  },
+                  {
+                    "value": "right",
+                    "label": "Right"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Image with text"
+              },
+              {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+              },
+              {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button label"
+              },
+              {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button link"
+              }
+            ]
+        }
+    ]
+}
+{% endschema %}

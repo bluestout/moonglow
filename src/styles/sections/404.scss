@@ -1,0 +1,23 @@
+.failse_template{
+    padding: $padding * 2 0px;
+    margin: auto;
+    max-width: 500px;
+    img{
+        margin: 50px auto;
+        display: table;
+        @include media-query('medium-down'){
+            width: 150px;
+            margin: auto;
+            display: table;
+            margin-bottom: 33px;
+        }
+    }
+    h3:last-child{
+        margin-top: $margin * 3 / 5;
+    }
+    .button.small{
+        margin: auto;
+        display: table;
+        margin-top: $margin * 2 / 5;
+    }
+}

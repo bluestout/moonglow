@@ -1,0 +1,63 @@
+<!-- checkout-gift -->
+{%- if settings.checkout_giftcard -%}
+<div class='gift_wrap with_gift_card'>
+  <div class="gift_wrap_title">
+    <h3 class="add_title">Add to my order:</h3>
+  </div>
+  <div class='products'>
+    {%- for i in (1..3) -%}
+    {%- assign product_title = 'checkout_gift_title_card_' | append:i -%}
+    {%- assign product_img = 'checkout_gift_card_img_' | append:i -%}
+    {%- assign product_vid = 'checkout_gift_card_vid_' | append:i -%}
+    {%- assign product_vid = settings[product_vid]  | plus:0%}
+    {%- assign product_price = 'checkout_gift_card_price_' | append:i-%}
+
+    <div class='gift giftcard_{{i}}' data-vid='{{product_vid}}'>
+      <div class="product_block">
+        <div class="radio_button block checkbox_wrap ">
+          <div class="radio_img"></div>
+        </div>
+        <div class="product_img block">
+          <img class ="gift_img" src="{{ settings[product_img] | img_url: '300x'}}" data-src='{{ settings[product_img] | img_url: 'grande'}}' alt="gift-card"> 
+        </div>
+        <div class="left_side_block block">
+          <div class="product_price">
+            <h3>{{settings[product_price]}}</h3>
+          </div>
+          <div class ="title_gift">
+            <h3>{{settings[product_title]}}</h3>
+          </div>
+        </div>
+
+        <div class="qty block">
+          <label >Qty:</label>
+          <div class="spinner">
+            <span class="min">-</span>
+            <label class="visuallyhiddentext">Quantity box</label>
+            <input type="number"   name="quantity"  value="1"  min="1" class="js-quantity-selector" aria-label="quantity box">
+            <span class="plus">+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {%- endfor -%}
+    <div class="save_button">
+      <button type="" class="btn">
+        <span>
+          Update your cart
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+<!-- <div class="checkout_gift_card_block">
+      <select name="checkout_giftwrap_select" id="checkout_giftwrap_select_box" class="custom-select" placeholder="Select Gift card">
+        <option value="gift_1">Moon Message - I Love You To The Moon and Back</option>
+        <option value="gift_2">Pillow Box & Moon Tissue Paper</option>
+        <option value="gift_3">Moon Message - Thinking of You</option>
+        <option value="gift_4">Moon Message - “You are my sun, my moon, and all my stars.”</option>
+        <option value="gift_5">Moon Message - Happy Birthday</option>
+      </select>
+    </div> -->

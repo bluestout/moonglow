@@ -1,0 +1,45 @@
+<section class="sign-up {% if section.settings.wide_display %} fluid-display {% endif %}">
+    <div class="grid__item one-half medium-down--one-whole  title">
+        {{ section.settings.title }}
+    </div>
+    <div class="grid__item one-half medium-down--one-whole pannel"> 
+        {% form 'customer' %}
+        {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+                <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+            {% else %}
+            <input type="email" required aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" value="{% if customer %}{{ customer.email }}{% endif %}" id="mail" name="contact[email]"  class="email" placeholder="Enter your email" />
+            <input type="hidden"  name="contact[tags]" value="newsletter">
+            <button class="button grey">{{ section.settings.btn_label }}</button>
+            {% endif %}
+        {% endform %}
+    </div>
+</section>
+{% schema %}
+    {
+        "name": "Sign up",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "wide_display",
+                "label": "Wide display"
+            },
+            {
+                "type": "richtext",
+                "id": "title",
+                "label": "Description"
+            },
+            {
+                "type": "text",
+                "id": "btn_label",
+                "label": "Button Label"
+            }
+        ],
+        "presets": [
+            {
+                "category": "Layout",
+                "name":"Sign up"
+            }
+        ]
+    }
+{% endschema %}

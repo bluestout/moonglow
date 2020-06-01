@@ -1,0 +1,612 @@
+ @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+body.font_family{
+  h1,h2,h3,h4,h5,h6,span,th,tbody,a,div{
+   font-family: "Montserrat",sans-serif;
+ }
+}
+
+@mixin transform($transforms) {
+ -moz-transform: $transforms;
+ -o-transform: $transforms;
+ -ms-transform: $transforms;
+ -webkit-transform: $transforms;
+ transform: $transforms;
+}
+.checkout_elements{
+ display: none;
+}
+
+.gift_wrap{
+ .gift_wrap_title{
+  h3{
+    font-weight: 800;
+    color: #2e4676;
+    font-size: 16px;
+    text-align: left;
+    margin: 20px 0px 10px 0px;
+  }
+}
+.products{
+  .gift{
+   border-bottom: 1px solid #9e9e9e61;
+   padding: 15px 0px 15px 0px;
+   cursor: pointer; 
+   position: relative;
+   &.active{
+    .product_block .radio_img{
+     background-position: 1px 1px;
+   }  
+ }
+ .product_block{
+
+  position: relative;
+  align-items: center;
+  .block{ 
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    &.qty{
+      @media(min-width:1000px){
+        float: right;
+      }
+      padding-top: 20px;
+
+    }
+  }
+  .radio_img{
+   background: url(https://cdn.shopify.com/s/files/1/2486/3224/files/moonglow_radiobutton.png?841588628697118650) no-repeat;
+   background-position: 1px -29px;
+   background-repeat: no-repeat;
+   background-size: 16px;
+   float: left;
+   cursor:pointer;
+   width: 22px;
+   overflow: hidden;
+   height: 22px;
+ }
+ .left_side_block{
+   /*display: inline-flex;*/
+   .product_price{
+    h3{
+     font-weight: 600;
+     color: #2e4676;
+     font-size: 16px;
+   }
+ }
+ .title_gift{
+  font-size: 15px;
+  margin-left: 3px;
+  max-width: 135px;
+}
+}
+.product_img{
+ margin: 0px 10px 0px 10px;
+ max-width: 100px;
+}
+}
+
+}
+}
+.save_button{
+ /* display: none;*/
+ margin:20px auto;
+}
+}
+
+
+.loading_me{
+ position: fixed;
+ top:0;
+ left:0;
+ right: 0;
+ bottom: 0;
+ background: rgba(0, 0, 0, 0.54);
+ display: none;
+ z-index: 1000;
+ .img{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%,-50%));  
+  background: #000;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 1; 
+  color: #fff;
+}
+}
+.overflow_hidden{
+ overflow: hidden;
+}
+ul.animate-logo {
+ padding: 0;
+ position: absolute;
+ width: 50px;
+ margin: 0 auto;
+ top: 50%;
+ left: 50%;
+ @include transform(translate(-50%,-50%));
+}
+
+ul.animate-logo li {
+ display: inline-block;
+ list-style: none
+}
+
+.logo-round-one {
+ width: 22px;
+ height: 22px;
+ background: #000;
+ border-radius: 50%
+}
+
+.logo-round-two {
+ width: 23px;
+ height: 23px;
+ background: #fff;
+ border-radius: 50%;
+ border: 1px solid #000
+}
+
+.logo-round-one {
+ position: absolute;
+ -webkit-animation: linear infinite alternate;
+ -webkit-animation-name: round-one;
+ -webkit-animation-duration: 3s
+}
+
+@-webkit-keyframes round-one {
+ 0% {
+  left: 0
+}
+
+50% {
+  left: 100%;
+  margin-left: -23px
+}
+
+100% {
+  left: 0
+}
+}
+
+.logo-round-two {
+ position: absolute;
+ -webkit-animation: linear infinite alternate;
+ -webkit-animation-name: round-two;
+ -webkit-animation-duration: 3s
+}
+
+@-webkit-keyframes round-two {
+ 0% {
+  right: 0
+}
+
+50% {
+  right: 100%;
+  margin-right: -23px
+}
+
+100% {
+  right: 0
+}
+}
+
+.spinner{
+  position:relative;
+  display:inline-block;
+  cursor: pointer;
+  opacity: 0.6;
+  pointer-events: none;
+  input{
+    text-align:center;
+    max-width:40px;
+    margin: 0 30px;
+    padding:8px 0;
+    border: 1px solid #ddd;
+    &:focus{
+      outline: none;
+    }
+    @media(max-width:999px){
+      height:auto;
+      width:40px;
+      margin: 0 40px;
+    }
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  .min,.plus{
+    width: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 1px solid #ddd;
+    background: #eee;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 32px;
+    @media(max-width:767px){
+     width: 40px;
+   }
+   text-align:center;
+   &::selection{
+    background: transparent;
+  }
+
+}
+.min{
+  left: 0%;
+  border-right: none;
+}
+.plus{
+  right:0;
+  border-left: none;
+}
+}
+.view_larger_link{
+  display:block;
+}
+.fancy_gift_img{ 
+  width: 100%; 
+  min-width: 300px; 
+  max-width: 400px;
+}
+
+.fancybox-close:after{
+  content:'' !important;
+} 
+
+.product_block #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span
+{
+  background-image: none;
+}
+.reduction-code__text{
+  text-transform: lowercase;
+}
+
+/*custom select wrap*/
+.checkout_gift_card_block{
+  background-color: #2e4676;
+  color: #fff;
+  padding: 10px 5px;
+  text-align: left;
+  #checkout_giftwrap_select_box{
+    border-style: none;
+    outline: none;
+    -webkit-appearance: menulist;
+  }
+}
+.radio_button{
+  input[type="checkbox"]{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+  label{
+    color:#000;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 300;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0;
+    @media(max-width: 551px){
+      font-size: 13px;
+    }
+    &:before{
+      position: absolute;
+      content: '';
+      left: 0px;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      -o-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      border: 1px solid #444;
+      width:17px;
+      height:17px;
+      background-color: #FFF;
+    }
+    @media(max-width:320px){
+      font-size:14px;
+    }
+  }
+  input[type="checkbox"]:checked {
+    & ~ label:before {
+     border: 1px solid #3f4d69;
+     background-color: #3f4d69;
+     content: "\f00c";
+     font-family: FontAwesome;
+     text-decoration: inherit;
+     color: #fff;
+     position: absolute;
+     bottom: 0;
+     margin: auto;
+     margin: 0;
+     text-align: center;
+     font-size: 10px;
+     display: -webkit-box;
+     display: -moz-box;
+     display: -ms-flexbox;
+     display: -webkit-flex;
+     display: flex;
+     -webkit-box-align: center;
+     -webkit-flex-align: center;
+     -ms-flex-align: center;
+     -webkit-align-items: center;
+     align-items: center;
+     justify-content: center;
+     -webkit-justify-content: center;
+   }
+   & ~ label {
+    color:#000;
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+}
+.no_gift_wrap_title{
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.gift_wrap.with_gift_card .products .gift .product_block .radio_img{
+  background: url(https://cdn.shopify.com/s/files/1/2486/3224/files/checkbox-spritesheet.png?63146) no-repeat;
+  background-position: 1px -23px;
+  background-repeat: no-repeat;
+  background-size: 22px;
+  float: left;
+  cursor: pointer;
+  width: 22px;
+  overflow: hidden;
+  height: 22px;
+}
+.gift_wrap.with_gift_card .products .gift.active .product_block .radio_img {
+  background-position: 1px -1px;
+}
+.gift.active{
+  .spinner{
+    pointer-events: initial;
+    opacity: 1;
+  }
+}
+
+.main{
+  .CartSpecialInstruction{
+    margin-top: 15px;
+    label{
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 5px;
+      display: block;
+    }
+    textarea{
+      height: 60px;
+      min-height: initial;
+      border: 1px solid #ebebeb;
+      max-width: 100%;
+      width: 96%;
+      padding: 10px;
+      @media(max-width:767px){
+        width: 93%;
+      }
+    }
+  }
+}
+
+.hide{
+  display: none;
+}
+.product_date{
+  padding-bottom: 20px;
+  b{
+    font-weight: bold;
+    color: #2e4676;
+  }
+  @media(max-width:767px){
+    padding: 10px 0px;
+  }
+}
+
+.checkout_icons{
+  .checkout_sections{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .icon_img{
+      img{
+        width: 19px;
+        margin-top: 5px;
+      }
+    }
+    .icon_title{
+      margin-left: 10px;
+      h3{
+          color: #2E4676;
+          text-transform: uppercase;
+      }
+    }
+  }
+
+}
+.spinner{
+  input{
+    -moz-appearance: textfield;
+  }
+}
+.visuallyhiddentext{
+  display:none;
+}
+
+.uploader-button .uploadcare--widget__button_type_open{
+  background: #2e4676;
+  padding: 12px 35px;
+  text-transform: uppercase;
+  font-size: 15px;
+  width: 100%;
+  margin-top: 15px;
+}
+.uploader-button{
+  text-align: left;
+  width: 100%;
+  margin: 30px auto;
+  margin-bottom: 0;
+  @media(max-width: 767px){
+    width: 100%;
+    text-align: center;
+  }
+  p.enjoy_one{
+    font-size: 19px;
+    color: #2e4676;
+    font-weight: 600;
+    margin-bottom: 5px;
+    @media(max-width: 767px){
+      font-size: 14px
+    }
+  }
+  p.photo_one{
+    font-size: 16px;
+    font-weight: 600;
+    @media(max-width: 767px){
+      font-size: 13px
+    }
+  }
+  .down_side{
+    .left_s{
+      width: 69%;
+      margin: 0 auto;
+      display: inline-block;
+      vertical-align: middle;
+      @media(max-width: 767px){
+        width: 100%;
+      }
+    }
+    .right_s{
+      width: 30%;
+      display: inline-block;
+      margin: 0 auto;
+      vertical-align: middle;
+      .img_url{
+        height: 155px;
+        border: 3px solid #2e4676; 
+        background: #d48585;
+        width: auto;
+      }
+      @media(max-width: 767px){
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+      }
+      .change_button{
+        text-align: center;
+        margin-top: 10px;
+        .btn_txt{
+          text-decoration: underline;
+          color: #2e4676;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+      .img_upload{
+        text-align: center;
+        margin-top: 10px;
+        color: #2e4676;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.confirm_button{
+ text-align: center;
+ margin-top: 10px;
+ .btn_txt{
+  text-decoration: underline;
+  color: #2e4676;
+  font-weight: bold;
+  cursor: pointer;
+}
+}
+
+.card_block{
+  .title{
+    font-weight: 800;
+    color: #2e4676;
+    font-size: 16px;
+    text-align: left;
+    margin: 20px 0px 15px 0px;
+  }
+  h4{
+    font-size: 20px;
+    font-weight: 700;
+    color: #2e4676;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .block{ 
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+  }
+  .sub_title{
+    display: flex;
+  }
+  .product_title{
+    margin-bottom: 20px;
+    margin-left: 40px;
+    h6{
+      font-size: 15px;
+    }
+  }
+  .CartSpecialInstruction{
+    label{
+      font-size: 15px;
+      font-weight: 600;
+    }
+    textarea{
+     margin-bottom: 20px;
+     @media(max-width: 767px){
+      width: 85%;
+     }
+   }
+ }
+ .limited_txt{
+  margin-left: 20px;
+  h6{
+    font-size: 15px;
+    font-weight: 700;
+    color: #2e4676;
+  }
+}
+}
+
+.card_block .gift .product_block .radio_img{
+  background: url(https://cdn.shopify.com/s/files/1/2486/3224/files/checkbox-spritesheet.png?63146) no-repeat;
+  background-position: 1px -23px;
+  background-repeat: no-repeat;
+  background-size: 22px;
+  float: left;
+  cursor: pointer;
+  width: 22px;
+  overflow: hidden;
+  height: 22px;
+}
+.card_block .gift.active .product_block .radio_img {
+  background-position: 1px -1px;
+}

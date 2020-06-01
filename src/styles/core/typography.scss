@@ -1,0 +1,139 @@
+html {
+    font-size: $base_font-size;
+}
+
+body {
+    font-family: $font-body;
+    font-weight: $font-body-weight;
+    font-style: $font-body-style;
+    font-size: 0.9rem;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6, p, label{
+    color: $body_title_color;
+    font-family: $font-body;
+    font-weight: $font-body-weight;
+    margin: 0;
+    &.title{
+        font-family: $font_title;
+    }
+    &.brand{
+        font-family: $font_brand;
+    }
+    &.mark{
+        font-family: $font-heading;
+    }
+    &.uppercase{
+        text-transform: uppercase;
+    }
+    @include media-query('medium-down'){
+        color: mobile_title_color;
+    }
+}
+h1{
+    letter-spacing: $h1_letter_spacing;
+    line-height: $h1_line_height;
+    font-size: $h1_size;
+}
+
+h2{
+    font-size: $h2_size;
+    letter-spacing: $h2_letter_spacing;
+    line-height: $h2_line_height;
+    @include  media-query('medium-down'){
+        font-size: $mobile_h2_size;
+        letter-spacing: 0.61px;
+        line-height: 22px;
+        font-family: $font_title;
+    }
+}
+h3{
+    font-size: $h3_size;
+    line-height: $h3_line_height;
+    letter-spacing: $h3_letter_spacing;
+    @include  media-query('medium-down'){
+        font-family: $font_title;
+        font-size: $mobile_h3_size;
+        letter-spacing: 0.03px;
+        line-height: 19px;
+    }
+}
+
+h4{
+    font-size: $h4_size;
+    line-height: $h4_line_height;
+    letter-spacing: $h4_letter_spacing;
+
+    @include  media-query('medium-down'){
+        font-size: $mobile_h4_size;
+        font-family: $font_title;
+      }
+}
+
+h5{
+    font-size: $h5_size;
+    line-height: $h5_line_height;
+    letter-spacing: $h5_letter_spacing;
+    @include  media-query('medium-down'){
+        font-size: $mobile_h5_size;
+        line-height: $body_line_height;
+      }
+}
+
+h6{
+    font-size: $h6_size;
+    line-height: $h6_line_height;
+    letter-spacing: $h6_letter_spacing;
+}
+
+p {
+    font-size: $p_size;
+    line-height: 18px;
+    margin: 0px;
+    @include normal-font ($font-body);
+    @include media-query('medium-down'){
+        font-size: $mobile_p_size;
+        line-height: $body_line_height;
+        color: $mobile_title_color;
+    }
+}
+
+a {
+    text-decoration: none!important;
+    font-size: $link_size;
+    @include medium-font ($font-heading);
+    cursor: pointer;
+    color: $base_link_color;
+    &:hover {
+        color: $base_link_hover_color;
+        i {
+            color: $base_link_hover_color;
+        }
+    }
+}
+span{
+    font-size: $span_size;
+    line-height: $span_line_height;
+    letter-spacing: $span_letter_spacing;
+}
+
+strong{
+    font-family: $font_brand;
+    text-transform: uppercase;
+}
+
+label{
+    font-size: $label_size;
+    letter-spacing: $span_letter_spacing;
+    line-height: $label_line_height;
+    margin-left: $margin / 10;
+    text-transform: capitalize;
+}

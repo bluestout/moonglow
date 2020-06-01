@@ -1,0 +1,100 @@
+/*============================================================================
+  Grid
+    - Based on CSS Wizardry grid
+==============================================================================*/
+  .shopify-section{
+    background: #f9fafb;
+    section{
+        padding-bottom: $padding;
+        max-width: 1200px;
+        margin: auto;
+        display: table;
+        width: 100%;
+        @include media-query('medium-down'){
+            padding-bottom: $padding * 2 / 5;
+        }
+       
+    }
+  }
+  .fancybox-close:after{
+    content: none!important;
+  }
+  #MainContent{
+    @include media-query('medium-down'){
+      margin-top: 109px;
+    }
+  }
+  .fluid-display{
+      max-width: inherit!important;
+      width: 100%!important;
+  }
+  .left-side{
+      margin-right: $margin * 2;
+      float: left;
+      max-width: 90vw!important;
+      width: 100%;
+  }
+  .right-side{
+      margin-left: $margin * 2;
+      float: right;
+      max-width: 90vw!important;
+      width: 100%;
+  }
+ .grid {
+    @include clearfix();
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .grid__item {
+    float: left;
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+    width: 100%;
+  
+    &[class*='--push'] {
+      position: relative;
+    }
+  }
+  
+  /*============================================================================
+    Reversed grids allow you to structure your source in the opposite
+    order to how your rendered layout will appear.
+  ==============================================================================*/
+  .grid--rev {
+    direction: rtl;
+    text-align: left;
+  
+    > .grid__item {
+      direction: ltr;
+      text-align: left;
+      float: right;
+    }
+  }
+  
+  
+  
+  /*================ Build Base Grid Classes ================*/
+  @include grid-column-generator();
+  @include responsive-display-helper();
+  @include responsive-align-helper();
+  
+  /*================ Build Responsive Grid Classes ================*/
+  @each $breakpoint in $breakpoint-has-widths {
+    @include media-query($breakpoint) {
+      @include grid-column-generator('#{$breakpoint}--');
+      @include grid-uniform-clearfix('#{$breakpoint}--');
+      @include responsive-display-helper('#{$breakpoint}--');
+      @include responsive-align-helper('#{$breakpoint}--');
+    }
+  }
+  
+  /*================ Build Grid Push Classes ================*/
+  @each $breakpoint in $breakpoint-has-push {
+    @include media-query($breakpoint) {
+      @include grid-push-generator('#{$breakpoint}--');
+    }
+  }
+
+

@@ -1,0 +1,49 @@
+{% assign type =  item.settings.layout %}
+{% if item.settings.wide_display %}
+    {% assign wide_display = 'fluid-display' %}    
+{% endif %}
+<section class="image-text-block {{ type }} {{ wide_display }}">
+    {% if item.settings.bg_title != blank %}
+        <h1 class="bg_title">{{ item.settings.bg_title }}</h1>
+    {% endif %}
+    
+    {% capture image_layout %}
+        <div class="image-with-text__image grid__item one-half medium-down--one-whole {% if item.settings.layout == 'right' %}right{% else %}left{% endif %}">
+        {% if item.settings.image != blank %}
+            <img src="{{ item.settings.image | img_url: 'original'}}" alt="{{ item.settings.title | escape }}">
+        {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %} 
+        {% if item.settings.image_title != blank %}
+            <p class="image-title">{{ item.settings.image_title }}</p>  
+        {% endif %}
+
+        </div>
+    {% endcapture %}
+    {{ image_layout }}
+
+    <div class="image-with-text__text grid__item one-half medium-down--one-whole left">
+        <div class="info">
+            {% if item.settings.title != blank %}
+            <h2>{{ item.settings.title | escape }}</h2>
+            {% endif %}
+            {% if item.settings.sub_title != blank %}
+                <p class="mark uppercase"> {{ item.settings.sub_title }} </p>
+            {% endif %}
+            {% if item.settings.devider_enable %}
+            <div class="devider"></div>
+            {% endif %}
+            {% if item.settings.list != blank %}
+                {{ item.settings.list }}
+            {% endif %}
+            {% if item.settings.text != blank %}
+            <div>{{ item.settings.text }}</div>
+            {% endif %}
+            {% if item.settings.button_label != blank and item.settings.button_link != blank %}
+            <a class="button small" href="{{ item.settings.button_link }}">
+                {{ item.settings.button_label | escape }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>

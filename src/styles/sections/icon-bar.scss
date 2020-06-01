@@ -1,0 +1,55 @@
+.icon-bar{
+    &.bar-large{
+        padding: $padding * 3 / 5 $padding * 2 / 5;
+    }
+    &.bar-small{
+        padding: $padding * 2 / 5;
+    }
+    .grid__item{
+        @include media-query("medium-down"){
+            margin-top: $margin / 5;
+            display: inline-flex;
+        }
+        div.image_element_wrapper{
+            height: 40px;
+            display: inline-flex;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+            svg{
+                margin: auto;
+                display: table;
+                
+            }
+            @include media-query("medium-down"){
+                float: left;
+                position: static;
+                transform: none;
+            }
+        }
+        div.desc{
+            margin-top: $margin / 5;
+            @include media-query("medium-down"){
+                margin: auto 0px;
+                padding-left: $padding / 5;
+                display: table;
+            }
+            p{
+                color: #2E4676;
+                font-family: 'Montserrat Medium';
+                text-align: center;
+                @include media-query("medium-down"){
+                    color: #2e4676;
+                    float: left;
+                    padding-right: 5px;
+                    text-align: left;
+                }
+                a{
+                    text-decoration: underline!important;
+                    font-family: 'Montserrat Medium';
+                    font-size: $p_size;
+                }
+            }
+        }
+    }
+}

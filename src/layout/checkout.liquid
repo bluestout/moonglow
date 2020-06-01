@@ -1,0 +1,191 @@
+{%- assign checkout_page = true -%}
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+<head>
+
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-3.convertexperiments.com/js/1003156-1003108.js"></script><!-- end Convert Experiences code -->
+  <script>
+    window.simply = window.simply || {};
+    window.cn = function (o) {
+      return "undefined" == typeof o || null == o || "" == o.toString().trim()
+    };
+    window.cb = function (o) {
+      if (o == 'true') {
+        return true
+      } else {
+        return false
+      }
+    };
+    simply.money_format = "{{ shop.money_format }}";
+    simply.translations = {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }}
+    };
+    simply.giftAddedArray = [];
+    {%- assign gift_added = blank -%}
+    {%- assign gift_added_qty = blank -%}
+    {%- for item in checkout.line_items -%}
+    {%- if item.properties['_gift_wrap'] == 'yes' -%}
+    var obj = {};
+    obj.id = {{item.variant_id}};
+    obj.qty = {{item.quantity}};
+    simply.giftAddedArray.push(obj);{%- endif -%}
+    {%- endfor -%}
+  </script>
+
+  <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="origin" name="referrer">
+  {{ 'checkout-gift.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'fancybox.scss.css' | asset_url | stylesheet_tag }}
+
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png"/>
+  {% endif %}
+
+  <title>{{ page_title }}</title>
+
+  {{ content_for_header }}
+
+  {{ checkout_stylesheets }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ checkout_scripts }}
+  {{ 'checkout.scss' | asset_url | stylesheet_tag }}
+  {{ 'swell_rewards.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' | stylesheet_tag }}
+{% assign current_store = blank %}
+{% include 'store-check' %}
+<!-- Hotjar Tracking Code for moonglow.com -->
+<script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:385707,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+{% comment %} START AWTAG dynamic settings{% endcomment %}
+<script>
+ simply.Awtag = '{{settings.awtag}}';
+</script>
+{%- assign Aw_tag = settings.awtag -%}
+{% comment %} END AWTAG dynamic settings {% endcomment %}
+{% assign current_store = blank %}
+{% include 'store-check' %}
+{%- if settings.check_js -%}
+{% comment %} upload care USA {% endcomment %}
+{% if current_store == 'usa' %}
+<script>
+  UPLOADCARE_PUBLIC_KEY = '51c4a1c600f10de2e894';
+</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script>
+  UPLOADCARE_LOCALE_TRANSLATIONS = {
+    errors: {fileType: 'Accepts only jpg, jpeg and png format..'},
+    buttons: {
+      choose: {
+        images: {
+          one: 'Upload my photo'
+        }
+      }
+    }
+  }
+</script>
+{% comment %} End upload care USA {% endcomment %}
+{% else %}
+{% comment %} upload care CA {% endcomment %}
+<script>
+  UPLOADCARE_PUBLIC_KEY = '8bfc59de6720d841379f';
+</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script>
+  UPLOADCARE_LOCALE_TRANSLATIONS = {
+    errors: {fileType: 'Accepts only jpg, jpeg and png format..'},
+    buttons: {
+      choose: {
+        images: {
+          one: 'Upload my photo'
+        }
+      }
+    }
+  }
+</script>
+{% comment %} End upload care CA {% endcomment %}
+{% endif %}
+{% endif %}
+</head>
+<body class="font_family">
+  {{ skip_to_content_link }}
+  <div class="banner" data-header>
+    <div class="wrap">
+      {{ content_for_logo }}
+    </div>
+  </div>
+
+  {{ order_summary_toggle }}
+
+  <div class="content" data-content>
+    <div class="wrap">
+      <div class="main" role="main">
+        <div class="main__header">
+          {{ content_for_logo }}
+          {{ breadcrumb }}
+          <h2 class="checkout-heading">Quick Checkout</h2>
+          {{ alternative_payment_methods }}
+        </div>
+        <div class="main__content">
+          {{ content_for_layout }}
+          {% include 'photo-checkout' %}
+          <div class="mobileIcon">{% include 'checkout_icons' %}</div>
+
+        </div>
+        <div class="main__footer">
+          {{ content_for_footer }}
+        </div>
+      </div>
+      <div class="sidebar" role="complementary">
+        <div class="sidebar__header">
+          {{ content_for_logo }}
+        </div>
+        <div class="sidebar__content">
+          {{ content_for_order_summary }}
+          <div id="orderbump"></div>
+          <div class="desktopIcon">{% include 'checkout_icons' %}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ tracking_code }}
+  {% include 'product-delivery' %}
+  <div class='checkout_elements'>
+    {%- include 'checkout-gift' -%}
+    {%- if settings.card_check -%}
+    {%- render 'checkout-personalize-card'-%}
+    {%- else -%}
+    {%- include 'checkout-gift-card' -%}
+    {%- endif -%}
+  </div>
+  {%- include 'checkout-script' -%}
+  <div class='loading_me'>
+    <ul class="animate-logo">
+      <li class="logo-round-one"></li>
+      <li class="logo-round-two"></li>
+    </ul>
+  </div>
+</body>
+<script src="https://tvg-order-bump.herokuapp.com/storefront/assets/order-bump.js"></script>
+{{ 'checkout.js' | asset_url | script_tag }}
+<!-- checkout css -->
+</html>
+
+{% if checkout.order.created_at %}
+
+{{ 'swell_rewards.js' | asset_url | script_tag }}
+{% include 'swell-post-checkout-popup' %}
+{% else %}
+{% include 'swell_checkout_slider' %}
+{% endif %}

@@ -1,0 +1,74 @@
+#shopify-section-faq-template{
+    background-color: white;
+    .page_banner{
+        height: 200px;
+        margin: 0px;
+    }
+    .page-content{
+        @include media-query('medium-down'){
+            padding: 20px;
+            margin-top: 0px;
+        }
+        .search-content{
+            padding: $padding / 5;
+            background: $search_box_bg;
+            margin-bottom: 20px;
+            .search-form{  
+                input{
+                    border-radius: 0px;
+                }
+            }
+        }
+        margin: $margin auto;
+        max-width: 740px;
+        h2{
+            cursor: pointer;
+            font-size: $h3_size;
+            line-height: 50px;
+            padding-right: 20px;
+            &:after{
+                content: " - ";
+                float: right;
+                font-size: 22px;
+                font-family: $font_brand;
+            }
+            &.active{
+                &:after{
+                    content: " + ";
+                    
+                }
+            }
+        }
+        .que-ans-wrap{
+            display: none;
+            &:first-child{
+                display: block;
+            }
+            p{
+                display: none;
+                &.question{
+                    cursor: pointer;
+                    display: block;
+                    border: 1px solid #E0E6ED;
+                    padding: $padding / 5 $padding * 2 / 5;
+                    font-family: $font_brand;
+                    text-transform: uppercase;
+                    margin: 0px;
+                    margin-bottom: $margin / 5;
+                    &:after{
+                        content: " + ";
+                        float: right;
+                        font-size: 22px;
+                    }
+                    &.active{
+                        &:after{
+                            content: " - ";
+                        }
+                    }
+                }
+                margin: 20px 10px;
+                line-height: 24px;
+            }
+        }
+    }
+}

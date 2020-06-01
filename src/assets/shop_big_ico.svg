@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="30px" viewBox="0 0 23 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>A943DBE8-3827-4482-B70B-2878C7F7B751</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons" transform="translate(-443.000000, -25.000000)" fill="#2E4676" fill-rule="nonzero">
+            <g id="shop_big_ico" transform="translate(443.000000, 26.000000)">
+                <path d="M2,9 L2,27 L21,27 L21,9 L2,9 Z M1,7 L22,7 C22.5522847,7 23,7.44771525 23,8 L23,28 C23,28.5522847 22.5522847,29 22,29 L1,29 C0.44771525,29 6.76353751e-17,28.5522847 0,28 L0,8 C-6.76353751e-17,7.44771525 0.44771525,7 1,7 Z" id="Rectangle-2"></path>
+                <polygon id="Line" points="7 7.73076923 5 7.73076923 5 -0.730769231 7 -0.730769231"></polygon>
+                <polygon id="Line-Copy-2" points="6 1 6 -1 18 -1 18 1"></polygon>
+                <polygon id="Line-Copy" points="18 7.73076923 16 7.73076923 16 -0.730769231 18 -0.730769231"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

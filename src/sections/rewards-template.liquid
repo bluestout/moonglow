@@ -1,0 +1,340 @@
+<div id="swell-bootstrap">
+    <div id="swell-rewards-page">
+     
+      <div class="hidden" id="hero-header-font-size" data-font-size="36"></div>
+      <div class="hidden" id="hero-subtitle-font-size" data-font-size="14"></div>
+      <div class="hidden" id="header-font-size" data-font-size="40"></div>
+      <div class="hidden" id="subtitle-font-size" data-font-size="20"></div>
+      <div class="hidden" id="grid-item-desc-font-size" data-font-size="30"></div>
+      <div class="hidden" id="grid-item-cost-font-size" data-font-size="35"></div>
+      <div class="hidden" id="faq-question-font-size" data-font-size="22"></div>
+      <div class="hidden" id="faq-answer-font-size" data-font-size="15"></div>
+      <div class="hidden" id="hero-background-image-link" data-desktop-image="https://cdn-swell-paperclip.yotpo.com/images/rewards_page_configurations/7_1490210338.original.png?1490210338" data-mobile-image=""></div>
+      <div class="rewards-templete" id="rp-section">
+        {% include 'reward-banner' %}
+        {% if customer %}
+            <div class="swell-logged-in">
+                <h3 class="swell-logged-in-heading">
+                Hi {{ customer.first_name }}!<br>
+                You Have <span class="swell-point-balance">X</span> Moon Points
+                </h3>
+            
+                <p class="text vip-tier-encourgement">
+                </p>
+            
+                <div class="swell-btn-holder">
+                <a href="/checkout" class="button small swell-btn-redeem"><span>Redeem Now</span></a>
+                <a href="javascript:void(0);" class="button small white swell-btn-rewards swell-history-link"><span>Rewards History</span></a>
+                </div>
+            </div> 
+        {% endif %}
+        {% for block in section.blocks %}
+            {% if block.type == 'text' %}
+                {% include 'text-list' %}
+            {% endif %}
+        {% endfor %}
+        {% include 'rewards-icon-block' %}
+        
+        {% for block in section.blocks %}
+            {% if block.type == 'list' %}
+                {% include 'list-block' %}
+            {% endif %}
+        {% endfor %}
+        {% include 'redeem-product' %}
+        {% for item in section.blocks %}
+           {% if item.type == 'image' %}
+                {% include 'image-text' %}
+           {% endif %} 
+        {% endfor %}
+        
+      </div>
+    </div>
+  </div>
+
+{% schema %}
+{
+    "name": "Reward section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "banner",
+            "label": "Banner",
+            "info": "Image size : 2048 X 753"
+        },
+        {
+            "type": "header",
+            "content": "Caption"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Description"
+        },
+        {
+            "type": "text",
+            "id": "btn_label_1",
+            "label": "Button label 1"
+        },
+        {
+            "type": "url",
+            "id": "btn_url_1",
+            "label": "Button url 1"
+        },
+        {
+            "type": "text",
+            "id": "btn_label_2",
+            "label": "Button label 2"
+        },
+        {
+            "type": "url",
+            "id": "btn_url_2",
+            "label": "Button url 2"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "image",
+            "name": "Image text",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "wide_display",
+                    "label": "Wide display" 
+                },
+                {
+                    "type": "select",
+                    "id": "layout",
+                    "label": "Template style",
+                    "options": [
+                        {
+                            "value": "template_1",
+                            "label": "Theme 1"
+                        },
+                        {
+                            "value": "template_2",
+                            "label": "Theme 2"
+                        },
+                        {
+                            "value": "template_3",
+                            "label": "Theme 3"
+                        },
+                        {
+                            "value": "template_4",
+                            "label": "Theme 4"
+                        }
+                    ]
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "devider_enable",
+                    "label": "Devider status"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "Text list",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_1",
+                    "label": "Sub title 1"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc_1",
+                    "label": "Description 1"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_2",
+                    "label": "Sub title 2"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc_2",
+                    "label": "Description 2"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_3",
+                    "label": "Sub title 3"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc_3",
+                    "label": "Description 3"
+                }
+            ]
+        },
+        {
+            "type": "icon_block",
+            "name": "reward icon block",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "block 1"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background color"
+                },
+                {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color"
+                },
+                {
+                    "type": "color",
+                    "id": "sub_title_color",
+                    "label": "Sub title color"
+                },
+                {
+                    "type": "header",
+                    "content": "block 2"
+                },
+                {
+                    "type": "text",
+                    "id": "title_2",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_2",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color_2",
+                    "label": "Background color"
+                },
+                {
+                    "type": "color",
+                    "id": "title_color_2",
+                    "label": "Title color"
+                },
+                {
+                    "type": "color",
+                    "id": "sub_title_color_2",
+                    "label": "Sub title color"
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "name": "List block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "header",
+                    "content": "block 1"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color_1",
+                    "label": "Background color"
+                },
+                {
+                    "type": "text",
+                    "id": "title_1",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_1",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "html",
+                    "id": "list_1",
+                    "label": "List"
+                },
+                {
+                    "type": "header",
+                    "content": "block 2"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color_2",
+                    "label": "Background color"
+                },
+                {
+                    "type": "text",
+                    "id": "title_2",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_2",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "html",
+                    "id": "list_2",
+                    "label": "List"
+                } 
+            ] 
+        } 
+    ]
+}
+{% endschema %}

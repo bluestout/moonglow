@@ -1,0 +1,32 @@
+#shopify-section-terms-conditions-template{
+    .page_banner{
+        height: 200px;
+        @include media-query('medium-down'){
+            margin: 0px;
+        }
+    }
+    .page-content{
+        max-width: 740px;
+        margin: auto;
+        @include media-query('medium-down'){
+            padding: $padding*3/5;
+        }
+        ol{
+            padding: 0px;
+            list-style: decimal;
+            font-family: $font_brand;
+            padding-left: $p_size;
+            li{
+                span{
+                    font-size: $p_size;
+                    font-family: $font_brand;
+                    padding: 20px 0;
+                    display: block;
+                }
+                p{
+                    margin-left: -$p_size;
+                }
+            }
+        }
+    }
+}

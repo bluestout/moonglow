@@ -1,0 +1,56 @@
+{% if block.settings.title_3 == blank %}
+    {% assign class = 'one-half medium-down--one-half small--one-half' %}
+{% elsif block.settings.title_4 == blank %}
+    {% assign class = 'one-third medium-down--one-third small--one-half' %}
+{% else %}
+    {% assign class = 'two-eighths medium-down--one-half small--one-half' %}
+{% endif %}
+<section class="icon-block">
+    <div class="grid">
+
+        <div class="grid__item {{ class }}">
+            <div class="content">
+                <img src="{{ block.settings.icon_1 | img_url: 'original' }}" alt="{{ block.settings.title_1 }}">
+                <div class="info">
+                    <p class="mark heading">{{ block.settings.title_1 }}</p>
+                    <p class="mark sub_heading"> {{ block.settings.sub_title_1 }} </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid__item {{ class }}">
+            <div class="content">
+                <img src="{{ block.settings.icon_2 | img_url: 'original' }}" alt="{{ block.settings.title_2 }}">
+                <div class="info">
+                    <p class="mark heading">{{ block.settings.title_2 }}</p>
+                    <p class="mark sub_heading"> {{ block.settings.sub_title_2 }} </p>
+                </div>
+            </div>
+        </div>
+
+        {% if block.settings.title_3 != blank %}
+            <div class="grid__item {{ class }}">
+                <div class="content">
+                    <img src="{{ block.settings.icon_3 | img_url: 'original' }}" alt="{{ block.settings.title_3 }}">
+                    <div class="info">
+                        <p class="mark heading">{{ block.settings.title_3 }}</p>
+                        <p class="mark sub_heading"> {{ block.settings.sub_title_3 }} </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        
+        {% if block.settings.title_4 != blank %}
+            <div class="grid__item {{ class }}">
+                <div class="content">
+                    <img src="{{ block.settings.icon_4 | img_url: 'original' }}"  alt="{{ block.settings.title_4 }}">
+                    <div class="info">
+                        <p class="mark heading">{{ block.settings.title_4 }}</p>
+                        <p class="mark sub_heading"> {{ block.settings.sub_title_4 }} </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        
+    </div>
+</section>

@@ -1,0 +1,106 @@
+
+{% include 'account_page_banner' %}
+<section class="page-content">
+    <div class="grid">
+        <div class="grid__item two-eighths medium-down--one-whole">
+            <div class="menu">
+                <ul class="link-list">
+                    <li><a class="link" href="/account">dashboard</a></li>
+                    <!-- <li class="active"><a class="link" href="">order history</a></li> -->
+                    <li><a class="link" href="/account/addresses">account detail</a></li>
+                    <li><a class="link" href="/pages/my-wishlist">wishlist</a></li>
+                    <li><a class="link" href="/pages/rewards">rewards</a></li>
+                </ul> 
+            </div>
+        </div>
+        <div class="grid__item six-eighths medium-down--one-whole">
+            <div class="content">
+                <h4 class="title">{{ 'customer.order.title' | t: name: order.name }}</h4>
+                <a data-target="request" class="modal_btn mark uppercase return_request">request return</a>
+                {% if customer.orders.size != 0 %}
+                    <table class="responsive-table  small--hide order-detail">
+                        <thead>
+                            <tr>
+                            <th>{{ 'customer.order.product' | t }}</th>
+                            <th>{{ 'customer.order.quantity' | t }}</th>
+                            <th>{{ 'customer.orders.date' | t }}</th>
+                            <th>{{ 'customer.order.subtotal' | t }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for line_item in order.line_items %}
+                            
+                            <tr class="responsive-table-row">
+                                <td>
+                                    <img src="{{ line_item.image | img_url : 'original ' }}" alt="{{ option.name }}: {{ option.value }}">
+                                    {{ line_item.product.title | link_to: line_item.product.url }}
+                                    {% for option in line_item.options_with_values %}
+                                        <p class="variant">{{ option.name }}: {{ option.value }}</p>
+                                    {% endfor %}
+                                </td>
+                                <td>{{ line_item.quantity }}</td>
+                                <td width="150">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-right total">{{ 'customer.order.total' | t }}</td>
+                                <td data-label="{{ 'customer.order.total' | t }}">{{ order.total_price | money }} {{ order.currency }}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    {% for line_item in order.line_items %}
+                        <ul class="order-list">
+                            <li>
+                                <div class="grid">
+                                    <div class="grid__item one-whole">
+                                        {{ line_item.product.title | link_to: line_item.product.url }}
+                                        {% for option in line_item.options_with_values %}
+                                            <p class="variant">{{ option.name }}: {{ option.value }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grid" style="margin-top: 20px;">
+                                    <div class="grid__item one-half"><p class="mark"> {{ line_item.quantity}} </p></div>
+                                    <div class="grid__item one-half"><p class="mark text-right">{{ line_item.final_price | money }}</p></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grid">
+                                    <div class="grid__item two-thirds"> <p class="mark uppercase right">{{ 'customer.orders.total' | t }}</p></div>
+                                    <div class="grid__item one-third"><p class="mark text-center">{{ order.total_price | money }}</p></div>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                {% else %}
+                    <p>{{ 'customer.orders.none' | t }}</p>
+                {% endif %}
+            </div>
+        </div>`
+    </div>
+</section>
+<div id="request" class="modal request-modal">
+    <a class="close">Back to store <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
+    <div class="modal-body">
+        <h3>Return Request</h3>
+        <iframe src="https://formbuilder.hulkapps.com/corepage/customform?id=BHGThjXvZqL2bvjGezLqgQ" id="frame_BHGThjXvZqL2bvjGezLqgQ" frameborder="0" width="100%" style="height: 665px;"></iframe>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "dashbord section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "default_banner",
+            "label": "Banner"
+        }
+    ]    
+}
+{% endschema %}

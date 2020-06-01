@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+{% assign current_store = blank %}
+{% include 'store-check' %}
+<head rel="dns-prefetch" defer="defer">
+  <link rel="preconnect" href="https://s3.amazonaws.com">
+  <link rel="preconnect" href="https://p.yotpo.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://cdn.shopify.com">
+  <link rel="preconnect" href="https://bundles.boldapps.net">
+  <link rel="preconnect" href="https://foursixty.com">
+  <link rel="preconnect" href="https://cdn.attn.tv">
+  <link rel="preconnect" href="https://cdn-yotpo-images-production.yotpo.com">
+  <link rel="preconnect" href="https://cdn.weglot.com">
+  <link rel="preconnect" href="https://connect.facebook.net">
+  <link rel="preconnect" href="https://static.hotjar.com">
+  <link rel="preconnect" href="https://sc-static.net">
+  <link rel="preconnect" href="https://staticw2.yotpo.com">
+  <link rel="preconnect" href="https://cdn-swell-assets.yotpo.com">
+  {% comment %}
+  <script type="text/javascript" src="//cdn-3.convertexperiments.com/js/1003156-1003108.js"></script>
+  {% endcomment %}
+  <script>
+    window.simply = window.simply || {};
+    window.cn = function(o){return"undefined"==typeof o||null==o||""==o.toString().trim()};
+    window.cb = function(o){if(o == 'true'){return true}else{return false}};
+    simply.FreeGiftAfterAdd = function(){};
+    simply.money_format = "{{ shop.money_format }}";
+    simply.translations = {
+      addToCart : {{ 'products.product.add_to_cart' | t | json }},
+      soldOut : {{ 'products.product.sold_out' | t | json }},
+      unavailable : {{ 'products.product.unavailable' | t | json }}
+    };
+  </script>
+  <script defer="defer">
+    var moonglow_path = "{{ 'moonglow.json' | asset_url }}";
+    var obj_moon_date = [];
+    var product_date = '';
+    var desc = '', range = -1, free_gift_variant_id = '', free_gift_type,  obj_index = undefined, free_gift_old;
+
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_accent }}">
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+
+  <link rel="canonical" href="{{ canonical_url }}">
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {%- endif -%}
+  {%- capture seo_title -%}
+    {{ page_title }}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- assign escaped_page_title = page_title | escape -%}
+    {%- unless escaped_page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+  {%- endcapture -%}
+  <title>{{ seo_title | strip }}</title>
+
+  {% include 'social-meta-tags' %}
+  {% include 'style-tags', layout: 'theme' %}
+  {% include 'css-variables' %}
+
+  {% if template contains 'product' %}
+    {% capture cfh %}
+    {{ content_for_header }}
+    {% endcapture %}
+    {{ cfh | replace:'<script','<script defer="defer" ' | replace : 'var urls', "var urls = [];simply.asyncurls"}}
+  {% else %}
+  	{{ content_for_header }}
+  {% endif %}
+
+  {%- comment -%}Installed by Yotpo Automatic Installation{%- endcomment -%}
+  {% if settings.app_yotpo %}
+    {% include 'yotpo-review' %}
+  {%- endif -%}
+  {%- comment -%}End of Yotpo Automatic Installation{%- endcomment -%}
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-996068966"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-996068966');
+  </script>
+  {% include 'bold-common' %}
+
+</head>
+
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} stop-scroll">
+  <div class="loader_wrapper">
+    <div class="tmc_loader">
+      <img src="{{'loader.gif' | asset_url}}">
+    </div>
+  </div>
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  {% if page.handle != 'find-your-moon' %}
+    {% section 'header' %}
+  {% else %}
+    {% section 'header-simple' %}
+  {% endif %}
+
+  <main role="main" id="MainContent">
+    {% if request.path == '/apps/help-center' %}
+      {% section 'faq-template' %}
+    {% endif %}
+    {{ content_for_layout }}
+  </main>
+  {% if page.handle != 'find-your-moon' %}
+
+    {% if page.handle != 'wholesale' %}
+      {% section 'icons' %}
+      {% section 'sign-up' %}
+    {% endif %}
+    {% section 'footer' %}
+    {% include 'permission-bar' %}
+  {% else %}
+    {% section 'footer-simple' %}
+  {% endif %}
+  {%- if settings.side_giftcard -%}
+    <div class="product_block fancybox hide">
+      <div class="product_img block">
+        <a class="fancybox blur_img" rel="gallery" href="{{settings.side_img_1 | img_url: '1000x' }}">
+          <span class="visuallyhiddentext"> view large image</label>
+        </a>
+      </div>
+    </div>
+  {%-endif -%}
+  <div class="dark-bg"></div>
+  {% include 'occasion_popup' %}
+  <script rel="dns-prefetch" src="https://cdn.attn.tv/moonglow/dtag.js" async></script>
+  <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
+
+  {% include 'weglot_hreftags' %}
+  {% include 'weglot_switcher' %}
+  {% include 'script' %}
+  {% include 'script-tags', layout: 'theme' %}
+  {% include 'globo.filter.script' %}
+
+  <script rel="dns-prefetch" src="{{ 'vendor.js' | asset_url}}"></script>
+  {% comment %}
+  {{ 'swell_rewards.js' | asset_url | script_tag }}
+  {% endcomment %}
+  {% comment %}
+  <script src="https://cdn.shopify.com/s/assets/themes_support/api.jquery-0ea851da22ae87c0290f4eeb24bc8b513ca182f3eb721d147c009ae0f5ce14f9.js" type="text/javascript"></script>
+  {% endcomment %}
+  {% include 'globo.filter.action' %}
+  {% include 'criteo-tracking' %}
+
+
+  <noscript>
+    <div style="display:inline;">
+      <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/996068966/?guid=ON&amp;script=0"/>
+    </div>
+  </noscript>
+
+  {% comment %}
+  <noscript>
+    <img height="1" width="1" style="display:none;" alt=""
+    src="https://ct.pinterest.com/v3/?tid=2614245661267&noscript=1" />
+  </noscript>
+  {% endcomment %}
+
+  </body>
+</html>

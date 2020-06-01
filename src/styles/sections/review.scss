@@ -1,0 +1,59 @@
+#shopify-section-customer-reviews-template{
+    .iamge-text-block{
+        margin-top: $margin;
+        position: relative;
+        padding: 0px;
+        margin-bottom: $margin;
+        @include media-query('medium-down'){
+            margin-top: 0;
+        }
+        .image-with-text__image {
+            img{
+                width: 100%;
+            }
+            padding: 0;
+            margin-bottom: -3px;
+            @include media-query('medium-down'){
+                
+                margin-bottom: -10px;
+            }
+            
+        }
+        .image-with-text__text{
+            position: absolute;
+            height: 100%;
+            display: inline-flex;
+            padding: 0px;
+            @include media-query('medium-down'){
+                position: static;
+                padding: 20px;
+            }
+            
+            .info{
+                margin-top: 0;
+                margin: auto;
+                .devider{
+                    float: left;
+                    display: table;
+                    width: 100%;
+                    margin-bottom: $margin / 5;
+                    margin-left: -$margin / 5;
+                }
+                h2{
+                    display: block;
+                    clear: both;
+                    margin-bottom: $margin * 2 / 5;
+                    max-width: 280px;
+                    @include media-query('medium-down'){
+                        max-width: inherit;
+                        font-size: $h3_size;
+                    }
+                }
+                .stars{
+                    margin-bottom: $margin / 5;
+                }
+            }
+        }
+        
+    }
+}

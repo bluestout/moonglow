@@ -1,0 +1,21 @@
+{% if settings.cookie_bar %}
+<div class="cookie_banner_popup fancybox">
+  <div class="cookie_banner_popup_inner">
+    <div class="grid__item text_container five-eighths medium-down--one-whole">
+      <div class="desktop_text">
+        {{ settings.bar_content }}
+        <p><a href="/pages/privacy-policy">Privacy policy.</a></p>
+    </div>
+
+    </div>
+    <div class="grid__item btn custom_button_cookie medium-down--one-whole">
+      <a class="button small button-close">
+        {{ settings.btn_context }}
+      </a>
+      <a class="button small button-not-allow white">
+        Not allow
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}

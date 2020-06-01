@@ -1,0 +1,15 @@
+<!-- Checkout And side cart Icons -->      
+<div class='checkout_icons flex_view_xs center'>
+    {%- for i in (1..5) -%}
+    {%- assign icon_img = 'icon_' | append:i -%}
+    {%- assign icon_title = 'icon_text_' | append:i -%}
+    <div class="checkout_sections {% if forloop.index == 5 %}last_main{% endif %}">
+      <div class="icon_img {% if forloop.index == 5 %}last_child{% endif %}">
+        <img class="" src="{{ settings[icon_img] | img_url: '60x'}}" alt="{{ settings[icon_img] }}">
+      </div>
+      <div class="icon_title">
+        <h3>{{settings[icon_title]}}</h3>
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>

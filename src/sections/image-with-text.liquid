@@ -1,0 +1,218 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+
+<section class="image-with-text template_1 {% if section.settings.wide_display %} fluid-display {% endif %}">
+  <div class="content">
+    {% capture image_layout %}
+        <div class="image-with-text__image grid__item two-thirds medium-down--one-whole {% if section.settings.layout == 'right' %}right{% else %}left{% endif %}">
+          {% if section.settings.image != blank %}
+              {% include 'responsive-image' with
+              image: section.settings.image,
+              max_width: 630,
+              max_height: 400,
+              alt: section.settings.title
+              %}
+          {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+          {% for block in section.blocks %}
+            {% if block.type == 'image-title' %}
+              <div class="image-title">
+                <h3 class="brand uppercase">hand finished with</h3>
+                <ul>
+                  <li>
+                    {% if block.settings.mark-svg-1 != blank %}
+                      {{ block.settings.mark-svg-1 }}
+                    {% elsif block.settings.mark-image-1 != blank %}
+                      <img src="{{ block.settings.mark-image-1 | img_url: 'origianl' }}">
+                    {% endif %}
+                    <span class="uppercase brand" > {{ block.settings.mark-title-1 }} </span>
+                  </li>
+                  <li>
+                    {% if block.settings.mark-svg-2 != blank %}
+                      {{ block.settings.mark-svg-2 }}
+                    {% elsif block.settings.mark-image-2 != blank %}
+                      <img src="{{ block.settings.mark-image-2 | img_url: 'origianl' }}">
+                    {% endif %}
+                    <span class="uppercase brand" > {{ block.settings.mark-title-2 }} </span>
+                  </li>
+                  <li>
+                    {% if block.settings.mark-svg-3 != blank %}
+                      {{ block.settings.mark-svg-3 }}
+                    {% elsif block.settings.mark-image-3 != blank %}
+                      <img src="{{ block.settings.mark-image-3 | img_url: 'origianl' }}">
+                    {% endif %}
+                    <span class="uppercase brand" > {{ block.settings.mark-title-3 }} </span>
+                  </li>
+                </ul>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+    {% endcapture %}
+    {{ image_layout }}
+
+    <div class="image-with-text__text grid__item one-third medium-down--one-whole left">
+        {% if section.settings.title != blank %}
+        <h2 class="text-right medium-down--text-center">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.devider_enable %}
+        <div class="devider right"></div>
+        {% endif %}
+        {% if section.settings.text != blank %}
+        <div class="right">{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}">
+            {{ section.settings.button_label | escape }}
+        </a>
+        {% endif %}
+    </div>
+  </div>
+</section>
+<style>
+  .image-with-text{
+    background-color: {{ section.settings.bg_color }};
+  }
+</style>
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wide_display",
+        "label": "Wide display"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "devider_enable",
+        "label": "Devider enable ?"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image-title",
+        "name": "Marker",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading title"
+          },
+          {
+            "type": "image_picker",
+            "id": "mark-image-1",
+            "label": "Mark image"
+          },
+          {
+            "type": "html",
+            "id": "mark-svg-1",
+            "label": "Mark svg"
+          },
+          {
+            "type": "text",
+            "id": "mark-title-1",
+            "label": "Mark title"
+          },
+          {
+            "type": "image_picker",
+            "id": "mark-image-2",
+            "label": "Mark image"
+          },
+          {
+            "type": "html",
+            "id": "mark-svg-2",
+            "label": "Mark svg"
+          },
+          {
+            "type": "text",
+            "id": "mark-title-2",
+            "label": "Mark title"
+          },
+          {
+            "type": "image_picker",
+            "id": "mark-image-3",
+            "label": "Mark image"
+          },
+          {
+            "type": "html",
+            "id": "mark-svg-3",
+            "label": "Mark svg"
+          },
+          {
+            "type": "text",
+            "id": "mark-title-3",
+            "label": "Mark title"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

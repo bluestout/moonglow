@@ -1,0 +1,153 @@
+<section class="new-arrival {{ section.settings.content_type }}">
+    <div class="grid bg_color__white">
+        <div class="grid__item two-eighths medium-down--one-whole heading">
+            <div class="heading-pannel">
+                <h3 class="title text-center">{{section.settings.title}}</h3>
+                {% if section.settings.enable_baseline %}
+                    <div class="devider"></div>
+                {% endif %}
+                <a href="{{ section.settings.btn_url }}" class="button white">{{section.settings.btn_label}}</a>
+            </div>
+
+        </div>
+        <div class="grid__item six-eighths medium-down--one-whole content">
+            {% for block in section.blocks %}
+                {% assign product = all_products[block.settings.product] %}
+                <div class="grid__item one-half">
+                    <div class="img_element__wrap">
+                        <a href="{{ product.url }}">
+                          {% include 'responsive-image' with
+                          image: block.settings.adver_image,
+                          max_width: 633,
+                          max_height: 422,
+                          alt: block.settings.adver_image.alt
+                          %}
+                        </a>
+                        {% if block.settings.title != blank %}
+                            <p class="text-center"  style="color: {{block.settings.title_color}}">{{ block.settings.title }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="owl-new-arrival" class="owl-carousel owl-theme">
+            {% for block in section.blocks%}
+                {% assign product = all_products[block.settings.product] %}
+                <a href="{{ product.url }}">
+                    <div class="item" data-merge="2.5" aria-label="{{ product.title }}" style="background-image: url({{block.settings.adver_image | img_url: 'original' }});">
+                        {% if block.settings.title != blank %}
+                            <p class="text-center" style="color: {{block.settings.title_color}}">{{ block.settings.title }}</p>
+                        {% endif %}
+                    </div>
+                </a>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<style>
+    .new-arrival .grid{
+        background-color: {{ section.settings.bg_color }};
+    }
+    .new-arrival h3{
+        color: {{ section.settings.text_color }};
+    }
+</style>
+{% schema %}
+    {
+        "name": "new product feature",
+        "settings": [
+            {
+                "type": "select",
+                "id": "content_type",
+                "label": "Content type",
+                "options": [
+                    {
+                        "label": "default display",
+                        "value": ""
+                    },
+                    {
+                        "label": "Fulid display",
+                        "value": "fluid-display"
+                    },
+                    {
+                        "label": "Left display",
+                        "value": "left-side"
+                    },
+                    {
+                        "label": "Right display",
+                        "value": "right-side"
+                    }
+                ]
+            },
+            {
+                "type": "color",
+                "id": "bg_color",
+                "label": "Background color"
+            },
+            {
+                "type": "color",
+                "id": "text_color",
+                "label": "Text color"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Heading title",
+                "default": "New Arrivals"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_baseline",
+                "label": "Enable baseline",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "btn_label",
+                "label": "Button label",
+                "default": "Your label"
+            },
+            {
+                "type": "url",
+                "id": "btn_url",
+                "label": "Button url"
+            }
+        ],
+        "max_blocks": 2,
+        "blocks": [
+            {
+                "type": "product",
+                "name": "Product",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "adver_image",
+                        "label": "Feature Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Product title"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_color",
+                        "label": "Title color"
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "New product"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "New product",
+                "category": "Product"
+            }
+        ]
+    }
+{% endschema %}

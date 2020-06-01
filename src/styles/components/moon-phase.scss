@@ -1,0 +1,114 @@
+.moon-phase-block{
+    width: 100%;
+    padding: $padding;
+    background-color: #F7F8FA;
+    padding-bottom: $padding*2;
+    @include media-query('medium-down'){
+        padding: 20px;
+    }
+    .content{
+        display: table;
+        max-width: 1400px;
+        margin: auto;
+        margin-top: $margin;
+        @include media-query('medium-down'){
+            display: none;
+        }
+        .block{
+            display: table;
+            float: left;
+            padding: 20px 10px;
+            border: 2px solid #ddd;
+            border-top: none;
+            &.side, &.full{
+                border: none;
+                .img-block{
+                    border-right: none!important;
+                }
+            }
+            .img-block{
+                display: table;
+                float: left;
+                &:first-child{
+                    border-right: 1px solid #ddd;
+                }
+                h4{
+                    text-align: center;
+                    height: 42px;
+                    display: table-caption;
+                }
+                .img{
+                    display: table;
+                    width: 65px;
+                    float: left;
+                    .moon{
+                        display: table;
+                        img{
+                            width: 100%;
+                            &.active{
+                                display: none;
+                            }
+                        }
+                    }
+                    .title{
+                        text-align: center;
+                    }
+                    &.active{
+                        img{
+                            &.active{
+                                display: block!important;
+                            }
+                            &.nomal{
+                                display: none!important;
+                            }
+                        }
+                        h5{
+                            font-family: $font-heading;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .owl-carousel{
+        display: none;
+        @include media-query('medium-down'){
+            display: block;
+            width: calc(100vw - 40px);
+        }
+        .item{
+            &.check{
+                img{
+                    &.active{
+                        display: block;
+                    }
+                    &.nomal{
+                        display: none;
+                    }
+                }
+            }
+            img{
+                width: 100%;
+                &.active{
+                    display: none;
+                }
+            }
+            h5{
+                text-align: center;
+            }
+        }
+        .owl-nav{
+            top: 50%;
+            position: absolute;
+            width: 100%;
+            .owl-next{
+                float: right;
+                margin-right: -15px;
+            }
+            .owl-prev{
+                margin-left: -15px;
+            }
+        }
+    }
+    
+}

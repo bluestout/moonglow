@@ -1,0 +1,113 @@
+.image-text-block{
+
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0px!important;
+    padding-bottom: 0px!important;
+    .image-with-text__image{
+        padding: 0px;
+        overflow: hidden;
+        margin-bottom: -3px;
+        @include media-query('medium-down'){
+            max-height: $default_ipad_banner_height;
+        }
+        @include media-query('small'){
+            max-height: $default_mobile_banner_height;
+        }
+        img{
+            width: 100%;
+            
+        }
+        .image-title{
+            position: relative;
+            top: -36px;
+            left: 100px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-family: $font-heading;
+            @include media-query('medium-down'){
+                left: 0;
+                text-align: center;
+            }
+        }
+    }
+    
+    .image-with-text__text{
+        display: inline-flex;
+        position: absolute;
+        height: 100%;
+        @include media-query('medium-down'){
+            position: unset;
+            padding: $padding*2/5 0;
+        }
+        .filter_btn{
+            position: absolute;
+            width: 100px;
+            top: 0;
+            margin: 0;
+            border-radius: 0;
+            left: 0;
+        }
+        .info{
+            max-width: 500px;
+            display: table;
+            margin: auto;
+            .title-iamge{
+                width: 100%;
+                padding: 0px;
+                margin: 0px -$margin / 10;
+                margin-bottom: $margin;
+            }
+            h2{
+                margin-bottom: $margin*3/10;
+                @include media-query('medium-down'){
+                    margin: 0;
+                }
+            }
+            .devider{
+                @include media-query('medium-down'){
+                    margin: 0 auto;
+                }
+            }
+            .btn{
+                margin-left: auto;
+                display: table;
+                margin-right: auto;
+                @include media-query('medium-down'){
+                    margin: 0 auto;
+                }
+            }
+            div {
+                margin-top: $margin * 2 / 5;
+                float: left;
+                p{
+                    line-height: $p_desc_line_height;
+                    @include media-query('medium-down'){
+                        margin: 0;
+                    }
+                }
+            }
+            
+            ul{
+                li{
+                    display: table;
+                    width: 100%;
+                    margin-bottom: $margin/5;
+                    img{
+                        float: left;
+                        margin-right: $margin/10;
+                        width: 8px;
+                        margin-top: 8px;
+                    }
+                    p{
+                        float: left;
+                        width: calc( 100% - 22px );
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+}

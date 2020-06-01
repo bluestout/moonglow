@@ -1,0 +1,161 @@
+{% include 'video_banner' %}
+<section class="page-title">
+    <h2>{{section.settings.title}}</h2>
+    <div class="devider medium-up--left"></div>
+</section>
+{% for block in section.blocks %}
+    {% if block.type == 'image' %}
+        {% include 'image-text', item: block %}  
+    {% elsif block.type == 'header' %}
+        {% include 'carousel-block' %}
+    {% endif %}
+{% endfor %}
+
+
+
+{% schema %}
+{
+    "name": "About Us",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "display",
+            "label": "Wide display"
+        },
+        {
+            "type": "image_picker",
+            "id": "default_banner",
+            "label": "Banner Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_caption",
+            "label": "Enable caption"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color"
+        },
+        {
+            "type": "url",
+            "id": "video_url",
+            "label": "Video"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image text",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "wide_display",
+                    "label": "Wide display" 
+                },
+                {
+                    "type": "select",
+                    "id": "layout",
+                    "label": "Template style",
+                    "options": [
+                        {
+                            "value": "template_1",
+                            "label": "Theme 1"
+                        },
+                        {
+                            "value": "template_2",
+                            "label": "Theme 2"
+                        },
+                        {
+                            "value": "template_3",
+                            "label": "Theme 3"
+                        },
+                        {
+                            "value": "template_4",
+                            "label": "Theme 4"
+                        }
+                    ]
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "devider_enable",
+                    "label": "Devider status"
+                },
+                {
+                    "type": "text",
+                    "id": "bg_title",
+                    "label": "Background title"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title",
+                    "label": "Sub title"
+                },
+                {
+                    "type": "text",
+                    "id": "image_title",
+                    "label": "Image title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "name": "heading title",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "devider_enable",
+                    "label": "Enable devider?",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "type": "carousel",
+            "name": "Carousel",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Description"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

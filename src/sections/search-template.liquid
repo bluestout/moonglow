@@ -1,0 +1,84 @@
+<section class="search-template">
+    {% paginate search.results by 10 %}
+        <div class="header">
+            <h2 class="text-center">
+                {% if search.performed %}
+                <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
+                    {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+                {% else %}
+                {{ 'general.search.title' | t }}
+                {% endif %}
+            </h2>
+            <div class="devider"></div>
+            <form action="/search" method="get" role="search" class="search-box">
+                <label for="Search" class="label-hidden">
+                {{ 'general.search.placeholder' | t }}
+                </label>
+                <input type="search"
+                    name="q"
+                    id="Search"
+                    value="{{ search.terms | escape }}"
+                    placeholder="{{ 'general.search.placeholder' | t }}">
+                <button type="submit" class="button">
+                {% include 'icon-search' %}
+                <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+                </button>
+            </form>
+        </div>
+
+        {% if search.performed %}
+            {% if search.results_count == 0 %}
+            <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+            {% else %}
+            <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
+            <ul class="content" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' id="gf-products">
+                {% for item in search.results %}
+                {%- include 'bold-product' with item, hide_action: 'skip' -%}
+                <li>
+                    <a href="{{ item.url | within: collection }}">
+                    {% assign featured_image = item.image | default: item.featured_image %}
+                    {% if featured_image != blank %}
+                        {{ featured_image | img_url: '240x240' | img_tag }}
+                    {% endif %}
+                    <h3>{{ item.title }}</h3>
+                    </a>
+                    {% if item.object_type == 'product' %}
+                    <p>
+                        {% if bold_compare_at_price > bold_price %}
+                        {% if bold_price_varies %}
+                            {% assign sale_price = bold_price | money %}
+                            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                        {% else %}
+                            {{ 'products.product.on_sale' | t }}
+                            <span>{{ bold_price | money }}</span>
+                        {% endif %}
+                        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                        <s>{{ bold_compare_at_price | money }}</s>
+                        {% else %}
+                        {% if bold_price_varies %}
+                            {% assign price = bold_price | money %}
+                            <span>{{ 'products.product.from_text_html' | t: price: price }}</span>
+                        {% else %}
+                            <span>{{ bold_price | money }}</span>
+                        {% endif %}
+                        {% endif %}
+                        {% unless item.available %}
+                        {{ 'products.product.sold_out' | t }}
+                        {% endunless %}
+                    </p>
+                    {% else %}
+                    <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+                    {% endif %}
+
+                </li>
+                {% endfor %}
+            </ul>
+
+            {% if paginate.pages > 1 %}
+                {% include 'pagination' %}
+            {% endif %}
+            {% endif %}
+        {% endif %}
+
+    {% endpaginate %}
+</section>

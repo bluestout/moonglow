@@ -1,0 +1,51 @@
+#shopify-section-media-influencers-template{
+    .grid{
+        padding: 0px;
+        .grid__item{
+            padding: 0px;
+            .page_banner{
+                height: 800px;
+                margin: 0px;
+            }
+            &.content{
+                @include media-query('medium-down'){
+                    padding: $padding*2/5!important;
+                } 
+                .page-info{
+                    padding-top: $padding * 2;
+                    max-width: 400px;
+                    margin: auto;
+                    display: table;
+                    @include media-query('medium-down'){
+                        padding: 0!important;
+                    }
+                    .devider{
+                        @include media-query('medium-down'){
+                            float: left!important;
+                            width: 100%;
+                            margin-left: -10px;
+                        }
+                    }
+                    p{
+                        float: left;
+                        font-size: $h5_size;
+                        line-height: $h5_line_height;
+                    }
+                }
+                .page_pannel{
+                    max-width: 400px;
+                    margin: auto;
+                    display: table;
+                    width: 100%;
+                    padding-top: $padding * 3 / 5;
+                    input, textarea{
+                        border-radius: 0px;
+                    }
+                }
+            }
+            
+            
+        }
+    }
+   
+}

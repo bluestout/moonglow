@@ -1,0 +1,175 @@
+{% if section.settings.title != blank %}
+    {% assign title = section.settings.title %}
+{% else %}
+    {% assign title = page.title %}
+{% endif %}
+
+{% if page.content != blank %}
+    {% assign content = page.content %}
+{% else %}
+    {% assign content = section.settings.text %}
+{% endif %}
+
+<section class="fluid-display">
+    {% for block in section.blocks %}
+        {% if block.type == 'banner' %}
+            {% include 'banner-text', item: block %}
+        {% endif %}
+    {% endfor %}
+    <div class="page-content">
+        <img src="{{ 'big_starts_ico.svg' | asset_url }}" alt="title">
+        {% if title != blank %}
+            <h3 class="text-center">
+                {{ title }}
+            </h3>
+            <div class="devider"></div>
+        {% endif %}
+        {% if content != blank %}
+            {{ content }}
+        {% endif %}
+        
+    </div>
+    {% for block in section.blocks %}
+        {% if block.type == 'text' %}
+            {% include 'text-list' %}
+        {% elsif block.type == 'image' %}
+            <div class="second-block">
+                {% include 'image-text', item: block %}
+            </div>
+        {% endif %}        
+    {% endfor %}
+    
+</section>
+
+{% schema %}
+{
+    "name": "Affiliate Section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Description"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "banner",
+            "name": "Banner text",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "devider_enable",
+                    "label": "Devider enable"
+                },
+                {
+                    "type": "text",
+                    "id": "button_label",
+                    "label": "Button Label"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link",
+                    "label": "Button link"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Sub title"
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "name": "Image text",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "html",
+                    "id": "list",
+                    "label": "Description"
+                },
+                {
+                    "type": "text",
+                    "id": "button_label",
+                    "label": "Button Label"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link",
+                    "label": "Button url"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc",
+                    "label": "Sub title"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "Text list",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_1",
+                    "label": "Sub title 1"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc_1",
+                    "label": "Description 1"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_2",
+                    "label": "Sub title 2"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc_2",
+                    "label": "Description 2"
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title_3",
+                    "label": "Sub title 3"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc_3",
+                    "label": "Description 3"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

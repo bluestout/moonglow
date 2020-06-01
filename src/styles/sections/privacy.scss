@@ -1,0 +1,41 @@
+#shopify-section-privacy-template{
+    .page_banner{
+        height: 200px;
+        @include media-query('medium-down'){
+            margin: 0;
+        }
+    }
+    .page-content{
+        max-width: 740px;
+        margin: auto;
+        margin-bottom: 50px;
+        @include media-query('medium-down'){
+            padding: $padding*3/5;
+        }
+        h2{
+            display: none;
+        }
+        p{
+            font-size: $p_size;
+            line-height: 24px;
+        }
+        ol{
+            padding: 0px;
+            list-style: none;
+            
+            li{
+                span{
+                    line-height: 20px;
+                    font-size: $p_size;
+                    font-family: $font_title;
+                    padding: 20px 0;
+                    display: block;
+                }
+                p{
+                    font-size: $p_size;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.title-bar-block{
+    padding: $padding / 2 !important;
+    margin: $margin * 3 / 5 auto!important;
+    @include media-query('medium-down'){
+        margin: 50px!important;
+    }
+    @include media-query('small'){
+        margin: 0px!important;
+    }
+    h2{
+        margin-bottom: 10px;
+    }
+}

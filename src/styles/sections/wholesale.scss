@@ -1,0 +1,181 @@
+#shopify-section-wholesale-template{
+    display: table;
+    width: 100%;
+    .page_banner{
+        margin-bottom: 0px;
+    }
+    .page-content{
+        margin-bottom: 50px;
+        @include media-query('medium-down'){
+            margin: 0;
+        }
+        .info{
+            padding: $padding / 5;
+            display: table;
+            margin-bottom: $margin * 2 / 5;
+            width: 100%;
+            h3{
+                @include media-query('medium-down'){
+                    font-size: 24px;
+                    text-transform: capitalize;
+                }
+            }
+        }
+        iframe{
+            @include media-query('small'){
+                height: 830px!important;
+            }
+            .form_description_div p{
+                display: none!important;
+            }
+        }
+        .form-group{
+            max-width: 650px;
+            width: 100%;
+            display: table;
+            position: relative;
+            background-color: #F8F7F5;
+            padding: 50px;
+            margin: auto;
+            @include media-query('medium-down'){
+                padding: 20px;
+                top: 0;
+                max-width: inherit;
+            }
+            .form-control{
+                label{
+                    font-family: $font-heading;
+                }
+                input, textarea{
+                    border-radius: 0px;
+                }
+            }
+        }
+    }
+    .video-text__block{
+        margin: 50px 0;
+        @include media-query('medium-down'){
+            margin: 0;
+        }
+        .devider.left{
+            margin: 20px -10px;
+        } 
+    }
+    .image-text-block{
+        margin-bottom: 50px;
+        @include media-query('medium-down'){
+            margin: 0;
+        }
+        .image-with-text__image{
+            width: auto;
+            max-width: 520px;
+            max-height: 780px;
+            img{
+                @include media-query('medium-down'){
+                    display: none;
+                }
+            }
+        }
+        .image-with-text__text{
+            width: calc(100% - 550px);
+            @include media-query('medium-down'){
+                width: 100%!important;
+            }
+            .info{
+                max-width: 700px;
+                padding: 20px;
+                img{
+                    width: 100%;
+                    max-width: 250px;
+                    max-height: 250px;
+                    display: table;
+                    margin: auto;
+                }
+                h2{
+                    @include media-query('medium-down'){
+                        text-align: center;
+                    }
+                   
+                }
+                .devider{
+                    float: left;
+                    margin-left: -5px;
+                    @include media-query('medium-down'){
+                        margin: auto;
+                        float: none;
+                    }
+                }
+                div.desc{
+                    float: left;
+                    p{
+                        @include media-query('medium-down'){
+                            text-align: center;
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+    }
+
+    .image-bar{
+        .grid{
+            background-color: transparent;
+            .content{
+                top: 0px;
+                .image{
+                    padding: 0px!important;
+                    .info{
+                        display: table;
+                        position: relative;
+                        width: 100%;
+                        .img_element__wrap{
+                            width: 50%;
+                            float: left;
+                            img{
+                                position: absolute;
+                                width: 308px;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .heading{
+                background-color: #f8f7f5;
+                margin: 0px -40px;
+                height: 387px;
+                padding: 80px 100px;
+                h3{
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                p{
+                    line-height: 24px;
+                }
+            }
+        }
+        
+        
+    }
+
+    .blogs-block{
+        margin-top: 0;
+        .grid__item{
+            padding: 10px;
+        }
+    }
+    .find-moon-form{
+        .image-with-text__image{
+            img{
+                @include media-query('medium-down'){
+                    max-width: 180px;
+                }
+                margin: auto;
+                display: table;
+            }
+        }
+        
+    }
+}

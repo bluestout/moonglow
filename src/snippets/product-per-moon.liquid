@@ -1,0 +1,17 @@
+<section>
+    {% assign moon_phase_array = "Waxing Crescent,Waning Gibbous,New Moon,Full Moon,Waxing Gibbous,Lunar Eclipse,Solar Eclipse,Waning Crescent"| split: "," %}
+    <div class="grid__item one-whole collection_products_main">
+      <div class="container">
+        <h3 class="text-center">What's trending for your moon phase.</h3>
+        {%  for moon_phase in moon_phase_array %}
+            {% assign col_handle = moon_phase | handleize %}
+            <div class="col_handle_name {{col_handle}} grid collection-template">
+              {% for product in collections[col_handle].products %}
+                {%- include 'bold-product' with item, hide_action: 'skip' -%}
+                {% include 'product-item' %}
+              {% endfor %}
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

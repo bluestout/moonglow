@@ -1,0 +1,44 @@
+
+{% assign article = articles[section.settings.link] %}
+{% if article.image != blank %}
+    {% assign image = article.image %}
+{% else %}
+    {% assign image = section.settings.image %}    
+{% endif %}
+
+
+{% assign title = article.title %}
+{% assign text = article.content | strip_html | truncatewords: 30 %}
+
+<section class="image-text-block{{ wide_display }}">
+    {% capture image_layout %}
+        <div class="image-with-text__image grid__item two-thirds medium-down--one-whole right">
+        {% if image != blank %}
+            <img src="{{ image | img_url: 'original'}}" alt="{{ title | escape }}">
+        {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %} 
+        </div>
+    {% endcapture %}
+    {{ image_layout }}
+
+    <div class="image-with-text__text grid__item one-third medium-down--one-whole left">
+        <a class="filter_btn button medium-down--hide">filter</a>
+        <a class="filter_btn button medium-down--show">featured</a>
+        <div class="info">
+            <span class="title"> {{ article.published_at | time_tag: format: 'month_day_year' }} </span>
+            {% if title != blank %}
+                <h3>{{ title | escape }}</h3>
+            {% endif %}
+            {% if text != blank %}
+                <div class="text">{{ text }}</div>
+            {% endif %}
+            <a href="{{article.url}}" class="button small">read more</a>
+        </div>
+    </div>
+</section> 
+<style>
+    .image-with-text__text{
+        background-color: {{ section.settings.bg_color }};
+    }
+</style>

@@ -1,0 +1,31 @@
+<div class="collection-image-text fluid-display">
+    <div class="background"></div>
+    <div class="image-with-text__image grid__item one-third medium-down--one-whole">
+        {% if section.settings.image_banner != blank %}
+          <img src="{{section.settings.image_banner | img_url: '374x'}}" alt="date-from">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %} 
+    </div>
+    <div class="image-with-text_title grid__item two-thirds medium-down--one-whole">
+        {% if section.settings.show_moon_phase_control %}
+            <div class="find_moon_pannel">
+                <div class="grid__item moon-phase">
+                </div>
+                <div class="grid__item date_picker">
+                    <p class="date_title brand">selected date</p>
+                    <h5>may 19, 2013</h5>
+                </div>
+            </div>
+        {% endif %}
+        {% if section.title != 'blank' %}
+            <h3>{{ section.settings.title}}</h3>
+        {% endif %}
+        {{ section.settings.desc }}
+    </div>
+</div>
+<style>
+    .moon-phase{
+        background: url("{{'3D.svg' | asset_url}}") no-repeat center center / contain ;
+    }
+</style>

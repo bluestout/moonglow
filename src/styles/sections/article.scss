@@ -1,0 +1,118 @@
+#shopify-section-article-template{
+    .article{
+        padding: $padding * 2;
+        margin: auto;
+            @include media-query('medium-down'){
+                padding: $padding*2/5;
+           
+        }
+        header{
+            h2{
+                margin-bottom: $margin * 2 / 5;
+                @include media-query('medium-down'){
+                    margin: 0px;
+                }
+            }
+            span{
+                margin-top: $margin / 5;
+                @include media-query('medium-down'){
+                    margin-bottom: $margin*2/5;
+                }
+            }
+            div{
+                @include media-query('medium-down'){
+                    width: 100%;
+                    text-align: right;
+                }
+                p{
+                    float: left;
+                    padding-right: 20px;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    color: #2E4676;
+                }
+                a{
+                    padding-left: 10px;
+                }
+            }
+            
+        }
+        .hero-banner{
+            height: 700px;
+            float: left;
+            background-position: top;
+            width: 100%;
+            margin: $margin / 5 0 $margin * 4 / 5;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            @include media-query('medium-down'){
+                height: 400px;
+            }
+            @include media-query('small'){
+                height: 200px;
+            }
+        }
+        
+        .content{
+            h1, h2, h3, h4, h5{
+                font-family: $font-title;
+                margin-bottom: 10px;
+                margin-top: 15px;
+                word-break: break-all;
+            }
+            strong{
+                text-transform: unset;
+            }
+            img{
+                width: 100%;
+            }
+            span{
+                font-size: inherit;
+                word-break: break-all;
+            }
+            iframe{
+                max-width: 500px!important;
+                width: 100%!important;
+            }
+            p{
+                font-size: $p_size;
+                line-height: 23px;
+                margin-bottom: $margin / 5;
+                display: block;
+                .s1{
+                    font-size: $h5_size;
+                    line-height: 28px;
+                    margin-bottom: $margin * 2 / 5;
+                    display: block;
+                    @include media-query('medium-down'){
+                        font-size: $p_size;
+                        line-height: $p_line_height;
+                    }
+                }
+                span{
+                    font-size: inherit;
+                    line-height: 23px;
+                    margin-bottom: $margin * 2 / 5;
+                    display: block;
+                }
+            }
+            h3{
+                a{
+                    b{
+                        font-size: $h4_size;
+                        color: #030303;
+                        font-family: $font-body;
+                        line-height: 70px;
+                    }
+                }
+            }
+            a{
+                font-size: inherit;
+            }
+            h4{
+                line-height: 26px;
+            }
+        }
+    }
+}

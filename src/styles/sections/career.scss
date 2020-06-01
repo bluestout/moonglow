@@ -1,0 +1,38 @@
+#shopify-section-careers-template{
+    padding-bottom: $padding*2;
+    background: #f9fafb;
+    .content{
+        padding: $padding;
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        h1{
+            @include media-query('medium-down'){
+                font-size: $h3_size;
+                line-height: $h3_line_height;
+                margin-bottom: 20px;
+            }
+        }
+        p{
+            strong{
+                font-family: $font-heading;
+                text-transform: uppercase;
+                line-height: 24px;
+            }
+            font-family: $font-body;
+            font-size: 13px;
+            text-transform: none;
+        }
+        .button{
+            margin-top: 50px;
+        }
+    }
+    #contact-form{
+        padding-bottom: 0;
+        #customform_data{
+            iframe{
+                width: 100%!important;
+            }
+        }
+    }
+}

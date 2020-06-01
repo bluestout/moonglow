@@ -1,0 +1,148 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - class="button label: label associated with the button
+  - class="button link: link of the button
+{%- endcomment -%}
+
+<section class="image-with-text template_2 {% if section.settings.wide_display %} fluid-display {% endif %}">
+    <div class="content">
+      {% capture image_layout %}
+        <div class="image-with-text__image grid__item four-tenths medium-down--one-whole {% if section.settings.layout == 'right' %}right{% else %}left{% endif %}">
+          {% if section.settings.image != blank %}
+            {% if section.settings.mobile_image != blank %}
+            <div class="normal">
+            {% endif %}
+              <img src="{{ section.settings.image | img_url: '300x' }}" class="lazyload" data-src="{{ section.settings.image | img_url: '1024x' }}" data-sizes="auto" alt="{{ section.settings.img_title }}">
+            {% if section.settings.mobile_image != blank %}
+            </div>
+            <div class="mobile">
+              <img src="{{ section.settings.mobile_image | img_url: '300x' }}" class="lazyload" data-src="{{ section.settings.mobile_image | img_url: '1024x' }}" data-sizes="auto" alt="{{ section.settings.img_title }}">
+            </div>
+            {% endif %}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+          {% if section.settings.img_title != blank %}
+            <p class="img-title">{{ section.settings.img_title }}</p>
+          {% endif %}
+
+        </div>
+      {% endcapture %}
+
+      {{ image_layout }}
+
+      <div class="image-with-text__text grid__item six-tenths medium-down--one-whole left">
+        <div class="title"><h1 class="brand">{{ section.settings.bg_title }}</h1></div>
+        <div class="caption">
+          {% if section.settings.title != blank %}
+            <h2 class="medium-down--text-center">{{ section.settings.title | escape }}</h2>
+          {% endif %}
+          {% if section.settings.devider_enable %}
+            <div class="devider left"></div>
+          {% endif %}
+          {% if section.settings.text != blank %}
+            <div class="left">{{ section.settings.text }}</div>
+          {% endif %}
+          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+            <a class="button small" href="{{ section.settings.button_link }}">
+              {{ section.settings.button_label | escape }}
+            </a>
+          {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  {% schema %}
+    {
+      "name": "Image with text (1)",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image",
+          "info": "Image size: 480 X 384 px"
+        },
+        {
+          "type": "text",
+          "id": "img_title",
+          "label": "Image title"
+        },
+        {
+          "type": "checkbox",
+          "id": "devider_enable",
+          "label": "Devider enable ?"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Image alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Image with text"
+        },
+        {
+          "type": "text",
+          "id": "bg_title",
+          "label": "Background title",
+          "default": "Your Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Image with text (1)",
+          "category": "Image"
+        }
+      ]
+    }
+  {% endschema %}

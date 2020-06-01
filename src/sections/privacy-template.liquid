@@ -1,0 +1,31 @@
+{% include 'page_banner' %}
+<div class="page-content">
+    {{ page.content }}
+</div>
+{% schema %}
+{
+    "name": "Privacy policy section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "default_banner",
+            "label": "Banner image"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_caption",
+            "label": "Enable caption"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color"
+        }
+    ]
+}
+{% endschema %}

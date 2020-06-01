@@ -1,0 +1,39 @@
+<section class="carousel-block fluid-display">
+    <div class="content">
+        {% for block in section.blocks %}
+            {% if block.type == 'header' %}
+                <div class="carousel-header">
+                    <h3 class="left">{{ block.settings.title }}</h3>
+                    {% if block.settings.devider_enable %}
+                        <div class="devider left"></div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div id="carousel-content" class="owl-carousel owl-theme">
+            {% for block in section.blocks %}
+                {% if block.type == 'carousel' %}
+                    <div class="item" data-merge="2.5">
+                        <div class="img_element__wrap">
+                          {% include 'responsive-image' with
+                          image: block.settings.image,
+                          max_width: 600,
+                          max_height: 600,
+                          alt: block.settings.title
+                          %}
+                        </div>
+                        <div class="product_info">
+                            <div class="title">
+                                <h4 class="brand">{{ block.settings.title }}</h4>
+                            </div>
+                            <div class="desc">
+                                {{ block.settings.text}}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,55 @@
+
+{%- for block in section.blocks -%}
+    {% if block.type == 'banner' %}
+        {%- include 'banner' -%}
+    {% endif %}
+{%- endfor -%}
+<div class="content">
+    {{ page.content }}
+    <button class="button small send-email modal_btn" data-target="contact-form">write an email</button>
+</div>
+<div id="contact-form" class="modal">
+    <span class="close">Back to store <img src="{{'close_ico.png' | asset_url}}" alt="baack to store"></span>
+    <div class="detail-form">
+
+        <div style="margin:0 auto;" id="customform_data" data-id="MKR-jpRnXTJchlr8JrC8lA"></div>
+
+      </div>
+</div>
+
+{% schema %}
+{
+    "name": "Career Section",
+    "settings": [
+        
+    ],
+    "blocks":[
+        {
+            "type": "banner",
+            "name": "Banner",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "enable_caption",
+                    "label": "Enable caption"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "default_banner",
+                    "label": "Banner Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

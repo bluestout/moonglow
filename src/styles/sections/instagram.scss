@@ -1,0 +1,49 @@
+.shopify-section{
+    background-color: white;
+    .instagram{
+        h3{
+            text-transform: capitalize;
+        }
+        .content{
+            margin-top: $margin * 4 /5;
+            .grid__item{
+                padding-bottom: $padding / 5;
+            }
+        }
+    }
+}
+.shopify-section{
+    .fs-wrapper{
+        margin-bottom: 50px;
+    }
+}
+.fs-wrapper{
+    max-width: $product_grid_width;
+    margin: auto;
+    
+}
+.fs-has-links::after { 
+    padding: 5px 7.5px; 
+    border: 2px solid #fff; 
+    color:#fff; 
+    content: "SHOP IT"; 
+    }
+.fs-has-links:hover:after { 
+    background-color: #fff; 
+    color: $instagram_hover_color
+    }
+
+
+.fs-wrapper div.fs-text-container {
+    background-color:$instagram_hover_color; 
+    margin: 0px
+    }
+div.fs-entry-date{
+    display:none
+    }
+div.fs-entry-title{
+    display:none
+    }
+.fs-wrapper div.fs-timeline-entry{ 
+    margin: $margin / 10; 
+    }

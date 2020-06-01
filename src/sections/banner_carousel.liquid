@@ -1,0 +1,115 @@
+<section id="bannerSlider" class="{% if section.settings.wide_display %} fluid-display {% endif %}">
+  <div id="owl-banner" class="owl-carousel height-md owl-inner-nav owl-ui-lg">
+    {% for item in section.blocks%}
+    <div class="item lazyload" data-bgset="{% include 'responsive-bg-image', image: item.settings.bg_image %}">
+      <div class="container">
+        <div class="caption">
+          <div class="mark fadeInDown-2">
+
+            {% for star in (1..item.settings.stars) %}
+              <img src="{{ 'stars.svg' | asset_url }}" alt="star">
+            {% endfor %}
+          </div>
+          <h5 class="fadeInDown-2 brand">{{ item.settings.caption_heading }}</h1>
+          <div class="fadeInDown-2 desc">
+            <img src="{{ 'quotes_ico.svg' | asset_url }}" alt="{{ item.settings.caption_heading  }}">
+            {{ item.settings.caption_title }}
+            {% if item.settings.button_label != blank %}
+              <a href="{{ item.settings.link }}" class="button grey">{{item.settings.button_label}}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+  .caption_heading, .caption_title p {
+    color: {{ item.settings.title_color }};
+  }
+</style>
+{% schema %}
+  {
+    "name": "Banner carousel",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wide_display",
+        "label": "Wide display"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "banner",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "background image"
+          },
+          {
+            "type": "image_picker",
+            "id": "title_icon",
+            "label": "Title icon"
+          },
+          {
+            "type": "range",
+            "id": "stars",
+            "label": "Stars",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default": 1
+          },
+          {
+            "type": "text",
+            "id": "caption_heading",
+            "label": "Caption heading",
+            "default": "Your headline"
+          },
+          {
+            "type": "richtext",
+            "id": "caption_title",
+            "label": "Caption title"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "page",
+            "id": "link",
+            "label": "banner link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner carousel",
+        "category": "Banner",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

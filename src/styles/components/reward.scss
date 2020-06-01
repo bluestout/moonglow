@@ -1,0 +1,79 @@
+.reward-banner{
+    height: 490px;
+    position: relative;
+    @include media-query('medium-down'){
+        height: $default_mobile_banner_height;
+        margin-bottom: $margin*5!important;
+    }
+    .banner-iamge{
+        width: calc(100% - 570px);
+        height: 100%;
+        float: right;
+        @include media-query('medium-down'){
+            width: 100%;
+        }
+    }
+    .caption{
+        max-width: 570px;
+        position: absolute;
+        padding: 100px 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0px;
+        height: 100%;
+        @include media-query('medium-down'){
+            max-width: inherit;
+            transform: none;
+            padding: $padding*2/5 0;
+            left: 0;
+            width: 100%;
+            background-color: $desc_bg_color;
+            top: 100%;
+            padding-bottom: 0;
+        }
+        h1{
+            margin-bottom: $margin * 2 / 5;
+            @include media-query('medium-down'){
+                font-size: $h3_size;
+                text-align: center;
+                color: #2E4676;
+                margin: 0;
+            }
+        }
+        .desc{
+            @include media-query('medium-down'){
+                padding: 0 $padding*2/5;
+            }
+            p{
+                font-size: $h3_size;
+                line-height: $h3_line_height;
+                @include media-query('medium-down'){
+                    font-size: $p_size;
+                    line-height: 21px;
+                    text-align: center;
+                    color: $mobile_title_color;
+                }
+            }
+        }
+        .button-field{
+            width: 100%;
+            display: table;
+            margin: auto;
+            margin-top: $margin;
+            @include media-query('medium-down'){
+                width: 100%;
+                background: white;
+                margin-top: $margin/5;
+                padding: $padding*2/5;
+            }
+            .button{
+                float: left;
+                margin-right: $margin / 5;
+                @include media-query('medium-down'){
+                    width: calc(50% - 10px);
+                    min-width: auto;
+                }
+            }
+        }
+    }
+}

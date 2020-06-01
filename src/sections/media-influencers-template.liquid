@@ -1,0 +1,112 @@
+<div class="grid">
+    {% for block in section.blocks %}
+        {% if block.type == 'banner' %}
+            <div class="grid__item one-half medium-down--one-whole">
+                {% include 'banner' %}
+            </div>
+        {% endif %}
+    {%- endfor -%}
+    <div class="content grid__item one-half medium-down--one-whole">
+        
+        <div class="page-info">
+            <h3 class="title">{{ page.title }}</h3>
+            <div class="devider left"></div>
+            {% if page.content != blank %}
+                {{ page.content }}
+            {% else %}
+                {% for block in section.blocks %}
+                    {% if block.type == 'banner' %}
+                        {{ block.settings.desc }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            
+        </div>
+        <div class="page_pannel">
+            <div style="margin:0 auto;" class="pxFormGenerator" id="h6AWoBzBEckaGZpBaeeQMw"></div>
+            <!-- <form id="formGeneratorForm" action="#" method="POST">
+                {% for block in section.blocks %}
+                    {% if block.type == 'text' %}
+                        <div class="form-control">
+                            <label class="mark">{{ block.settings.label }}</label>
+                            <input type="text" required name="{{ block.settings.label }}">
+                        </div>
+                    {% elsif block.type == 'textarea' %}
+                        <div class="form-control">
+                            <label class="mark"> {{ block.settings.label }} </label>
+                            <textarea rows="5" required name="{{ block.settings.label }}"></textarea>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <div class="form-control">
+                    <button type="submit" class="button send-email">submit</button>
+                </div>
+            </form> -->
+        </div>
+        
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Career Section",
+"settings": [
+    
+],
+"blocks":[
+    {
+        "type": "banner",
+        "name": "Banner",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable_caption",
+                "label": "Enable caption"
+            },
+            {
+                "type": "image_picker",
+                "id": "default_banner",
+                "label": "Banner Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "desc",
+                "label": "Description"
+            },
+            {
+                "type": "color",
+                "id": "title_color",
+                "label": "Title color"
+            }
+        ]
+    },
+    {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+            {
+                "type": "text",
+                "id": "label",
+                "label": "Label"
+            }
+        ]
+    },
+    {
+        "type": "textarea",
+        "name": "Textarea",
+        "settings": [
+            {
+                "type": "text",
+                "id": "label",
+                "label": "Label"
+            }
+        ]
+    }
+]
+}
+{% endschema %}

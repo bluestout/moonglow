@@ -1,0 +1,85 @@
+#shopify-section-affiliate-template{
+    section{
+        padding: 0;
+    }
+    .second-block{
+        .info{
+            max-width: 430px;
+            @include media-query('medium-down'){
+                padding: $padding*2/5;
+            }
+            h2{
+                font-size: $h3_size;
+                text-align: left!important;
+            }
+            ul{
+                width: 100%;
+                li{
+                    margin-bottom: 0;
+                }
+            }
+            .button{
+                width: 100%;
+                margin-top: 30px!important;
+            }
+        }
+    }
+    .image-text-block{
+        max-width: inherit;
+        .image-with-text__text{
+            background-color: $affiliate_image_text_bg_color;
+            .info{
+                h2{
+                    text-align: center;
+                    @include media-query('medium-down'){
+                        margin-bottom: 10px;
+                    }
+                }
+                .button{
+                    margin: $margin*2/5 auto;
+    
+                }
+                div{
+                    float: none;
+                    margin-top: $margin * 2 / 5;
+                    @include media-query('medium-down'){
+                        margin-top: 0;
+                    }
+                    p{
+                        text-align: center;
+                        font-size: $h5_size;
+                    }
+                    &.devider{
+                        float: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    .page-content{
+        margin-top: $margin*2;
+        @include media-query('medium-down'){
+            margin: $margin*2/5 $margin/5;
+        }
+        img{
+            margin: auto;
+            display: table;
+            margin-bottom: $margin * 4 / 5;
+            @include media-query('medium-down'){
+                width: $padding;
+            }
+        }
+        .devider{
+            margin: 10px auto 20px;
+        }
+        p{
+            text-align: center;
+            margin-top: $margin / 5;
+            font-size: $h5_size;
+            @include media-query('medium-down'){
+                font-size: $p_size;
+            }
+        }
+    }
+}

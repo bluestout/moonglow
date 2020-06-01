@@ -1,0 +1,46 @@
+{% if paeg.image %}
+    {% assign image = page.image %}
+{%- elsif section.settings.default_banner -%}
+    {% assign image = section.settings.default_banner %}
+{% endif %}
+
+{% if  section.settings.title != 'blank' %}
+    {% assign title = section.settings.title %}
+{%- elsif paeg.title != blank-%}
+    {% assign title = page.title %}
+{% endif %}
+
+{% if section.settings.display %}
+    {% assign wide = 'fluid-display' %}
+{% endif %}
+ 
+{% style %}
+    .page_banner{
+    background: url({{ image | img_url: '2000x' }}) no-repeat 50% 50% / cover;
+    }
+    .headline{
+        color: {{ section.settings.title_color }}
+    }
+{% endstyle %}
+
+<section class="page_banner {{ wide }}" aria-label="{{title}}"> 
+    {% if section.settings.enable_caption %}
+        <div class="caption captionOverlay--true">
+            <h2 class="mark text-center">{{ title }}</h2>
+            {% if section.settings.video_url != blank %}
+                <a class="video_btn modal_btn" data-target="video_modal" href="">
+                    <img src="{{ 'play_btn.svg' | asset_url }}" alt="play button">
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+    <div id="video_modal" class="modal video-modal">
+        <span class="close">Back to store <img src="{{'close_ico.png' | asset_url}}" alt="close icon" ></span>
+        <video id="videoTara" class="video_content" controls="controls" width="100%" poster="{{'video_preview.png' | asset_url}}">
+            <source src="{{ section.settings.video_url.url }}" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+
+
