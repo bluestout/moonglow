@@ -11,7 +11,6 @@
     {% assign pr = all_products[settings.engrave_pr] %}
     <div class='character_variant'>
       {% for vari in pr.variants %}
-      {%- include 'bold-variant' with vari, hide_action: 'skip' -%}
       <div class='engrave_pr' data-id="{{ vari.id }}" data-title="{{ vari.title }}" tabindex="0"></div>
       {% endfor %}
     </div>
@@ -277,7 +276,6 @@
   <div class="has_inve yes"></div>
   <div class="inventry_hidden_pr" data-tag="{{ inv_pr }}">
     {% for variant in invetry_pr.variants %}
-    {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
     <div data-id="{{ variant.id }}" data-name="{{ variant.title }}" tabindex="0"></div>
     {% endfor %}
   </div>
@@ -405,9 +403,8 @@
     <label for="productSelect" class="visuallyhiddentext">productSelect</label>
     <select name="id[]" id="productSelect" class="product-single__variants single_variants" >
       {% for variant in product.variants %}
-      {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
       {% if variant.available %}
-      <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {% assign geolizr_price =  bold_variant_price  %}{% include 'geolizr-currency' with geolizr_price %}{{ bold_variant_price | money_with_currency | prepend: geolizr_prepend_code | append: geolizr_append_code }}</option>
+      <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {% assign geolizr_price =  variant.price  %}{% include 'geolizr-currency' with geolizr_price %}{{ variant.price | money_with_currency | prepend: geolizr_prepend_code | append: geolizr_append_code }}</option>
       {% else %}
       <option disabled="disabled" data-title='{{variant.title}}'>
         {{ variant.title }} - {{ 'products.product.sold_out' | t }}
@@ -502,7 +499,7 @@
 <div class="grid__item five-twelfths sm--one-half sm-down--one-whole">
  {% include 'product-delivery' %}
  {% unless product.handle == 'moon-phase-hidden' %}
- {% if bold_price > 0 %}
+ {% if product.price > 0 %}
  <button class="btn  btn-full btn-secondary  AddToCart disabled" disabled="disabled" type="submit" name="add" >add to cart </button>
  <p class="add-more-msg" style="display:none">&#8203;* Please add <span id="more-to-check">{{ count }}</span> more moons..</p>
  <p class="add-left-msg" style="display:none"></p>
@@ -535,11 +532,10 @@
  {% if product.tags contains 'custom_bracelete'%}
  <label class="custom_brac">Birthstone</label>
  {% endif %}
- <select name="id[]" id="productSelect" class="product-single__variants{% if bold_variants_size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %} hide{% endif %}" aria-label="product selection">
+ <select name="id[]" id="productSelect" class="product-single__variants{% if product.variants.size == 1 and product.variants[0].title contains 'Default Title' %} hide{% endif %}" aria-label="product selection">
   {% for variant in product.variants %}
-{%- include 'bold-variant' with variant, hide_action: 'skip' -%}
   {% if variant.available %}
-  <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {% assign geolizr_price =  bold_variant_price  %}{% include 'geolizr-currency' with geolizr_price %}{{ bold_variant_price | money_with_currency | prepend: geolizr_prepend_code | append: geolizr_append_code }}</option>
+  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {% assign geolizr_price =  variant.price  %}{% include 'geolizr-currency' with geolizr_price %}{{ variant.price | money_with_currency | prepend: geolizr_prepend_code | append: geolizr_append_code }}</option>
   {% else %}
   <option disabled="disabled" data-title='{{variant.title}}'>
     {{ variant.title }} - {{ 'products.product.sold_out' | t }}
@@ -560,7 +556,7 @@
 </div>
 {% endif %}
 {% unless product.handle == 'moon-phase-hidden' %}
-{% if bold_price > 0 %}
+{% if product.price > 0 %}
 <button class="btn btn-secondary AddToCart" type="submit" name="add" > add to cart </button>
 {% endif %}
 {% endunless %}
@@ -568,8 +564,3 @@
 </div>
 {% endif %}
 </form>
-
-{% unless bundle_loaded == 'true' %}
-{% include 'shappify-bdl-load-bundle' %}
-{% assign bundle_loaded = 'true' %}
-{% endunless %}

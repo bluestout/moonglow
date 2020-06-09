@@ -39,10 +39,7 @@
               <input type="hidden" class="moon_phase_val" readonly name="properties[Phase{{i}}]"/>
             </div>
           </div>
-          <div class="special-phase">
-            <a class="LE" data-target="phase-{{i}}">Lunar Eclipse</a>
-            <a class="SE" data-target="phase-{{i}}">Solar Eclipse</a>
-          </div>
+
           <div class="fav-date-wrapper">
             {%- if customer -%}
               <a class="save-date phase-{{i}}-save-date-button">Save this date</a>
@@ -140,10 +137,9 @@
     </div>
   {% endif %}
 
-  {% assign variant = bold_selected_or_first_available_variant %}
+  {% assign variant = product.selected_or_first_available_variant %}
   <div class="variants">
     {% for variant in product.variants %}
-      {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
       <input type="hidden" value="{{ variant.id }}" id='{{variant.option1 | remove: '.' | remove: '"' | remove: ' '}}-{{variant.option2 | remove: '"' | remove: ' '}}'>
     {% endfor %}
   </div>
@@ -191,7 +187,7 @@
       <span> {% if template contains 'product' %} <b class ="get_it"> Get it as soon as: </b> {% else %} Estimated delivery date: {% endif%}<b>{{d}}</b>
       {% if current_store == 'usa' %}  with express shipping. {% else %} if you order today. {% endif %}
       </span>
-      {% if bold_price > 5000 %}
+      {% if product.price > 5000 %}
         <a href="">Free Standard Shipping for this product!</a>
       {% endif %}
 
@@ -201,21 +197,25 @@
 {% else %}
   <div class="moon_class" data-moon="no"></div>
   <div class="single-add-cart">
-    {% unless bold_variants_size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %}
+    {% if product.tags contains 'Moonglow Signature Skymap Necklace' %}
+      {% include 'single-prod' %}
+    {% endif %}
+    {% unless product.variants.size == 1 and product.variants[0].title contains 'Default Title' %}
       {% if product.tags contains 'custom_bracelete'%}
         <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> select a Birthstone</h6>
         {% assign number = number | plus: 1 %}
+      {% elsif product.tags contains 'Moonglow Signature Skymap Necklace' %}
+        <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> select a length </h6>
       {% else %}
         <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> select a size </h6>
         {% assign number = number | plus: 1 %}
       {% endif %}
     {% endunless %}
 
-    <select name="id[]" id="productSelect" class="product-single__variants{% if bold_variants_size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %} hide{% endif %}" aria-label="product selection">
+    <select name="id[]" id="productSelect" class="product-single__variants{% if product.variants.size == 1 and product.variants[0].title contains 'Default Title' %} hide{% endif %}" aria-label="product selection">
       {% for variant in product.variants %}
-        {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
       {% if variant.available %}
-      <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+      <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
       {% else %}
       <option disabled="disabled" data-title='{{variant.title}}'>
         {{ variant.title }} X {{ variant.price }}
@@ -248,7 +248,7 @@
     </div>
 
     {% unless product.handle == 'moon-phase-hidden' %}
-      {% if bold_price > 0 %}
+      {% if product.price > 0 %}
         {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
         <button type="button" name="add" id="add_to_cart_btn" class="button ajax-submit add_cart {% if product.available == false %}disabled {% endif %}" data-label={{ add_to_cart_label | json }}>
           <span class="text">
@@ -262,8 +262,3 @@
   </div>
 {% endif %}
 {% endform %}
-
-{% unless bundle_loaded == 'true' %}
-{% include 'shappify-bdl-load-bundle' %}
-{% assign bundle_loaded = 'true' %}
-{% endunless %}

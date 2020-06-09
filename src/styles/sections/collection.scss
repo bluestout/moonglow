@@ -462,6 +462,11 @@
                             &.sold_out{
                                 margin-top: 26px;
                             }
+                            .sale__off-percent {
+                              color: $base_link_color;
+                              font-size: 15px;
+                              font-weight: bold;
+                            }
                         }
                         .review-sec{
                             height: 17px;
@@ -473,6 +478,7 @@
                         }
                         .was_price{
                             height: 14px;
+                            font-size: 13px;
                         }
                     }
                 }

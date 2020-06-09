@@ -28,7 +28,13 @@
         </div>
         {% if product.available %}
             {% if product.price_min > 0 %}
-                <h4 class="text-center">{{ product.price_min | money }}</h4>
+                <h4 class="text-center">
+                  {{ product.price_min | money }}
+                  {% if product.compare_at_price > product.price %}
+                    <del class="was_price">{{ product.compare_at_price | money }}</del>
+                    <span class="sale__off-percent">{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max | floor }}% OFF!</span>
+                  {% endif %}
+                </h4>
             {% else %}
                 {{ free_price_text }}
             {% endif %}

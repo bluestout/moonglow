@@ -1,7 +1,6 @@
 {% assign current_store = blank %}
 {% include 'store-check' %}
-{% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
-{%- assign current_variant = bold_selected_or_first_available_variant -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 {% for tag in product.tags %}
 {% if tag contains "moon_" %}
@@ -15,15 +14,15 @@
     {% unless product.tags contains 'hidden' %}
         <div class="prod-price">
           <h4 tabindex="0">
-            {% assign geolizr_price =  bold_price  %}
+            {% assign geolizr_price =  product.price  %}
             {% include 'geolizr-currency' with geolizr_price %}
-            {{ bold_price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
+            {{ product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
           </h4>
-          {% if bold_compare_at_price_max > bold_price %}
+          {% if product.compare_at_price_max > product.price %}
           <h4><del tabindex="0">
-            {% assign geolizr_price =  bold_compare_at_price_max  %}
+            {% assign geolizr_price =  product.compare_at_price_max  %}
             {% include 'geolizr-currency' with geolizr_price %}
-            {{ bold_compare_at_price_max | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
+            {{ product.compare_at_price_max | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
           </del></h4>
           {% endif %}
         </div>
@@ -115,15 +114,15 @@
         {% unless product.tags contains 'hidden' %}
         <div class="prod-price">
           <h4 tabindex="0">
-            {% assign geolizr_price =  bold_price  %}
+            {% assign geolizr_price =  product.price  %}
             {% include 'geolizr-currency' with geolizr_price %}
-            {{ bold_price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
+            {{ product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
           </h4>
-          {% if bold_compare_at_price_max > bold_price %}
+          {% if product.compare_at_price_max > product.price %}
           <h4><del tabindex="0">
-            {% assign geolizr_price =  bold_compare_at_price_max  %}
+            {% assign geolizr_price =  product.compare_at_price_max  %}
             {% include 'geolizr-currency' with geolizr_price %}
-            {{ bold_compare_at_price_max | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
+            {{ product.compare_at_price_max | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
           </del></h4>
           {% endif %}
 
@@ -207,7 +206,13 @@
                     <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
                   </div>
                   {% if product.price_min > 0 %}
-                    <h4 class="text-center">{{ product.price_min | money }}</h4>
+                    <h4 class="text-center">
+                      {{ product.price_min | money }}
+                      {% if product.compare_at_price > product.price %}
+                        <del class="was_price">{{ product.compare_at_price | money }}</del>
+                        <span class="sale__off-percent">{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max | floor }}% OFF!</span>
+                      {% endif %}
+                    </h4>
                   {% else %}
                     {{ free_price_text }}
                   {% endif %}

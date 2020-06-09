@@ -12,14 +12,13 @@
   {% assign no_image = 'https://cdn.shopify.com/s/images/themes/product-1.png' %}
 
   {% assign featured_image            = product.featured_image %}
-  {% assign product_price             = bold_price %}
-  {% assign product_compare_at_price  = bold_compare_at_price %}
+  {% assign product_price             = product.price %}
+  {% assign product_compare_at_price  = product.compare_at_price %}
   {% assign second_image_index        = 2 %}
   {% assign selected_or_first_available_variant = product.first_available_variant %}
 
-  {% if show_selected_variant_info and bold_selected_or_first_available_variant %}
-    {% assign selected_or_first_available_variant = bold_selected_or_first_available_variant %}
-    {% include 'bold-variant' with selected_or_first_available_variant, output: 'none' %}
+  {% if show_selected_variant_info and product.selected_or_first_available_variant %}
+    {% assign selected_or_first_available_variant = product.selected_or_first_available_variant %}
     {% assign product_price             = selected_or_first_available_variant.price %}
     {% assign product_compare_at_price  = selected_or_first_available_variant.compare_at_price %}
     {% if selected_or_first_available_variant.image %}
@@ -118,15 +117,18 @@
                     <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
                   </div>
                   {% if product.price_min > 0 %}
-                    <h4 class="text-center">{{ product.price_min | money }}</h4>
+                    <h4 class="text-center">
+                      {{ product.price_min | money }}
+                      {% if product_compare_at_price > product_price %}
+                        <del class="was_price">{{ product_compare_at_price | money }}</del>
+                        <span class="sale__off-percent">{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max | floor }}% OFF!</span>
+                      {% endif %}
+                    </h4>
                   {% else %}
                     {{ free_price_text }}
                   {% endif %}
                 {% else %}
                   <h4 class="sold_out">{{ sold_out }}</h4>
-                {% endif %}
-                {% if product_compare_at_price > product_price %}
-                  <del class="was_price">{{ product_compare_at_price | money }}</del>
                 {% endif %}
 
               </span>
@@ -144,7 +146,6 @@
             {% assign values = '' %}
             <div class="collection_swatches">
               {% for variant in product.variants %}
-                {% include 'bold-variant' with variant, hide_action: 'skip' %}
                 {% assign value = variant[optionIndex] %}
                 {% unless values contains value %}
                   {% assign values = values | join: ',' %}

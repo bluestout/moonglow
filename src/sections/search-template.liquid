@@ -33,7 +33,6 @@
             <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
             <ul class="content" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' id="gf-products">
                 {% for item in search.results %}
-                {%- include 'bold-product' with item, hide_action: 'skip' -%}
                 <li>
                     <a href="{{ item.url | within: collection }}">
                     {% assign featured_image = item.image | default: item.featured_image %}
@@ -44,22 +43,22 @@
                     </a>
                     {% if item.object_type == 'product' %}
                     <p>
-                        {% if bold_compare_at_price > bold_price %}
-                        {% if bold_price_varies %}
-                            {% assign sale_price = bold_price | money %}
+                        {% if item.compare_at_price > item.price %}
+                        {% if item.price_varies %}
+                            {% assign sale_price = item.price | money %}
                             {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
                         {% else %}
                             {{ 'products.product.on_sale' | t }}
-                            <span>{{ bold_price | money }}</span>
+                            <span>{{ item.price | money }}</span>
                         {% endif %}
                         <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-                        <s>{{ bold_compare_at_price | money }}</s>
+                        <s>{{ item.compare_at_price | money }}</s>
                         {% else %}
-                        {% if bold_price_varies %}
-                            {% assign price = bold_price | money %}
+                        {% if item.price_varies %}
+                            {% assign price = item.price | money %}
                             <span>{{ 'products.product.from_text_html' | t: price: price }}</span>
                         {% else %}
-                            <span>{{ bold_price | money }}</span>
+                            <span>{{ item.price | money }}</span>
                         {% endif %}
                         {% endif %}
                         {% unless item.available %}

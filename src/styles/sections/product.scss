@@ -296,7 +296,6 @@
                 width: 500px;
                 &.moon_phase_image{
                     background-color: white;
-                    width: 330px;
                     float: left;
                     .moon_image{
                         width: $padding;
@@ -392,29 +391,7 @@
                     }
                 }
             }
-            .special-phase{
-                width: 170px;
-                float: left;
-                a{
-                    margin-left: 10px;
-                    padding: 10px;
-                    width: 75px;
-                    height: 50px;
-                    border: 1px solid #D0D9E5;
-                    float: left;
-                    text-align: center;
-                    &:hover{
-                        border-color: #2E4676;
-                        background: #F0F3F7;
-                        color: black;
-                    }
-                    &.active{
-                        border-color: #2E4676;
-                        background: #F0F3F7;
-                        color: black;
-                    }
-                }
-            }
+
             div.js{
                 .moon_phase_cookie{
                     margin-top: 5px;
@@ -568,91 +545,6 @@
                     width: 100%;
                     text-align: center;
                     display: table;
-                }
-            }
-        }
-        .bold-bundle-loaded{
-            .bold-bundles-widget{
-                border-color: #D0D9E5;
-                padding: 0 30px;
-                .bold-bundles-widget-header{
-                    .bold-bundles-widget-header__title{
-                        color: #A39283;
-                        font-size: 13px;
-                        text-transform: uppercase;
-                        font-family: $font-heading;
-                    }
-                }
-                .bold-bundles-widget__items{
-                    .bold-bundles-widget-item--product{
-                        .bold-bundles-widget-item__thumbnail{
-                            .bold-bundles-widget-item__image{
-                                width: 64px;
-                                margin: auto;
-                                display: table;
-                                margin-bottom: 20px;
-                            }
-                        }
-                        .bold-bundles-widget-item__info{
-                            .bold-bundles-widget-item__title{
-                                font-size: $p_size;
-                                text-align: center;
-
-                            }
-                            .bold-bundles-widget-item__variants{
-                                /*display: none;*/
-                            }
-                            .bold-bundles-widget-item__price{
-                                display: none;
-                            }
-                        }
-                    }
-
-                    .bold-bundles-widget-item--with-separator{
-                        .bold-bundles-widget-item-separator__wrapper{
-                            .bold-bundles-widget-item-separator{
-                                top: -30px!important;
-                                background-color: white;
-                                @include media-query('medium-down'){
-                                    top: auto!important;
-                                }
-                                .bold-bundles-widget-item-separator__icon{
-                                    fill: black;
-                                }
-                            }
-                        }
-                    }
-                }
-                .bold-bundles-widget__footer{
-                    padding-top: 0;
-                    .bold-bundles-widget__button{
-                        display: table;
-                        text-decoration: none !important;
-                        width: 100%;
-                        padding: 10px;
-                        text-align: center;
-                        border: 1px solid;
-                        border-color: #2E4676;
-                        border-radius: 3px;
-                        background-color: #2E4676;
-
-                        margin-bottom: 10px;
-
-                        cursor: pointer;
-                        .bold-bundles-widget__button--top{
-                            border: none;
-                            color: #FFFFFF;
-                            text-transform: uppercase;
-                            font-family: 'Montserrat SemiBold';
-                            font-size: 14px;
-                            font-weight: 600;
-                            letter-spacing: 0.6px;
-                            line-height: 18px;
-                        }
-                        .bold-bundles-widget__button--bottom{
-                            display: none;
-                        }
-                    }
                 }
             }
         }
@@ -1050,6 +942,14 @@
                 }
                 h4{
                     padding-bottom: 20px;
+                    .sale__off-percent {
+                      color: $base_link_color;
+                      font-size: 15px;
+                      font-weight: bold;
+                    }
+                    .was_price {
+                      font-size: 13px;
+                    }
                 }
             }
         }
@@ -1173,7 +1073,7 @@
                                 line-height: 18px;
                                 font-weight: normal!important;
                                 color: #030303;
-                                
+
                             }
                         }
                     }
@@ -1222,7 +1122,7 @@
                                     font-family: $font_title!important;
                                 }
                             }
-                            
+
                         }
                         .yotpo-main {
                             float: left;
@@ -1262,7 +1162,7 @@
                                 span{
                                     font-family: $font_title!important;
                                 }
-                                
+
                             }
                             .yotpo-helpful{
                                 span{

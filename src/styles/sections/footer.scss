@@ -19,8 +19,20 @@ footer{
                 font-size: 15px;
                 letter-spacing: 1.5px;
                 text-transform: uppercase;
+                &.normal_btn{
+                    display: block;
+                }
+                &.slide_btn{
+                    display: none;
+                }
                 @include  media-query('medium-down'){
                     margin: 0px;
+                    &.normal_btn{
+                        display: none;
+                    }
+                    &.slide_btn{
+                        display: block;
+                    }
                 }
                 img{
                     &.plus{

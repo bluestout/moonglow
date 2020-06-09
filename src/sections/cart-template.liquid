@@ -1,5 +1,4 @@
 <section class="cart-template">
-    {%- include 'bold-cart' -%}
     {% if cart.item_count > 0 %}
         <h1 class="text-center">{{ 'cart.general.title' | t }}</h1>
         <div class="devider"></div>
@@ -25,12 +24,12 @@
                                 The data-label attributes on <td> elements are mobile-friendly
                                 helpers used for responsive-table labels
                                 {% endcomment %}
-                                
+
                                 {% assign engraving = 0 %}
                                 {% assign num = 0 %}
                                 {% if item.properties['engraving'] != blank %}
                                     {% assign engraving = item.properties['engraving'] | size %}
-                                    
+
                                     {% if  engraving > 10 %}
                                     {% assign num = num | plus: 4 %}
                                     {% elsif engraving <= 10 and engraving > 5 %}
@@ -78,7 +77,6 @@
                                         {% endunless %}
                                         {%- assign property_size = item.properties | size -%}
 
-                                        <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_properties" style="display:none !important;"></span>
                                         {% if property_size > 0 %}
                                             {% for p in item.properties %}
                                             <span>
@@ -101,16 +99,6 @@
                                         </a>
                                     </td>
                                     <td data-label="{{ 'cart.label.price' | t }}">
-                                        {% comment %}
-                                        {% if item.original_line_price != item.line_price %}
-                                            <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                                            <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
-                                            <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                                            <s><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money }}</s>
-                                        {% else %}
-                                            <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_3" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
-                                        {% endif %}
-                                        {% endcomment %}
                                         {% assign engraving_price = 500 | times: num %}
                                         {% assign line_total_price = item.price | plus : engraving_price %}
                                         {{ line_total_price | money }}
@@ -126,9 +114,6 @@
                                         <input type="hidden" class="engrave_num" value="{{ num }}">
                                     </td>
                                     <td data-label="{{ 'cart.label.total' | t }}">
-                                        {%- comment -%}
-                                        <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
-                                        {%- endcomment -%}
                                         {% assign total_price = line_total_price | times : item.quantity %}
                                         {{ total_price | money }}
                                     </td>
@@ -143,7 +128,7 @@
                         {% assign num = 0 %}
                         {% if item.properties['engraving'] != blank %}
                             {% assign engraving = item.properties['engraving'] | size %}
-                            
+
                             {% if  engraving > 10 %}
                             {% assign num = num | plus: 4 %}
                             {% elsif engraving <= 10 and engraving > 5 %}
@@ -188,7 +173,6 @@
                                     {% endunless %}
                                     {%- assign property_size = item.properties | size -%}
 
-                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_properties" style="display:none !important;"></span>
                                     {% if property_size > 0 %}
                                         {% for p in item.properties %}
                                             {%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
@@ -212,16 +196,6 @@
                             <li>
                                 <div class="header_title">Price : </div>
                                 <div class="desc">
-                                    {% comment %}
-                                    {% if item.original_line_price != item.line_price %}
-                                        <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                                        <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
-                                        <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                                        <s><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money }}</s>
-                                    {% else %}
-                                        <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_3" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
-                                    {% endif %}
-                                    {% endcomment %}
                                     {% assign engraving_price = 500 | times: num %}
                                     {% assign line_total_price = item.price | plus : engraving_price %}
                                     {{ line_total_price | money }}
@@ -234,7 +208,7 @@
                                     <input type="number"
                                         data-target="#updates_{{ item.id }}"
                                         value="{{ item.quantity }}"
-                                        min="0" 
+                                        min="0"
                                         class="qty_mobile"
                                         aria-label="{{ 'cart.general.item_quantity' | t }}">
                                     <input type="hidden" class="engrave_num" value="{{ num }}">
@@ -246,9 +220,6 @@
                                     Total :
                                 </div>
                                 <div class="desc">
-                                    {%- comment -%}
-                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
-                                    {%- endcomment -%}
                                     {% assign total_price = line_total_price | times : item.quantity %}
                                     {{ total_price | money }}
                                 </div>
@@ -266,12 +237,12 @@
                         {% endif %}
 
                         <p class="left">{{ 'cart.general.subtotal' | t }}</p>
-                        <p class="right"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}</p>
+                        <p class="right">{{ cart.total_price | money }}</p>
                         {% if cart.total_discounts > 0 %}
                         <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
                         {% endif %}
                         <p class="sub-title">{{ 'cart.general.shipping_at_checkout' | t }}</p>
-                        
+
                         <input type="submit" name="checkout" class="button right" value="{{ 'cart.general.checkout' | t }}">
                         <div class="alert-message animated alert-danger bounceIn bounceOut alert-cart">{{ 'general.alert_message.danger' | t }}</div>
                     </div>

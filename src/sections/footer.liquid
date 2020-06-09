@@ -4,6 +4,7 @@
   <div class="grid__item medium-up--two-thirds">
     {% for block in section.blocks %}
       <div class="link-list grid__item  medium-up--one-third">
+        <h5 class="normal_btn">{{ linklists[block.settings.menu].title }}<img class="plus" src="{{ 'minus_ico.svg' | asset_url }}" alt="plus"><img class="minus" src="{{ 'plus_ico.svg' | asset_url }}" alt="minus"></h5>
         <h5 class="slide_btn">{{ linklists[block.settings.menu].title }}<img class="plus" src="{{ 'minus_ico.svg' | asset_url }}" alt="plus"><img class="minus" src="{{ 'plus_ico.svg' | asset_url }}" alt="minus"></h5>
         <ul class="slide_content">
           {% for link in linklists[block.settings.menu].links %}

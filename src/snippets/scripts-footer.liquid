@@ -50,7 +50,7 @@ window.ju_num="7B79D59A-6E48-4FDA-A755-E226FDA489E0";
 {% endif %}
 
 {% if template contains 'product' %}
-    var json_product = {%- include 'bold-product', output: 'json' -%};
+    var json_product = {{ product | json }};
     var ecomm_prodid=[];
     for(var i=0; i<json_product.variants.length; i++)
       ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);

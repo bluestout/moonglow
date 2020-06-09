@@ -54,7 +54,7 @@
             </svg>
             <p><a class="date">{{ 'general.moon_phase_modal.date_header_title' | t }}</a> / <a class="month">{{ 'general.moon_phase_modal.month_header_title' | t }}</a> / <a class="year">{{ 'general.moon_phase_modal.year_header_title' | t }}</a></p>
           </div>
-
+          
           <div class="content">
             <div class="content-field year-field">
               <p class="mark uppercase">{{ 'general.moon_phase_modal.year_page_title' | t }}</p>
@@ -67,8 +67,8 @@
             <div class="content-field month-field">
               <p class="title uppercase">{{ 'general.moon_phase_modal.month_page_title' | t }}</p>
               <ul>
-                <li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li>
-                <li>November</li><li>December</li>
+                <li date-for="January" >January</li><li date-for="February" >February</li><li date-for="March">March</li><li date-for="April">April</li><li date-for="May" >May</li><li date-for="June" >June</li><li date-for="July">July</li><li date-for="August">August</li><li date-for="September">September</li><li date-for="October">October</li>
+                <li date-for="November">November</li><li date-for="December">December</li>
               </ul>
             </div>
             <div class="content-field date-field">
@@ -111,6 +111,12 @@
             <div class="alert-message animated alert-danger bounceIn bounceOut modal_alert" data-text="{{ 'general.alert_message.danger' | t }}" data-logintext="Please login to save the date">
             {{ 'general.alert_message.danger' | t }}
             </div>
+          </div>
+          
+          <div class="special-phase">
+            <h6 class="title text-center" style="margin-bottom: 10px;">Or select an eclipse moon phase</h6>
+            <a class="LE" data-target="">Lunar Eclipse</a>
+            <a class="SE" data-target="">Solar Eclipse</a>
           </div>
         </div>
       </div>

@@ -9,10 +9,7 @@ $(document).ready(function () {
     }else{
       $('#MainContent').css('margin-top', height_simple);
     }
-
   }
-
-  
 
   $.ajax({
     type: "Get",
@@ -57,6 +54,7 @@ $('.slide_btn').click(function () {
 });
 
 $("a.month").click(function () {
+  $('.product-moon-phase .special-phase').show();
   $(".date-header a").removeClass('active');
   $(this).addClass('active');
   $('.content-field').hide();
@@ -66,6 +64,7 @@ $("a.month").click(function () {
 })
 
 $("a.date").click(function () {
+  $('.product-moon-phase .special-phase').show();
   $(".date-header a").removeClass('active');
   $(this).addClass('active');
   $('.content-field').hide();
@@ -75,6 +74,7 @@ $("a.date").click(function () {
 })
 
 $("a.year").click(function () {
+  $('.product-moon-phase .special-phase').show();
   $(".date-header a").removeClass('active');
   $(this).addClass('active');
   $('.content-field').hide();
@@ -199,7 +199,7 @@ $('.save_ocassion_btn').click(function () {
         var result = add_moon_date(obj_moon_date);
         if(result){
           simply.addWithDate(data,function(){
-            
+
                 $('.modal').find(".close").click();
                 $('body').removeClass('stop-scroll');
                 if (!$('#moon-phase').hasClass('active')) {
@@ -211,7 +211,7 @@ $('.save_ocassion_btn').click(function () {
 
                 $('#moon-phase').css('z-index', 50);
                 // $('.js .save-date').hide();
-            
+
           });
         }
       }else{
@@ -243,7 +243,7 @@ $(".year-field li").click(function () {
     $('.content-field').removeClass("opened");
     $('.date-field').addClass('opened');
    }else{
-    create_save_field(date, month, year, '.modal_alert');
+    create_save_field(date, month, year);
 
    }
 })
@@ -264,7 +264,7 @@ $(".month-field li").click(function () {
     "November" : "11",
     "December" : "12"
   };
-  month = parseInt(month_name[$(this).text()]);
+  month = parseInt(month_name[$(this).attr('date-for')]);
   if (month < 10) {
     month = '0'+month;
   }
@@ -313,9 +313,21 @@ $(".date-field li").click(function () {
 
 });
 
+$(".special-phase a").click(function (e) {
+  e.preventDefault();
+  var cls = "."+$(this).attr('data-target');
+  $(this).parent().find('a').removeClass('active');
+
+  var special_phase = $(this).attr('class');
+
+
+  create_save_field('', '', '', special_phase);
+
+})
+
 $('#videoTara').click(function () {
   $('#videoTara').play()
-})
+});
 
 $('#video_modal span.close').click(function () {
   $(this).parent().find('#videoTara').get(0).pause();
@@ -332,6 +344,7 @@ $(".modal_btn").click(function(e){
   $(target).addClass("active");
   $(".dark-bg").show();
 });
+
 $('.select-moon').click(function () {
 
     $('body').addClass('stop-scroll');
@@ -339,7 +352,7 @@ $('.select-moon').click(function () {
     $('#moon-phase').addClass("active");
     $(".dark-bg").show();
 
-})
+});
 
 $('body').on('click', "a.close", function(){
   simply.hideBackBg();
@@ -369,7 +382,7 @@ $("#list-carousel").owlCarousel({
 });
 
 $(document).ready(function () {
-  $('.s4com-helpcenter .aa-input').keypress(function (e) { 
+  $('.s4com-helpcenter .aa-input').keypress(function (e) {
       if(e.keyCode == 13){
         e.preventDefault();
       }
@@ -481,6 +494,7 @@ $( document ).ready(function () {
       });
 
 });
+
 $('.filter_btn').click(function () {
 
   $('.filter_form').slideToggle();
@@ -588,17 +602,15 @@ $(document).ready(function () {
     // $(".moon_phase_cookie").hide();
   }
 
-})
-console.log(simply.cartJson);
+});
+
 $(document).on("click", "#side_cart .main_gift_div .gift_checkbox .adding_gift ", (function(e) {
-  console.log(simply.cartJson);
   e.preventDefault();
   var t = $(this),
       o = $(this).closest(".items"),
       i = 0;
 
   i = o.find('.id').val();
-  console.log(i);
   var s = parseInt($(".qty input", o).val()),
       a = simply.cartJson.items[i-1].properties,
       n = "yes";
@@ -607,9 +619,8 @@ $(document).on("click", "#side_cart .main_gift_div .gift_checkbox .adding_gift "
     line: i,
     properties: a
   };
-  console.log(data);
   update_cart(data);
-}))
+}));
 
 $(document).on("click", '#side_cart .qty .spinner .min', (function (e) {
   e.preventDefault();
@@ -651,12 +662,11 @@ $(document).on("click", '#side_cart .qty .spinner .min', (function (e) {
       quantity: engrave_quantity,
       line: engrave_id
     }
-    console.log()
     update_cart(data, engrave_data)
   }else{
     update_cart(data)
   }
-  
+
 }));
 
 $(document).on("click", '#side_cart .qty .spinner .plus', (function (e) {
@@ -698,12 +708,11 @@ $(document).on("click", '#side_cart .qty .spinner .plus', (function (e) {
       quantity: engrave_quantity,
       line: engrave_id
     }
-    console.log()
     update_cart(data, engrave_data)
   }else{
     update_cart(data)
   }
-  
+
 }));
 
 
@@ -823,7 +832,6 @@ $(document).on('click', '.remove', function () {
     quantity: 0,
     line: id
   }
-  console.log(data);
   if (engrave_id != undefined && num > 0) {
     var engrave_data = {
       quantity: engrave_quantity,
@@ -833,10 +841,8 @@ $(document).on('click', '.remove', function () {
   }else{
     update_cart(data)
   }
+});
 
-
-
-})
 $(document).on('click', '.ajax-submit', function(e) {
   e.preventDefault();
   if (!$(this).hasClass('disabled')) {
@@ -856,7 +862,6 @@ $(document).on('click', '.ajax-submit', function(e) {
       }
     }
     var birthstone_select = "none"
-    console.log($('.birthstone_select').val());
     if ($('.birthstone_select').val() == undefined){
       var birthstone_select = " "
     }
@@ -871,8 +876,18 @@ $(document).on('click', '.ajax-submit', function(e) {
         }
       })
     }
+    var skymap_status = true;
+    if ($addToCartForm.find('div').hasClass('single-add-cart')) {
 
-    if ($addToCartForm.find('div').hasClass('single-add-cart') || $(this).hasClass('related') || product_date != "" && birthstone_select != "none" && engrave_status) {
+      $('.perticular-product .line-item input').each(function () {
+        if ($(this).val() == '') {
+          skymap_status = false;
+        }
+      })
+    }
+
+
+    if (skymap_status && product_date != "" && birthstone_select != "none" && engrave_status) {
 
       $.ajax({
         url: '/cart/add.js',
@@ -1180,7 +1195,6 @@ function update_cart(data, engrave_data = null) {
                     }
 
                     if ( total_val < range+1 && free_gift_id != undefined ) {
-                      console.log(free_gift_id);
                       if(free_gift_id > data.line){
                         free_gift_id = 1;
                       }
@@ -1274,7 +1288,6 @@ function update_cart(data, engrave_data = null) {
             }
           }
           if ( total_val < range+1 && free_gift_id != undefined ) {
-            console.log(free_gift_id);
             if(free_gift_id > data.line){
               free_gift_id = 1;
             }
@@ -1375,7 +1388,6 @@ function refreshCart(cart) {
 
       const item = cart.items[i];
       var free_cls = '';
-      console.log(free_gift_variant_id);
       if (item.id == free_gift_variant_id && item.final_price == 0 ) {
         var free_cls = 'free_gift_product';
         free_gift_old = free_gift_variant_id
@@ -1447,8 +1459,20 @@ function refreshCart(cart) {
         html += '<p class="attribute color__dark_blue">'+ 'Birthday stone : '+ item.properties['Birthstone'] +'</p>';
       }
 
+      if (item.properties['Date']) {
+        html += '<p class="attribute color__dark_blue">'+ 'Date : '+ item.properties['Date'] +'</p>';
+      }
 
-      html += '<p class="price">'+item.quantity+' x $'+final_price/100+'</p>';
+      if (item.properties['Location']) {
+        html += '<p class="attribute color__dark_blue">'+ 'Location : '+ item.properties['Location'] +'</p>';
+      }
+
+      if (item.properties['Time']) {
+        html += '<p class="attribute color__dark_blue">'+ 'Time : '+ item.properties['Time'] +'</p>';
+      }
+
+
+      html += '<p class="price">'+item.quantity+' x '+simply.formatMoney(final_price,simply.money_format)+'</p>';
 
       html += '<input type="hidden" class="id" value="'+  (i+1) +'"><input type="hidden" class="engrave-num" value="'+ num +'"></div>';
       html += '<label for="updates_' + item.key + '" class="visually-hidden hide"> quantity </label>';
@@ -1595,8 +1619,59 @@ function create_moon_date_html(obj_moon_date){
   return moon_html;
 }
 
-function create_save_field(date, month, year) {
+function create_save_field(date, month, year, special_phase = null) {
+  $('.product-moon-phase .special-phase').hide();
+if (special_phase != null) {
+  var moon = special_phase;
 
+  $(".moon-code").text(moon);
+  $('.start').hide()
+  for (let i = 0; i < moon_phase_array.length; i++) {
+    const moon_item = moon_phase_array[i];
+
+    if (moon_item.id == moon) {
+      var img = moon_item.content.image;
+      var icon = moon_item.content.icon;
+      var title = moon_item.content.title;
+      var desc = moon_item.content.desc;
+      $('.modal_moon_phase_img').attr('src', img);
+      $('.moon-icon div').html(icon);
+      $(".save-field .content-info .mark").text(title);
+      $(".save-field .content-info p:last-child").text(desc);
+    }
+  }
+
+  var moon_text = {
+    "NL": "New Moon",
+    "CA": "Waxing Crescent",
+    "1A": "Waxing Crescent",
+    "2A": "Waxing Crescent",
+    "3A": "Waxing Crescent",
+    "4A": "Waxing Gibbous",
+    "5A": "Waxing Gibbous",
+    "6A": "Waxing Gibbous",
+    "7A": "Waxing Gibbous",
+    "PL": "Full Moon",
+    "7D": "Waning Gibbous",
+    "6D": "Waning Gibbous",
+    "5D": "Waning Gibbous",
+    "4D": "Waning Gibbous",
+    "3D": "Waning Crescent",
+    "2D": "Waning Crescent",
+    "1D": "Waning Crescent",
+    "CD": "Waning Crescent",
+    "LE": "Lunar Eclipse",
+    "SE": "Solar Eclipse"
+  };
+
+  var moon_val = moon_text[moon];
+  var product_selector = '.'+moon_val.toLowerCase().replace(' ', '-');
+
+  $(".select-phase").attr('date-val', moon_val)
+  $('.content-field').hide();
+  $('.calendars').show();
+  $('.save-field').fadeIn();
+} else {
   if(month  < 10){
     var month_val = month.slice(1);
   }else{
@@ -1612,10 +1687,10 @@ function create_save_field(date, month, year) {
   obj_moon_date = [];
   var current = month_val+ "/" +date_val+ "/" +year;
   $.ajax({
-      type: "GET",
-      url: moonglow_path,
-      datatype: "json",
-      beforeSend: function() {
+    type: "GET",
+    url: moonglow_path,
+    datatype: "json",
+    beforeSend: function() {
       // setting a timeout
       $(".loader-section").show();
     },
@@ -1629,14 +1704,13 @@ function create_save_field(date, month, year) {
             $('.modal_alert').hide();
           }, 5000);
       }else{
-        
+
         $(".moon-code").text(moon);
         $('.start').hide()
         for (let i = 0; i < moon_phase_array.length; i++) {
           const moon_item = moon_phase_array[i];
-          
+
           if (moon_item.id == moon) {
-            console.log(moon_item);
             var img = moon_item.content.image;
             var icon = moon_item.content.icon;
             var title = moon_item.content.title;
@@ -1648,7 +1722,7 @@ function create_save_field(date, month, year) {
           }
         }
 
-        
+
         var month_name = {
           "01" : "January",
           "02" : "February",
@@ -1700,12 +1774,11 @@ function create_save_field(date, month, year) {
         var moon_val = moon_text[moon];
         var handle = '/collections/'+moon_val.replace(' ','-').toLowerCase()+'?date='+result_date;
         var product_selector = '.'+moon_val.toLowerCase().replace(' ', '-');
-        console.log(product_selector);
         if ($('.col_handle_name').hasClass(moon_val.toLowerCase().replace(' ', '-'))) {
           $('.col_handle_name').hide();
           $(product_selector).show();
         }
-       
+
         $('.shop-date').attr('href', handle);
         $(".select-phase").attr('date-val', month+"/"+date+"/"+year)
         obj_moon_date = {"current_date":current,"handle_next":handle_next,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
@@ -1718,6 +1791,9 @@ function create_save_field(date, month, year) {
       }
     }
   });
+}
+
+
 }
 
 function create_save_modal(date, month, year) {
@@ -1829,7 +1905,7 @@ function create_save_modal(date, month, year) {
         var moon_val = moon_text[moon];
         var handle = '/collections/'+moon_val.replace(' ','').toLowerCase()+'?date='+result_date;
 
-        
+
         $('.shop-date').attr('href', handle);
         obj_moon_date = {"current_date":current,"handle_next":handle_next,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
         // var result = validate_moon_date(obj_moon_date, '.form_alert');
@@ -1863,7 +1939,6 @@ simply.displySelectedOcassion = function(){
     data: data,
     dataType: 'json',
     success: function(res) {
-      // console.log(res);
       if(res.status == "0"){
         var data = res.data;
         var select = $(".saved-dates");
@@ -1918,7 +1993,7 @@ simply.addWithDate = function(custData,callback){
         $('#date-save-modal .modal_alert').addClass('alert-success');
         $('#date-save-modal .modal_alert').text('Save the date successfuly.');
         $('#date-save-modal .modal_alert').show();
-        simply.displySelectedOcassion();        
+        simply.displySelectedOcassion();
       }
       setTimeout(() => {
         $('#date-save-modal .modal_alert').hide();
@@ -2024,6 +2099,26 @@ window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
 
 });
 
+window.onFoursixtyCartAdded = function (product){
+  $.ajax({
+    url: '/cart.js',
+    dataType: "json",
+    cache: false,
+    beforeSend: function() {
+      $(".loading").fadeIn('slow');
+    },
+    success: function(cart) {
+      $(".loading").fadeOut('slow');
+      setTimeout(function() {
+        refreshCart(cart);
+        window.scrollTo(0,0);
+        $(".header-menu .grid__item a span").text(cart.item_count)
+        $('a.cart').trigger('click');
+      }, 500)
+    }
+  });
+}
+
 
 $(document).ready(function () {
   var moon_text = {
@@ -2053,7 +2148,7 @@ $(document).ready(function () {
       var id = moon_text[indecator];
       for (let i = 0; i < moon_phase_array.length; i++) {
         const element = moon_phase_array[i];
-        
+
         if(element.id == id){
           var url = window.location.href
           var arr = url.split('?date=').reverse();
@@ -2070,9 +2165,9 @@ $(document).ready(function () {
         }
       }
     }
-   
+
   }, 500);
-  
+
 })
 
 $(document).ready(function () {
@@ -2089,11 +2184,10 @@ $(document).ready(function () {
   })
 
   if (quantity < 2 && gift_status) {
-    console.log($('.gift-row .remove_cart').attr('href'));
     if ($('.gift-row .remove_cart').attr('href') != undefined) {
       window.location = $('.gift-row .remove_cart').attr('href');
     }
-    
+
   }else if(quantity > 1 && !gift_status){
 
       $.ajax({
@@ -2119,7 +2213,6 @@ $(document).ready(function () {
     var engrave = parseInt($(this).parent().parent().find('.engrave_num').val()) * parseInt($(this).parent().parent().find('.qty').val());
     $(this).parent().parent().find('.qty').val(0);
     var total_engrave = $('.engraving_cart .qty').val();
-    console.log(total_engrave);
     $('.engraving_cart .qty').val(total_engrave - engrave);
     $('.form').submit();
   })
@@ -2127,18 +2220,16 @@ $(document).ready(function () {
   $('.remove_mobile_cart').click(function (e) {
     e.preventDefault();
     var cls = $(this).attr('data-target');
-    console.log(cls);
     $(cls).parent().parent().hide();
     var engrave = parseInt($(cls).parent().parent().find('.engrave_num').val()) * parseInt($(cls).parent().parent().find('.qty').val());
     $(cls).parent().parent().find('.qty').val(0);
     var total_engrave = $('.engraving_cart .qty').val();
-    console.log(total_engrave);
     $('.engraving_cart .qty').val(total_engrave - engrave);
     $('.form').submit();
   })
 
   $('.product-item .qty_mobile').change(function (e) {
-    
+
     e.preventDefault();
     var cls = $(this).attr('data-target');
     $(cls).val($(this).val());

@@ -21,7 +21,6 @@
   {% comment %}
   <script type="text/javascript" src="//cdn-3.convertexperiments.com/js/1003156-1003108.js"></script>
   {% endcomment %}
-
   <script> 
     window.simply = window.simply || {};
     window.cn = function(o){return"undefined"==typeof o||null==o||""==o.toString().trim()};
@@ -73,7 +72,7 @@
   {% include 'social-meta-tags' %}
   {% include 'style-tags', layout: 'theme' %}
   {% include 'css-variables' %}
-  
+
   {% if template contains 'product' %}
     {% capture cfh %}
     {{ content_for_header }}
@@ -91,14 +90,12 @@
 
   {{ 'swell_rewards.scss.css' | asset_url | stylesheet_tag }}
 
-  {% include 'bold-common' %}
   {% include 'scripts-header' %}
-
 
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} stop-scroll">
-  
+
   <div class="loader_wrapper">
     <div class="tmc_loader">
       {% include 'page_loader' %}
@@ -117,7 +114,7 @@
     {% endif %}
     {{ content_for_layout }}
   </main>
-  
+
   {% if page.handle != 'find-your-moon' %}
 
     {% if page.handle != 'wholesale' %}
@@ -142,6 +139,7 @@
   {% include 'occasion_popup' %}
   <script rel="dns-prefetch" src="https://cdn.attn.tv/moonglow/dtag.js" async></script>
   <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
+
   {% if page.handle != 'find-your-moon' %}
   {% include 'weglot_hreftags' %}
   {% include 'weglot_switcher' %}

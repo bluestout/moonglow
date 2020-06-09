@@ -654,7 +654,7 @@
     #moon-phase{
         width: 65%;
         left: 17.5%;
-        padding: 35px 20px;
+        padding: 25px 20px;
         height: 85vh;
         max-height: 635px;
         overflow-y: scroll;
@@ -688,7 +688,9 @@
                 display: inline-flex!important;
             }
         }
-
+        .special-phase{
+            display: none;
+        }
         &.product-moon-phase{
             .modal-body{
                 .start{
@@ -696,7 +698,32 @@
                 }
                 .calendars{
                     display: block;
+                    .special-phase{
+                        display: block;
+                        width: 100%;
+                        float: left;
+                        margin: 15px 0;
+                        a{
+                            margin-left: 10px;
+                            padding: 10px;
+                            width: calc(50% - 10px);
+                            border: 1px solid #D0D9E5;
+                            float: left;
+                            text-align: center;
+                            &:hover{
+                                border-color: #2E4676;
+                                background: #F0F3F7;
+                                color: black;
+                            }
+                            &.active{
+                                border-color: #2E4676;
+                                background: #F0F3F7;
+                                color: black;
+                            }
+                        }
+                    }
                 }
+                
             }
         }
         .modal-body{
@@ -768,6 +795,7 @@
                             }
                         }
                     }
+                    
                     .content{
                         .modal_alert{
                             width: 300px;

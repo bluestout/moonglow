@@ -12,20 +12,22 @@
 {% elsif section.settings.shipping_rage != blank %}
     {% assign range = section.settings.shipping_rage %}
 {% endif %}
+{% if settings.product_freeproduct %}
+  {% if free_gift_type == 'moon_stud'%}
+    {% assign free_gift_variant_id = settings.freegift_vid %}
+  {% elsif settings.free_gift_type == 'birthstone' and  settings.birthstone_product != blank and settings.birthstone_add_auto %}
+    {% assign free_gift_variant_id = all_products[settings.birthstone_product].variants[0].id %}
+  {% endif %}
 
-{% if free_gift_type == 'moon_stud' %}
-
-  {% assign free_gift_variant_id = settings.freegift_vid %}
-
-{% elsif settings.free_gift_type == 'birthstone' and  settings.birthstone_product != blank and settings.birthstone_add_auto %}
-  {% assign free_gift_variant_id = all_products[settings.birthstone_product].variants[0].id %}
+  <script defer="defer">
+    free_gift_variant_id = {{free_gift_variant_id}}
+    free_gift_type = '{{ free_gift_type }}';
+    range = {{ range }};
+  </script>
 {% endif %}
 
-<script defer="defer">
-  free_gift_variant_id = {{free_gift_variant_id}}
-  free_gift_type = '{{ free_gift_type }}';
-  range = {{ range }};
-</script>
+
+
 
 <div id="side_cart" class="mini-cart medium-up--one-fifth bg_color__light_white">
     <div class="loading"><div class="loading_mark"></div></div>
@@ -111,8 +113,9 @@
                     {% endif %}
                 {% endunless %}
             {% endif %}
+            <div class="line"></div>
         {% endif %}
-        <div class="line"></div>
+        
       </div>
       <div class="cart-content scroll-box {% if free_gift_type == 'birthstone' and free_birthdtone_exist != true %} birth_stone {% endif %}">
 

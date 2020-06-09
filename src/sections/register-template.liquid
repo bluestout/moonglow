@@ -46,11 +46,11 @@
                     id="CreatePassword"
                     class="{% if form.errors contains 'password' %}input-error{% endif %}">
                 <input class="news-letter" type="checkbox" name="newsletter">
+                <input type="hidden" name="return_to" value="/account" /> 
                 <span>Subscribe to our newsletter?</span>
                 <div>
                     <input type="submit" value="SIGN UP" class="button btn">
                 </div>
-                <a href="{{ shop.url }}" class="left">{{customer.register.cancel}}</a>
                 <a href="login" class="right">{{ 'customer.login.sign_in' | t }}</a>
                 {% endform %}
 

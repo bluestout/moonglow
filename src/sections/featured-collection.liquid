@@ -16,7 +16,6 @@
   {%- assign collection = collections[section.settings.collection] -%}
 
   {% for product in collection.products limit: 6 %}
-  {%- include 'bold-product' with product, hide_action: 'skip' -%}
     <a href="{{ product.url | within: collection }}" class="featured-collection-item">
       {% if product.featured_image != blank %}
         <div class="featured-collection__image">
@@ -31,20 +30,20 @@
 
       <p>{{ product.title | escape }}</p>
       <span>
-        {% if bold_compare_at_price > bold_price %}
-          {% if bold_price_varies %}
-            {%- assign sale_price = bold_price | money -%}
+        {% if product.compare_at_price > product.price %}
+          {% if product.price_varies %}
+            {%- assign sale_price = product.price | money -%}
             {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
           {% else %}
             {{ 'products.product.on_sale' | t }}
-            {{ bold_price | money }}
+            {{ product.price | money }}
           {% endif %}
         {% else %}
-          {% if bold_price_varies %}
-            {%- assign price = bold_price | money -%}
+          {% if product.price_varies %}
+            {%- assign price = product.price | money -%}
             {{ 'products.product.from_text_html' | t: price: price }}
           {% else %}
-            {{ bold_price | money }}
+            {{ product.price | money }}
           {% endif %}
         {% endif %}
       </span>

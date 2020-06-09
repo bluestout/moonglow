@@ -226,6 +226,7 @@ $('.select-pannel .moon_phase').each(function () {
     $('#moon-phase').addClass("active");
     $('#moon-phase').addClass("product-moon-phase");
     $('#moon-phase').attr('data-target', $(this).attr('data-target'));
+    $('#moon-phase .special-phase').show();
     $(".dark-bg").show();
   })
 
@@ -242,34 +243,50 @@ $('.select-pannel .moon_phase').each(function () {
   })
 })
 $('#moon-phase .select-phase').click(function () {
-  
+
   var date_val = $(this).attr('date-val');
   var target = '.'+$('#moon-phase').attr('data-target');
   var img_target = $(target).parent().parent().find('.mark-img').find('img.moon_image');
   var date_val_target = $(target).parent().find('.moon_phase_val');
- 
-  $('.special-phase a').each(function () {
-      if ($(this).attr('data-target') == $('#moon-phase').attr('data-target')) {
-        $(this).removeClass('active');
-      }
-  });
-
-  $(target).parent().parent().find('')
   $(target).val(date_val);
-  product_date = date_val;
-  var date = date_val.split('/');
   var chain = $('.js label.active').attr('for');
   var date_cls = "."+$(target).attr('data-target')+"-save-date-button";
-  find_variant(date[0],date[1],date[2], chain, img_target,date_val_target, date_cls);
-  $('body').removeClass('stop-scroll');
-  $('#moon-phase').hide();
-  $('#moon-phase .start').show();
-  $('#moon-phase .content-field li').removeClass('active');
-  $("#moon-phase .calendars").hide();
-  $("#moon-phase .save-field").hide();
-  $("#moon-phase .start-btn").trigger('click');
-  $('#moon-phase').removeClass("active");
-  $(".dark-bg").hide();
+
+  if (date_val == 'Solar Eclipse' | date_val == 'Lunar Eclipse') {
+    product_date = date_val;
+    if (date_val == 'Solar Eclipse') {
+      var sp_val = 'SE';
+    }else{
+      var sp_val = 'LE';
+    }
+    find_variant_special(sp_val, chain, img_target);
+    date_val_target.val(sp_val);
+    $('body').removeClass('stop-scroll');
+    $('#moon-phase').hide();
+    $('#moon-phase .start').show();
+    $('#moon-phase .content-field li').removeClass('active');
+    $("#moon-phase .calendars").hide();
+    $("#moon-phase .save-field").hide();
+    $("#moon-phase .start-btn").trigger('click');
+    $('#moon-phase').removeClass("active");
+    $(".dark-bg").hide();
+    $('.save-date ').hide();
+  } else {
+    product_date = date_val;
+    var date = date_val.split('/');
+
+    find_variant(date[0],date[1],date[2], chain, img_target,date_val_target, date_cls);
+    $('body').removeClass('stop-scroll');
+    $('#moon-phase').hide();
+    $('#moon-phase .start').show();
+    $('#moon-phase .content-field li').removeClass('active');
+    $("#moon-phase .calendars").hide();
+    $("#moon-phase .save-field").hide();
+    $("#moon-phase .start-btn").trigger('click');
+    $('#moon-phase').removeClass("active");
+    $(".dark-bg").hide();
+  }
+
 })
 
 $(".moon_phase_cookie .saved-dates").change(function () {
@@ -293,7 +310,6 @@ $(".js label").click(function () {
   if ($(".moon_phase").val() != '') {
     date = $('.moon_phase').val().split('/');
   }
-  console.log(date[2])
   var chain = $(this).attr('for');
   if (date[2] != undefined ) {
     find_variant(date[0],date[1],date[2], chain);
@@ -301,7 +317,7 @@ $(".js label").click(function () {
     var sdate = $('.moon_phase_val').val()
     find_variant_special(sdate, chain);
   }
-  
+
 })
 $("#thumbs-carousel").owlCarousel({
   loop:true,
@@ -345,50 +361,46 @@ $(document).ready(function () {
     var review_sec = '('+tmp[0]+')';
 
     $('.title .text-m').html(review_sec);
+
+    $('.product-desc div').each(function () {
+      if (!$(this).hasClass('product_description')) {
+        var title = $(this).attr('class');
+        if ($(this).hasClass('product_detail')) {
+          title = 'Details';
+        }
+        if ($(this).hasClass('product_more_info')) {
+          title = 'More info';
+        }
+        var desc_content = $(this).html();
+        var desc_html = '<div class="slide-pannel"><div class="heading"><a class="toggle_btn">'+title+'</a></div><div class="body">'+desc_content+'</div></div>';
+        $(this).html(desc_html);
+      }else{
+        desc = $(this).children().text();
+
+        if (desc.length > 200) {
+          var txt = desc.slice(0, 200);
+          $(this).html(txt);
+          $(this).after('<a class="more">Read more</a>');
+        }
+      }
+    })
+    $('.slide-pannel .heading .toggle_btn').click(function () {
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      }else{
+        $(this).addClass('active');
+      }
+      $(this).parent().parent().find('.body').slideToggle();
+    });
+
+    $('.more').click(function () {
+
+      $(".product_description").text(desc);
+      $(this).hide();
+    });
   }, 2000);
 
-  $('.product-desc div').each(function () {
-    if (!$(this).hasClass('product_description')) {
-      var title = $(this).attr('class');
-      if ($(this).hasClass('product_detail')) {
-        title = 'Details';
-      }
-      if ($(this).hasClass('product_more_info')) {
-        title = 'More info';
-      }
-      var desc_content = $(this).html();
-      var desc_html = '<div class="slide-pannel"><div class="heading"><a class="toggle_btn">'+title+'</a></div><div class="body">'+desc_content+'</div></div>';
-      $(this).html(desc_html);
-    }else{
-      desc = $(this).children().text();
 
-      if (desc.length > 200) {
-        var txt = desc.slice(0, 200);
-        $(this).html(txt);
-        $(this).after('<a class="more">Read more</a>');
-      }
-    }
-  })
-
-  $(".special-phase a").click(function (e) {
-    e.preventDefault();
-    var cls = "."+$(this).attr('data-target');
-    $(this).parent().find('a').removeClass('active');
-    
-    var chain = $('.js label.active').attr('for');
-
-    var img_target = $(cls).parent().parent().find('.mark-img').find('img.moon_image');
-
-    product_date = $(this).attr('class');
-
-
-    find_variant_special($(this).attr('class'), chain, img_target);
-
-
-    $(cls).parent().find('.moon_phase_val').val($(this).attr('class'));
-    $(cls).val($(this).text());
-    $(this).addClass('active');
-  })
 
   $('.chain-type').change(function () {
     var id = "#"+$(this).val();
@@ -400,21 +412,67 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  $('.slide-pannel .heading .toggle_btn').click(function () {
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-    }else{
-      $(this).addClass('active');
-    }
-    $(this).parent().parent().find('.body').slideToggle();
-  });
 
-  $('.more').click(function () {
-
-    $(".product_description").text(desc);
-    $(this).hide();
-  });
 });
+
+$(document).ready(function () {
+  var date_val = "";
+  var time_val = "";
+  var location_val = "";
+  $('.astro-date .shop-moon-drop select').change(function () {
+    date_val = "";
+    $('.astro-date .shop-moon-drop select').each(function () {
+      if($(this).val() != ''){
+        date_val += '/'+$(this).val();
+      }else{
+        date_val = "";
+      }
+    });
+    if (date_val.length > 8) {
+      $('.line-item #line_date').val(date_val.slice(1));
+    }else{
+      $('.line-item #line_date').val("");
+    }
+
+
+  });
+  $('.astro-location input').change(function () {
+    location_val = "";
+    $('.astro-location input').each(function () {
+      if($(this).val() != '' && location_val != 'empty'){
+        location_val += ',' + $(this).attr('placeholder') + ':' + $(this).val();
+      }else{
+        location_val = "empty";
+      }
+    });
+    if (location_val.length > 20) {
+      $('.line-item #line_location').val(location_val.slice(1));
+    }else{
+      $('.line-item #line_location').val("");
+    }
+
+
+  })
+  $('.astro-time .shop-moon-drop select').change(function () {
+    time_val  ='';
+    $('.astro-time .shop-moon-drop select').each(function () {
+      if($(this).val() != ''){
+        if($(this).val() == 'AM' | $(this).val() == 'PM'){
+          time_val +=  " "+$(this).val();
+        }else{
+          time_val += ":"+$(this).val();
+        }
+      }else{
+        time_val = "";
+      }
+    });
+    if (time_val.length >  7) {
+      $('.line-item #line_time').val(time_val.slice(1));
+    }else{
+      $('.line-item #line_time').val("");
+    }
+  });
+})
 
 function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', query_date = 'null', cls = 'null'){
   obj_moon_date = [];
@@ -470,7 +528,7 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', que
           var img = moon_item.content.image;
         }
       }
-      
+
       query.attr('src', img);
       if (query_date != 'null') {
         query_date.val(current+"--"+moon);
@@ -483,14 +541,14 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', que
         query_date.parent().parent().parent().find('.phase-name').find(class_moon).show();
         query_date.parent().parent().parent().find('.phase-name').show();
       }
-      
+
       $('.scroll-box .moon_image').attr('src', img);
       $('.scroll-box .moon_image').trigger('click');
       setTimeout(() => {
         $('.main-image .moon_image').attr('src', img);
-        
+
       }, 500);
-     
+
     }
 
     if (chain == undefined) {
@@ -554,7 +612,6 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', que
     if (moon_val != undefined ) {
       var handle = '.collection_products_main .container .'+moon_val.replace(' ','-').toLowerCase();
     }
-    // console.log(obj_moon_date);
     obj_moon_date = {"current_date":current,"handle_next":handle,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
 
     $('.collection_products_main').show();
@@ -573,7 +630,6 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', que
 function find_variant_special(date, chain, query = 'null'){
   obj_moon_date = [];
 
-
     var moon = date;
 
     if (moon != undefined && query != 'null' ) {
@@ -583,16 +639,16 @@ function find_variant_special(date, chain, query = 'null'){
           var img = moon_item.content.image;
         }
       }
-      
+
       query.attr('src', img);
 
       $('.scroll-box .moon_image').attr('src', img);
       $('.scroll-box .moon_image').trigger('click');
       setTimeout(() => {
         $('.main-image .moon_image').attr('src', img);
-        
+
       }, 500);
-     
+
     }
 
     if (chain == undefined) {
@@ -600,9 +656,8 @@ function find_variant_special(date, chain, query = 'null'){
     }
 
     var id =("#"+moon+'-'+chain).toString().replace(" ", "");
-    console.log(id);
     var variant = $(id).val();
-    
+
     if (variant != undefined ) {
       $('#variant_id').val(variant);
     }else if (chain != '') {
@@ -617,4 +672,4 @@ function find_variant_special(date, chain, query = 'null'){
 
 function select_moon_phase(date) {
   return moon_phase_data[date];
-} 
+}
