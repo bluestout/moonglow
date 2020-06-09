@@ -38,7 +38,7 @@
                 line-height: 40px;
                 color: #2E4676;
                 text-transform: uppercase;
-                img{
+                svg{
                     float: left;
                     padding-right: $padding / 5;
                 }
@@ -74,7 +74,7 @@
                     @include media-query('medium-down'){
                         max-width: inherit;
                     }
-                    img{
+                    svg{
                         width: 25px;
                         display: block;
                         margin-bottom: 10px

@@ -1,0 +1,118 @@
+<div id="moon-phase" class="modal" data-target="">
+    {% if page.handle == 'wholesale' %}
+      <a class="close"> back <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
+    {% elsif page.handle == 'find-your-moon'  %}
+      <a class="close">{{ 'general.modal.close_button_2' | t }} <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
+    {% else %}
+      <a class="close"> {{ 'general.modal.close_button_1' | t }} <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
+    {% endif %}
+
+    <span class="back" page-target="" ><img src="{{'arrow_left.svg' | asset_url}}" alt="arrow left"> {{ 'general.modal.back_button' | t }} </span>
+    <div class="modal-body">
+      <div class="field start">
+        <h3 class="text-center">{{ section.settings.heading_title }}</h2>
+          <h4 class="mark text-center uppercase">{{ section.settings.heading_text }}</p>
+            <svg width="339px" height="66px" viewBox="0 0 339 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+              <title>Moon list</title>
+              <desc>Created with sketchtool.</desc>
+              <defs></defs>
+              <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="icons" transform="translate(-354.000000, -251.000000)">
+                      <g id="moon_list_illu" transform="translate(354.000000, 252.000000)">
+                          <g id="moon">
+                              <ellipse id="Oval" fill="#92A8D5" fill-rule="nonzero" cx="170.007485" cy="32" rx="23.8517964" ry="23.8730159"></ellipse>
+                              <path d="M236.590444,8.12698413 C239.421798,8.12698413 240.547904,18.8253968 240.547904,32 C240.547904,45.1746032 239.421798,55.8730159 236.590444,55.8730159 C223.945707,54.9612643 214.158683,44.5731195 214.158683,32.0634921 C214.158683,19.5538646 223.945707,9.16571978 236.590444,8.25396825 L236.590444,8.12698413 Z" id="Shape" fill="#92A8D5" fill-rule="nonzero"></path>
+                              <path d="M317.547696,31.9206877 C317.468135,19.4252264 326.855489,9.01329509 339,8.12698413 L337.547178,8.12698413 C324.830842,8.23170896 314.590572,18.8692385 314.642052,31.9206877 C314.576154,38.2169271 316.954354,44.2812434 321.251722,48.7750837 C325.549091,53.2689239 331.412297,55.822804 337.547178,55.8730159 L339,55.8730159 C326.795416,54.9831548 317.385902,44.4770684 317.547696,31.9206877 Z" id="Shape" fill="#92A8D5" fill-rule="nonzero"></path>
+                              <path d="M285.634465,8.12698413 C288.252446,8.1325296 290.851483,8.57231979 293.326347,9.42854825 C283.698072,12.7326457 277.22904,21.809653 277.22904,32.0154475 C277.22904,42.221242 283.698072,51.2982493 293.326347,54.6023468 C284.392083,57.6476514 274.507603,55.1126807 268.127757,48.1399238 C261.747911,41.1671669 260.077312,31.0731882 263.868885,22.4072553 C267.660457,13.7413225 276.198293,8.1396977 285.634465,8.12698413 Z" id="Shape" fill="#92A8D5" fill-rule="nonzero"></path>
+                              <path d="M170.007485,64 C187.664888,64 201.979042,49.673112 201.979042,32 C201.979042,14.326888 187.664888,0 170.007485,0 C152.350082,0 138.035928,14.326888 138.035928,32 C138.035928,49.673112 152.350082,64 170.007485,64 Z" id="Oval" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-dasharray="2,5" transform="translate(170.007485, 32.000000) scale(-1, 1) translate(-170.007485, -32.000000) "></path>
+                              <path d="M120.883857,8.12698413 C123.715211,8.12698413 124.841317,18.8253968 124.841317,32 C124.841317,45.1746032 123.715211,55.8730159 120.883857,55.8730159 C108.23912,54.9612643 98.4520958,44.5731195 98.4520958,32.0634921 C98.4520958,19.5538646 108.23912,9.16571978 120.883857,8.25396825 L120.883857,8.12698413 Z" id="Shape" fill="#92A8D5" fill-rule="nonzero" transform="translate(111.646707, 32.000000) scale(-1, 1) translate(-111.646707, -32.000000) "></path>
+                              <path d="M2.90697737,31.9206877 C2.82741617,19.4252264 12.2147701,9.01329509 24.3592814,8.12698413 L22.9064597,8.12698413 C10.1901234,8.23170896 -0.050146771,18.8692385 0.00133387793,31.9206877 C-0.0645648256,38.2169271 2.31363542,44.2812434 6.61100374,48.7750837 C10.9083721,53.2689239 16.7715783,55.822804 22.9064597,55.8730159 L24.3592814,55.8730159 C12.1546977,54.9831548 2.74518393,44.4770684 2.90697737,31.9206877 Z" id="Shape" fill="#92A8D5" fill-rule="nonzero" transform="translate(12.179641, 32.000000) scale(-1, 1) translate(-12.179641, -32.000000) "></path>
+                              <path d="M69.4458426,8.12698413 C72.063823,8.1325296 74.6628607,8.57231979 77.1377246,9.42854825 C67.5094491,12.7326457 61.0404169,21.809653 61.0404169,32.0154475 C61.0404169,42.221242 67.5094491,51.2982493 77.1377246,54.6023468 C68.2034599,57.6476514 58.3189804,55.1126807 51.9391344,48.1399238 C45.5592884,41.1671669 43.8886894,31.0731882 47.6802618,22.4072553 C51.4718343,13.7413225 60.0096705,8.1396977 69.4458426,8.12698413 Z" id="Shape" fill="#92A8D5" fill-rule="nonzero" transform="translate(61.405689, 32.000000) scale(-1, 1) translate(-61.405689, -32.000000) "></path>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+            </svg>
+          <div class="select box">
+            <button class="button grey start-btn">{{ section.settings.moon_phase_start_button }}</button>
+          </div>
+      </div>
+      <div class="field calendars">
+        <div class="calendar">
+          <div class="date-header">
+            <svg width="11px" height="13px" viewBox="0 0 11 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+              <title>moon icon</title>
+              <desc>Created with sketchtool.</desc>
+              <defs></defs>
+              <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="icons" transform="translate(-170.000000, -34.000000)" fill="#2E4676">
+                      <path d="M176.830961,34.0168995 C175.75447,35.1809617 175.09456,36.7507096 175.09456,38.4777778 C175.09456,41.9087874 177.698972,44.7189146 181,44.9608783 C179.838918,46.2164137 178.193212,47 176.3682,47 C172.85114,47 170,44.0898509 170,40.5 C170,36.9101491 172.85114,34 176.3682,34 C176.523821,34 176.678137,34.0056976 176.830961,34.0168995 Z" id="moon_ico"></path>
+                  </g>
+              </g>
+            </svg>
+            <p><a class="date">{{ 'general.moon_phase_modal.date_header_title' | t }}</a> / <a class="month">{{ 'general.moon_phase_modal.month_header_title' | t }}</a> / <a class="year">{{ 'general.moon_phase_modal.year_header_title' | t }}</a></p>
+          </div>
+
+          <div class="content">
+            <div class="content-field year-field">
+              <p class="mark uppercase">{{ 'general.moon_phase_modal.year_page_title' | t }}</p>
+              <ul>
+                  {% for year in (1919..2030) %}
+                    <li>{{year}}</li>
+                  {% endfor %}
+              </ul>
+            </div>
+            <div class="content-field month-field">
+              <p class="title uppercase">{{ 'general.moon_phase_modal.month_page_title' | t }}</p>
+              <ul>
+                <li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li>
+                <li>November</li><li>December</li>
+              </ul>
+            </div>
+            <div class="content-field date-field">
+              <p class="title uppercase">{{ 'general.moon_phase_modal.date_page_title' | t }}</p>
+              <ul>
+                  {% for date in (1..31) %}
+                    <li>{{ date }}</li>
+                  {% endfor %}
+              </ul>
+            </div>
+            <div class="content-field  save-field">
+
+              <div class="grid">
+                  <div class="grid__item one-third small--one-whole content-img">
+                    <img src="" class="modal_moon_phase_img" alt="PL">
+                    <div class="moon-icon">
+                        <div></div>
+                    </div>
+
+                  </div>
+                  <div class="grid_item two-thirds small--one-whole content-info">
+                  <p class="mark"></p>
+                  <p></p>
+                  </div>
+              </div>
+                       
+              {% if page.handle != 'wholesale' %}
+                <div class="grid content-pannel" {% if page.handle == 'find-your-moon' %}style="width: 100%; margin-top: 0px;"{% endif %}>
+                  {% if page.handle == 'find-your-moon' %}
+                    <h3 class="capitalize brand text-center">Your moon phase code : <strong class="uppercase brand moon-code"></strong></h3>
+                  {% else %}
+                    <a class="button small select-phase" date-val="">{{ section.settings.select_button }}</a>
+                    <p class="mark text-center save-date">{{ section.settings.save_button }}</p>
+                    <a href="" class="button small shop-date">{{ section.settings.shop_button }}</a>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+            </div>
+            <div class="alert-message animated alert-danger bounceIn bounceOut modal_alert" data-text="{{ 'general.alert_message.danger' | t }}" data-logintext="Please login to save the date">
+            {{ 'general.alert_message.danger' | t }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

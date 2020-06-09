@@ -1,0 +1,19 @@
+ <!-- engraving charm -->
+ <div class="engraving-options-wrapper engraving_charm_width">
+    <div class="select-pannel">
+        <div class="mark-img">
+          <img data-src="{{ 'jewelry.png' | asset_img_url: '100x' }}" class="moon_image lazyload" alt="engraving icon" data-sizes="auto">
+        </div>
+        <div class="form-control">
+          <a class="engrange_checkbox">I'd like to add engraving</a>
+        </div>
+    </div>
+    <div class="engraving_form engraving-fields">
+        <input type='text' class="engraving-input charm" placeholder="Engraving{% if product.tags contains 'engraving 2' %} (Side 1){% endif %}" maxlength="10" />
+        <p>Engraving costs are based on the number of characters.</p>
+        <ul class="engraving-pricing-charm engraving-pricing">
+            <li> 1-5 = $10</li>
+            <li>6-10 = $15</li>
+        </ul>
+    </div>
+  </div> <!-- {{ store_logo }} -->

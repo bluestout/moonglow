@@ -1,3 +1,15 @@
+.visuallyhiddentext {
+    position: absolute;
+    overflow: hidden;
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    color: #000;
+}
 .product-template{
     padding: $padding $padding * 2;
     @include media-query('large-down'){
@@ -112,6 +124,7 @@
                         margin: auto 5px;
                     }
                     span{
+                        text-transform: capitalize;
                         text-align: left;
                         display: inline-flex;
                         vertical-align: top;
@@ -206,7 +219,8 @@
             .bottomLine{
                 height: 20px;
                 .text-m{
-                    display: none!important;
+                    display: block!important;
+                    margin-left: 5px;
                 }
             }
             @include media-query('medium-down'){
@@ -259,14 +273,13 @@
             position: relative;
             .single-add-cart {
                 padding-top: 10px;
-                margin-top: 10px;
                 label{
                     display: table;
                 }
                 .product-single__variants{
-                    margin-bottom: 20px;
                     padding: 10px 20px;
-                    width: 300px;
+                    width: 500px;
+                    font-size: 17px;
                     @include media-query('medium-down'){
                         width: 100%;
                     }
@@ -283,6 +296,8 @@
                 width: 500px;
                 &.moon_phase_image{
                     background-color: white;
+                    width: 330px;
+                    float: left;
                     .moon_image{
                         width: $padding;
                         height: $padding;
@@ -290,6 +305,9 @@
                     .form-control{
                         background: $form_pannel_bg_color;
                         width: calc(100% - 50px);
+                    }
+                    @include media-query('medium-down'){
+                        margin-bottom: 0;
                     }
                 }
                 .mark-img{
@@ -374,28 +392,80 @@
                     }
                 }
             }
+            .special-phase{
+                width: 170px;
+                float: left;
+                a{
+                    margin-left: 10px;
+                    padding: 10px;
+                    width: 75px;
+                    height: 50px;
+                    border: 1px solid #D0D9E5;
+                    float: left;
+                    text-align: center;
+                    &:hover{
+                        border-color: #2E4676;
+                        background: #F0F3F7;
+                        color: black;
+                    }
+                    &.active{
+                        border-color: #2E4676;
+                        background: #F0F3F7;
+                        color: black;
+                    }
+                }
+            }
             div.js{
                 .moon_phase_cookie{
-                    margin-top: 10px;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    @include media-query('medium-down'){
+                        margin-top: 0;
+                    }
                     .saved-dates{
                         font-size: 13px;
                         letter-spacing: 1px;
+                        color: #626d77;
                     }
                 }
                 .save-date{
                     display: none;
                     font-size: 15px;
                     font-family: $font-heading;
+                    margin-bottom: 10px;
+                    margin-top: 0;
+                    @include media-query('medium-down'){
+                        margin-bottom: 0;
+                    }
+                }
+                .chain-type{
+                    width: 500px;
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    color: #626d77;
+                }
+                .birthstone_select{
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    width: 500px;
+                    @include media-query('medium-down'){
+                        width: 100%;
+                    }
+                }
+                .phase-name{
+                    display: none;
+                    font-family: $font_brand;
+                    color: #030303;
+                    span{
+                        font-size: 16px;
+                        color: #2E4676;
+                    }
                 }
                 display: table;
                 @include media-query('medium-down'){
                     width: 100%;
                 }
-                .stage-title{
-                    strong{
-                        color: $mark_color;
-                    }
-                }
+
                 margin: $margin / 5 0;
                 input[type="radio"]{
                     display: none;
@@ -428,6 +498,11 @@
                     }
                 }
             }
+            .stage-title{
+                strong{
+                    color: $mark_color;
+                }
+            }
             .engraving_form{
 
                 display: none;
@@ -435,6 +510,7 @@
                 margin-top: 10px;
                 input{
                     border-radius: 0;
+                    margin-bottom: 10px;
                 }
                 p{
                     text-align: center;
@@ -483,6 +559,10 @@
                     b{
                         font-family: $font_title;
                     }
+                    @include media-query('small'){
+                        line-height: 15px;
+                        margin-top: 10px;
+                    }
                 }
                 a{
                     width: 100%;
@@ -520,7 +600,7 @@
 
                             }
                             .bold-bundles-widget-item__variants{
-                                display: none;
+                                /*display: none;*/
                             }
                             .bold-bundles-widget-item__price{
                                 display: none;
@@ -604,7 +684,7 @@
                         &.active{
                             &:after{
                                 content: ' ';
-                                background: url(https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/plus_ico.svg?v=4321893028173185640) no-repeat center center/contain;
+                                background: url(https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/plus_ico.svg) no-repeat center center/contain;
                                 width: 10px;
                                 height: 10px;
                                 display: table;
@@ -614,7 +694,7 @@
                         }
                         &:after{
                             content: ' ';
-                            background: url(https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/minus_ico.svg?v=4321893028173185640) no-repeat center center/contain;
+                            background: url(https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/minus_ico.svg) no-repeat center center/contain;
                             width: 10px;
                             height: 10px;
                             display: table;
@@ -630,6 +710,9 @@
                     }
                     ul{
                         width: 100%;
+                        display: flex;
+                        -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
                         li{
                             font-size: $link_size;
                             width: 50%;
@@ -638,6 +721,7 @@
                             margin-bottom: 10px;
                             padding: 0;
                             padding-right: 20px;
+                            min-height: 35px;
                         }
                     }
                 }
@@ -701,42 +785,79 @@
             padding-right: 0;
         }
         &.template_1{
-            .caption_content{
+            .content{
+                position: relative;
                 display: table;
-                width: auto;
-                min-width: 500px;
-                height: 400px;
-                padding: $padding *8/5 $padding;
-                margin-top: $padding;
-                background: $image_text_caption_bg_color;
+                width: 100%;
+                max-height: 600px;
                 @include media-query('medium-down'){
-                    width: 100%;
-                    min-width: auto;
-                    height: auto;
+                    position: inherit;
+                    max-height: inherit;
                 }
-                .devider{
-                    float: left;
-                    margin-left: -10px;
-                    width: 100% !important;
+                .image-with-text__image{
+                    img{
+                        width: 100%;
+                    }
+                }
+                .image-with-text__text{
+                    position: absolute;
+                    height: 100%;
+                    display: inline-flex;
                     @include media-query('medium-down'){
-                        float: none;
-                        margin-left: auto;
-                        width: auto!important;
+                        position: inherit;
                     }
-                }
-                p{
-                    strong{
-                        font-weight: normal;
-                        font-size: 16px;
-                        text-transform: none;
-                        line-height: 24px;
-                        margin-bottom: 20px;
-                        display: table;
-                        font-family: $font-body;
+                    .caption_content{
+                      position: absolute;
+                        width: auto;
+                        min-width: 500px;
+                        margin: auto;
+                        background: #F8F7F5;
+                        display: inline-flex;
+                        height: calc(100% - 60px);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        @include media-query('medium-down'){
+                            width: 100%;
+                            min-width: auto;
+                            height: auto;
+                            position: relative;
+                            transform: none;
+                            top: auto;
+                        }
+                        .info{
+                            max-width: 400px;
+                            display: table;
+                            margin: auto;
+                            padding: 30px 10px 10px;
+                            .devider{
+                                float: left;
+                                margin-left: -10px;
+                                width: 100% !important;
+                                @include media-query('medium-down'){
+                                    float: none;
+                                    margin-left: auto;
+                                    width: auto!important;
+                                }
+                            }
+                            p{
+                                strong{
+                                    font-weight: normal;
+                                    font-size: 16px;
+                                    text-transform: none;
+                                    line-height: 24px;
+                                    margin-bottom: 20px;
+                                    display: table;
+                                    font-family: $font-body;
+                                }
+                                line-height: 24px;
+                            }
+                        }
+
                     }
-                    line-height: 24px;
                 }
             }
+
+
         }
         &.template_2{
             .image-with-text__image {
@@ -844,6 +965,31 @@
             }
         }
     }
+    .fav-date-wrapper {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        @include flex-wrap(wrap);
+        width: 100%;
+
+        @media(min-width: 1024px) {
+            max-width: 500px;
+        }
+        .save-date, .save-date-false {
+            @media(min-width: 768px) {
+                @include flex-basis(35%);
+            }
+            @media(max-width: 767px) {
+                margin: 5px 0;
+            }
+            & + a, & + div {
+                @include flex-basis(100%);
+                @media(min-width: 768px) {
+                    @include flex-basis(65%);
+                }
+            }
+        }
+    }
 }
 .collection_products_main{
     max-width: 1200px;
@@ -910,14 +1056,290 @@
     }
 }
 
-.container{
-
+.container.product-review-section{
+    max-width: 1440px;
+    margin: auto;
+    margin-bottom: 50px;
     @include media-query('medium-down'){
         width: 90vw;
         display: block;
         overflow: hidden;
     }
+    h3.title{
+        margin-bottom: 20px;
+    }
     .yotpo{
+        .main-widget {
+            .yotpo-label-container {
+                display: none;
+            }
+            .yotpo-display-wrapper{
+                .yotpo-bottomline{
+                    padding-top: 0;
+                    .bottom-line-items{
+                        @include media-query('medium-down'){
+                            width: 100%;
+                            margin-bottom: 5px;
+                            display: table;
+                        }
+                        .avg-score {
+                            display: none;
+                        }
+                        .yotpo-filter-stars {
+                            @include media-query('medium-down'){
+                                display: table;
+                                margin: auto;
+                                float: none;
+                            }
+                            .rating-star{
+                                font-size: 21px!important;
+                            }
+                        }
+                        .reviews-qa-labels-container {
+                            @include media-query('medium-down'){
+                                float: none;
+                                margin: auto;
+                                display: table;
+                                position: inherit;
+                            }
+                            span.reviews-qa-label{
+                                color: #2E4676;
+                                font-family: $font-heading!important;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .write-question-review-buttons-container{
+                float: none;
+                margin: auto;
+                display: table;
+                .yotpo-default-button{
+                    padding: 13px 0px!important;
+                    height: 46px;
+                    width: 150px;
+                    span{
+                        padding: 0;
+                        font-family: $font_brand!important;
+                        font-size: 14px!important;
+                        line-height: 18px;
+                        text-transform: uppercase;
+                        &::before{
+                            content: none;
+                        }
+                    }
+                    &.write-review-button{
+                        background-color: #2E4676;
+                        span{
+                            color: white;
+                        }
+                        &:hover{
+                            span{
+                                color: #2E4676;
+                            }
+                        }
+                    }
+                    &.write-question-button{
+                        background-color: white;
+                        span{
+                            color: #2E4676;
+                        }
+                        &:hover{
+                            background-color: #2E4676!important;
+                            span{
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+            .new-yotpo-small-box{
+                .yotpo-nav{
+                    ul li{
+                        &:focus{
+                            outline: none;
+                        }
+                        margin-right: 50px;
+                        .yotpo-nav-wrapper{
+                            border: none;
+                            &:focus{
+                                outline: none;
+                            }
+                            span{
+                                font-family: $font-heading!important;
+                                font-size: 14px;
+                                letter-spacing: 0.6px;
+                                line-height: 18px;
+                                font-weight: normal!important;
+                                color: #030303;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            .yotpo-nav-content{
+                .yotpo-reviews-header{
+                    display: none;
+                }
+                .yotpo-reviews{
+                    .yotpo-review{
+                        position: relative;
+                        padding: 20px 0;
+                        .yotpo-header{
+                            position: initial;
+                            width: 250px;
+                            float: left;
+                            .yotpo-user-name{
+                                color: #030303!important;
+                                width: 100%;
+                                font-size: 18px;
+                                font-family: $font_title!important;
+                                line-height: 22px;
+                            }
+                            .yotpo-header-element {
+                                display: inline-grid;
+                                float: left;
+                                &span{
+                                    margin-right: 20px;
+                                }
+                                &.yotpo-header-actions{
+                                    position: absolute;
+                                    right: 0;
+                                    float: right;
+                                    span{
+                                        color: #92A8D5;
+                                        font-family: $font_title!important;
+                                    }
+                                }
+                            }
+                            .label-with-tooltip {
+                                span{
+                                    font-size: 14px;
+                                    color: #EBDFD5;
+                                    font-weight: normal;
+                                    font-family: $font_title!important;
+                                }
+                            }
+                            
+                        }
+                        .yotpo-main {
+                            float: left;
+                            width: calc(100% - 300px);
+                            margin-left: 10px;
+                            margin-top: 0;
+                            @include media-query('medium-down'){
+                                width: 100%;
+                            }
+                            .content-title{
+                                font-family: $font-heading!important;
+                                font-size: 14px;
+                                line-height: 18px;
+                                letter-spacing: 0.6px;
+                                font-weight: normal;
+                                color: #030303;
+                                width: 100%;
+                                min-height: 24px;
+                            }
+                            .yotpo-review-wrapper{
+                                .content-review{
+                                    font-family: $font-body!important;
+                                    font-size: 14px;
+                                    line-height: 24px;
+                                    letter-spacing: 0.5px;
+                                    color: #2A323F;
+                                }
+                            }
+                        }
+                        .yotpo-footer{
+                            margin-left: 0;
+                            @include media-query('medium-down'){
+                                display: table;
+                            }
+                            .footer-actions{
+                                margin-top: 10px;
+                                span{
+                                    font-family: $font_title!important;
+                                }
+                                
+                            }
+                            .yotpo-helpful{
+                                span{
+                                    color: #2E4676;
+                                    font-family: $font_title!important;
+                                    &.label-helpful{
+                                        color: #92A8D5;
+                                    }
+                                }
+                            }
+                        }
+                        .yotpo-comments-box{
+                            display: table!important;
+                            .yotpo-main{
+                                .content-review{
+                                    font-family: $font-body!important;
+                                    font-size: 14px;
+                                    line-height: 24px;
+                                    letter-spacing: 0.5px;
+                                    color: #2A323F;
+                                }
+                            }
+                        }
+                    }
+                }
+                .yotpo-questions {
+                    .yotpo-user-name{
+                        width: 100%;
+                        font-size: 18px;
+                        font-family: $font_title!important;
+                        line-height: 22px;
+                    }
+                    .yotpo-header-actions{
+                        position: absolute;
+                        right: 0;
+                        float: right;
+                        span{
+                            font-family: $font_title!important;
+                            color: #92A8D5;
+                        }
+                    }
+                    .label-with-tooltip {
+                        span{
+                            font-family: $font_title!important;
+                            font-size: 14px;
+                            color: #EBDFD5;
+                        }
+                    }
+                    .content-question{
+                        font-family: $font-body!important;
+                        font-size: 14px;
+                        line-height: 24px;
+                        letter-spacing: 0.5px;
+                        color: #2A323F;
+                    }
+                    .yotpo-footer{
+                        margin-left: 0;
+                        @include media-query('medium-down'){
+                            display: table;
+                        }
+                        .footer-actions{
+                            margin-top: 10px;
+                        }
+                        .yotpo-helpful{
+                            span{
+                                font-family: $font_title!important;
+                                color: #2E4676;
+                                &.label-helpful{
+                                    font-family: $font_title!important;
+                                    color: #92A8D5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .promoted-products-box .promoted-products li{
             display: block;
             .yotpo-promoted-product{
@@ -951,4 +1373,9 @@
     @include media-query('medium-down'){
         white-space: nowrap;
     }
+}
+div#date-save-modal {
+    -webkit-box-shadow: 0 0px 25px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 0px 25px rgba(0,0,0,0.5);
 }

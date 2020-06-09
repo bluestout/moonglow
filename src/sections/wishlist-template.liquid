@@ -18,16 +18,16 @@
                   {%- assign src_name = product.featured_image -%}
                   {%- assign src_alt = product.title -%}
                   {%-  include 'srcset' -%}
-                </a> 
+                </a>
                 <div class="content text-left">
                   <a class="h7 prod-heading">{{product.title}}</a>
                   <div class ="price_inline">
                     <div class="price-wrap">
-                      <p class="price h7" tabindex="0" title="{{product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}">{% assign geolizr_price = product.price  %}{% include 'geolizr-currency' with geolizr_price %}{{product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}</p>               
+                      <p class="price h7" tabindex="0" title="{{product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}">{% assign geolizr_price = product.price  %}{% include 'geolizr-currency' with geolizr_price %}{{product.price | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}</p>
                       <del>
                       </del>
                     </div>
-                  </div>  
+                  </div>
                   <div class="review-sec">
                     <div class="yotpo bottomLine" >
                     </div>

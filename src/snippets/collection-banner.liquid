@@ -6,19 +6,18 @@
     {% assign image = collection.products.first.featured_image %}
 {% endif %}
 
-{% assign icons = "ico_crystals.svg, hand-finished.svg, ico_star.svg" | split: ", " %}
 {% assign i = 0 %}
 <header class="collection_banner lazyload" data-sizes="auto" data-bgset="{% include 'responsive-bg-image', image: image %}">
     <div class="caption captionOverlay--true {{ section.settings.title_position }}">
         <h2 class="headline" style='color: {{ collection.metafields["global"]["title-color"] }};'>{{ collection.title }}</h2>
-        <p style='color: {{ collection.metafields["global"]["title-color"] }};'>{{ collection.description | truncate: 78, '...' }}</p>
+        <!-- <p style='color: {{ collection.metafields["global"]["title-color"] }};'>{{ collection.description | truncate: 78, '...' }}</p> -->
     </div>
     <div class="icon-links">
         {% for block in section.blocks %}
             {% if block.type == 'icon_link' %}
                 <div class="grid__item one-third">
                     <div>
-                        <img src="{{ icons[i] | asset_url }}" alt="{{ block.settings.title }}">
+                        {{ block.settings.icon_svg }}
                         <p>{{ block.settings.title }}</p>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
         <h1 class="text-center">{{ 'cart.general.title' | t }}</h1>
         <div class="devider"></div>
         <div class="grid cart content">
-            <form action="/cart" method="post" novalidate>
+            <form action="/cart" method="post" novalidate class="form">
                 <div class="grid__item product-list two-thirds medium-down--one-whole">
                     <table class="responsive-table">
                         <thead class="small--hide">
@@ -16,36 +16,68 @@
                             </tr>
                         </thead>
                         <tbody>
-            
+
                             {% for item in cart.items %}
-            
                                 {% comment %}
-            
+
                                 Cart Item Template
                                 =====================
                                 The data-label attributes on <td> elements are mobile-friendly
                                 helpers used for responsive-table labels
                                 {% endcomment %}
-            
-                                <tr class="responsive-table-row">
-            
+                                
+                                {% assign engraving = 0 %}
+                                {% assign num = 0 %}
+                                {% if item.properties['engraving'] != blank %}
+                                    {% assign engraving = item.properties['engraving'] | size %}
+                                    
+                                    {% if  engraving > 10 %}
+                                    {% assign num = num | plus: 4 %}
+                                    {% elsif engraving <= 10 and engraving > 5 %}
+                                    {% assign num = num | plus: 3 %}
+                                    {% elsif engraving <= 5 and engraving > 0 %}
+                                    {% assign num = num | plus: 2 %}
+                                    {% endif %}
+
+                                {% endif %}
+
+                                {% if item.properties['Engrave_ring'] != blank %}
+                                    {% assign engrave_ring = item.properties['Engrave_ring'] | size %}
+                                    {% if engrave_ring > 5 %}
+                                        {% assign num = num | plus: 1 %}
+                                    {% endif %}
+                                {% endif %}
+
+                                {% if item.properties['engraving2'] != blank %}
+                                    {% assign engraving = item.properties['engraving2'] | size %}
+                                    {% if  engraving > 10 %}
+                                    {% assign num = num | plus: 4 %}
+                                    {% elsif engraving <= 10 and engraving > 5 %}
+                                    {% assign num = num | plus: 3 %}
+                                    {% elsif engraving <= 5 and engraving > 0 %}
+                                    {% assign num = num | plus: 2 %}
+                                    {% endif %}
+                                {% endif %}
+
+                                <tr class="responsive-table-row {% if item.product.type contains 'letters' %} engraving_cart {% endif %} {% if item.variant_id == 21513365258345 %} gift-row {% endif %} ">
+
                                     <td data-label="{{ 'customer.order.product' | t }}">
-            
+
                                     {% if item.image != blank %}
                                         <a href="{{ item.url | within: collections.all }}">
                                         {{ item | img_url: '100x100' | img_tag: item.title }}
                                         </a>
                                     {% endif %}
-            
+
                                     </td>
                                     <td>
                                         <a href="{{ item.url }}">{{ item.product.title }}</a>
-            
+
                                         {% unless item.product.has_only_default_variant %}
                                             <p>{{ item.variant.title }}</p>
                                         {% endunless %}
                                         {%- assign property_size = item.properties | size -%}
-            
+
                                         <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_properties" style="display:none !important;"></span>
                                         {% if property_size > 0 %}
                                             {% for p in item.properties %}
@@ -58,17 +90,18 @@
                                                     {% else %}
                                                         {{ p.last }}
                                                     {% endif %}
-            
+
                                                 {% endunless %}
                                             </span>
                                             {% endfor %}
                                         {% endif %}
-            
-                                        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+
+                                        <a class="remove_cart" id="remove_{{ item.id }}" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
                                             <small>{{ 'cart.general.remove' | t }}</small>
                                         </a>
                                     </td>
                                     <td data-label="{{ 'cart.label.price' | t }}">
+                                        {% comment %}
                                         {% if item.original_line_price != item.line_price %}
                                             <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                                             <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
@@ -77,27 +110,69 @@
                                         {% else %}
                                             <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_3" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
                                         {% endif %}
+                                        {% endcomment %}
+                                        {% assign engraving_price = 500 | times: num %}
+                                        {% assign line_total_price = item.price | plus : engraving_price %}
+                                        {{ line_total_price | money }}
                                     </td>
                                     <td data-label="{{ 'cart.label.quantity' | t }}">
                                         <input type="number"
+                                            class="qty"
                                             name="updates[]"
-                                            id="updates_{{ item.key }}"
+                                            id="updates_{{ item.id }}"
                                             value="{{ item.quantity }}"
                                             min="0"
                                             aria-label="{{ 'cart.general.item_quantity' | t }}">
+                                        <input type="hidden" class="engrave_num" value="{{ num }}">
                                     </td>
                                     <td data-label="{{ 'cart.label.total' | t }}">
-                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.line_price | money }}
+                                        {%- comment -%}
+                                        <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
+                                        {%- endcomment -%}
+                                        {% assign total_price = line_total_price | times : item.quantity %}
+                                        {{ total_price | money }}
                                     </td>
                                 </tr>
-            
+
                             {% endfor %}
                         </tbody>
                     </table>
                     <div class="product-item">
                         {% for item in cart.items %}
-                        <ul>
-                            <li>    
+                        {% assign engraving = 0 %}
+                        {% assign num = 0 %}
+                        {% if item.properties['engraving'] != blank %}
+                            {% assign engraving = item.properties['engraving'] | size %}
+                            
+                            {% if  engraving > 10 %}
+                            {% assign num = num | plus: 4 %}
+                            {% elsif engraving <= 10 and engraving > 5 %}
+                            {% assign num = num | plus: 3 %}
+                            {% elsif engraving <= 5 and engraving > 0 %}
+                            {% assign num = num | plus: 2 %}
+                            {% endif %}
+
+                        {% endif %}
+
+                        {% if item.properties['Engrave_ring'] != blank %}
+                            {% assign engrave_ring = item.properties['Engrave_ring'] | size %}
+                            {% if engrave_ring > 5 %}
+                                {% assign num = num | plus: 1 %}
+                            {% endif %}
+                        {% endif %}
+
+                        {% if item.properties['engraving2'] != blank %}
+                            {% assign engraving = item.properties['engraving2'] | size %}
+                            {% if  engraving > 10 %}
+                            {% assign num = num | plus: 4 %}
+                            {% elsif engraving <= 10 and engraving > 5 %}
+                            {% assign num = num | plus: 3 %}
+                            {% elsif engraving <= 5 and engraving > 0 %}
+                            {% assign num = num | plus: 2 %}
+                            {% endif %}
+                        {% endif %}
+                        <ul class="{% if item.product.type contains 'letters' %} engraving_cart {% endif %} {% if item.variant_id == 21513365258345 %} gift-row {% endif %} ">
+                            <li>
                                 <div class="img">
                                     {% if item.image != blank %}
                                         <a href="{{ item.url | within: collections.all }}">
@@ -107,12 +182,12 @@
                                 </div>
                                 <div class="title">
                                     <a href="{{ item.url }}">{{ item.product.title }}</a>
-                
+
                                     {% unless item.product.has_only_default_variant %}
                                         <p>{{ item.variant.title }}</p>
                                     {% endunless %}
                                     {%- assign property_size = item.properties | size -%}
-        
+
                                     <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_properties" style="display:none !important;"></span>
                                     {% if property_size > 0 %}
                                         {% for p in item.properties %}
@@ -124,12 +199,12 @@
                                                 {% else %}
                                                     {{ p.last }}
                                                 {% endif %}
-        
+
                                             {% endunless %}
                                         {% endfor %}
                                     {% endif %}
-        
-                                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+
+                                    <a class="remove_mobile_cart" data-target="#remove_{{ item.id }}" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
                                         <small>{{ 'cart.general.remove' | t }}</small>
                                     </a>
                                 </div>
@@ -137,6 +212,7 @@
                             <li>
                                 <div class="header_title">Price : </div>
                                 <div class="desc">
+                                    {% comment %}
                                     {% if item.original_line_price != item.line_price %}
                                         <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                                         <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
@@ -145,32 +221,42 @@
                                     {% else %}
                                         <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_3" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
                                     {% endif %}
+                                    {% endcomment %}
+                                    {% assign engraving_price = 500 | times: num %}
+                                    {% assign line_total_price = item.price | plus : engraving_price %}
+                                    {{ line_total_price | money }}
                                 </div>
                             </li>
                             <li>
                                 <div class="header_title">Quantity : </div>
                                 <div class="desc quantity">
-                                    
+
                                     <input type="number"
-                                        id="updates_{{ item.key }}"
+                                        data-target="#updates_{{ item.id }}"
                                         value="{{ item.quantity }}"
-                                        min="0"
+                                        min="0" 
+                                        class="qty_mobile"
                                         aria-label="{{ 'cart.general.item_quantity' | t }}">
+                                    <input type="hidden" class="engrave_num" value="{{ num }}">
                                 </div>
-                                
+
                             </li>
                             <li>
                                 <div class="header_title">
-                                    Total : 
+                                    Total :
                                 </div>
                                 <div class="desc">
-                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.line_price | money }}
+                                    {%- comment -%}
+                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
+                                    {%- endcomment -%}
+                                    {% assign total_price = line_total_price | times : item.quantity %}
+                                    {{ total_price | money }}
                                 </div>
                             </li>
                         </ul>
                         {% endfor %}
                     </div>
-                    
+
                 </div>
                 <div class="grid__item one-third form-pannel medium-down--one-whole">
                     <div class="info">
@@ -178,16 +264,16 @@
                             <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
                             <textarea name="note" rows="5" id="CartSpecialInstructions">{{ cart.note }}</textarea>
                         {% endif %}
-                        
+
                         <p class="left">{{ 'cart.general.subtotal' | t }}</p>
                         <p class="right"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}</p>
                         {% if cart.total_discounts > 0 %}
                         <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
                         {% endif %}
                         <p class="sub-title">{{ 'cart.general.shipping_at_checkout' | t }}</p>
-                        <input type="submit" name="update" class="button white left update_cart_btn" value="{{ 'cart.general.update' | t }}">
+                        
                         <input type="submit" name="checkout" class="button right" value="{{ 'cart.general.checkout' | t }}">
-                        <div class="alert-message animated alert-danger bounceIn bounceOut alert-cart">Please select Correct date.</div>
+                        <div class="alert-message animated alert-danger bounceIn bounceOut alert-cart">{{ 'general.alert_message.danger' | t }}</div>
                     </div>
                 </div>
             </form>
@@ -195,13 +281,13 @@
     {% else %}
         <h1 class="text-center">{{ 'cart.general.title' | t }}</h1>
         <div class="devider"></div>
-        <div class="content">
+        <div class="content" style="margin-top: 30px;">
             {% comment %}
             Cart empty state
             {% endcomment %}
             <div class="supports-cookies">
-                <p>{{ 'cart.general.empty' | t }}</p>
-                <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+                <h3 class="text-center title" >{{ 'cart.general.empty' | t }}</h3>
+                <p class="text-center title" style="margin-top: 20px;">{{ 'cart.general.continue_browsing_html' | t }}</p>
             </div>
 
             {% comment %}
@@ -211,7 +297,7 @@
             browser a message is displayed prompting the user to enable them.
             {% endcomment %}
             <div class="supports-no-cookies">
-                <p>{{ 'cart.general.cookies_required' | t }}</p>
+                <p class="text-center">{{ 'cart.general.cookies_required' | t }}</p>
             </div>
         </div>
     {% endif %}

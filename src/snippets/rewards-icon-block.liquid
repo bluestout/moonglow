@@ -27,9 +27,9 @@
                     <h2 class="text-center" id="guest_earn_header" style="color: {{ block.settings.title_color_2 }}">{{ block.settings.title_2 }}</h2>
                     <h4 class="title text-center uppercase" id="guest_earn_subtitle" style="color: {{ block.settings.sub_title_color_2 }}">{{ block.settings.sub_title_2 }}</h4>
                     {% if customer %}
-                        <a href="/pages/refer" class="button small center"> Start referring here </a>
+                        <a href="/pages/refer" class="button small center"> {{ block.settings.button_label }} </a>
                     {% else %}
-                        <a href="/account/login?checkout_url=https://f1xcwgdpjqfownsq-24863224.shopifypreview.com/pages/refer" class="button small center"> Start referring here </a>
+                        <a href="/account/login?checkout_url=https://f1xcwgdpjqfownsq-24863224.shopifypreview.com/pages/refer" class="button small center">  {{ block.settings.button_label }} </a>
                     {% endif %}
                      
                 </section>

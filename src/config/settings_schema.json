@@ -269,170 +269,6 @@
     ]
   },
   {
-    "name": "Customize Moon",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Customize Content"
-      },
-      {
-        "type": "image_picker",
-        "id": "choose_img",
-        "label": "Choose Background",
-        "info": "1440x500"
-      },
-      {
-        "type": "image_picker",
-        "id": "choose_moonframe",
-        "label": "Choose Moon Frame",
-        "info": "268x328"
-      },
-      {
-        "type": "header",
-        "content": "Customize Details"
-      },
-      {
-        "type": "text",
-        "id": "enter_title",
-        "label": "Enter Customize Title"
-      },
-      {
-        "type": "text",
-        "id": "sub_note",
-        "label": "Enter Customize Sub Note"
-      },
-      {
-        "type": "textarea",
-        "id": "enter_question",
-        "label": "Enter Customize Heading"
-      },
-      {
-        "type": "text",
-        "id": "enter_text",
-        "label": "Enter Customize Note"
-      },
-      {
-        "type": "text",
-        "id": "enter_text_mobile",
-        "label": "Enter Customize Note For Mobile"
-      },
-      {
-        "type": "text",
-        "id": "enter_btn",
-        "label": "Enter Button Label"
-      },
-      {
-        "type": "url",
-        "id": "choose_url",
-        "label": "Choose Collection"
-      }
-    ]
-  },
-  {
-    "name": "Blog Sidebar",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Search Bar"
-      },
-      {
-        "type": "checkbox",
-        "id": "search_bar",
-        "label": "Enable Search Bar"
-      },
-      {
-        "type": "header",
-        "content": "Follow Us"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_social",
-        "label": "Enable Follow Us"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_social_link",
-        "label": "Enable Social Links"
-      },
-      {
-        "type": "text",
-        "id": "enter_followus",
-        "label": "Enter Heading"
-      },
-      {
-        "type": "header",
-        "content": "Subscribe"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_newsletter",
-        "label": "Enable Subscribe"
-      },
-      {
-        "type": "checkbox",
-        "id": "newsletter_form",
-        "label": "Enable Newsletter Form"
-      },
-      {
-        "type": "text",
-        "id": "newsletter_heading",
-        "label": "Enter Newsletter Heading"
-      },
-      {
-        "type": "text",
-        "id": "newsletter_note",
-        "label": "Enter Newsletter Note"
-      },
-      {
-        "type": "header",
-        "content": "Recent Blog Posts"
-      },
-      {
-        "type": "checkbox",
-        "id": "recent_post_enable",
-        "label": "Enable Recent Blog Post"
-      },
-      {
-        "type": "blog",
-        "id": "choose_most_blog",
-        "label": "Choose Most Blogs"
-      },
-      {
-        "type": "blog",
-        "id": "choose_top_blog",
-        "label": "Choose Top Blogs"
-      },
-      {
-        "type": "header",
-        "content": "Category"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_category",
-        "label": "Enable Category"
-      },
-      {
-        "type": "link_list",
-        "id": "blog_menu",
-        "label": "Choose Category Menu"
-      },
-      {
-        "type": "text",
-        "id": "category_heading",
-        "label": "Enter Category Heading"
-      },
-      {
-        "type": "header",
-        "content": "tags"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_tags",
-        "label": "Enable Tags"
-      }
-    ]
-  },
-  {
     "name": "Product page",
     "settings": [
       {
@@ -977,18 +813,13 @@
     ]
   },
   {
-    "name": "React settings",
+    "name": "Google Tag",
     "settings": [
       {
-        "type": "checkbox",
-        "id": "pwa_enable",
-        "label": "React enable"
-      },
-      {
-        "type": "checkbox",
-        "id": "image_blur",
-        "label": "Blur effect",
-        "default": true
+        "type": "text",
+        "id": "awtag",
+        "label": "Awa tag (like: AW-778630455)",
+        "default": "AW-996068966"
       }
     ]
   },

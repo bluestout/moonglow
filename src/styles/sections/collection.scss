@@ -61,7 +61,7 @@
         }
         .icon-links{
             div{
-                img{
+                svg, img{
                     filter: brightness(10);
                     height: 25px;
                     float: left;
@@ -139,11 +139,11 @@
                     width: 155px;
                 }
                 .moon-phase{
+                    display: inline-flex;
                     height: $moon_icon_size;
                     width: $moon_icon_size;
                     margin-right: $margin * 2 / 5;
                     float: left;
-                    display: table;
                     background-size: 30%;
                     background-color: $moon_icon_bg_color!important;
                     @include media-query('medium-down'){
@@ -154,6 +154,9 @@
                     }
                     @include media-query('small'){
                         height: 74px;
+                    }
+                    svg{
+                        margin: auto;
                     }
                 }
                 .date_picker{
@@ -200,6 +203,10 @@
             padding: 0 5px;
             .banner{
                 height: 100%;
+            }
+            svg{
+                filter: brightness(10);
+                margin-bottom: 20px;
             }
         }
         .content{
@@ -388,6 +395,7 @@
                 }
             }
             button.filter{
+                cursor: pointer;
                 background: white;
                 border: 1px solid #D0D9E5;
                 position: relative;

@@ -1,8 +1,8 @@
-{% assign product_price               = bold_price %}
-{% assign product_compare_at_price    = bold_compare_at_price %}
+{% assign product_price               = product.price %}
+{% assign product_compare_at_price    = product.compare_at_price %}
 {% assign collection_handles          = product.collections | map: 'handle' %}
 
-<div class="grid__item two-eighths medium-down--one-half"> 
+<div class="grid__item two-eighths medium-down--one-half">
     <div class="content">
         {% if product.featured_image != blank %}
         <a href="{{ product.url | within: collection }}">
@@ -10,12 +10,12 @@
                <img src="{{ product.featured_image | img_url: 'original' }}" style="width: 100%;" alt="{{ product.title }}">
             </div>
             <div class="banner_holder">
-                {% if product_compare_at_price > product_price %}<div translatable class="sale_banner thumbnail_banner">on sale</div>{% endif %}
-                {% if collection_handles contains 'just-landed' %}<div translatable class="new_banner thumbnail_banner">new</div>{% endif %}
-                {% if collection_handles contains 'coming-soon' %}<div translatable class="new_banner thumbnail_banner">coming soon</div>{% endif %}
-                {% if collection_handles contains 'pre-order' %}<div translatable class="new_banner thumbnail_banner">pre order</div>{% endif %}
-                {% if product.tags contains 'deal' %}<div translatable class="deal_banner thumbnail_banner">deal</div>{% endif %}
-                {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">not on promotion</div>{% endif %}
+                {% if product_compare_at_price > product_price %}<div translatable class="sale_banner thumbnail_banner">asd{{ 'products.badge.sale' | t }}</div>{% endif %}
+                {% if collection_handles contains 'just-landed' %}<div translatable class="new_banner thumbnail_banner">{{ 'products.badge.new' | t }}</div>{% endif %}
+                {% if collection_handles contains 'coming-soon' %}<div translatable class="new_banner thumbnail_banner">{{ 'products.badge.soon' | t }}</div>{% endif %}
+                {% if collection_handles contains 'pre-order' %}<div translatable class="new_banner thumbnail_banner">{{ 'products.badge.pre_order' | t }}</div>{% endif %}
+                {% if product.tags contains 'deal' %}<div translatable class="deal_banner thumbnail_banner">{{ 'products.badge.deal' | t }}</div>{% endif %}
+                {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">{{ 'products.badge.not_promo' | t }}</div>{% endif %}
             </div>
         </a>
         {% endif %}
@@ -26,37 +26,15 @@
         <div class="review-sec">
             <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
         </div>
-        <h4 class="text-center">
-        {% if bold_compare_at_price > bold_price %}
-
-            {% if bold_price_varies %}
-            {%- assign sale_price = bold_price | money -%}
-            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+        {% if product.available %}
+            {% if product.price_min > 0 %}
+                <h4 class="text-center">{{ product.price_min | money }}</h4>
             {% else %}
-            {{ 'products.product.on_sale' | t }}
-            {{ bold_price | money }}
+                {{ free_price_text }}
             {% endif %}
-
         {% else %}
-
-            {% if bold_price_varies %}
-            {%- assign price = bold_price | money -%}
-            {{ 'products.product.from_text_html' | t: price: price }}
-            {% else %}
-            {{ bold_price | money }}
-            {% endif %}
-
+            <h4 class="text-center sold_out">sold out</h4>
         {% endif %}
-
-        {% if bold_compare_at_price > bold_price %}
-            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-            <s>{{ bold_compare_at_price | money }}</s>
-        {% endif %}
-
-        {% unless product.available %}
-            {{ 'products.product.sold_out' | t }}
-        {% endunless %}
-        </p>
     </div>
-     
+
 </div>

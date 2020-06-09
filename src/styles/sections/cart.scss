@@ -26,6 +26,7 @@
                         @include media-query('small'){
                             display: none;
                         }
+                        
                         thead{
                             tr{
                                 th{
@@ -40,6 +41,9 @@
                         }
                         tbody{
                             tr{
+                                &.engraving_cart { 
+                                    display: none;
+                                }
                                 td{
                                     border-bottom: 1px solid #f4f6f8dd;
                                     padding: 20px 10px;
@@ -70,38 +74,45 @@
                             border-bottom: 1px solid #ebeef0;
                         }
                         width: 100%;
-                        li{
-                            display: inline-flex;
-                            width: 100%;
-                            .img{
-                                float: left;
-                                margin-right: 20px;
+                        ul{
+                            &.engraving_cart{
+                                display: none;
                             }
-                            .title{
-                                margin: auto;
-                                width: calc(100% - 0px);
-                                float: left;
-                            }
-                            .header_title{
-                                width: 160px;
-                                float: left;
-                                font-size: 14px;
-                                padding: 20px;
-                            }
-                            .desc{
-                                float: left;
-                                padding: 20px;
-                                &.quantity{
-                                    padding: 10px;
-                                    input{
-                                        width: 50px;
-                                    }
+                            li{
+                                display: inline-flex;
+                                width: 100%;
+                                
+                                .img{
+                                    float: left;
+                                    margin-right: 20px;
                                 }
-                                span{
-                                    font-size: $h4_size;
+                                .title{
+                                    margin: auto;
+                                    width: calc(100% - 0px);
+                                    float: left;
+                                }
+                                .header_title{
+                                    width: 160px;
+                                    float: left;
+                                    font-size: 14px;
+                                    padding: 20px;
+                                }
+                                .desc{
+                                    float: left;
+                                    padding: 20px;
+                                    &.quantity{
+                                        padding: 10px;
+                                        input{
+                                            width: 50px;
+                                        }
+                                    }
+                                    span{
+                                        font-size: $h4_size;
+                                    }
                                 }
                             }
                         }
+                        
                     }
                 }
                 
@@ -136,7 +147,7 @@
                             }
                         }
                         .button{
-                            width: calc(50% - 5px);
+                            width: 100%;
                             margin: 0;
                         }
                         .alert-cart{

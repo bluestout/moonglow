@@ -78,8 +78,27 @@
           position: relative;
           width: auto;
           display: table;
-          @include media-query('medium-down'){
+          @include media-query("medium-down"){
             display: block;
+            max-height: auto;
+            overflow: hidden;
+            width: 100%;
+          }
+          @include media-query("small"){
+            max-height: auto;
+            overflow: hidden;
+            width: 100%;
+          }
+          img {
+            height: 800px;
+            float: right;
+            @include media-query('medium-down'){
+              height: auto;
+              width: 100%;
+            }
+          }
+          img{
+
           }
           .mobile {
             display: none;
@@ -166,22 +185,6 @@
                 margin: auto;
               }
             }
-          }
-        }
-        .image-with-text__image{
-          @include media-query("medium-down"){
-            max-height: $default_ipad_image_height;
-            overflow: hidden;
-            width: 100%;
-          }
-          @include media-query("small"){
-            max-height: $default_mobile_image_height;
-            overflow: hidden;
-            width: 100%;
-          }
-          img {
-            height: 800px;
-            float: right;
           }
         }
       }

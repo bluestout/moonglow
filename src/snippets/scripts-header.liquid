@@ -1,0 +1,34 @@
+<!-- Global site tag (gtag.js) - Google Ads: 996068966 -->
+<script>
+  simply.Awtag = '{{ settings.awtag }}';
+</script>
+{%- assign Aw_tag = settings.awtag -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ Aw_tag }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config',simply.Awtag);
+</script>
+
+<script>
+  simply.cartGtag = function () {
+    {% if current_store == 'usa' %}
+    gtag('event', 'page_view', {
+    'send_to': simply.Awtag,
+  'ecomm_pagetype': 'cart',
+  'ecomm_prodid': [{% for item in cart.items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}',{% endfor %}],
+  'ecomm_totalvalue': {{ cart.total_price | money_without_currency | remove:',' }}
+  });
+{%- else -%}
+gtag('event', 'page_view', {
+    'send_to': simply.Awtag,
+  'ecomm_pagetype': 'cart',
+  'ecomm_prodid': [{% for item in cart.items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}',{% endfor %}],
+  'ecomm_totalvalue': {{ cart.total_price | money_without_currency | remove:',' }}
+  });
+{%- endif -%}
+ }
+</script>
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5977278"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>

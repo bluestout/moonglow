@@ -74,8 +74,6 @@
 </script>
 {%- assign Aw_tag = settings.awtag -%}
 {% comment %} END AWTAG dynamic settings {% endcomment %}
-{% assign current_store = blank %}
-{% include 'store-check' %}
 {%- if settings.check_js -%}
 {% comment %} upload care USA {% endcomment %}
 {% if current_store == 'usa' %}
@@ -153,7 +151,6 @@
         </div>
         <div class="sidebar__content">
           {{ content_for_order_summary }}
-          <div id="orderbump"></div>
           <div class="desktopIcon">{% include 'checkout_icons' %}</div>
         </div>
       </div>
@@ -177,7 +174,6 @@
     </ul>
   </div>
 </body>
-<script src="https://tvg-order-bump.herokuapp.com/storefront/assets/order-bump.js"></script>
 {{ 'checkout.js' | asset_url | script_tag }}
 <!-- checkout css -->
 </html>

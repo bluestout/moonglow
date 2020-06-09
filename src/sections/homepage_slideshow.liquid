@@ -1,18 +1,36 @@
 <section id="mainSlider" class="fluid-display">
   <div id="owl-main" class="owl-carousel height-md owl-inner-nav owl-ui-lg">
     {% for item in section.blocks%}
-    <div class="item lazyload" aria-label="{{ item.settings.caption_title | strip_html }}" data-bgset="{% include 'responsive-bg-image', image: item.settings.bg_image %}" mobile_image="{{ item.settings.mobile_banner_image | img_url: 'original' }}">
+    <div id="{{item.id | prepend : "block-"}}" class="item" aria-label="{{ item.settings.caption_title | strip_html }}">
+      {% if item.settings.mobile_banner_image != blank %}
+      {% assign mobile_image = item.settings.mobile_banner_image %}
+    {% else %}
+      {% assign mobile_image = item.settings.bg_image %}
+    {% endif %}
+    <style>
+      {{item.id | prepend : "block-" | prepend : "#"}}{
+        background-image: url({{ item.settings.bg_image | img_url: "2048x" }})!important;
+      }
+      @media screen and (max-width: 786px) {
+
+        {{item.id | prepend : "block-" | prepend : "#"}}{
+          background-image: url({{ mobile_image | img_url: 'original' }})!important;
+        }
+      }
+      {{item.id | prepend : "block-" | prepend : "#"}} h1, {{item.id | prepend : "block-" | prepend : "#"}} p {
+        color: {{ item.settings.title_color }}!important;
+      }
+    </style>
       <div class="container">
-        <style>
-          {{item.id | prepend : "block-" | prepend : "#"}} h1, {{item.id | prepend : "block-" | prepend : "#"}} p {
-            color: {{ item.settings.title_color }}!important;
-          }
-        </style>
-        <div id="{{item.id | prepend : "block-"}}" class="caption vertical-center {{ item.settings.title_align }} {{ item.settings.title_position }}">
-          <img class="fadeInDown-1 " src="{{ item.settings.title_icon | img_url: 'large' }}" alt="{{ item.settings.caption_heading }}">
-          <h1 class="fadeInDown-2 mark">{{ item.settings.caption_heading }}</h1>
-          <h2 class="fadeInDown-2 mark">{{ item.settings.caption_title }}</h2>
-          <div class="fadeInDown-3">
+        <div class="caption vertical-center {{ item.settings.title_position }}">
+          <img class="" src="{{ item.settings.title_icon | img_url: 'large' }}" alt="{{ item.settings.caption_heading }}">
+          {% if item.settings.caption_heading != blank %}
+          <h1 class="mark">{{ item.settings.caption_heading }}</h1>
+          {% endif %}
+          {% if item.settings.caption_title != blank %}
+          <h2 class="mark">{{ item.settings.caption_title }}</h2>
+          {% endif %}
+          <div class="">
             {% if item.settings.button_label != blank %}
             <a href="{{ item.settings.banner_link }}" class="button grey">{{item.settings.button_label}}</a>
             {% endif %}
@@ -91,25 +109,6 @@
                 },
                 {
                     "value": "right",
-                    "label": "right"
-                }
-            ]
-          },
-          {
-            "type": "select",
-            "id": "title_align",
-            "label": "Title Align",
-            "options": [
-                {
-                    "value": "text-center",
-                    "label": "center"
-                },
-                {
-                    "value": "text-left",
-                    "label": "left"
-                },
-                {
-                    "value": "text-right",
                     "label": "right"
                 }
             ]

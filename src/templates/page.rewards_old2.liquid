@@ -1,0 +1,162 @@
+<div class="swell-moon-glow">
+    <div class="swell-banner-section">
+      <img class="swell-banner-mobile" src="{{'swell-banner-mobile.jpg' | asset_url }}" alt ="swell banner image">
+      <div class="swell-banner-content-holder">
+        <h2 class="swell-banner-heading">
+          Moonglow VIP
+        </h2>
+        <p class="swell-banner-text">
+            As a Moonglow VIP Member, you'll get access to exclusive perks and get closer to rewards every time you shop.
+        </p>
+        {% unless customer %}
+        <!-- <p class="swell-banner-text-join"></p> -->
+        <div class="swell-btn-holder">
+          <a href="/account/register" class="swell-btn-join">Join Now</a>
+          <a href="/account/login" class="swell-btn-sign-in">Sign In</a>
+        </div>
+        {% endunless %}
+      </div>
+    </div>
+  
+    {% if customer %}
+    <div class="swell-logged-in">
+      <h2 class="swell-logged-in-heading">
+        Hi <span class="swell-customer-name">{{ customer.first_name }}!</span> <br>
+        You Have <span class="swell-point-balance">X</span> Moon Points
+      </h2>
+    
+      <p class="text vip-tier-encourgement">
+      </p>
+    
+      <div class="swell-btn-holder">
+        <a href="/checkout" class="swell-btn-redeem">Redeem Now</a>
+        <a href="javascript:void(0);" class="swell-btn-rewards swell-history-link">Rewards History</a>
+      </div>
+    </div> 
+    {% else %}
+    <div class="swell-how-it-work-section">
+      <h2 class="swell-heading">
+        How It Works
+      </h2>
+      <ul class="swell-how-it-work-holder">
+        <li class="swell-how-it-work-list">
+          <div class="how-it-work">
+            <i class="swell-how-it-work-icon swell-icon-join">
+            <span class="path1"></span>
+            <span class="path2"></span>
+            </i>
+            <h2 class="heading-how-it-work">Join</h2>
+          </div>
+          <div class="swell-border"></div>
+          <p class="text">
+            Join the Moonglow VIP program and start earning.
+          </p>
+        </li>
+        <li class="swell-how-it-work-list">
+          <div class="how-it-work">
+            <i class="swell-how-it-work-icon swell-icon-moon">
+            <span class="path1"></span>
+            <span class="path2"></span>
+            </i>
+            <h2 class="heading-how-it-work">Earn Moon Points</h2>
+          </div>
+          <div class="swell-border"></div>
+          <p class="text">
+            Earn moon points every time you shop.
+          </p>
+        </li>
+        <li class="swell-how-it-work-list">
+          <div class="how-it-work">
+            <i class="swell-how-it-work-icon swell-icon-Redeem"></i>
+            <h2 class="heading-how-it-work">Redeem</h2>
+          </div>
+          <div class="swell-border"></div>
+          <p class="text">
+            Redeem moon points for Exclusive discounts.
+          </p>
+        </li>
+      </ul>
+    </div>
+    {% endif %}
+  
+  
+    {% if customer %}
+      <div class="swell-full-border-logged-in"></div>
+    {% else %}
+      <div class="swell-full-border"></div>
+    {% endif %}
+  
+  
+    {% unless customer %}
+    <div class="swell-campaign-section">
+      <h2 class="swell-heading">
+        Ways to Earn Moon Points
+      </h2>
+      <p class="text">
+        Every 10 moon points earned = $1 in store credit
+      </p>
+      <div class="swell-referral-loader">
+        <img class="big-spinner" src="{{'swell-loader.svg' | asset_url }}" alt="loader">
+      </div>
+  
+      <ul class="swell-campaign-list">
+        <li class="swell-campaign swell-campaign-refer" style="display: none;">
+          <div class="swell-campaign-content">
+            <p class="swell-campaign-refer-heading">
+              Refer Friends and Earn Moon Points
+            </p>
+            <p class="swell-campaign-refer-description">
+              Refer new friends and get $20.
+            </p>
+            <a class="swell-campaign-refer-link" href="/pages/refer">
+            Start referring here.
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    {% endunless %}
+  
+    {% include 'swell-vip-tiers' %}
+    {% include 'swell-redeem-products' %}
+    
+    <div class="swell-redeem-discounts {% if customer %}swell-logged-in-redeem{% endif %}">
+      <div class="swell-redeem-discounts-holder">
+        <h2 class="swell-redeem-discounts-heading">Redeem for Discounts</h2>
+        <p class="swell-redeem-discounts-text">
+          Redeeming your hard-earned moon points is easy! 
+          Simply apply your moon points balance at checkout.
+        </p>
+      </div>
+    </div>
+   
+    {% if customer %}
+    <div class="swell-campaign-section swell-logged-in-campaigns">
+      <h2 class="swell-heading">
+        Ways to Earn Moon Points
+      </h2>
+      <p class="text">
+        Every 10 moon points earned = $1 in store credit
+      </p>
+      <div class="swell-referral-loader">
+        <img class="big-spinner" src="{{'swell-loader.svg' | asset_url }}" alt="loader">
+      </div>
+  
+      <ul class="swell-campaign-list">
+        <li class="swell-campaign swell-campaign-refer" style="display: none;">
+          <div class="swell-campaign-content">
+            <p class="swell-campaign-refer-heading">
+              Refer Friends and Earn Moon Points
+            </p>
+            <p class="swell-campaign-refer-description">
+              Refer new friends and get $20.
+            </p>
+            <a class="swell-campaign-refer-link" href="/pages/refer">
+            Start referring here.
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    {% endif %}
+  </div>

@@ -64,6 +64,11 @@
             strong{
                 text-transform: unset;
             }
+            object{
+                @include media-query('medium-down'){
+                    width: 100%;
+                }
+            }
             img{
                 width: 100%;
             }

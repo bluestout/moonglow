@@ -98,7 +98,7 @@
               {% if collection_handles contains 'coming-soon' %}<div translatable class="new_banner thumbnail_banner">coming soon</div>{% endif %}
               {% if collection_handles contains 'pre-order' %}<div translatable class="new_banner thumbnail_banner">pre order</div>{% endif %}
               {% if product.tags contains 'deal' %}<div translatable class="deal_banner thumbnail_banner">deal</div>{% endif %}
-              {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">not on promotion</div>{% endif %}
+              {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">Excluded from promos</div>{% endif %}
           </div>
         </div>
         <a class="product-info__caption {% if thumbnail_hover_enabled %}hidden{% endif %}" href="{{ product.url }}" itemprop="url">
@@ -160,5 +160,4 @@
         {% endfor %}
       {% endif %}
     </div>
-
 {% endraw %}

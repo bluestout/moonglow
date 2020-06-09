@@ -60,8 +60,12 @@ function find_moon_product(moon_month,moon_date,moon_year){
   };
 
 function find_product(moon) {
-
-  var img = 'https://cdn.shopify.com/s/files/1/2486/3224/t/228/assets/'+moon+'.png';
+  for (let i = 0; i < moon_phase_array.length; i++) {
+    const moon_item = moon_phase_array[i];
+    if (moon_item.id == moon) {
+      var img = moon_item.content.image;
+    }
+  }
     $('.moon_phase').attr('src', img);
 
     var moon_text = {

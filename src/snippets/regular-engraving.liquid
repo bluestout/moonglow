@@ -1,0 +1,42 @@
+<!-- regular-engraving -->
+{%- comment -%}
+To check if product has tag like this : `short_First product name+Second product Name`;
+EG:short_Choker Necklace+Moon Energy Anklet;
+This will help to change placeholder for both inputs boxes of engraving;
+{%- endcomment -%}
+{% assign labels = blank %}
+{%- for tag in product.tags -%}
+  {% if tag contains 'short_' %}
+    {% assign labels = tag | remove:'short_' %}
+    {% assign labels = labels | split:'+' %}
+  {% endif %}
+{%- endfor -%}
+{%- assign label_one = "(Side 1)" -%}
+{%- assign label_two = "(Side 2)" -%}
+{% if labels != blank %}
+  {%- assign label_one = labels[0]  -%}
+  {%- assign label_two = labels[1]  -%}
+{% endif %}
+
+<div class="engraving-options-wrapper">
+  <div class="select-pannel">
+    <div class="mark-img">
+      <img data-src="{{ 'jewelry.png' | asset_img_url: '100x' }}" class="moon_image lazyload" alt="engraving icon" data-sizes="auto">
+    </div>
+    <div class="form-control">
+      <a class="engrange_checkbox">I'd like to add engraving</a>
+    </div>
+  </div>
+  <div class="engraving_form engraving-fields">
+        <input class="engraving-input first" data-target="#field-engraving" id="engravingtwo" maxlength="20" placeholder="{% if product.tags contains 'engraving 2' %}{{label_one}} {% endif %}Engraving"/>
+    {% if product.tags contains 'engraving 2' %}
+        <input class="engraving-input second" data-target="#field-engraving2" id="engravingtwo" maxlength="20" placeholder="{{label_two}} Engraving"/>
+    {% endif %}
+    <p>Engraving costs are based on the number of characters.</p>
+    <ul class="engraving-pricing">
+        <li>1-5 = $10</li>
+        <li>6-10 = $15</li>
+        <li>11-20 = $20</li>
+    </ul>
+  </div>
+</div>

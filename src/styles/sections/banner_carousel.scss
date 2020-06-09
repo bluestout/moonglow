@@ -61,7 +61,7 @@
                       width: 100%;
                       display: table;
                       margin-bottom: 20px;
-                      img{
+                      img, svg{
                         width: auto;
                         filter: brightness(10);
                         float: left;
@@ -119,7 +119,7 @@
                           font-family: 'Montserrat Medium';
         
                         }
-                        &:last-child{
+                        &:last-of-type{
                           font-family: 'Montserrat Medium';
                           font-size: 14px;
                           color: #CEC1B5;

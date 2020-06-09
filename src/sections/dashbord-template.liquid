@@ -5,15 +5,16 @@
         <div class="grid__item two-eighths medium-down--one-whole">
             <div class="menu">
                 <ul class="link-list">
-                    <li class="active"><a class="link" href="">dashboard</a></li>
-                    <!-- <li><a class="link" href="/account/orders">order history</a></li> -->
-                    <li><a class="link" href="/account/addresses">account detail</a></li>
-                    <li><a class="link" href="/pages/my-wishlist">wishlist</a></li>
-                    <li><a class="link" href="/pages/rewards">rewards</a></li>
+                    <li class="active"><a class="link" href="">{{ 'customer.account.links.dashboard' | t }}</a></li>
+                    <li><a class="link" href="/account/addresses">{{ 'customer.account.links.detail' | t }}</a></li>
+                    <li><a class="link" href="/pages/my-wishlist">{{ 'customer.account.links.wishlist' | t }}</a></li>
+                    <li><a class="link" href="/pages/rewards">{{ 'customer.account.links.rewards' | t }}</a></li>
+                    <li><a class="link" href="/apps/parcelpanel">{{ 'customer.account.links.trackorder' | t }}</a></li>
                 </ul>
-            </div> 
+            </div>
         </div>
-        <div class="grid__item six-eighths medium-down--one-whole">
+        <div class="grid__item  content-block six-eighths medium-down--one-whole">
+            <a class="logout" href="/account/logout">{{ 'layout.customer.log_out' | t }}</a>
             <div class="content">
                 <h4 class="title">{{ 'customer.orders.title' | t }}</h4>
                 {% paginate customer.orders by 20 %}
@@ -105,6 +106,6 @@
             "id": "default_banner",
             "label": "Banner"
         }
-    ]    
+    ]
 }
 {% endschema %}

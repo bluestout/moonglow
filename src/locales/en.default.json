@@ -8,9 +8,10 @@
       "page": "Page {{ page }}"
     },
     "404": {
-      "title": "404 Page Not Found",
-      "subtext_html":
-        "The page you requested does not exist. Click <a href=\"/collections/all\">here</a> to continue shopping."
+      "title": "Whoops!",
+      "sub_title": "We couldn't find the page you are looking for!",
+      "subtext_html": "Checkout our top products",
+      "atc_button": "View bestsellers"
     },
     "password_page": {
       "opening_soon": "Opening Soon",
@@ -58,6 +59,36 @@
       "email_placeholder": "Email address",
       "confirmation": "Thanks for subscribing",
       "submit": "Subscribe"
+    },
+    "moon_phase_modal": {
+      "back_button": "Back to Calculator",
+      "year_page_title": "select a year",
+      "month_page_title": "select a month",
+      "date_page_title": "select a date",
+      "year_header_title": "year",
+      "month_header_title": "month",
+      "date_header_title": "date"
+    },
+    "alert_message": {
+      "success": "Save date successfully",
+      "danger": "Please select Correct date.",
+      "signup_alert": "get $5 for signing up"
+    },
+    "nav": {
+      "banner_title_1": "Gifts Under $100",
+      "banner_title_2": "Best Sellers"
+    },
+    "modal": {
+      "close_button_1": "Back to store",
+      "close_button_2" : "Back to calculator",
+      "back_button" : "Back"
+    },
+    "button_text": {
+      "see_all": "See All",
+      "see_all_faqs": "See All FAQs",
+      "load_more": "Load More",
+      "shop_all": "Shop All",
+      "read_more": "Read More"
     }
   },
   "blogs": {
@@ -86,7 +117,8 @@
       }
     },
     "general": {
-      "categories": "Categories"
+      "categories": "Categories",
+      "load_more_btn": "Load more"
     }
   },
   "cart": {
@@ -117,7 +149,9 @@
   "collections": {
     "general": {
       "no_matches": "Sorry, there are no products in this collection",
-      "link_title": "Browse our {{ title }} collection"
+      "link_title": "Browse our {{ title }} collection",
+      "date_pannel_title": "selected date",
+      "date_pannel_date" : "may 19, 2013"
     }
   },
   "contact": {
@@ -136,7 +170,14 @@
       "title": "My Account",
       "details": "Account Details",
       "view_addresses": "View Addresses",
-      "return": "Return to Account Details"
+      "return": "Return to Account Details",
+      "links": {
+        "dashboard": "dashboard",
+        "detail": "account detail",
+        "wishlist": "wishlist",
+        "rewards": "rewards",
+        "trackorder": "track order"
+      }
     },
     "activate_account": {
       "title": "Activate Account",
@@ -175,6 +216,7 @@
       "password": "Password",
       "forgot_password": "Forgot your password?",
       "sign_in": "Sign In",
+      "sign_up": "Sign Up",
       "cancel": "Return to Store",
       "guest_title": "Continue as a guest",
       "guest_continue": "Continue"
@@ -261,13 +303,14 @@
       "account": "Account",
       "logged_in_as_html": "Logged in as {{ first_name }}",
       "log_out": "Log out",
-      "log_in": "Log in",
-      "create_account": "Create account"
+      "log_in": "Log in"
     },
     "footer": {
+      "title_simple": "Every moment has a moon",
       "social_platform": "{{ name }} on {{ platform }}",
-      "copyright": "Copyright",
-      "payment_methods": "Payment methods accepted"
+      "copyright": "© Moonglow, LLC. All rights reserved.",
+      "payment_methods": "Payment methods accepted",
+      "miami": "Miami, FL"
     }
   },
   "products": {
@@ -280,6 +323,23 @@
       "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart"
+    },
+    "badge": {
+      "sale": "On Sale",
+      "new": "New",
+      "soon": "Coming Soon",
+      "pre_order": "Pre Order",
+      "deal": "Deal",
+      "not_promo": "Excluded from promos"
+    },
+    "general": {
+      "engraving_title" : "I'd like to add engraving",
+      "engraving_desc" : "Engraving costs are based on the number of characters."
+    }
+  },
+  "pages": {
+    "career": {
+      "write_email": "write an email"
     }
   },
   "gift_cards": {

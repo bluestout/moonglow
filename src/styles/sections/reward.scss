@@ -185,103 +185,112 @@
     .list-block{
         margin-top: 50px;
     }
-
-    #redeem-options-region{
+    .swell-redeem-products{
+        .swell-referral-loader{
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            margin-top: 50px;
+        }
+        .swell-free-product-list-container{
         
-        max-width: 1200px;
-        margin: auto;
-        position: relative;
-        display: block;
-        padding-bottom: 50px;
-        width: calc(100vw - 60px);
-        margin-top: 50px;
-        .owl-item{
-            background: #f7f7f7;
-            .item-box{
-                filter: brightness(0.97);
-                background-position: top!important;
-                background-size: 100% !important;
-                padding: 20px;
-                position: relative;
-                @include media-query('medium-down'){
-                    padding: 20px 10px;
-                }
-                .icon-holder{
-                    display: none;
-                }
-                h3{
-                    padding-top: 280px!important;
-                    font-size: $p_size;
-                    text-align: center;
-                    @include media-query('medium-down'){
-                        font-size: 13px;
-                        padding-top: 150px!important;
-                    }
-                }
-                h2{
-                    font-size: $h4_size;
-                    text-align: center;
-                    @include media-query('medium-down'){
-                        font-size: 16px;
-                    }
-                }
-                a{
-                    width: 100%;
-                    display: table;
-                    font-size: $p_size;
-                }
-                &:hover{
-                    .hover-logout-box{
-                        display: inline-flex;
-                    }
-                }
-                .hover-logout-box{
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    
-                    background: black;
-                    opacity: 0.5;
-                    display: none;
-                    transition: 0.2 ease;
-                    .btn-block{
-                        margin: auto;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+            display: block;
+            padding-bottom: 50px;
+            width: calc(100vw - 60px);
+            margin-top: 50px;
+            
+            .swell-free-product-list{
+                &.logged-in{
+                    .owl-item{
                         li{
-                            padding: 10px;
-                            border: 1px solid white;
-                            margin-top: 10px;
-                            a{
-                                text-align: center;
-                                color: white;
-
-                            }
-                            &:hover{
-                                background-color: white;
-                                a{
-                                    color: black;
+                            .swell-redemption-product-content{
+                                div{
+                                    display: block;
+                                    &.swell-redemption-product-button{
+                                        display: table;
+                                    }
                                 }
                             }
+                            
                         }
                     }
                 }
+                .owl-item{
+                    background: #f7f7f7;
+                    li{
+                        filter: brightness(0.97);
+                        background-position: top!important;
+                        background-size: 100% !important;
+                        padding: 20px;
+                        position: relative;
+                        @include media-query('medium-down'){
+                            padding: 20px 10px;
+                        }
+                        .icon-holder{
+                            display: none;
+                        }
+                        .swell-redemption-product-content{
+                            div{
+                                display: none;
+                                font-size: $h5_size;
+                                font-family: $font_title;
+                                text-align: center;
+                                @include media-query('medium-down'){
+                                    font-size: 13px;
+                                    padding-top: 150px!important;
+                                }
+                                &.swell-redemption-product-cost{
+                                    margin-top: 10px;
+                                    font-size: $p_size;
+                                    font-family: $font-body;
+                                }
+                                
+                                &.swell-redemption-product-button{
+                                    background-color: white;
+                                    font-size: $h4_size;
+                                    text-align: center;
+                                    padding: 10px;
+                                    margin: 10px auto;
+                                    border: 1px solid #6b6d76;
+                                    @include media-query('medium-down'){
+                                        font-size: 16px;
+                                    }
+                                }
+                                &.swell-redemption-product-image{
+                                    display: block;
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                }
+                .owl-nav{
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    .owl-prev{
+                        margin-left: -30px;
+                    }
+                    .owl-next{
+                        float: right;
+                        margin-right: -30px;
+                    }
+                }
             }
-        }
-        .owl-nav{
-            display: block;
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            .owl-prev{
-                margin-left: -30px;
-            }
-            .owl-next{
-                float: right;
-                margin-right: -30px;
-            }
+            
         }
     }
+    
 
     .image-text-block{
         .image-with-text__image{

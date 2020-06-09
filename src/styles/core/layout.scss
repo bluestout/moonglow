@@ -26,7 +26,7 @@ html {
   height: 100vh;
   .tmc_loader{
     top:calc(50% - 50px);
-    left:calc(50% - 50px);
+    left:calc(50% - 30px);
     width:auto;
     height:auto;
     position:absolute;
@@ -57,6 +57,12 @@ html {
 
   }
 }
+@include media-query('medium-up'){
+  #MainContent{
+    margin-top: 0px!important;
+  }
+}
+
 #MainContent > h1{
   font-size: $h2_size;
   text-align: center;

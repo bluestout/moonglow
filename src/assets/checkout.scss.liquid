@@ -107,14 +107,6 @@
         padding: 0 0 25px;
       }
     }
-    tr.product[data-variant-id="13637743280233"] {
-     display: none;
-   }
-   .product-table tr.product .product__price .order-summary__emphasis {
-    /*display: none !important;*/
-  }
-
-
   @font-face {
     font-family: 'Montserrat Regular';
     src: url({{'Montserrat-Regular.ttf' | asset_url }});
@@ -379,9 +371,6 @@
             &.order-summary__section--product-list::after{
               content: none;
             }
-            &.order-summary__section--swell{
-              margin-top: 60px;
-            }
             .order-summary__section__content{
               .product-table{
                 .product__image{
@@ -467,94 +456,6 @@
                 }
               }
             }
-          }
-        }
-      }
-      #orderbump{
-        margin-top: -382px;
-        position: absolute;
-        width: 100%;
-        .tvgorderbump-app{
-          border: none;
-          padding: 0;
-          .tvgorderbump-container{
-            margin-bottom: 10px;
-            background-color: #ebeef0;
-            display: block;
-            position: relative;
-            float: left;
-            .tvgorderbump-image-container{
-              margin-bottom: -10px;
-              padding: 0;
-              float: left;
-              @media screen and (max-width: 768px ) {
-                margin-bottom: -3.5px;
-              }
-              .tvgorderbump-image{
-                max-width: 80px;
-                max-height: 80px;
-              }
-            }
-            .tvgorderbump-title-container{
-              display: block;
-              padding: 5px;
-              margin: auto;
-              margin-top: 5px;
-              margin-left: 10px;
-              flex: 2;
-              flex-direction: column;
-              float: left;
-              @media screen and (max-width: 768px ) {
-                max-width: 150px;
-              }
-              .tvgorderbump-title{
-                white-space: nowrap;
-                @media screen and (max-width: 768px ) {
-                  white-space: break-spaces;
-                  line-height: 13px;
-                  font-size: 13px;
-                }
-              }
-              .tvgorderbump-price{
-                margin-top: 0!important;
-                float: left!important;
-              }
-            }
-            .tvgorderbump-action-container{
-              float: left;
-              height: 25px;
-              margin-left: 23px;
-              .tvgorderbump-price{
-                text-align: left;
-                font-size: 13px;
-                font-family: 'Montserrat Medium';
-                letter-spacing: 0.26px;
-                font-weight: normal;
-              }
-              .tvgorderbump-action{
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                padding: 10px 20px;
-                font-family: 'Montserrat SemiBold';
-                font-size: 14px;
-                text-transform: uppercase;
-                letter-spacing: 0.6px;
-                color: #2E4676;
-                border-radius: 5px;
-                line-height: 24px;
-              }
-
-
-            }
-          }
-          .tvgorderbump-mobile{
-            width: 85px;
-            float: right;
-            margin-top: -65px;
-            z-index: 10000;
-            position: relative;
-            min-width: 85px;
           }
         }
       }

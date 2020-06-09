@@ -12,21 +12,19 @@
         .info{
             padding: $padding / 5;
             display: table;
-            margin-bottom: $margin * 2 / 5;
             width: 100%;
+            @include media-query('medium-down'){
+                padding: 0;
+            }
             h3{
                 @include media-query('medium-down'){
                     font-size: 24px;
                     text-transform: capitalize;
+                    line-height: 30px;
                 }
             }
-        }
-        iframe{
-            @include media-query('small'){
-                height: 830px!important;
-            }
-            .form_description_div p{
-                display: none!important;
+            .devider{
+                margin-bottom: 0;
             }
         }
         .form-group{
@@ -59,12 +57,14 @@
         }
         .devider.left{
             margin: 20px -10px;
-        } 
+        }
     }
     .image-text-block{
         margin-bottom: 50px;
+        padding-top: 50px !important;
         @include media-query('medium-down'){
             margin: 0;
+            padding-top: 0 !important;
         }
         .image-with-text__image{
             width: auto;
@@ -95,7 +95,7 @@
                     @include media-query('medium-down'){
                         text-align: center;
                     }
-                   
+
                 }
                 .devider{
                     float: left;
@@ -113,9 +113,9 @@
                         }
                     }
                 }
-                
+
             }
-            
+
         }
     }
 
@@ -140,7 +140,7 @@
                         }
                     }
                 }
-                
+
             }
             .heading{
                 background-color: #f8f7f5;
@@ -156,8 +156,8 @@
                 }
             }
         }
-        
-        
+
+
     }
 
     .blogs-block{
@@ -176,6 +176,6 @@
                 display: table;
             }
         }
-        
+
     }
 }

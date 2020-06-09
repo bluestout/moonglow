@@ -94,6 +94,9 @@
             .cart-list {
                 width: 100%;
                 li{
+                    &.engraving{
+                        display: none;
+                    }
                     a.remove{
                         position: relative;
                         right: -22px;

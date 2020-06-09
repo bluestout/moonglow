@@ -9,6 +9,8 @@
         width: calc(100% - 570px);
         height: 100%;
         float: right;
+        position: absolute;
+        right: 0;
         @include media-query('medium-down'){
             width: 100%;
         }

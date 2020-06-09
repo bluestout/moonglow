@@ -21,7 +21,8 @@
   {% comment %}
   <script type="text/javascript" src="//cdn-3.convertexperiments.com/js/1003156-1003108.js"></script>
   {% endcomment %}
-  <script>
+
+  <script> 
     window.simply = window.simply || {};
     window.cn = function(o){return"undefined"==typeof o||null==o||""==o.toString().trim()};
     window.cb = function(o){if(o == 'true'){return true}else{return false}};
@@ -37,8 +38,9 @@
     var moonglow_path = "{{ 'moonglow.json' | asset_url }}";
     var obj_moon_date = [];
     var product_date = '';
-    var desc = '', range = -1, free_gift_variant_id = '', free_gift_type,  obj_index = undefined, free_gift_old;
-
+    var desc = '', range = -1, free_gift_variant_id = '', free_gift_type,  obj_index = undefined, free_gift_old, indecator, engrave_checked = false;
+    var moon_eclipse_url = "{{ 'eclipse.json' | file_url }}";
+    var moon_phase_data = [];
   </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +73,7 @@
   {% include 'social-meta-tags' %}
   {% include 'style-tags', layout: 'theme' %}
   {% include 'css-variables' %}
-
+  
   {% if template contains 'product' %}
     {% capture cfh %}
     {{ content_for_header }}
@@ -83,26 +85,23 @@
 
   {%- comment -%}Installed by Yotpo Automatic Installation{%- endcomment -%}
   {% if settings.app_yotpo %}
-    {% include 'yotpo-review' %}
+    {% include 'yotpo-review', current_store: current_store %}
   {%- endif -%}
   {%- comment -%}End of Yotpo Automatic Installation{%- endcomment -%}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-996068966"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  {{ 'swell_rewards.scss.css' | asset_url | stylesheet_tag }}
 
-    gtag('config', 'AW-996068966');
-  </script>
   {% include 'bold-common' %}
+  {% include 'scripts-header' %}
+
 
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} stop-scroll">
+  
   <div class="loader_wrapper">
     <div class="tmc_loader">
-      <img src="{{'loader.gif' | asset_url}}">
+      {% include 'page_loader' %}
     </div>
   </div>
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
@@ -111,13 +110,14 @@
   {% else %}
     {% section 'header-simple' %}
   {% endif %}
-
+  {% section 'moon_phase' %}
   <main role="main" id="MainContent">
     {% if request.path == '/apps/help-center' %}
       {% section 'faq-template' %}
     {% endif %}
     {{ content_for_layout }}
   </main>
+  
   {% if page.handle != 'find-your-moon' %}
 
     {% if page.handle != 'wholesale' %}
@@ -142,36 +142,51 @@
   {% include 'occasion_popup' %}
   <script rel="dns-prefetch" src="https://cdn.attn.tv/moonglow/dtag.js" async></script>
   <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
-
+  {% if page.handle != 'find-your-moon' %}
   {% include 'weglot_hreftags' %}
   {% include 'weglot_switcher' %}
-  {% include 'script' %}
+  {% endif %}
+
+  {% include 'scripts-footer' %}
   {% include 'script-tags', layout: 'theme' %}
   {% include 'globo.filter.script' %}
 
   <script rel="dns-prefetch" src="{{ 'vendor.js' | asset_url}}"></script>
-  {% comment %}
   {{ 'swell_rewards.js' | asset_url | script_tag }}
-  {% endcomment %}
-  {% comment %}
-  <script src="https://cdn.shopify.com/s/assets/themes_support/api.jquery-0ea851da22ae87c0290f4eeb24bc8b513ca182f3eb721d147c009ae0f5ce14f9.js" type="text/javascript"></script>
-  {% endcomment %}
-  {% include 'globo.filter.action' %}
-  {% include 'criteo-tracking' %}
 
 
-  <noscript>
-    <div style="display:inline;">
-      <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/996068966/?guid=ON&amp;script=0"/>
-    </div>
-  </noscript>
 
-  {% comment %}
-  <noscript>
-    <img height="1" width="1" style="display:none;" alt=""
-    src="https://ct.pinterest.com/v3/?tid=2614245661267&noscript=1" />
-  </noscript>
-  {% endcomment %}
+  {% if page.handle != 'find-your-moon' %}
+      {% include 'globo.filter.action' %}
+      {% include 'criteo-tracking' %}
 
+
+      <noscript>
+        <div style="display:inline;">
+          <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/996068966/?guid=ON&amp;script=0"/>
+        </div>
+      </noscript>
+
+       <!--Gorgias Chat Widget Start-->
+        <div id="gorgias-chat">
+          {% if customer %}
+          <script defer="defer">
+            window.gorgiasChatParameters = { "smooch": { "givenName": "{{ customer.name }}", "email": "{{ customer.email }}", "properties": { "shopify__cart__total_price": "{% assign geolizr_price =  cart.total_price  %}{% if shop.metafields.geolizr.currency_widget_enabled == 'true' %}{% assign geolizr_prepend_code = '<span class="geolizr- currency" data-geolizr-price="' | append: geolizr-currency | append: '">' %}{% assign geolizr_append_code = '</span>' %}{%  else %}{% assign geolizr_prepend_code = '' %}{% assign geolizr_append_code = '' %}{% endif %}{{ cart.total_price | money | prepend: geolizr_prepend_code | append: geolizr_append_code | strip_html | default: null }}", "shopify__cart__nb_of_items": {{ cart.items | size | default: 0 }}, {% for item in cart.items %} "shopify__cart__items-{{ forloop.index }}-[]": "{\"line_price\":\"{% assign geolizr_price = item.line_price %}{% include 'geolizr-currency' with geolizr_price %}{{item.line_price|money | prepend: geolizr_prepend_code | append: geolizr_append_code |strip_html|default:null}}\",\"price\":\"{% assign geolizr_price = item.price %}{% include 'geolizr-currency' with geolizr_price %}{{item.price|money | prepend: geolizr_prepend_code | append: geolizr_append_code |strip_html|default:null}}\",\"product_id\":\"{{item.product_id|default:null}}\",\"quantity\":{{item.quantity|default:null}},\"sku\":\"{{item.sku|default:null}}\",\"title\":\"{{item.title}}\",\"variant_id\":{{item.variant_id|default:null}},\"vendor\":\"{{item.vendor|default:null}}\",\"id\":{{item.id|default:null}}}"{% if forloop.last != true %}, {% endif %} {% endfor %}}}}</script>
+          {% else %}
+          <script
+            defer="defer">window.gorgiasChatParameters = { "smooch": { "properties": { "shopify__cart__total_price": "{% assign geolizr_price =  cart.total_price  %}{% if shop.metafields.geolizr.currency_widget_enabled == 'true' %}{% assign geolizr_prepend_code = '<span class="geolizr- currency" data-geolizr-price="' | append: geolizr-currency | append: '">' %}{% assign geolizr_append_code = '</span>' %}{%  else %}{% assign geolizr_prepend_code = '' %}{% assign geolizr_append_code = '' %}{% endif %}{{ geolizr_price | money | strip_newlines | strip  | prepend: geolizr_prepend_code | append: geolizr_append_code | strip_html | default: null }}", "shopify__cart__nb_of_items": {{ cart.items | size | default: 0 }}, {% for item in cart.items %} "shopify__cart__items-{{ forloop.index }}-[]": "{\"line_price\":\"{% assign geolizr_price = item.line_price %}{% include 'geolizr-currency' with geolizr_price %}{{item.line_price|money | prepend: geolizr_prepend_code | append: geolizr_append_code |strip_html|default:null}}\",\"price\":\"{% assign geolizr_price = item.price %}{% include 'geolizr-currency' with geolizr_price %}{{item.price|money | prepend: geolizr_prepend_code | append: geolizr_append_code |strip_html|default:null}}\",\"product_id\":\"{{item.product_id|default:null}}\",\"quantity\":{{item.quantity|default:null}},\"sku\":\"{{item.sku|default:null}}\",\"title\":\"{{item.title}}\",\"variant_id\":{{item.variant_id|default:null}},\"vendor\":\"{{item.vendor|default:null}}\",\"id\":{{item.id|default:null}}}"{% if forloop.last != true %}, {% endif %} {% endfor %}}}}</script>
+          {% endif %}
+          <script src="https://config.gorgias.io/production/Q9r0k7BMPd2vg13y/chat/Oro0V7LJa469d83N.js" defer="defer"></script>
+        </div>
+        <!--Gorgias Chat Widget End-->
+  {% endif %}
+
+    {% if page.handle == 'find-your-moon' %}
+      <style>
+        .snize-sticky-searchbox{
+          display: none!important;
+        }
+      </style>
+    {% endif %}
   </body>
 </html>

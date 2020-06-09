@@ -5,20 +5,21 @@
         <div class="grid__item two-eighths medium-down--one-whole">
             <div class="menu">
                 <ul class="link-list">
-                    <li><a class="link" href="/account">dashboard</a></li>
-                    <!-- <li><a class="link" href="/account/orders">order history</a></li> -->
-                    <li class="active"><a class="link" href="/account/addresses">account detail</a></li>
-                    <li><a class="link" href="/pages/my-wishlist">wishlist</a></li>
-                    <li><a class="link" href="/pages/rewards">rewards</a></li> 
+                    <li><a class="link" href="/account">{{ 'customer.account.links.dashboard' | t }}</a></li>
+                    <li class="active"><a class="link" href="/account/addresses">{{ 'customer.account.links.detail' | t }}</a></li>
+                    <li><a class="link" href="/pages/my-wishlist">{{ 'customer.account.links.wishlist' | t }}</a></li>
+                    <li><a class="link" href="/pages/rewards">{{ 'customer.account.links.rewards' | t }}</a></li>
+                    <li><a class="link" href="/apps/parcelpanel">{{ 'customer.account.links.trackorder' | t }}</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid__item six-eighths medium-down--one-whole">
+        <div class="grid__item content-block six-eighths medium-down--one-whole">
+          <a class="logout" href="/account/logout">{{ 'layout.customer.log_out' | t }}</a>
             <div class="content">
                 <h4 class="title">{{ 'customer.account.details' | t }}</h4>
 
                   {% for address in customer.addresses %}
-                 
+
                     <div class="data-address" data-address>
                         <div class="grid__item one-half">
                             {% if address == customer.default_address %}
@@ -47,7 +48,7 @@
                                     id="AddressFirstName_{{ form.id }}"
                                     value="{{ form.first_name }}"
                                     autocapitalize="words">
-                    
+
                             </div>
                             <div>
                                 <label for="AddressLastName_{{ form.id }}">
@@ -58,7 +59,7 @@
                                     id="AddressLastName_{{ form.id }}"
                                     value="{{ form.last_name }}"
                                     autocapitalize="words">
-                    
+
                             </div>
                             <div>
                                 <label for="AddressCompany_{{ form.id }}">
@@ -69,7 +70,7 @@
                                     id="AddressCompany_{{ form.id }}"
                                     value="{{ form.company }}"
                                     autocapitalize="words">
-                    
+
                             </div>
                             <div>
                                 <label for="AddressAddress1_{{ form.id }}">
@@ -80,7 +81,7 @@
                                     id="AddressAddress1_{{ form.id }}"
                                     value="{{ form.address1 }}"
                                     autocapitalize="words">
-                    
+
                             </div>
                             <div>
                                 <label for="AddressAddress2_{{ form.id }}">
@@ -91,7 +92,7 @@
                                     id="AddressAddress2_{{ form.id }}"
                                     value="{{ form.address2 }}"
                                     autocapitalize="words">
-                    
+
                             </div>
                             <div>
                                 <label for="AddressCity_{{ form.id }}">
@@ -102,7 +103,7 @@
                                     id="AddressCity_{{ form.id }}"
                                     value="{{ form.city }}"
                                     autocapitalize="words">
-                    
+
                             </div>
                             <div>
                                 <label for="AddressCountry_{{ form.id }}">
@@ -115,7 +116,7 @@
                                 data-form-id="{{ form.id }}"
                                 data-default="{{ form.country }}">
                                 </select>
-                    
+
                                 <div>
                                 <label for="AddressProvince_{{ form.id }}">
                                     {{ 'customer.addresses.province' | t }}
@@ -154,26 +155,23 @@
                                 </label>
                             </div>
                             </div>
-                            
                             <div class="pannel">
                                 <button class="button small left" type="submit">{{ 'customer.addresses.update' | t }}</button>
                                 <button class="button small white left" type="button" data-address-toggle data-form-id="{{ form.id }}">
                                 {{ 'customer.addresses.cancel' | t }}
                                 </button>
                             </div>
-                            
-                    
                             {% endform %}
-                    
+
                         </div>
                     </div>
                   {% endfor %}
 
                   <div data-address>
                     <a data-address-toggle>{{ 'customer.addresses.add_new' | t }}</a>
-                
+
                     <div data-address-form class="hide">
-                      {% form 'customer_address', customer.new_address %}                
+                      {% form 'customer_address', customer.new_address %}
                         <div data-address-fields class="address-form">
                           <div>
                             <label for="AddressFirstNameNew">
@@ -286,7 +284,7 @@
                             <button class="button small left" type="submit">{{ 'customer.addresses.add' | t }}</button>
                             <button class="button small white left" type="button" data-address-toggle>{{ 'customer.addresses.cancel' | t }}</a>
                         </div>
-                        
+
                       {% endform %}
                     </div>
                 </div>
@@ -305,8 +303,6 @@
             "id": "default_banner",
             "label": "Banner"
         }
-    ]    
+    ]
 }
 {% endschema %}
-
-

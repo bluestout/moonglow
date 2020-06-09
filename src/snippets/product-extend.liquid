@@ -1,3 +1,7 @@
+{%- assign engraving_ring = false -%}
+{%- if product.tags contains 'engraving_ring' -%}
+  {%- assign engraving_ring = true -%}
+{%- endif -%}
 
 {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
 {% if flag == true %}
@@ -16,7 +20,7 @@
             <div class="form-control">
               <svg width="18px" height="21px" viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-                <title>37B80903-4F32-43AF-9DD3-E0C91892A30A</title>
+                <title>calendar</title>
                 <desc>Created with sketchtool.</desc>
                 <defs></defs>
                 <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -31,65 +35,116 @@
                 </g>
             </svg>
 
-              <input type="text" class="moon_phase phase-{{i}}" data-target="phase-{{i}}" readonly name="properties[Phase{{i}}]" placeholder="select {{ j }} moon phase date" id="datepicker"/>
+              <input type="text" class="moon_phase phase-{{i}}" data-target="phase-{{i}}" readonly placeholder="select {{ j }} moon phase date" id="datepicker"/>
+              <input type="hidden" class="moon_phase_val" readonly name="properties[Phase{{i}}]"/>
             </div>
           </div>
-          <a class="save-date phase-{{i}}-save-date-button">Save date</a>
-          <div class="slect-pannel moon_phase_cookie">
-            <div class="form-control">
-              <select class="saved-dates" data-target="phase-{{i}}">
+          <div class="special-phase">
+            <a class="LE" data-target="phase-{{i}}">Lunar Eclipse</a>
+            <a class="SE" data-target="phase-{{i}}">Solar Eclipse</a>
+          </div>
+          <div class="fav-date-wrapper">
+            {%- if customer -%}
+              <a class="save-date phase-{{i}}-save-date-button">Save this date</a>
+              <div class="slect-pannel moon_phase_cookie">
+                <div class="form-control">
+                  <select class="saved-dates" data-target="phase-{{i}}">
 
-              </select>
-            </div>
+                  </select>
+                </div>
+              </div>
+            {%- else  -%}
+              <a class="save-date-false" href="/account/login?checkout_url={{shop.url}}{{product.url}}">Save this date</a>
+              <a href="/account/login?checkout_url={{shop.url}}{{product.url}}">
+                <div class="form-control select dropdown fav_dates">
+                  <select class=" basic-example favDates" id="favdates-{{'now' | date: "%s" }}">
+                    <option value="ocassion" selected>Login to see your favorite Dates</option>
+                  </select>
+                </div>
+              </a>
+            {%- endif -%}
           </div>
+          <p class="phase-name">Your date falls on a <span class="LE">Lunar Eclipse!</span> <span class="SE">Solar Eclipse!</span></p>
       {% endfor %}
 
     </div>
   {% endif %}
+    <script>console.log({{product.options_with_values | json}})</script>
   {% for option in product.options_with_values %}
     {% if option.name != 'Title' %}
-      <div class="js {% if option.name == 'Chain Length' %}chain-size {% else %} {{option.name | replace: ' ', '-'}} {% endif %}">
-        {% if forloop.index0 > 0 %}
-          <h6 class="stage-title brand uppercase"><strong class="brand">step {{ number | plus: 1 }} : </strong>{{ option.name }}</h6>
-          {% assign number = number | plus:1 %}
-          {% assign i = 0 %}
-          {%- assign optName = 'options' | append: forloop.index -%}
-          {%- assign option_values = [optName] | default: option.values -%}
-          {%- for value in option_values -%}
-            <label for="{{ value | remove: '"' | remove: ' ' }}" class="{% if i == 0 %}active{% endif %}">{{ value }}</label>
-            {% assign i = i | plus:1 %}
-          {% endfor %}
-        {% endif %}
-      </div>
+      {% if forloop.index0 > 0 %}
+        <div class="js {% if option.name == 'Chain Length' %}chain-size {% else %} {{option.name | replace: ' ', '-'}} {% endif %}">
+            <h6 class="stage-title brand uppercase"><strong class="brand">step {{ number | plus: 1 }} : </strong>{{ option.name }}</h6>
+            {% assign number = number | plus:1 %}
+            {% assign i = 0 %}
+            {%- assign optName = 'options' | append: forloop.index -%}
+            {%- assign option_values = [optName] | default: option.values -%}
+            {%- for value in option_values -%}
+              <label for="{{ value | remove: '"' | remove: ' ' }}" class="{% if i == 0 %}active{% endif %}">{{ value }}</label>
+              {% assign i = i | plus:1 %}
+            {% endfor %}
+        </div>
+      {% elsif option.name !=  "Moon Phase" %}
+        <div class="js {% if option.name == 'Size' %} chain-size {% else %} {{option.name | replace: ' ', '-'}} {% endif %}">
+            <h6 class="stage-title brand uppercase"><strong class="brand">step {{ number | plus: 1 }} : </strong>{{ option.name }}</h6>
+            {% assign number = number | plus:1 %}
+            {% assign i = 0 %}
+            {%- assign optName = 'options' | append: forloop.index -%}
+            {%- assign option_values = [optName] | default: option.values -%}
+            {%- for value in option_values -%}
+              <label for="{{ value | remove: '.' | remove: '"' | remove: ' ' }}-" class="{% if i == 0 %}active{% endif %}">{{ value | remove:  "Size " }}</label>
+              {% assign i = i | plus:1 %}
+            {% endfor %}
+          </div>
+      {% endif %}
     {% endif %}
   {% endfor %}
 
   <div class="js">
-    <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
-    <div class="select-pannel">
-      <div class="mark-img">
-        <img data-src="{{ 'jewelry.png' | asset_img_url: '50x' }}" class="moon_image lazyload" alt="engraving icon" data-sizes="auto">
-      </div>
-      <div class="form-control">
-        <a class="engrange_checkbox">I'd like to add engraved tag</a>
-      </div>
-    </div>
-    <div class="engraving_form">
-      <input type="text" placeholder="" name="properties[Engraving]" class="engrange">
-      <p>Engraving costs are based on the number of characters.</p>
-      <ul class="engraving-pricing">
-        <li> 1-5 = $10</li>
-        <li>6-10 = $15</li>
-        <li>11-20 = $20</li>
-      </ul>
-    </div>
+
+    {%- if product.tags contains 'engraving charm' -%}
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
+      {% assign number = number | plus:1 %}
+      {%- include 'engraving-charm' -%}
+    {% elsif product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
+      {% assign number = number | plus:1 %}
+      {%- render 'regular-engraving' -%}
+    {% elsif engraving_ring %}
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
+      {% assign number = number | plus:1 %}
+      {% render 'engraving_ring_option', className:'extended' %}
+    {% endif %}
   </div>
+  {% if product.tags contains 'birthstone_menu' %}
+
+    <div class="js birthstone">
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> select a birthstone </h6>
+      <select required="" name="properties[Birthstone]" id="productSelect" class="product-single__variants birthstone_select" aria-label="product selection">
+        <option value="none">Select - Birthstone</option>
+        <option value="January - Garnet">January - Garnet</option>
+        <option value="February - Amethyst">February - Amethyst</option>
+        <option value="March - Aqua Marine">March - Aqua Marine</option>
+        <option value="April - Diamond">April - Diamond</option>
+        <option value="May - Emerald">May - Emerald</option>
+        <option value="June - Light Amethyst">June - Light Amethyst</option>
+        <option value="July - Ruby">July - Ruby</option>
+        <option value="August - Peridot">August - Peridot</option>
+        <option value="September - Sapphire">September - Sapphire</option>
+        <option value="October - Rose Zircon">October - Rose Zircon</option>
+        <option value="November - Topaz">November - Topaz</option>
+
+        <option value="December - Blue Zircon">December - Blue Zircon</option>
+
+      </select>
+    </div>
+  {% endif %}
 
   {% assign variant = bold_selected_or_first_available_variant %}
   <div class="variants">
     {% for variant in product.variants %}
       {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
-      <input type="hidden" value="{{ variant.id }}" id='{{variant.option1 | remove: '"' | remove: ' '}}-{{variant.option2 | remove: '"' | remove: ' '}}'>
+      <input type="hidden" value="{{ variant.id }}" id='{{variant.option1 | remove: '.' | remove: '"' | remove: ' '}}-{{variant.option2 | remove: '"' | remove: ' '}}'>
     {% endfor %}
   </div>
   <input type="hidden" name="form_type" value="product">
@@ -98,7 +153,7 @@
   <input type="hidden" id="Quantity_product" name="quantity" value="1" min="1">
 
   {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
-  <button type="button" name="add" {% if product.available %}disable{% endif %} class="button ajax-submit add_cart {% if product.available == false %}disabled {% endif %}" data-label={{ add_to_cart_label | json }}>
+  <button type="button" name="add" {% if product.available %}disable{% endif %} id="add_to_cart_btn" class="button ajax-submit add_cart {% if product.available == false %}disabled {% endif %}" data-label={{ add_to_cart_label | json }}>
     <span class="text">
       {% if product.available %}{{ add_to_cart_label }}{% else %}{{ settings.sold_out_text }}{% endif %}
     </span>
@@ -146,35 +201,56 @@
 {% else %}
   <div class="moon_class" data-moon="no"></div>
   <div class="single-add-cart">
-    {% if product.tags contains 'custom_bracelete'%}
-      <label class="mark">Birthstone</label>
-    {% else %}
-        <label class="mark">select</label>
-    {% endif %}
+    {% unless bold_variants_size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %}
+      {% if product.tags contains 'custom_bracelete'%}
+        <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> select a Birthstone</h6>
+        {% assign number = number | plus: 1 %}
+      {% else %}
+        <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> select a size </h6>
+        {% assign number = number | plus: 1 %}
+      {% endif %}
+    {% endunless %}
+
     <select name="id[]" id="productSelect" class="product-single__variants{% if bold_variants_size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %} hide{% endif %}" aria-label="product selection">
       {% for variant in product.variants %}
         {%- include 'bold-variant' with variant, hide_action: 'skip' -%}
       {% if variant.available %}
-      <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
+      <option {% if variant == bold_selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
       {% else %}
       <option disabled="disabled" data-title='{{variant.title}}'>
-        {{ variant.title }}
+        {{ variant.title }} X {{ variant.price }}
       </option>
       {% endif %}
       {% endfor %}
     </select>
+
     {% include 'prod-enhancers' %}
-      <div class="line"></div>
+
     {% if section.settings.enable_free_giftbox %}
       <div class="custom-input-wrapper phase-checkbox custom-checkbox gift_box">
         <input type="checkbox" id="giftbox_check" data-product="{{all_products[section.settings.choose_gift_prod].title}}">
         <label for="giftbox_check"> {{section.settings.gift_note}}</label>
       </div>
     {% endif %}
+
+    <div class="js">
+
+      {%- if product.tags contains 'engraving charm' -%}
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
+        {%- include 'engraving-charm' -%}
+      {% elsif product.tags contains 'engraving 1' or product.tags contains 'engraving 2' %}
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
+        {%- render 'regular-engraving' -%}
+      {% elsif engraving_ring %}
+      <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> add custom engraving</h6>
+        {% render 'engraving_ring_option', className:'extended' %}
+      {% endif %}
+    </div>
+
     {% unless product.handle == 'moon-phase-hidden' %}
       {% if bold_price > 0 %}
         {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
-        <button type="button" name="add" class="button ajax-submit add_cart {% if product.available == false %}disabled {% endif %}" data-label={{ add_to_cart_label | json }}>
+        <button type="button" name="add" id="add_to_cart_btn" class="button ajax-submit add_cart {% if product.available == false %}disabled {% endif %}" data-label={{ add_to_cart_label | json }}>
           <span class="text">
             {% if product.available %}{{ add_to_cart_label }}{% else %}{{ settings.sold_out_text }}{% endif %}
           </span>

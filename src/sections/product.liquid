@@ -1,3 +1,5 @@
+{% assign current_store = blank %}
+{% include 'store-check' %}
 {% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
 {%- assign current_variant = bold_selected_or_first_available_variant -%}
 {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
@@ -24,7 +26,6 @@
             {{ bold_compare_at_price_max | money | prepend: geolizr_prepend_code | append: geolizr_append_code }}
           </del></h4>
           {% endif %}
-
         </div>
     {% endunless %}
     {% if product.tags contains 'get 1 free' %}
@@ -41,8 +42,6 @@
     {% if product.images.size > 1 %}
     <div class="grid__item two-twelfths thumbs medium-down--hide">
         <ul class="scroll-box">
-
-
           {% for image in product.images %}
             <li>
               <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
@@ -187,16 +186,15 @@
                       wrapper_attributes: "data-product-image-wrapper",
                       alt: product.title
                     %}
-
                     </div>
                     <div class="banner_holder">
                       {% assign collection_handles = product.collections | map: 'handle' %}
-                        {% if product.compare_at_price > product.price %}<div translatable class="sale_banner thumbnail_banner">on sale</div>{% endif %}
-                        {% if collection_handles contains 'just-landed' %}<div translatable class="new_banner thumbnail_banner">new</div>{% endif %}
-                        {% if collection_handles contains 'coming-soon' %}<div translatable class="new_banner thumbnail_banner">coming soon</div>{% endif %}
-                        {% if collection_handles contains 'pre-order' %}<div translatable class="new_banner thumbnail_banner">pre order</div>{% endif %}
-                        {% if product.tags contains 'deal' %}<div translatable class="deal_banner thumbnail_banner">deal</div>{% endif %}
-                        {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">not on promotion</div>{% endif %}
+                        {% if product.compare_at_price > product.price %}<div translatable class="sale_banner thumbnail_banner">{{ 'products.badge.sale' | t }}</div>{% endif %}
+                        {% if collection_handles contains 'just-landed' %}<div translatable class="new_banner thumbnail_banner">{{ 'products.badge.new' | t }}</div>{% endif %}
+                        {% if collection_handles contains 'coming-soon' %}<div translatable class="new_banner thumbnail_banner">{{ 'products.badge.soon' | t }}</div>{% endif %}
+                        {% if collection_handles contains 'pre-order' %}<div translatable class="new_banner thumbnail_banner">{{ 'products.badge.pre_order' | t }}</div>{% endif %}
+                        {% if product.tags contains 'deal' %}<div translatable class="deal_banner thumbnail_banner">{{ 'products.badge.deal' | t }}</div>{% endif %}
+                        {% if product.tags contains 'Excluded' %}<div translatable class="not_promotion_banner thumbnail_banner">{{ 'products.badge.not_promo' | t }}</div>{% endif %}
                     </div>
                 </a>
                 {% endif %}
@@ -227,7 +225,8 @@
   </div>
 </section>
 
-<div class="container">
+<div class="container product-review-section">
+  <h3 class="text-center title">Product Reviews</h3>
   <center>
     <div class="yotpo yotpo-main-widget"
       data-header-customisation-enabled="1"

@@ -1,11 +1,10 @@
 <section class="fluid-display register">
     <div class="grid">
         <div class="grid__item one-half banner medium-down--one-whole " style="background: url( {{ section.settings.banner | img_url : 'original' }} ) no-repeat 50% 50% / cover;">
-
         </div>
         <div class="grid__item one-half medium-down--one-whole pannel">
             <div class="content">
-                <h3 class="medium-down--text-center">Create an Account</h3>
+                <h3 class="medium-down--text-center">{{ 'customer.register.title' | t }}</h3>
                 <div class="devider left"></div>
                 {% form 'create_customer' %}
                 {{ form.errors | default_errors }}
@@ -52,7 +51,7 @@
                     <input type="submit" value="SIGN UP" class="button btn">
                 </div>
                 <a href="{{ shop.url }}" class="left">{{customer.register.cancel}}</a>
-                <a href="login" class="right">SIGN IN</a>
+                <a href="login" class="right">{{ 'customer.login.sign_in' | t }}</a>
                 {% endform %}
 
             </div>

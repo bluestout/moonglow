@@ -1,0 +1,56 @@
+<script>
+    var moon_phase_array = [];
+    {% for moon_item in section.blocks %}
+      {% if moon_item.type == 'moon_image_text' %}
+        var moon_item = {
+          id: "{{ moon_item.settings.moon_phase_id }}",
+          content: {
+            image: "{{ moon_item.settings.moon_phase_image | img_url: '600x' }}",
+            title: "{{ moon_item.settings.moon_phase_title }}",
+            icon: '{{ moon_item.settings.moon_phase_icon | strip_newlines | strip}}',
+            desc : "{{ moon_item.settings.moon_phase_discripiton | strip_html  }}"
+          }
+        };
+        moon_phase_array.push(moon_item);
+      {% endif %}
+    {% endfor %}
+</script>
+
+{% schema %}
+{
+    "name": "moon phase",
+    "blocks": [
+        {
+            "type": "moon_image_text",
+            "name": "moon phase",
+            "settings": [
+            {
+                "type": "text",
+                "id": "moon_phase_id",
+                "label": "ID"
+            },
+            {
+                "type": "image_picker",
+                "id": "moon_phase_image",
+                "label": "Moon image"
+            },
+            {
+                "type": "html",
+                "id": "moon_phase_icon",
+                "label": "Moon icon"
+            },
+            {
+                "type": "text",
+                "id": "moon_phase_title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "moon_phase_discripiton",
+                "label": "Description"
+            }
+            ]
+        }
+    ]
+}
+{% endschema %}

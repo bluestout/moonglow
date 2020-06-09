@@ -219,27 +219,16 @@ register('product', {
 
 
 $('.select-pannel .moon_phase').each(function () {
-  if( $('body').innerWidth() > 769 ){
-    $(this).datepicker({
-      orientation: 'auto top',
-      autoclose: true,
-      startView: 2,
-      defaultViewDate: {year: '2010'},
-      startDate:'01/01/1919',
-      endDate:'12/31/2030',
-      maxViewMode: 2
-    });
 
-  }else{
-    $(this).click(function () {
-      $('#moon-phase').show();
-      $('body').addClass('stop-scroll');
-      $('#moon-phase').addClass("active");
-      $('#moon-phase').addClass("product-moon-phase");
-      $('#moon-phase').attr('data-target', $(this).attr('data-target'));
-      $(".dark-bg").show();
-    })
-  }
+  $(this).click(function () {
+    $('#moon-phase').show();
+    $('body').addClass('stop-scroll');
+    $('#moon-phase').addClass("active");
+    $('#moon-phase').addClass("product-moon-phase");
+    $('#moon-phase').attr('data-target', $(this).attr('data-target'));
+    $(".dark-bg").show();
+  })
+
   $(this).change(function () {
 
     product_date = $(this).val();
@@ -253,16 +242,25 @@ $('.select-pannel .moon_phase').each(function () {
   })
 })
 $('#moon-phase .select-phase').click(function () {
-
+  
   var date_val = $(this).attr('date-val');
   var target = '.'+$('#moon-phase').attr('data-target');
   var img_target = $(target).parent().parent().find('.mark-img').find('img.moon_image');
+  var date_val_target = $(target).parent().find('.moon_phase_val');
+ 
+  $('.special-phase a').each(function () {
+      if ($(this).attr('data-target') == $('#moon-phase').attr('data-target')) {
+        $(this).removeClass('active');
+      }
+  });
+
+  $(target).parent().parent().find('')
   $(target).val(date_val);
   product_date = date_val;
   var date = date_val.split('/');
   var chain = $('.js label.active').attr('for');
   var date_cls = "."+$(target).attr('data-target')+"-save-date-button";
-  find_variant(date[0],date[1],date[2], chain, img_target, date_cls);
+  find_variant(date[0],date[1],date[2], chain, img_target,date_val_target, date_cls);
   $('body').removeClass('stop-scroll');
   $('#moon-phase').hide();
   $('#moon-phase .start').show();
@@ -280,9 +278,10 @@ $(".moon_phase_cookie .saved-dates").change(function () {
     var target = "."+$(this).attr('data-target');
     $(target).val($(this).val());
     var chain = $('.js label.active').attr('for');
-
-    find_variant(date[0],date[1],date[2], chain, $(target).parent().parent().find('.mark-img').find('img.moon_image'));
+    var date_val_target = $(target).parent().find('.moon_phase_val');
+    find_variant(date[0],date[1],date[2], chain, $(target).parent().parent().find('.mark-img').find('img.moon_image'),date_val_target);
     product_date = $(this).val();
+    $(this).closest('.js').find('.save-date').show();
   }
 
 })
@@ -290,16 +289,19 @@ $(".moon_phase_cookie .saved-dates").change(function () {
 $(".js label").click(function () {
   $(".js label").removeClass('active');
   $(this).addClass('active');
+  var date = [];
   if ($(".moon_phase").val() != '') {
-    var date = $('.moon_phase').val().split('/');
-  }else{
-    var date = '02/10/2020';
-    date = date.split('/');
+    date = $('.moon_phase').val().split('/');
   }
-
+  console.log(date[2])
   var chain = $(this).attr('for');
-
-  find_variant(date[0],date[1],date[2], chain);
+  if (date[2] != undefined ) {
+    find_variant(date[0],date[1],date[2], chain);
+  }else{
+    var sdate = $('.moon_phase_val').val()
+    find_variant_special(sdate, chain);
+  }
+  
 })
 $("#thumbs-carousel").owlCarousel({
   loop:true,
@@ -320,12 +322,19 @@ $("#thumbs-carousel").owlCarousel({
 });
 $('.engrange_checkbox').click(function () {
   if ($(this).hasClass('checked')){
+    engrave_checked = false;
     $(this).removeClass('checked')
     $(".engraving_form").fadeOut();
-    $('.engrange').val('');
+    $('.engraving-input').val('');
+    $('.engraving-input').removeAttr('name');
   } else {
+    engrave_checked = true;
     $(this).addClass('checked')
     $('.engraving_form').fadeIn();
+    $('.engraving-input.ring').attr('name', 'properties[Engrave_ring]');
+    $('.engraving-input.first').attr('name', 'properties[engraving]');
+    $('.engraving-input.second').attr('name', 'properties[engraving2]');
+    $('.engraving-input.charm').attr('name', 'properties[Charm]');
   }
 })
 
@@ -361,7 +370,34 @@ $(document).ready(function () {
     }
   })
 
+  $(".special-phase a").click(function (e) {
+    e.preventDefault();
+    var cls = "."+$(this).attr('data-target');
+    $(this).parent().find('a').removeClass('active');
+    
+    var chain = $('.js label.active').attr('for');
+
+    var img_target = $(cls).parent().parent().find('.mark-img').find('img.moon_image');
+
+    product_date = $(this).attr('class');
+
+
+    find_variant_special($(this).attr('class'), chain, img_target);
+
+
+    $(cls).parent().find('.moon_phase_val').val($(this).attr('class'));
+    $(cls).val($(this).text());
+    $(this).addClass('active');
+  })
+
+  $('.chain-type').change(function () {
+    var id = "#"+$(this).val();
+    var variant = $(id).val();
+    $('#variant_id').val(variant);
+  })
+
 });
+
 
 $(document).ready(function () {
   $('.slide-pannel .heading .toggle_btn').click(function () {
@@ -380,23 +416,28 @@ $(document).ready(function () {
   });
 });
 
-function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', cls = 'null'){
+function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', query_date = 'null', cls = 'null'){
   obj_moon_date = [];
+
+  var month_val_temp = moon_month;
   if(moon_month  < 10){
     if( moon_month.slice(0,1) != 0){
       var month_val =  moon_month.slice(0,1);
     }else{
-      var month_val = moon_month.slice(1);
+      month_val_temp = moon_month.slice(1);
+      var month_val = moon_month;
     }
   }else{
     var month_val = moon_month;
   }
 
+  var date_val_temp = moon_date;
   if(moon_date  < 10){
     if(moon_date.slice(0,1) != 0){
       var date_val = moon_date.slice(0,1);
     }else{
-      var date_val = moon_date.slice(1);
+      date_val_temp = moon_date.slice(1);
+      var date_val = moon_date;
     }
 
   }else{
@@ -404,6 +445,7 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', cls
   }
 
   var current = month_val+ "/" +date_val+ "/" +moon_year;
+  var currenttemp = month_val_temp+ "/" +date_val_temp+ "/" +moon_year;
   $.ajax({
     type: "GET",
     url: moonglow_path,
@@ -417,14 +459,38 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', cls
     setTimeout(() => {
       $(".loader-section").hide();
     }, 1000);
-    var moon = data[current];
+    var moon = data[currenttemp];
 
-    if (moon != undefined && query != 'null') {
-      var img = 'https://cdn.shopify.com/s/files/1/2486/3224/t/228/assets/'+moon+'.png';
+    var moon_phase = '';
+    moon_phase = select_moon_phase(moon_month+"/"+moon_date+"/"+moon_year);
+    if (moon != undefined && query != 'null' ) {
+      for (let i = 0; i < moon_phase_array.length; i++) {
+        const moon_item = moon_phase_array[i];
+        if (moon_item.id == moon) {
+          var img = moon_item.content.image;
+        }
+      }
+      
       query.attr('src', img);
+      if (query_date != 'null') {
+        query_date.val(current+"--"+moon);
+      }
+      query_date.parent().parent().parent().find('.phase-name').hide();
+      if (moon_phase == 'LE' | moon_phase == 'SE') {
+        var class_moon = '.'+moon_phase;
+        query_date.parent().parent().parent().find('.phase-name').show();
+        query_date.parent().parent().parent().find('.phase-name').find('span').hide();
+        query_date.parent().parent().parent().find('.phase-name').find(class_moon).show();
+        query_date.parent().parent().parent().find('.phase-name').show();
+      }
+      
       $('.scroll-box .moon_image').attr('src', img);
-      $('.main-image .moon_image').attr('src', img);
       $('.scroll-box .moon_image').trigger('click');
+      setTimeout(() => {
+        $('.main-image .moon_image').attr('src', img);
+        
+      }, 500);
+     
     }
 
     if (chain == undefined) {
@@ -488,7 +554,7 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', cls
     if (moon_val != undefined ) {
       var handle = '.collection_products_main .container .'+moon_val.replace(' ','-').toLowerCase();
     }
-    console.log(obj_moon_date);
+    // console.log(obj_moon_date);
     obj_moon_date = {"current_date":current,"handle_next":handle,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
 
     $('.collection_products_main').show();
@@ -504,3 +570,51 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', cls
 
 };
 
+function find_variant_special(date, chain, query = 'null'){
+  obj_moon_date = [];
+
+
+    var moon = date;
+
+    if (moon != undefined && query != 'null' ) {
+      for (let i = 0; i < moon_phase_array.length; i++) {
+        const moon_item = moon_phase_array[i];
+        if (moon_item.id == moon) {
+          var img = moon_item.content.image;
+        }
+      }
+      
+      query.attr('src', img);
+
+      $('.scroll-box .moon_image').attr('src', img);
+      $('.scroll-box .moon_image').trigger('click');
+      setTimeout(() => {
+        $('.main-image .moon_image').attr('src', img);
+        
+      }, 500);
+     
+    }
+
+    if (chain == undefined) {
+      chain ='';
+    }
+
+    var id =("#"+moon+'-'+chain).toString().replace(" ", "");
+    console.log(id);
+    var variant = $(id).val();
+    
+    if (variant != undefined ) {
+      $('#variant_id').val(variant);
+    }else if (chain != '') {
+      variant = $('#'+chain).val();
+
+      $('#variant_id').val(variant);
+    }else if($('#DefaultTitle-').val() != undefined ) {
+      $('#variant_id').val($('#DefaultTitle-').val());
+    }
+
+};
+
+function select_moon_phase(date) {
+  return moon_phase_data[date];
+} 

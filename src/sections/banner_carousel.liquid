@@ -7,7 +7,19 @@
           <div class="mark fadeInDown-2">
 
             {% for star in (1..item.settings.stars) %}
-              <img src="{{ 'stars.svg' | asset_url }}" alt="star">
+              <svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+                <title>57BA4770-FF89-454B-BDEB-D6E339D07CE7</title>
+                <desc>Created with sketchtool.</desc>
+                <defs></defs>
+                <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="icons" transform="translate(-949.000000, -117.000000)" fill="#2E4676">
+                        <g id="stars" transform="translate(949.000000, 117.000000)">
+                            <polygon id="Star" points="8.08398039 12.75 3.08780574 15.3766445 4.04199019 9.81332223 -5.25746113e-13 5.87335555 5.58589307 5.06167777 8.08398039 0 10.5820677 5.06167777 16.1679608 5.87335555 12.1259706 9.81332223 13.080155 15.3766445"></polygon>
+                        </g>
+                    </g>
+                </g>
+              </svg>
             {% endfor %}
           </div>
           <h5 class="fadeInDown-2 brand">{{ item.settings.caption_heading }}</h1>

@@ -23,8 +23,8 @@
                 </p>
             
                 <div class="swell-btn-holder">
-                <a href="/checkout" class="button small swell-btn-redeem"><span>Redeem Now</span></a>
-                <a href="javascript:void(0);" class="button small white swell-btn-rewards swell-history-link"><span>Rewards History</span></a>
+                <a href="/checkout" class="button small swell-btn-redeem"><span>{{ section.settings.redeem_btn_label }}</span></a>
+                <a href="javascript:void(0);" class="button small white swell-btn-rewards swell-history-link"><span>{{ section.settings.reward_history_btn_label }}</span></a>
                 </div>
             </div> 
         {% endif %}
@@ -40,7 +40,7 @@
                 {% include 'list-block' %}
             {% endif %}
         {% endfor %}
-        {% include 'redeem-product' %}
+        {% include 'swell-redeem-products' %}
         {% for item in section.blocks %}
            {% if item.type == 'image' %}
                 {% include 'image-text' %}
@@ -84,6 +84,18 @@
             "type": "richtext",
             "id": "text",
             "label": "Description"
+        },
+        {
+            "type": "text",
+            "id": "redeem_btn_label",
+            "label": "Reedeem button label",
+            "default": "Redeem Now"
+        },
+        {
+            "type": "text",
+            "id": "reward_history_btn_label",
+            "label": "Reward history button label",
+            "default": "Rewards History"
         },
         {
             "type": "text",
@@ -268,6 +280,12 @@
                     "type": "color",
                     "id": "sub_title_color_2",
                     "label": "Sub title color"
+                },
+                {
+                    "type": "text",
+                    "id": "button_label",
+                    "label": "Button label",
+                    "default": "Start referring here"
                 }
             ]
         },

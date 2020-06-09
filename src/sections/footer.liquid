@@ -1,3 +1,5 @@
+{% assign current_store = blank %}
+{% include 'store-check' %}
 <footer class="grid bg_color__dark_blue">
   <div class="grid__item medium-up--two-thirds">
     {% for block in section.blocks %}
@@ -31,8 +33,13 @@
     </ul>
   </div>
   <div class="grid__item">
-    <p class="text-right">© Moonglow, LLC. All rights reserved.<em class="color__light_white translate_field"></em></p>
+    <p class="text-right">{{ 'layout.footer.copyright' | t }}<em class="color__light_white translate_field"></em></p>
   </div>
+  {% if current_store == 'usa' %}
+  <div class="grid__item">
+    <p class ="text-right miami" tabindex="0" title="Miami comma FL">{{ 'layout.footer.miami' | t }}</p>
+  </div>
+  {% endif %}
 </footer>
 
 {% schema %}

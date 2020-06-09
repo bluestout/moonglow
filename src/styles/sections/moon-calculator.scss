@@ -51,6 +51,29 @@
             width: 100vw;
             display: block;
         }
-
+        .title{
+            margin-bottom: 20px;
+        }
+        .grid .pannel{
+            a.button{
+                margin-top: 0;
+            }
+        }
+        
+    }
+    .collection_products_main{
+        .container{
+            .collection-template{
+                
+                &.waxing-crescent{
+                    display: table;
+                    margin: auto;
+                    float: none;
+                    .grid__item{
+                        width: auto;
+                    }
+                }
+            }
+        }
     }
 }

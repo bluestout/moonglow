@@ -4,8 +4,6 @@
 {% for block in section.blocks %}
     {% if block.type == 'image' %}
         {% include 'find-moon-phase', item:block %}
-    {% elsif block.type == 'moon_phase' %}
-      {% include 'select-moon-phase' %}
     {% elsif block.type == 'moon_review' %}
         {% include 'moon-review' %}
     {% elsif block.type == 'moon_product' %}
@@ -30,6 +28,11 @@
             "type": "image_picker",
             "id": "default_banner",
             "label": "Banner Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner",
+          "label": "Mobile banner image"
         },
         {
           "type": "text",
@@ -73,22 +76,11 @@
               "type": "text",
               "id": "title",
               "label": "Title"
-            }
-          ]
-        },
-        {
-          "type": "moon_phase",
-          "name": "Moon phase",
-          "settings": [
-            {
-              "type": "text",
-              "id": "title",
-              "label": "Title"
             },
             {
-              "type": "text",
-              "id": "sub_title",
-              "label": "Sub title"
+              "type": "url",
+              "id": "link_url",
+              "label": "Button url"
             }
           ]
         },

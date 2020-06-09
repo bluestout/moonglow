@@ -11,7 +11,7 @@
   {% if section.settings.title != blank %}
     <div class="collection-list__title">
       <h3>{{ section.settings.title | escape }}</h3> <div class="devider"></div> <h5>{{ section.settings.desc }}</h5>
-      <a class="see-all" href="/collections/all">See All</a>
+      <a class="see-all" href="{{ section.settings.see_all_link }}">{{ 'general.button_text.see_all' | t }}</a>
     </div>
   {% endif %}
   <div id="owl-collection" class="owl-carousel owl-theme">
@@ -20,14 +20,19 @@
         {% assign product = all_products[block.settings.product] %}
         <a href="{{ collection.url | default: "#" }}">
             <div class="item" data-merge="2.5">
-              {% if collection.image != blank or collection.products.first != blank %}
+              {% if collection.metafields["global"]["second-banner"] != blank %}
+                {%- assign image_object = collection.metafields["global"]["second-banner"] | default: collection.products.first.featured_image -%}
+                <div class="collection-list__image zoom">
+                  <img class="lazyautosizes lazyload" data-src="{{ image_object }}" data-sizes="auto" alt="{{ collection.title }}">
+                </div>
+              {% elsif collection.image != blank %}
                 {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
                 <div class="collection-list__image zoom">
                   {% include 'responsive-image' with
                     image: image_object,
                     max_width: 600,
                     max_height: 600,
-                    image.alt: collection.title
+                    alt: collection.title
                   %}
                 </div>
               {% elsif collection == empty %}
@@ -85,6 +90,11 @@
         "type": "text",
         "id": "desc",
         "label": "Description"
+      },
+      {
+        "type": "url",
+        "id": "see_all_link",
+        "label": "See all link"
       }
     ],
     "blocks": [

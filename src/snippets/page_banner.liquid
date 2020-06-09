@@ -2,6 +2,13 @@
     {% assign image = page.image %}
 {%- elsif section.settings.default_banner -%}
     {% assign image = section.settings.default_banner %}
+    
+{% endif %}
+
+{% if section.settings.mobile_banner != blank %}
+    {% assign mobile_image = section.settings.mobile_banner %}
+{% else %}
+    {% assign mobile_image = image %}
 {% endif %}
 
 {% if section.settings.title %}
@@ -11,8 +18,13 @@
 {% endif %}
 
 {% style %}
+    @media only screen and (max-width: 60.85em){
+        .page_banner{
+            background: url({{ mobile_image | img_url: '2048x' }}) no-repeat 50% 50% / cover!important;
+        }
+    }
     .page_banner{
-    background: url({{ image | img_url: '2048x' }}) no-repeat 50% 50% / cover;
+        background: url({{ image | img_url: '2048x' }}) no-repeat 50% 50% / cover;
     }
     .caption h2{
         color: {{ section.settings.title_color }}!important;

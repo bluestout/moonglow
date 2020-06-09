@@ -10,6 +10,13 @@
         text-transform: uppercase;
         font-family: $font-brand;
         margin: 10px;
+        @include media-query('small'){
+            padding: 5px;
+            font-family: $font-body;
+            font-size: 8px;
+            line-height: 10px;
+            float: left;
+        }
         &.new_banner{
             background-color: #D0D9E5;
         }

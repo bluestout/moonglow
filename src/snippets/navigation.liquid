@@ -1,0 +1,190 @@
+<nav role="navigation" class="grid__item menu">
+    <a class="nav-btn">
+      <svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+        <title>058682AC-E093-4007-939C-226854524E2E</title>
+        <desc>Created with sketchtool.</desc>
+        <defs></defs>
+        <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="icons" transform="translate(-21.000000, -33.000000)" fill="#2E4676" fill-rule="nonzero">
+                <g id="ico_menu" transform="translate(21.000000, 33.000000)">
+                    <polygon id="Line-3" points="0 2 0 0 18 0 18 2"></polygon>
+                    <polygon id="Line-3" points="0 9 0 7 18 7 18 9"></polygon>
+                    <polygon id="Line-3" points="0 16 0 14 18 14 18 16"></polygon>
+                </g>
+            </g>
+        </g>
+      </svg>
+    </a>
+    <ul class="normal-menu">
+      {% for link in linklists[section.settings.menu].links %}
+        {% if link.links != blank %}
+          <li>
+            <a class="hover_color__red" href="{{ link.url }}">
+              {{ link.title }}
+              <img src="{{ 'arrow_left.svg' | asset_url }}" alt="arrow down">
+            </a>
+
+            <nav class="sub-link {% if link.title == 'gifts' %} gifts {% endif %} grid">
+              <ul class="grid__item medium-up--two-thirds">
+                {% for childlink in link.links %}
+                  {% assign num = link.links.size %}
+                  <li class="grid__item medium-up--three-twelfths">
+                    <a {% if childlink.url != '#' %} class="hover-child-link" href="{{ childlink.url }}" {% else %} class="non-hover-link" {% endif %}>
+                      {{ childlink.title }}
+                    </a>
+                    {% if childlink.links != blank %}
+
+                      <ul class="grid__item child-link">
+                        {% for gchildlink in childlink.links %}
+                          <li>
+                            {% if link.title != 'gifts' %}
+                              <div class="img animated fadeIn">
+                                {% if gchildlink.object.metafields["global"]["second-banner"] != blank %}
+                                  <div class="meta"> 
+                                    <img src="{{ gchildlink.object.metafields["global"]["second-banner"] }}" alt="{{gchildlink.title}}">
+                                  </div>
+                                {% elsif gchildlink.object.image %}
+                                  <div>
+                                    <img src="{{ gchildlink.object.image | img_url : 'large' }}" alt="{{gchildlink.object.image}}">
+                                  </div>
+                                {% else %}
+                                  <div>
+                                    <img src="{{ 'default.jpg' | asset_url }}" alt="{{gchildlink.object.image}}">
+                                  </div>
+                                {% endif %}
+                              </div>
+                            {% endif %}
+
+                            <a {% if gchildlink.url != '#' %} class="hover-child-link" href="{{ gchildlink.url }}" {% else %} class="non-hover-link" {% endif %}>
+                              {{ gchildlink.title }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              {% if link.title == 'gifts' %}
+                <div class="img_banner animated fadeIn">
+
+                  {% if section.settings.first_banner != blank %}
+                    <div class="banner">
+                      <a href="{{ section.settings.first_banner_url }}">
+                        <img src="{{ section.settings.first_banner | img_url: 'large' }}" alt="{{gchildlink.object.image}}">
+                        <p class="title">{{ 'general.nav.banner_title_1' | t }}</p>
+                      </a>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.second_banner != blank %}
+                    <div class="banner">
+                      <a href="{{ section.settings.second_banner_url }}">
+                        <img src="{{ section.settings.second_banner | img_url: 'large' }}" alt="second banner">
+                        <p class="title">{{ 'general.nav.banner_title_2' | t }}</p>
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+            {% endif %}
+            </nav>
+
+          </li>
+        {% else %}
+          <li>
+            <a href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <ul class="mobile-menu bg_color__light_white">
+      <div class="search-box bg_color__white">
+        <svg width="19px" height="21px" viewBox="0 0 19 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+          <title>search</title>
+          <desc>Created with sketchtool.</desc>
+          <defs></defs>
+          <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="icons" transform="translate(-59.000000, -31.000000)" fill="#2E4676" fill-rule="nonzero">
+                  <g id="ico/search_ico" transform="translate(60.000000, 32.000000)">
+                      <path d="M7.04,15.1428571 C2.59863102,15.1428571 -1,11.5281608 -1,7.07142857 C-1,2.61469634 2.59863102,-1 7.04,-1 C11.481369,-1 15.08,2.61469634 15.08,7.07142857 C15.08,11.5281608 11.481369,15.1428571 7.04,15.1428571 Z M7.04,13.1428571 C10.3748003,13.1428571 13.08,10.4255807 13.08,7.07142857 C13.08,3.71727648 10.3748003,1 7.04,1 C3.7051997,1 1,3.71727648 1,7.07142857 C1,10.4255807 3.7051997,13.1428571 7.04,13.1428571 Z" id="Oval-2"></path>
+                      <polygon id="Line-2" points="10.4404305 12.3327233 12.042991 11.1361448 17.0795695 17.8815624 15.477009 19.0781409"></polygon>
+                  </g>
+              </g>
+          </g>
+        </svg>
+          <div class="inner_div">
+            <input type="search" value="" placeholder="Search Gifts, Necklaces and More!">
+          </div>
+      </div>
+      {% for link in linklists[section.settings.menu].links %}
+        {% if link.links != blank and link.title != 'gifts' %}
+          {% for childlink in link.links %}
+            <li>
+              {% assign url = childlink.title | downcase | append: '.svg'  %}
+              <a href="{{ childlink.url }}" class="color__black child-link-button">
+                <img src="{{ url | asset_url }}" class="left" alt="{{childlink.title}}">
+                {{ childlink.title }}
+                <img class="right" src="{{ 'arrow_left.svg' | asset_url }}" alt="arrow left">
+              </a>
+              {% if childlink.links != blank %}
+                {% if childlink.title == 'Jewelry' %}
+                  <ul class="grid__item child-link">
+                    {% for gchildlink in childlink.links %}
+                        <div class="grid__item one-third child-item">
+                          <a href="{{ gchildlink.url }}">
+                            {% if gchildlink.object.metafields["global"]["second-banner"] != blank %}
+                              <div class="img meta"> 
+                                <img src="{{ gchildlink.object.metafields["global"]["second-banner"] }}" alt="{{gchildlink.title}}">
+                              </div>
+                            {% elsif gchildlink.object.image != blank %}
+                              <div class="img">
+                                <img src="{{ gchildlink.object.image | img_url : 'large' }}" alt="{{gchildlink.object.image}}">
+                              </div>
+                            {% else %}
+                              <div class="img">
+                                <img src="{{ 'default.jpg' | asset_url }}" alt="{{gchildlink.object.image}}">
+                              </div>
+                            {% endif %}
+                            <span>{{ gchildlink.title }}</span>
+                          </a>
+                        </div>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <ul class="grid__item child-link">
+                    {% for gchildlink in childlink.links %}
+                      <li>
+                        <a href="{{ gchildlink.url }}">{{ gchildlink.title }}</a>
+                      </li>
+                      {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% elsif link.title != 'Our story' %}
+          <li>
+            {% assign url = link.title | replace: ' ', '' | downcase | append: '.svg'  %}
+            <a href="{{ link.url }}">
+              <img src="{{ url | asset_url }}" class="left" alt="{{link.title}}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      <li><a href="/pages/rewards"> {{ section.settings.reward_icon }} {{ section.settings.reward_label }}</a></li>
+      <li><a href="/account/login"> {{ section.settings.login_icon }}  {{ section.settings.login_label }}</a></li>
+      <li>
+        {% if customer %}
+          <a href="/account/dashboard" class="creat_account"> {{ section.settings.register_icon }}  {{ section.settings.register_label }}<span class="alert right">{{ 'general.alert_message.signup_alert' | t }}</span></a>
+        {% else %}
+          <a href="/account/register" class="creat_account"> {{ section.settings.register_icon }}  {{ section.settings.register_label }}<span class="alert right">{{ 'general.alert_message.signup_alert' | t }}</span></a>
+        {% endif %}
+
+      </li>
+    </ul>
+  </nav>

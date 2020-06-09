@@ -4,10 +4,25 @@
       <h3 class="title text-center">{{ section.settings.title }}</h3>
       <div class="devider"></div>
       <div class="filter_form">
-        <form action="/search" method="get">            
+        <form action="/search" method="get">
           <input type="search" id="search_bar" class="input-group-field" name="q" placeholder="Search our blog" autocomplete="off">
           <input type="hidden" name="type" value="article">
-          <button id="search-button" class="search-button button"><img alt="Moonglow Jewelry Search" src="{{ 'search_ico.svg' | asset_url }}" alt="search-blog"></button>
+          <button id="search-button" class="search-button button">
+            <svg width="19px" height="21px" viewBox="0 0 19 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+              <title>search</title>
+              <desc>Created with sketchtool.</desc>
+              <defs></defs>
+              <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="icons" transform="translate(-59.000000, -31.000000)" fill="#2E4676" fill-rule="nonzero">
+                      <g id="ico/search_ico" transform="translate(60.000000, 32.000000)">
+                          <path d="M7.04,15.1428571 C2.59863102,15.1428571 -1,11.5281608 -1,7.07142857 C-1,2.61469634 2.59863102,-1 7.04,-1 C11.481369,-1 15.08,2.61469634 15.08,7.07142857 C15.08,11.5281608 11.481369,15.1428571 7.04,15.1428571 Z M7.04,13.1428571 C10.3748003,13.1428571 13.08,10.4255807 13.08,7.07142857 C13.08,3.71727648 10.3748003,1 7.04,1 C3.7051997,1 1,3.71727648 1,7.07142857 C1,10.4255807 3.7051997,13.1428571 7.04,13.1428571 Z" id="Oval-2"></path>
+                          <polygon id="Line-2" points="10.4404305 12.3327233 12.042991 11.1361448 17.0795695 17.8815624 15.477009 19.0781409"></polygon>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+          </button>
         </form>
       </div>
       <div class="grid pagination">
@@ -63,10 +78,10 @@
           {% endif %}
           {% assign page = page | plus:1 %}
         {% endfor %}
-        <button class="button load_more_btn">Load more</button>
+        <button class="button load_more_btn">{{ 'blog.general.load_more_btn' | t }}</button>
       </div>
-    
-    
+
+
   </section>
 
 

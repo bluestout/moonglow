@@ -1,0 +1,95 @@
+<header role="banner" class="grid__item grid banner">
+    <div class="grid__item side-menu">
+      <a href="/pages/moon-calculator" class="normal moon-phase button white">
+        <svg width="11px" height="13px" viewBox="0 0 11 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+          <title>{{ section.settings.find_moon_label_normal }}</title>
+          <desc>Created with sketchtool.</desc>
+          <defs></defs>
+          <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="icons" transform="translate(-170.000000, -34.000000)" fill="#2E4676">
+                  <path d="M176.830961,34.0168995 C175.75447,35.1809617 175.09456,36.7507096 175.09456,38.4777778 C175.09456,41.9087874 177.698972,44.7189146 181,44.9608783 C179.838918,46.2164137 178.193212,47 176.3682,47 C172.85114,47 170,44.0898509 170,40.5 C170,36.9101491 172.85114,34 176.3682,34 C176.523821,34 176.678137,34.0056976 176.830961,34.0168995 Z" id="moon_ico"></path>
+              </g>
+          </g>
+        </svg>
+        {{ section.settings.find_moon_label_normal }} </a>
+      <a href="/pages/moon-calculator" class="mobile moon-phase button white">
+        <svg width="11px" height="13px" viewBox="0 0 11 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+          <title>{{ section.settings.find_moon_label_mobile }}</title>
+          <desc>Created with sketchtool.</desc>
+          <defs></defs>
+          <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="icons" transform="translate(-170.000000, -34.000000)" fill="#2E4676">
+                  <path d="M176.830961,34.0168995 C175.75447,35.1809617 175.09456,36.7507096 175.09456,38.4777778 C175.09456,41.9087874 177.698972,44.7189146 181,44.9608783 C179.838918,46.2164137 178.193212,47 176.3682,47 C172.85114,47 170,44.0898509 170,40.5 C170,36.9101491 172.85114,34 176.3682,34 C176.523821,34 176.678137,34.0056976 176.830961,34.0168995 Z" id="moon_ico"></path>
+              </g>
+          </g>
+        </svg>
+        {{ section.settings.find_moon_label_mobile }} </a>
+
+      <a href="/pages/rewards" class="reward">{{ section.settings.reward_label }}</a>
+      {% if current_store == 'usa' %}
+          {% if customer %}
+            <a class="wishlist-button" href="/pages/my-wishlist" alt="wishlist">
+                <svg version="1.1" width="19" height="19"id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <title>Wishlist</title>
+                  <path style="fill:#2e4676;" d="M24.85,10.126c2.018-4.783,6.628-8.125,11.99-8.125c7.223,0,12.425,6.179,13.079,13.543
+                  c0,0,0.353,1.828-0.424,5.119c-1.058,4.482-3.545,8.464-6.898,11.503L24.85,48L7.402,32.165c-3.353-3.038-5.84-7.021-6.898-11.503
+                  c-0.777-3.291-0.424-5.119-0.424-5.119C0.734,8.179,5.936,2,13.159,2C18.522,2,22.832,5.343,24.85,10.126z"/>
+                </svg>
+            </a>
+          {% else %}
+            <a class="wishlist-button" href="/account/login?checkout_url={{shop.url}}{{product.url}}" alt="wishlist">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 51.997 51.997" style="enable-background:new 0 0 51.997 51.997;" xml:space="preserve">
+                  <title>Wishlist</title>
+                  <g>
+                    <path d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905   c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478   c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014   C52.216,18.553,51.97,16.611,51.911,16.242z M49.521,21.261c-0.984,4.172-3.265,7.973-6.59,10.985L25.855,47.481L9.072,32.25   c-3.331-3.018-5.611-6.818-6.596-10.99c-0.708-2.997-0.417-4.69-0.416-4.701l0.015-0.101C2.725,9.139,7.806,3.826,14.158,3.826   c4.687,0,8.813,2.88,10.771,7.515l0.921,2.183l0.921-2.183c1.927-4.564,6.271-7.514,11.069-7.514   c6.351,0,11.433,5.313,12.096,12.727C49.938,16.57,50.229,18.264,49.521,21.261z"/>
+                  </g>
+                </svg>
+            </a>
+          {% endif %}
+      {% endif %}
+      <a class="search-button">
+        <svg width="19px" height="21px" viewBox="0 0 19 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+          <title>search</title>
+          <desc>Created with sketchtool.</desc>
+          <defs></defs>
+          <g id="style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="icons" transform="translate(-59.000000, -31.000000)" fill="#2E4676" fill-rule="nonzero">
+                  <g id="ico/search_ico" transform="translate(60.000000, 32.000000)">
+                      <path d="M7.04,15.1428571 C2.59863102,15.1428571 -1,11.5281608 -1,7.07142857 C-1,2.61469634 2.59863102,-1 7.04,-1 C11.481369,-1 15.08,2.61469634 15.08,7.07142857 C15.08,11.5281608 11.481369,15.1428571 7.04,15.1428571 Z M7.04,13.1428571 C10.3748003,13.1428571 13.08,10.4255807 13.08,7.07142857 C13.08,3.71727648 10.3748003,1 7.04,1 C3.7051997,1 1,3.71727648 1,7.07142857 C1,10.4255807 3.7051997,13.1428571 7.04,13.1428571 Z" id="Oval-2"></path>
+                      <polygon id="Line-2" points="10.4404305 12.3327233 12.042991 11.1361448 17.0795695 17.8815624 15.477009 19.0781409"></polygon>
+                  </g>
+              </g>
+          </g>
+        </svg>
+        <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+      </a>
+      <ul class="search_menu">
+        <li>
+          <form action="/search" method="get" role="search" class="search_bar" style="direction: ltr;">
+            <div class="inner_div">
+              <input type="search" name="q" id="Search-header" value="" placeholder="Search Gifts, Necklaces and More!" class="lsx-search-field lsx-done tt-input" autocomplete="off" spellcheck="false" dir="auto">
+            </div>
+            </form>
+        </li>
+      </ul>
+
+      {% assign quantity = 0 %}
+      {% for item in cart.items %}
+        {% assign quantity = quantity | plus: item.quantity %}
+      {% endfor %}
+      {% if settings.cart_action == 'ajax' %}
+        <a href="/cart" class="cart">
+          <img src="{{ 'shop_big_ico.svg' | asset_url }}" title="Cart"  alt="cart icon" itemprop="cart">
+          <!-- <span>{{ quantity }}</span> -->
+        </a>
+      {% else %}
+        <a href="/cart">
+          <img src="{{ 'shop_big_ico.svg' | asset_url }}"  alt="Cart" itemprop="cart">
+        </a>
+      {% endif %}
+    </div>
+  </header>

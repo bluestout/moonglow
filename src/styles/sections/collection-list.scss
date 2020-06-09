@@ -7,6 +7,11 @@
       padding: $padding $padding *2/5!important;
       max-width: inherit!important;
     }
+  .collection-list__image{
+    img{
+      width: 100%;
+    }
+  }
   .collection-list__title{
     margin: $margin * 3 / 5 0;
     display: table;

@@ -98,7 +98,6 @@
          
           .button.grey{
             float: left;
-            width: 100%;
             @include media-query("medium-down"){
               float: none!important;
               width: auto;

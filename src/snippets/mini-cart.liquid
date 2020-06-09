@@ -37,7 +37,10 @@
       {% assign prog_val = 100 | divided_by: limit_total %}
       {% for item in cart.items %}
         {% assign sub_total = item.final_price | times: item.quantity %}
-        {% assign total = total | plus: sub_total %}
+        {% if item.product_type != 'letter' %}
+          {% assign total = total | plus: sub_total %}
+        {% endif %}
+
       {% endfor %}
       {% assign progress = prog_val | times: cart.item_count %}
       {% assign left_val = limit_total | minus: cart.item_count %}
@@ -79,9 +82,9 @@
                 <div class="progress-bar" range="{{ section.settings.shipping_rage }}">
                     <div class="progress" style="width: {{ progress }}%;"></div>
                       {% if progress >= 100 %}
-                        <span> ✓ Congratulations! You've earned FREE GIFT!</span>
+                        <span> ✓ Congratulations! You've earned a FREE GIFT!</span>
                       {% else %}
-                        <span>Only {{ left_val }} item away for FREE GIFT!</span>
+                        <span>Only {{ left_val }} item away for a FREE GIFT!</span>
                       {% endif %}
                 </div>
             {% elsif free_gift_type == 'birthstone' %}
@@ -98,7 +101,7 @@
                     {% else %}
                         <div class="progress-bar" range="{{ min_birthstone_price | divided_by :100 }}">
                             <div class="progress" style="width: 100%;"></div>
-                            <span> ✓ Congratulations! You've earned FREE BIRTH STONE!</span>
+                            <span> ✓ Congratulations! You've earned a FREE BIRTH STONE!</span>
                         </div>
                         {% if free_gift_type == 'birthstone' and settings.birthstone_unlock_img != blank %}
                             <a href="{{birthstone_product.url}}">
@@ -164,7 +167,7 @@
           {% assign i = 0 %}
           {% for item in cart.items %}
 
-            <li class="items"
+            <li class="items {% if item.product.type contains 'letters' %} engraving {% endif %}"
                 {% if bundle != blank %}data-bundle='{{bundle}}'{% endif %}
                 {% if engravingNormal %}data-engraving='{{item.properties['engraving']}}' {%- endif -%}
                 {% if engravingNormalTwo %} data-engraving-two='{{item.properties['engraving2']}}' {%- endif -%}
@@ -174,7 +177,7 @@
               <a class="remove"><img class="lazyload" data-sizes="auto" data-src="{{ 'close_ico.png' | asset_url }}" alt="remove button"></a>
               <a href="{{item.product.url}}">
                 <img class="product-img lazyload" data-sizes="auto" data-src="{{item.product.featured_image | img_url: '100x100'}}" alt="{{ item.product.title }}">
-                <div class="product-info {% if free_gift_variant_id contains item.id and progress >= 100  %} free_gift_product {% endif %} ">
+                <div class="product-info {% if free_gift_variant_id contains item.id and progress >= 100 and item.price == 0  %} free_gift_product {% endif %} ">
                   <p class="name">{{ item.product.title }}</p>
                   {% for option in item.options_with_values %}
                     {% unless option.value contains 'Default' %}
@@ -182,12 +185,59 @@
                     {% endunless %}
                   {% endfor %}
                   {% for property in item.properties %}
+                  {% assign first = property | first %}
+                    {% if first contains '_swell_redemption_token' %}
+                    <p class="attribute color__dark_blue">rewards </p>
+                    {% elsif first contains '_FREEGIFT' %}
+                    <p class="attribute color__dark_blue"> Free Gift </p>
+                    {% else %}
                     <p class="attribute color__dark_blue">{{property | first}} : {{ property | last }} </p>
+                    {% endif %}
                   {% endfor %}
-                  <!-- <p class="attribute color__dark_blue">Chain Adjustable </p> -->
-                  <p class="price">{{ item.quantity }} x {{ item.final_price | money }}</p>
+                  {% assign engraving = 0 %}
+                  {% assign final_price = item.final_price %}
+                  {% if item.properties['engraving'] != blank %}
+                    {% assign engraving = item.properties['engraving'] | size %}
+                    {% assign engrave_price_val = 0 %}
+                    {% if  engraving > 10 %}
+                      {% assign engrave_price_val = 500 | times: 4 %}
+                    {% elsif engraving <= 10 and engraving > 5 %}
+                      {% assign engrave_price_val = 500 | times: 3 %}
+                    {% elsif engraving <= 5 and engraving > 0 %}
+                      {% assign engrave_price_val = 500 | times: 2 %}
+                    {% endif %}
+                    {% assign final_price = final_price | plus: engrave_price_val %}
+
+                  {% endif %}
+
+                  {% if item.properties['Engrave_ring'] != blank %}
+                      {% assign engrave_ring = item.properties['Engrave_ring'] | size %}
+                      {% if engrave_ring > 5 %}
+                        {% assign final_price = final_price | plus: 500 %}
+                      {% endif %}
+                  {% endif %}
+
+                  {% if item.properties['engraving2'] != blank %}
+                    {% assign engraving = item.properties['engraving2'] | size %}
+                    {% assign engrave_price_val = 0 %}
+                    {% if  engraving > 10 %}
+                      {% assign engrave_price_val = 500 | times: 4 %}
+                    {% elsif engraving <= 10 and engraving > 5 %}
+                      {% assign engrave_price_val = 500 | times: 3 %}
+                    {% elsif engraving <= 5 and engraving > 0 %}
+                      {% assign engrave_price_val = 500 | times: 2 %}
+                    {% endif %}
+                    {% assign final_price = final_price | plus: engrave_price_val %}
+                  {% endif %}
+
+
+
+
+
+                  <p class="price">{{ item.quantity }} x {{ final_price | money }}</p>
                   {% assign i = i | plus:1 %}
                   <input type="hidden" class="id" value="{{i}}">
+                  <input type="hidden" class="engrave-num" value="{{ final_price | minus: item.final_price | divided_by: 500 }}">
                 </div>
               </a>
             <label for="updates_{{ item.key }}" class="visually-hidden hide">{{ 'cart.label.quantity' | t }}</label>
@@ -195,7 +245,7 @@
                 <div class="qty cart_item">
                     <div class="spinner">
                         <div class="min">-</div>
-                        <input type="number" name="updates[]" id="updates_{{ item.key }}" class="product_qty nojs" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
+                        <input type="number" name="updates[]" readonly id="updates_{{ item.key }}" class="product_qty nojs" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
                         <div class="plus">+</div>
                     </div>
                 </div>
@@ -238,7 +288,7 @@
                     <input type="hidden" name="id" value="{{product.first_available_variant.id}}">
                     <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
 
-                    <button type="button" name="add" class="button white small ajax-submit add_cart related  {% if product.available == false %}disabled {% endif %}">
+                    <button type="button" name="add" id="add_to_cart_btn" class="button white small ajax-submit add_cart related {% if product.available == false %}disabled {% endif %}">
                       <span class="text">
                         {% if product.available %}add{% else %}{{ settings.sold_out_text }}{% endif %}
                       </span>

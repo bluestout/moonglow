@@ -10,14 +10,14 @@
             <div class="form-success hide" data-reset-success>
                 {{ 'customer.recover_password.success' | t }}
             </div>
-            
+
             <div data-login-form>
             {% form 'customer_login' %}
                 <h3 class="medium-down--text-center">{{ 'customer.login.title' | t }}</h3>
                 <div class="devider left"></div>
 
                 {{ form.errors | default_errors }}
-            
+
                 <label for="CustomerEmail" class="mark">
                 {{ 'customer.login.email' | t }}
                 </label>
@@ -29,7 +29,7 @@
                         autocomplete="off"
                         autocapitalize="off"
                         autofocus>
-            
+
                 {% if form.password_needed %}
                 <label for="CustomerPassword" class="mark">
                     {{ 'customer.login.password' | t }}
@@ -44,28 +44,27 @@
                 {% endif %}
                 <input type="hidden" class="return_url" name="checkout_url" value="">
                 <input type="submit" class="button btn" value="{{ 'customer.login.sign_in' | t }}">
-            
+
                 <a href="/">{{ 'customer.login.cancel' | t }}</a>
-            
-                <a href="/account/register" class="right"> SIGN UP </a>
-            
-                
+
+                <a href="/account/register" class="right"> {{ 'customer.login.sign_up' | t }} </a>
+
             {% endform %}
-            
+
             </div>
-            
+
             <div class="hide" data-recover-form>
             <h3>{{ 'customer.recover_password.title' | t }}</h3>
             <div class="devider left"></div>
             <p style="margin-bottom: 20px; float: left;">{{ 'customer.recover_password.subtext' | t }}</p>
-            
+
             {% form 'recover_customer_password' %}
                 {{ form.errors | default_errors }}
-            
+
                 {% if form.posted_successfully? %}
                 <span class="hide" data-form-state></span>
                 {% endif %}
-            
+
                 <label for="RecoverEmail" class="label-hidden">
                 {{ 'customer.recover_password.email' | t }}
                 </label>
@@ -76,19 +75,17 @@
                         spellcheck="false"
                         autocomplete="off"
                         autocapitalize="off">
-            
+
                 <input type="submit" class="button btn" value="{{ 'customer.recover_password.submit' | t }}">
 
-                
                 <a data-recover-toggle>
                 {{ 'customer.recover_password.cancel' | t }}
                 </a>
             {% endform %}
-            
+
             </div>
-            
+
             {% if shop.checkout.guest_login %}
-            
                 {% form 'guest_login' %}
                     <input type="submit" class="button" value="{{ 'customer.login.guest_continue' | t }}">
                 {% endform %}
@@ -97,7 +94,7 @@
     </div>
 </section>
 
-  
+
 {% schema %}
 {
     "name": "Login",

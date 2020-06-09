@@ -3,11 +3,27 @@
     .grid{
         @include media-query('small'){
             padding: 0px;
+            position: relative;
         }
         .grid__item{
             @include media-query('small'){
                 padding: 0px;
-                
+                position: relative;
+            }
+            &.content-block{
+                @include media-query('medium-up'){
+                    position: relative;
+                }
+                position: initial;
+                a.logout{
+                    position: absolute;
+                    right: 10px;
+                    margin-top: -25px;
+                    font-size: 15px;
+                    @include media-query('medium-down'){
+                        top: 65px;
+                    }
+                }
             }
             .menu{
                 width: 100%;

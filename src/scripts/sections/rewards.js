@@ -31,14 +31,11 @@ $(document).ready(function () {
        $('#rp-campaigns-region div.campaign:nth-child(4)').after(html)
      }
    }
+   if ($('.swell-free-product-list').find("li").hasClass('swell-redemption-product')) {
 
-   if (!$('#redeem-options-region div').hasClass('rewards-page-preloader')) {
-     $('.swell-authenticated').addClass('item');
-     $('#redeem-options-region .swell-authenticated .item-box h2').after('<a class="mark uppercase text-center">reedem</button></a>')
-     $('#redeem-options-region').addClass('owl-carousel');
-     $('#redeem-options-region').addClass('owl-theme');
-    $('#redeem-options-region style').remove();
-     $('#redeem-options-region').owlCarousel({
+     $('.swell-free-product-list').addClass('owl-carousel');
+     $('.swell-free-product-list').addClass('owl-theme');
+     $('.swell-free-product-list').owlCarousel({
       loop:true,
       margin:10,
       nav:true,

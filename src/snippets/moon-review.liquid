@@ -1,10 +1,13 @@
 <section class="moon-review-block">
     <h2 class="title capitalize text-center">product reviews</h2>
-    <div class="grid">
-        <div class="pannel">
-        <button class="button white small">ask a question</button>
+    {% if block.settings.link_url != blank %}
+        <div class="grid">
+            <div class="pannel">
+            <a href="{{block.settings.link_url}}" class="button white small">ask a question</a>
+            </div>
         </div>
-    </div>
+    {% endif %}
+    
     <div id="Reviews">
         <div class="container">
         <script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/tXYcRoLQo46eDLgFtyQJkW7Dr1GXeBe2cdUbjo9M/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script>

@@ -1,0 +1,24 @@
+<div class="main_fav_class">
+  {%- assign saveBtnText = 'Save this moment' -%}
+  {% if customer %}
+  
+    <a class="fav_moon_btn" data-customer-id ="{{ customer.id }}" data-customer-email = "{{customer.email}}" 
+      data-product-id = "{{ product.id }}"
+      data-before="Save Favourite Date"
+      data-after="Removing Date"
+      data-process="Adding....."
+      data-remove="Removing..." tabindex="0" title="save this moment">
+      <span class='alter_text'>{{- saveBtnText -}}</span> 
+      <img class="mob_show" src="https://cdn.shopify.com/s/files/1/2486/3224/t/159/assets/ico-select.svg?587057"/ alt="save this button">
+    </a>
+  {% else %}
+    {% if template contains 'page.moon-calculator'%}
+      <a class="save_later_date" href="/account/login?checkout_url={{shop.url}}{{page.url}}">{{- saveBtnText -}}</a>
+    {% elsif template contains 'index' %}
+      <a class="save_later_date" href="/account/login?checkout_url=/">{{- saveBtnText -}}</a>
+    {% else %}
+      <a class="save_later_date pr_moon" href="/account/login?checkout_url={{shop.url}}{{product.url}}">{{- saveBtnText -}}</a>
+    {% endif %}
+
+  {% endif %}
+</div>

@@ -6,12 +6,11 @@
         <div class="page-content">
             <div class="form-group">
                 <div class="info">
-                    <h3 class="uppercase text-center">Learn More About Becoming a Moonglow Retail Partner</h3>
-                    <div class="devider"></div>
-                    <!-- <h5 class="left">We have a simple program for you to provide custom moons for your customers on the spot. We set you up responsibly for success.</h5> -->
+                    <h3 class="capitalize">{{ section.settings.form_title }}</h3>
+                    <div class="devider left"></div>
                 </div>
                 <div>
-                    <iframe src="https://formbuilder.hulkapps.com/corepage/customform?id=UMPnPkypOko2_Mcrp9yWUQ" id="frame_UMPnPkypOko2_Mcrp9yWUQ" frameborder="0" width="100%" style="height: 600px;"></iframe>
+                    <div style="margin:0 auto;" class="pxFormGenerator" id="UMPnPkypOko2_Mcrp9yWUQ"></div> 
                 </div>
             </div>
         </div>
@@ -55,6 +54,12 @@
             "type": "color",
             "id": "title_color",
             "label": "Title color"
+        },
+        {
+            "type": "text",
+            "id": "form_title",
+            "label": "Form title",
+            "default": "Learn More About Becoming a Moonglow Retail Partner"
         }
     ],
     "blocks":[

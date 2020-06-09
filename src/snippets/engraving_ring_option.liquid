@@ -1,0 +1,17 @@
+<div class="select-pannel">
+    <div class="mark-img">
+      <img data-src="{{ 'jewelry.png' | asset_img_url: '100x' }}" class="moon_image lazyload" alt="engraving icon" data-sizes="auto">
+    </div>
+    <div class="form-control">
+      <a class="engrange_checkbox">I'd like to add engraving</a>
+    </div>
+  </div>
+  <div class="engraving_form  {% if className != blank %} {{className}}{% endif %} {% if product.tags contains 'custom_css' %}key-chain-css{% endif %}">
+    <input type='text' class="ring engraving-input" placeholder="Engraving" maxlength="12" required />
+    <p>Engraving costs are based on the number of characters.</p>
+    
+    <ul class="engraving-pricing">
+      <li> 1-5 = $0</li>
+      <li>6-10 = $5</li>
+    </ul>
+</div>

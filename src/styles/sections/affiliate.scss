@@ -62,7 +62,7 @@
         @include media-query('medium-down'){
             margin: $margin*2/5 $margin/5;
         }
-        img{
+        svg{
             margin: auto;
             display: table;
             margin-bottom: $margin * 4 / 5;

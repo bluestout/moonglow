@@ -28,12 +28,13 @@
           {{ item.settings.text }}
         {% endif %}
         <div class="pannel">
-          <div class="grid__item three-fifths medium-down--one-whole form-control">
+        {% comment %}  <div class="grid__item three-fifths medium-down--one-whole form-control">
             <img src="{{'calender_ico.svg' | asset_url }}" alt="calendar-icon">
             <input type="text" class="moon_date right datepicker" placeholder="MM/DD/YYY">
             
           </div>
-          <div class="grid__item two-fifths medium-down--one-whole">
+          {% endcomment %}
+          <div class="grid__item one-whole medium-down--one-whole">
             {% if item.settings.button_label != blank %}
               <button class="button grey left select-moon">{{ item.settings.button_label | escape }}</button>
             {% endif %}

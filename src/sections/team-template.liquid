@@ -10,7 +10,9 @@
                     <p>{{ block.settings.text }}</p>
                 </div>
                 <div class="grid__item three-tenths small--one-whole pannel">
-                    <a href="{{ block.settings.btn_url }}" class="button right">read more</a>
+                  {% comment %}
+                    <a href="{{ block.settings.btn_url }}" class="button right">{{ 'general.button_text.read_more' | t }}</a>
+                  {% endcomment %}
                 </div>
             </div>
         </div>

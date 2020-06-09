@@ -4,7 +4,7 @@ $(document).ready(function () {
     var getuppsel = setInterval(() => {
         if($('#orderbump').html() != ''){
             setTimeout(() => {
-                var height = ($('.order-summary__section--swell').innerHeight()+$('.order-summary__section--discount').innerHeight() + $('.order-summary__section--total-lines').innerHeight()+ 90)*(-1);
+                var height = ($('.order-summary__section--swell').innerHeight()+$('.order-summary__section--discount').innerHeight() + $('.order-summary__section--total-lines').innerHeight()+ 130)*(-1);
                 $('#orderbump').css('margin-top', height);
                 $('.sidebar .loading').fadeOut();
                 clearInterval(getuppsel);
