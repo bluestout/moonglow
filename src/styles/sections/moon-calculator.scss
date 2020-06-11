@@ -14,7 +14,7 @@
                         font-size: 18px;
                         text-align: left;
                     }
-                    
+
                 }
             }
         }
@@ -37,15 +37,15 @@
                 margin-top: 20px;
             }
             &.white{
-            
+
                 margin-left: 10px;
                 margin-top: 20px;
             }
         }
-        
+
     }
     .moon-review-block{
-        
+
         margin-top: $margin;
         @include media-query('medium-down'){
             width: 100vw;
@@ -59,13 +59,13 @@
                 margin-top: 0;
             }
         }
-        
+
     }
     .collection_products_main{
         .container{
             .collection-template{
-                
-                &.waxing-crescent{
+
+                &.new-moon{
                     display: table;
                     margin: auto;
                     float: none;

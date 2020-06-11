@@ -54,7 +54,6 @@ $(document).ready(function () {
         }
       }
     });
-    
    }
 
    if (!$('#rp-campaigns-region div').hasClass('rewards-page-preloader') && !$('#redeem-options-region div').hasClass('rewards-page-preloader')) {

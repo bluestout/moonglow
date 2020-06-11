@@ -4,124 +4,122 @@
 
 {% assign count= 0 %}
 <div class="single-prod-desc perticular-product">
-    <div class="grid">
-        <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> Select your skymap: </h6>
-        {% assign number = number | plus : 1 %}
-      <div class="prod-calc clearfix">
-        <div class="grid__item one-whole product-calc-inner astro-date">
-          <h6 class="stage-title brand uppercase" style="margin-left: 13px;">select date:</h6>
-          <div class="shop-moon-drop grid">
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="month-dropdown dropdown">
-                <select class="month basic-example">
-                  <option value="" selected>Month</option>
-                  {% for month in months%}
-                  {% assign current_month =  "now" | date: "%B" %}
-                  {% if forloop.index > 9 %}
-                  <option value="{{forloop.index}}">{{month}}</option>
-                  {% else %}
-                  <option value="0{{forloop.index}}">{{month}}</option>
-                  {% endif %}
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="date-dropdown dropdown">
-                <select class="basic-example date">
-                  <option value="" selected>Day</option>
-                  {% for d in (1..31) %}
-                  {% assign current_date =  "now" | date: "%d"  | plus:0 %}	 
-                  {% if forloop.index > 9 %}
-                  <option value="{{d}}" >{{d}}</option>	
-                  {% else %}
-                  <option value="0{{d}}" >{{d}}</option>	
-                  {% endif %}
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
-            <div class="grid__item one-third  sm-down--one-whole">
-              <div class="year-dropdown dropdown">
-                <select class="basic-example year">
-                    <option value="" selected>Year</option>
-                  {% for y in (1919..2020) reversed %} 
-                  {% assign current_year =  "now" | date: "%Y" | plus:0 %}	
-                  <option value="{{y}}">{{y}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
+  <h6 class="stage-title brand uppercase"><strong>step {{ number | plus: 1 }} : </strong> Select your skymap: </h6>
+  {% assign number = number | plus : 1 %}
+  <div class="prod-calc clearfix">
+    <div class="grid__item one-whole product-calc-inner astro-date">
+      <h6 class="stage-title brand uppercase" style="margin-left: 13px;">select date:</h6>
+      <div class="shop-moon-drop grid">
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="month-dropdown dropdown">
+            <select class="month basic-example">
+              <option value="" selected>Month</option>
+              {% for month in months%}
+              {% assign current_month =  "now" | date: "%B" %}
+              {% if forloop.index > 9 %}
+              <option value="{{forloop.index}}">{{month}}</option>
+              {% else %}
+              <option value="0{{forloop.index}}">{{month}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
           </div>
         </div>
-        <div class="grid__item one-whole product-calc-inner astro-location">
-          <h6 class="stage-title brand uppercase" style="margin-left: 13px;">select location:</h6>
-          <div class="shop-moon-drop grid">
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="city custom-input-wrap">
-                <input type="text" value="" class="city" placeholder="City">
-              </div>
-            </div>
-            <div class="grid__item one-third sm-down--one-whole">
-
-              <div class="state custom-input-wrap">
-                <input type="text" value="" class="state" placeholder="State">
-              </div>
-            </div>
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="country custom-input-wrap">
-                <input type="text" value="" class="country" placeholder="Country">
-              </div>
-            </div>
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="date-dropdown dropdown">
+            <select class="basic-example date">
+              <option value="" selected>Day</option>
+              {% for d in (1..31) %}
+              {% assign current_date =  "now" | date: "%d"  | plus:0 %}
+              {% if forloop.index > 9 %}
+              <option value="{{d}}" >{{d}}</option>
+              {% else %}
+              <option value="0{{d}}" >{{d}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
           </div>
         </div>
-        <div class="grid__item one-whole product-calc-inner astro-time">
-          <h6 class="stage-title brand uppercase" style="margin-left: 13px;">select time:</h6>
-          <div class="shop-moon-drop grid">
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="hour-dropdown dropdown">
-                <select class="hour basic-example">
-                  <option value="" selected>Hour</option>
-                  {% for hour in (1..24)%}
-                  {% if forloop.index > 9 %}
-                  <option value="{{hour}}" >{{hour}}</option>	
-                  {% else %}
-                  <option value="0{{hour}}" >{{hour}}</option>	
-                  {% endif %}
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="minute-dropdown dropdown">
-                <select class="basic-example minute">
-                  <option value="" selected>Minute</option>
-                  {% for min in (0..59) %}
-                  {% if forloop.index > 9 %}
-                  <option value="{{min}}" >{{min}}</option>	
-                  {% else %}
-                  <option value="0{{min}}" >{{min}}</option>	
-                  {% endif %}
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
-            <div class="grid__item one-third sm-down--one-whole">
-              <div class="year-dropdown dropdown ">
-                <select class="basic-example second">
-                  <option value="" selected>AM & PM</option>                                                
-                  <option value="AM" >AM</option>	                                                      
-                  <option value="PM" >PM</option>	                                                     
-                </select>
-              </div>
-            </div>
+        <div class="grid__item one-third  sm-down--one-whole">
+          <div class="year-dropdown dropdown">
+            <select class="basic-example year">
+                <option value="" selected>Year</option>
+              {% for y in (1919..2020) reversed %}
+              {% assign current_year =  "now" | date: "%Y" | plus:0 %}
+              <option value="{{y}}">{{y}}</option>
+              {% endfor %}
+            </select>
           </div>
         </div>
       </div>
     </div>
-    <div class="line-item">
-        <input id="line_date" type="hidden" name="properties[Date]" required>
-        <input id="line_location" type="hidden" name="properties[Location]" required>
-        <input id="line_time" type="hidden" name="properties[Time]" required>             
+    <div class="grid__item one-whole product-calc-inner astro-location">
+      <h6 class="stage-title brand uppercase" style="margin-left: 13px;">select location:</h6>
+      <div class="shop-moon-drop grid">
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="city custom-input-wrap">
+            <input type="text" value="" class="city" placeholder="City">
+          </div>
+        </div>
+        <div class="grid__item one-third sm-down--one-whole">
+
+          <div class="state custom-input-wrap">
+            <input type="text" value="" class="state" placeholder="State">
+          </div>
+        </div>
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="country custom-input-wrap">
+            <input type="text" value="" class="country" placeholder="Country">
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="grid__item one-whole product-calc-inner astro-time">
+      <h6 class="stage-title brand uppercase" style="margin-left: 13px;">select time:</h6>
+      <div class="shop-moon-drop grid">
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="hour-dropdown dropdown">
+            <select class="hour basic-example">
+              <option value="" selected>Hour</option>
+              {% for hour in (1..24)%}
+              {% if forloop.index > 9 %}
+              <option value="{{hour}}" >{{hour}}</option>
+              {% else %}
+              <option value="0{{hour}}" >{{hour}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="minute-dropdown dropdown">
+            <select class="basic-example minute">
+              <option value="" selected>Minute</option>
+              {% for min in (0..59) %}
+              {% if forloop.index > 9 %}
+              <option value="{{min}}" >{{min}}</option>
+              {% else %}
+              <option value="0{{min}}" >{{min}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="grid__item one-third sm-down--one-whole">
+          <div class="year-dropdown dropdown ">
+            <select class="basic-example second">
+              <option value="" selected>AM & PM</option>
+              <option value="AM" >AM</option>	                                                      
+              <option value="PM" >PM</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="line-item">
+    <input id="line_date" type="hidden" name="properties[Date]" required>
+    <input id="line_location" type="hidden" name="properties[Location]" required>
+    <input id="line_time" type="hidden" name="properties[Time]" required>
+  </div>
 </div>

@@ -1,25 +1,15 @@
 
 var year='', month='', date='', history = [];
-$(document).ready(function () {
-  if ($('body').innerWidth() < 769) {
-    var height = $('#shopify-section-header').outerHeight();
-    var height_simple = $('#shopify-section-header-simple').outerHeight();
-    if (height != undefined) {
-      $('#MainContent').css('margin-top', height);
-    }else{
-      $('#MainContent').css('margin-top', height_simple);
-    }
-  }
 
-  $.ajax({
-    type: "Get",
-    url: moon_eclipse_url,
-    success: function (response) {
-      moon_phase_data = response;
-    }
-  });
-
-});
+$( function() {
+    $( ".datepicker" ).datepicker({
+      startView: 2,
+      defaultViewDate: {year: '2010'},
+      startDate:'01/01/1919',
+      endDate:'12/31/2030',
+      maxViewMode: 2
+    });
+} );
 
 $(".link-list .title").click(function(){
     $(this).parent().find("ul").slideToggle("fast");
@@ -31,17 +21,7 @@ $(".link-list .title").click(function(){
         $(this).find("i").removeClass("fa-minus");
         $(this).find("i").addClass("fa-plus");
     }
-})
-
-$( function() {
-    $( ".datepicker" ).datepicker({
-      startView: 2,
-      defaultViewDate: {year: '2010'},
-      startDate:'01/01/1919',
-      endDate:'12/31/2030',
-      maxViewMode: 2
-    });
-} );
+});
 
 $('.slide_btn').click(function () {
 
@@ -61,7 +41,7 @@ $("a.month").click(function () {
   $('.month-field').fadeIn();
   $('.content-field').removeClass("opened");
   $(".month-field").addClass('opened');
-})
+});
 
 $("a.date").click(function () {
   $('.product-moon-phase .special-phase').show();
@@ -71,7 +51,7 @@ $("a.date").click(function () {
   $('.date-field').fadeIn();
   $('.content-field').removeClass("opened");
   $(".date-field").addClass('opened');
-})
+});
 
 $("a.year").click(function () {
   $('.product-moon-phase .special-phase').show();
@@ -81,7 +61,7 @@ $("a.year").click(function () {
   $('.year-field').fadeIn();
   $('.content-field').removeClass("opened");
   $(".year-field").addClass('opened');
-})
+});
 
 
 $(".start-btn").click(function () {
@@ -97,7 +77,7 @@ $(".start-btn").click(function () {
   history.push('start');
   $.cookie('page-history', JSON.stringify(history));
   $("span.back").attr('page-target', 'start');
-})
+});
 
 $('span.back').click(function () {
   start_position: while (true) {
@@ -127,13 +107,6 @@ $('span.back').click(function () {
   }
 });
 
-$(document).ready(function () {
-  if ($.cookie("permissionAccess") === undefined) {
-    $('.cookie_banner_popup').show();
-  }
-})
-
-//
 $('body').on('click', '.custom_button_cookie a.button-close', function () {
   $.cookie("permissionAccess","accepted", {path : '/'});
   $('.cookie_banner_popup').hide();
@@ -142,7 +115,6 @@ $('body').on('click', '.custom_button_cookie a.button-close', function () {
 $(".custom_button_cookie a.button-not-allow").on('click', function () {
   $.cookie("permissionAccess","not_allow", {path : '/'});
   $('.cookie_banner_popup').hide();
-
 });
 
 $('.save-date').click(function () {
@@ -181,48 +153,43 @@ $('.save-date').click(function () {
   simply.showBackBg(true);
   $('#date-save-modal').show();
 
-
 });
 
 $('.save_ocassion_btn').click(function () {
-      var occasion = $('.occasion').val();
-      if(occasion != ''){
-        obj_moon_date.occasion = occasion;
-        var that = $(this);
-        var data = {
-          customer_id: simply.customer_id,
-          email:simply.custEmail,
-          moon_phase:obj_moon_date.image_code,
-          moon_date:obj_moon_date.current_date,
-          moon_occasion:obj_moon_date.occasion
+  var occasion = $('.occasion').val();
+  if(occasion != ''){
+    obj_moon_date.occasion = occasion;
+    var that = $(this);
+    var data = {
+      customer_id: simply.customer_id,
+      email:simply.custEmail,
+      moon_phase:obj_moon_date.image_code,
+      moon_date:obj_moon_date.current_date,
+      moon_occasion:obj_moon_date.occasion
+    }
+    var result = add_moon_date(obj_moon_date);
+    if(result){
+      simply.addWithDate(data,function(){
+
+        $('.modal').find(".close").click();
+        $('body').removeClass('stop-scroll');
+        if (!$('#moon-phase').hasClass('active')) {
+          simply.hideBackBg();
+        }else{
+          $('body').addClass('stop-scroll');
         }
-        var result = add_moon_date(obj_moon_date);
-        if(result){
-          simply.addWithDate(data,function(){
-
-                $('.modal').find(".close").click();
-                $('body').removeClass('stop-scroll');
-                if (!$('#moon-phase').hasClass('active')) {
-                  simply.hideBackBg();
-
-                }else{
-                  $('body').addClass('stop-scroll');
-                }
-
-                $('#moon-phase').css('z-index', 50);
-                // $('.js .save-date').hide();
-
-          });
-        }
-      }else{
-        $('.occasion').parent().addClass('danger');
-      }
-
-})
+        $('#moon-phase').css('z-index', 50);
+        // $('.js .save-date').hide();
+      });
+    }
+  } else {
+    $('.occasion').parent().addClass('danger');
+  }
+});
 
 $('.occasion').change(function () {
   $('.occasion_field').removeClass('danger');
-})
+});
 
 $(".year-field li").click(function () {
   $(".year-field li").removeClass('active');
@@ -244,9 +211,8 @@ $(".year-field li").click(function () {
     $('.date-field').addClass('opened');
    }else{
     create_save_field(date, month, year);
-
    }
-})
+});
 $(".month-field li").click(function () {
   $(".month-field li").removeClass('active')
   $(this).addClass('active');
@@ -284,11 +250,10 @@ $(".month-field li").click(function () {
    }else{
     create_save_field(date, month, year);
    }
-
 });
 
 $(".date-field li").click(function () {
-  $(".date-field li").removeClass('active')
+  $(".date-field li").removeClass('active');
   $(this).addClass('active');
   date = parseInt($(this).text());
   if (date < 10) {
@@ -308,7 +273,7 @@ $(".date-field li").click(function () {
     $('.content-field').removeClass("opened");
     $('.year-field').addClass('opened');
    }else{
-      create_save_field(date, month, year);
+    create_save_field(date, month, year);
   }
 
 });
@@ -317,13 +282,9 @@ $(".special-phase a").click(function (e) {
   e.preventDefault();
   var cls = "."+$(this).attr('data-target');
   $(this).parent().find('a').removeClass('active');
-
   var special_phase = $(this).attr('class');
-
-
   create_save_field('', '', '', special_phase);
-
-})
+});
 
 $('#videoTara').click(function () {
   $('#videoTara').play()
@@ -346,12 +307,10 @@ $(".modal_btn").click(function(e){
 });
 
 $('.select-moon').click(function () {
-
-    $('body').addClass('stop-scroll');
-    $('#moon-phase').show();
-    $('#moon-phase').addClass("active");
-    $(".dark-bg").show();
-
+  $('body').addClass('stop-scroll');
+  $('#moon-phase').show();
+  $('#moon-phase').addClass("active");
+  $(".dark-bg").show();
 });
 
 $('body').on('click', "a.close", function(){
@@ -359,8 +318,7 @@ $('body').on('click', "a.close", function(){
   $(this).parent().hide();
   $(this).parent().removeClass("active");
   $('body').removeClass('stop-scroll');
-})
-
+});
 
 $("#list-carousel").owlCarousel({
     loop:true,
@@ -381,227 +339,8 @@ $("#list-carousel").owlCarousel({
 		}
 });
 
-$(document).ready(function () {
-  $('.s4com-helpcenter .aa-input').keypress(function (e) {
-      if(e.keyCode == 13){
-        e.preventDefault();
-      }
-  });
-})
-
-$( document ).ready(function () {
-
-    var i = 0;
-    var item = '.pagination .grid__item';
-    var item_hidden = ".pagination .hide";
-    var val = $(item).length - $(item_hidden).length;
-    $(".load_more_btn").text("load more ( " + val + "/" + $(item).length + " )")
-
-    $(item).slice(0, val-1).show();
-    if ($(item_hidden).length != 0) {
-      i = $(item_hidden).length;
-      $(".load_more_btn").show();
-    }else{
-      $(".load_more_btn").hide();
-    }
-
-    var j = 1;
-    $(".load_more_btn").on('click', function (e) {
-      e.preventDefault();
-      j ++ ;
-
-      if($(item_hidden).length > val){
-        var num = j * val;
-      }else{
-        var num = $(item).length;
-      }
-      $(item).slice(0, num).removeClass('hide');
-      $(item).slice(0, num).slideDown();
-      $(".load_more_btn").text("load more ( " + num + "/" + $(item).length + " )")
-      if ($(item_hidden).length == 0) {
-        $(".load_more_btn").fadeOut('slow');
-      }
-    });
-    var num = 0;
-    $(window).scroll(function() {
-      $(".blogs-block .animated").each(function(){
-
-        var pos = $(this).offset().top;
-
-        var winTop = $(window).scrollTop();
-          if (pos < winTop + 600) {
-            if (num < 3) {
-              num += 1;
-            }
-
-            setTimeout(() => {
-
-              $(this).addClass("fadeIn");
-            }, 500*num);
-
-          }
-      });
-    });
-
-    $(".questions-ans h2").click(function () {
-      if ($(this).hasClass('active')) {
-        $(this).parent().find('.que-ans-wrap').slideDown();
-        $(this).removeClass('active');
-      }else{
-        $(this).parent().find('.que-ans-wrap').slideUp();
-        $(this).addClass('active');
-      }
-     });
-     $('.question').click(function () {
-        if ($(this).hasClass('active')) {
-          $('.que-ans-wrap p:not(.question)').slideUp();
-          $('.question').removeClass('active');
-        }else{
-          $(this).addClass('active');
-          $(this).parent().find('p:not(.question)').slideDown();
-        }
-      })
-      $(".menu .link-list .active").click(function (e) {
-        e.preventDefault();
-        $(".menu .link-list li:not(.active)").fadeToggle();
-      })
-      $(".menu .link-list li").click(function (e) {
-        if (!$(this).hasClass('active')) {
-          location = $(this).find('a').attr('href');
-        }
-
-      });
-
-      $("#carousel-content").owlCarousel({
-
-        loop:true,
-        margin:10,
-        merge:true,
-        responsive:{
-          0:{
-            items:3,
-            mergeFit:true
-          },
-          678:{
-            items:5,
-            mergeFit:true
-          },
-          1000:{
-            items:8,
-            mergeFit:false
-          }
-        }
-      });
-
-});
-
 $('.filter_btn').click(function () {
-
   $('.filter_form').slideToggle();
-});
-
-$(document).ready(function () {
-
-  if ($('body').innerWidth() < 978) {
-    $('#owl-main .item').each(function () {
-      var mobile_img = $(this).attr('mobile_image');
-      $(this).css('background-image', 'url('+mobile_img+')');
-    })
-  }
-
-  $(".gf-sort-wrap .filter").click(function () {
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-      $('#gf-tree').fadeOut();
-    }else{
-      $(this).addClass('active');
-      $('#gf-tree').fadeIn();
-    }
-  });
-  $('.sort-by-toggle').click(function () {
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-      $('.select-box').fadeOut();
-    }else{
-      $(this).addClass('active');
-      $('.select-box').fadeIn();
-    }
-  });
-
-  $('.select-box li').click(function (e) {
-    e.preventDefault();
-    var val = $(this).attr('data-target');
-    $('#changeSortBy').val(val).change();
-    $('.select-box').hide();
-  });
-  $('#gf-tree .gf-filter-contents .gf-option-block h3 span').click(function () {
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-      $(this).parent().parent().parent().find.slideUp();
-    }else{
-      $(this).addClass('active');
-      $(this).parent().parent().parent().find('.gf-filter-content').slideDown();
-    }
-  });
-
-  $('#shopify-section-register-template .register .grid .pannel .content form span').click(function () {
-    $('.news-letter').trigger('click');
-    if ($(this).hasClass('checked')) {
-
-      $(this).removeClass('checked');
-    }else{
-      $(this).addClass('checked');
-    }
-
-  });
-
-  $('.set-default label').click(function () {
-    $('.set-default input').trigger('click');
-    if ($(this).hasClass('checked')) {
-
-      $(this).removeClass('checked');
-    }else{
-      $(this).addClass('checked');
-    }
-
-  });
-
-});
-
-$(document).ready(function () {
-  $('#datepicker').change(function () {
-    $('.datepicker-dropdown').hide();
-  })
-  $('.datepicker').change(function () {
-    $('.datepicker-dropdown').hide();
-  })
-  if ($.cookie('moon_dates')) {
-    var moon_dates = $.parseJSON($.cookie("moon_dates"));
-    var html = "<option>Or select from your saved dates</option>";
-    for (let index = 0; index < moon_dates.length; index++) {
-      const element = moon_dates[index];
-      if (index == 0) {
-        for (let i = 0; i < moon_phase_array.length; i++) {
-          const moon_item = moon_phase_array[i];
-          if (moon_item.id == element.image_code) {
-            var moon_img = moon_item.content.image;
-            var icon = moon_item.content.icon;
-          }
-        }
-        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text_title .find_moon_pannel .date_picker h5').text(element.result_date);
-        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text__image img').attr('src', moon_img);
-        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text__image img').attr('srcset', moon_img);
-        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text_title .find_moon_pannel .moon-phase').css("background", icon);
-      }
-
-      html += "<option value="+ element.current_date +">"+element.current_date+"-"+element.occasion+"-"+element.moon_val+"</option>";
-    }
-
-    // $(".saved-dates").html(html);
-  }else{
-    // $(".moon_phase_cookie").hide();
-  }
-
 });
 
 $(document).on("click", "#side_cart .main_gift_div .gift_checkbox .adding_gift ", (function(e) {
@@ -609,7 +348,6 @@ $(document).on("click", "#side_cart .main_gift_div .gift_checkbox .adding_gift "
   var t = $(this),
       o = $(this).closest(".items"),
       i = 0;
-
   i = o.find('.id').val();
   var s = parseInt($(".qty input", o).val()),
       a = simply.cartJson.items[i-1].properties,
@@ -715,7 +453,6 @@ $(document).on("click", '#side_cart .qty .spinner .plus', (function (e) {
 
 }));
 
-
 function moon_calc(moon_month,moon_date,moon_year){
   obj_moon_date = [];
   var current = moon_month+ "/" +moon_date+ "/" +moon_year;
@@ -726,89 +463,77 @@ function moon_calc(moon_month,moon_date,moon_year){
     beforeSend: function() {
     // setting a timeout
     $(".loader-section").show();
-  },
-  success: function(data){
-    $(".loader-section").hide();
-    var moon = data[current];
+    },
+    success: function(data){
+      $(".loader-section").hide();
+      var moon = data[current];
 
-    var moon_text = {
-      "NL": "New Moon",
-      "CA": "Waxing Crescent ",
-      "1A": "Waxing Crescent ",
-      "2A": "Waxing Crescent ",
-      "3A": "Waxing Crescent ",
-      "4A": "Waxing Gibbous ",
-      "5A": "Waxing Gibbous ",
-      "6A": "Waxing Gibbous",
-      "7A": "Waxing Gibbous ",
-      "PL": "Full Moon",
-      "7D": "Waning Gibbous ",
-      "6D": "Waning Gibbous ",
-      "5D": "Waning Gibbous",
-      "4D": "Waning Gibbous",
-      "3D": "Waning Crescent ",
-      "2D": "Waning Crescent ",
-      "1D": "Waning Crescent ",
-      "CD": "Waning Crescent ",
-      "LE": "Lunar Eclipse ",
-      "SE": "Solar Eclipse"
-    };
-
-
-    var moon_val = moon_text[moon];
-    if (moon_val == undefined ) {
-      $('.alert-message.modal_alert').show();
-    }else{
-      var month_name = {
-        "01" : "January",
-        "02" : "February",
-        "03" : "March",
-        "04" : "April",
-        "05" : "May",
-        "06" : "June",
-        "07" : "July",
-        "08" : "August",
-        "09" : "September",
-        "10" : "October",
-        "11" : "November",
-        "12" : "December"
+      var moon_text = {
+        "NL": "New Moon",
+        "CA": "Waxing Crescent ",
+        "1A": "Waxing Crescent ",
+        "2A": "Waxing Crescent ",
+        "3A": "Waxing Crescent ",
+        "4A": "Waxing Gibbous ",
+        "5A": "Waxing Gibbous ",
+        "6A": "Waxing Gibbous",
+        "7A": "Waxing Gibbous ",
+        "PL": "Full Moon",
+        "7D": "Waning Gibbous ",
+        "6D": "Waning Gibbous ",
+        "5D": "Waning Gibbous",
+        "4D": "Waning Gibbous",
+        "3D": "Waning Crescent ",
+        "2D": "Waning Crescent ",
+        "1D": "Waning Crescent ",
+        "CD": "Waning Crescent ",
+        "LE": "Lunar Eclipse ",
+        "SE": "Solar Eclipse"
       };
 
-      var month = month_name[moon_month];
+      var moon_val = moon_text[moon];
+      if (moon_val == undefined ) {
+        $('.alert-message.modal_alert').show();
+      }else{
+        var month_name = {
+          "01" : "January",
+          "02" : "February",
+          "03" : "March",
+          "04" : "April",
+          "05" : "May",
+          "06" : "June",
+          "07" : "July",
+          "08" : "August",
+          "09" : "September",
+          "10" : "October",
+          "11" : "November",
+          "12" : "December"
+        };
 
-      for (let i = 0; i < moon_phase_array.length; i++) {
-        const moon_item = moon_phase_array[i];
-        if (moon_item.id == moon) {
-          var img = moon_item.content.image;
+        var month = month_name[moon_month];
+
+        for (let i = 0; i < moon_phase_array.length; i++) {
+          const moon_item = moon_phase_array[i];
+          if (moon_item.id == moon) {
+            var img = moon_item.content.image;
+          }
         }
+
+        $('.moon_phase img').attr('src', img);
+        $('.find-moon-form .image-with-text__image .responsive-image__image').attr('src', img);
+        var result_date = month +' '+moon_date+', '+moon_year;
+
+        var trimmed_next = $.trim(result_date);
+        var handle_next = trimmed_next.replace(/[^a-z0-9-]/gi, '-'). replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
+
+        obj_moon_date = {"current_date":current,"handle_next":handle_next,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
+        // adds moon entry in moon-dates cookie
+
+        add_moon_date(obj_moon_date);
       }
-
-      $('.moon_phase img').attr('src', img);
-      $('.find-moon-form .image-with-text__image .responsive-image__image').attr('src', img);
-      var result_date = month +' '+moon_date+', '+moon_year;
-
-      var trimmed_next = $.trim(result_date);
-      var handle_next = trimmed_next.replace(/[^a-z0-9-]/gi, '-'). replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
-
-
-      obj_moon_date = {"current_date":current,"handle_next":handle_next,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
-      // adds moon entry in moon-dates cookie
-
-      add_moon_date(obj_moon_date);
-    }
-  }
-});
-
-};
-
-$(document).ready(function () {
-  $('.product-info').each(function () {
-    if ($(this).hasClass('free_gift_product')) {
-      free_gift_old = free_gift_variant_id
-      free_gift_variant_id = '';
     }
   });
-})
+};
 
 $(document).on('click', '.remove', function () {
 
@@ -885,7 +610,6 @@ $(document).on('click', '.ajax-submit', function(e) {
         }
       })
     }
-
 
     if (skymap_status && product_date != "" && birthstone_select != "none" && engrave_status) {
 
@@ -1020,14 +744,10 @@ $(document).on('click', '.ajax-submit', function(e) {
                           setTimeout(function() {
                             refreshCart(cart);
                             window.scrollTo(0,0);
-                            $(".header-menu .grid__item a span").text(cart.item_count)
-
-
-                          $('a.cart').trigger('click');
+                            $(".header-menu .grid__item a span").text(cart.item_count);
+                            $('a.cart').trigger('click');
                           }, 500)
                         }
-
-
                       }
                     });
                   },
@@ -1107,19 +827,14 @@ $(document).on('click', '.ajax-submit', function(e) {
                         refreshCart(cart);
                         window.scrollTo(0,0);
                         $(".header-menu .grid__item a span").text(cart.item_count)
-
-
-                      $('a.cart').trigger('click');
-                      }, 500)
+                        $('a.cart').trigger('click');
+                      }, 500);
                     }
-
-
                   }
                 });
               }
             }
           });
-
         },
         error: function(XMLHttpRequest) {
           var response = eval('(' + XMLHttpRequest.responseText + ')');
@@ -1144,7 +859,6 @@ $(document).on('click', '.ajax-submit', function(e) {
         $addToCartForm.find('.product-alert').hide();
       }, 5000);
     }
-
   }
 });
 
@@ -1276,66 +990,34 @@ function update_cart(data, engrave_data = null) {
                 }});
           }else{
             var free_gift_id = $('.free_gift_product').find('.id').val();
-          var total_val = 0;
-          if (free_gift_type == 'moon_stud') {
-            total_val = cart.item_count;
-          }else{
-            total_val = cart.total_price;
-          }
-          for (let i = 0; i < cart.items.length; i++) {
-            if (cart.items[i].product_type == 'letters') {
-              total_val = total_val - cart.items[i].quantity;
+            var total_val = 0;
+            if (free_gift_type == 'moon_stud') {
+              total_val = cart.item_count;
+            }else{
+              total_val = cart.total_price;
             }
-          }
-          if ( total_val < range+1 && free_gift_id != undefined ) {
-            if(free_gift_id > data.line){
-              free_gift_id = 1;
-            }
-            $.ajax({
-              url: '/cart/change.js',
-              dataType: 'json',
-              cache: false,
-              type: 'post',
-              data: {
-                quantity: 0,
-                line: free_gift_id
-              },
-              success: function(itemData) {
-                if (free_gift_old != undefined) {
-                  free_gift_variant_id = free_gift_old;
-                }
-                $.ajax({
-                  url: '/cart.js',
-                  dataType: "json",
-                  cache: false,
-                  beforeSend: function() {
-                    $(".loading").fadeIn('slow');
-                  },
-                  success: function(cart) {
-                    refreshCart(cart);
-                    $(".header-menu .grid__item a span").text(cart.item_count)
-                    setTimeout(function() {
-                      $(".loading").fadeOut('slow');
-                    }, 500)
-                  }
-                });
+            for (let i = 0; i < cart.items.length; i++) {
+              if (cart.items[i].product_type == 'letters') {
+                total_val = total_val - cart.items[i].quantity;
               }
-            });
-
-          }else if ( total_val >= range && free_gift_variant_id != '' ) {
-
+            }
+            if ( total_val < range+1 && free_gift_id != undefined ) {
+              if(free_gift_id > data.line){
+                free_gift_id = 1;
+              }
               $.ajax({
-                url: '/cart/add.js',
+                url: '/cart/change.js',
                 dataType: 'json',
                 cache: false,
                 type: 'post',
                 data: {
-                  form_type: "product",
-                  utf8: "✓",
-                  id: free_gift_variant_id,
-                  quantity: 1
+                  quantity: 0,
+                  line: free_gift_id
                 },
                 success: function(itemData) {
+                  if (free_gift_old != undefined) {
+                    free_gift_variant_id = free_gift_old;
+                  }
                   $.ajax({
                     url: '/cart.js',
                     dataType: "json",
@@ -1344,37 +1026,68 @@ function update_cart(data, engrave_data = null) {
                       $(".loading").fadeIn('slow');
                     },
                     success: function(cart) {
-                      $(".loading").fadeOut('slow');
+                      refreshCart(cart);
+                      $(".header-menu .grid__item a span").text(cart.item_count)
                       setTimeout(function() {
-                        refreshCart(cart);
-                        window.scrollTo(0,0);
-                        $(".header-menu .grid__item a span").text(cart.item_count)
-                        $('a.cart').trigger('click');
+                        $(".loading").fadeOut('slow');
                       }, 500)
                     }
                   });
                 }
               });
-          }else{
-            if (free_gift_old != undefined) {
-              free_gift_variant_id = free_gift_old;
-            }
-            refreshCart(cart);
-            $(".header-menu .grid__item a span").text(cart.item_count)
-            setTimeout(function() {
-              $(".loading").fadeOut('slow');
-            }, 500)
-          }
-          }
 
+            }else if ( total_val >= range && free_gift_variant_id != '' ) {
+
+                $.ajax({
+                  url: '/cart/add.js',
+                  dataType: 'json',
+                  cache: false,
+                  type: 'post',
+                  data: {
+                    form_type: "product",
+                    utf8: "✓",
+                    id: free_gift_variant_id,
+                    quantity: 1
+                  },
+                  success: function(itemData) {
+                    $.ajax({
+                      url: '/cart.js',
+                      dataType: "json",
+                      cache: false,
+                      beforeSend: function() {
+                        $(".loading").fadeIn('slow');
+                      },
+                      success: function(cart) {
+                        $(".loading").fadeOut('slow');
+                        setTimeout(function() {
+                          refreshCart(cart);
+                          window.scrollTo(0,0);
+                          $(".header-menu .grid__item a span").text(cart.item_count)
+                          $('a.cart').trigger('click');
+                        }, 500);
+                      }
+                    });
+                  }
+                });
+            }else{
+              if (free_gift_old != undefined) {
+                free_gift_variant_id = free_gift_old;
+              }
+              refreshCart(cart);
+              $(".header-menu .grid__item a span").text(cart.item_count)
+              setTimeout(function() {
+                $(".loading").fadeOut('slow');
+              }, 500)
+            }
+          }
         }
       });
     }
-  })
+  });
 }
 
 function refreshCart(cart) {
-  simply.cartJson = cart
+  simply.cartJson = cart;
   $(".cart-list").hide();
   var html = '';
   if (cart.items.length == 0) {
@@ -1390,7 +1103,7 @@ function refreshCart(cart) {
       var free_cls = '';
       if (item.id == free_gift_variant_id && item.final_price == 0 ) {
         var free_cls = 'free_gift_product';
-        free_gift_old = free_gift_variant_id
+        free_gift_old = free_gift_variant_id;
         free_gift_variant_id = '';
       }
       if (cart.items[i].product_type != 'letters') {
@@ -1492,14 +1205,12 @@ function refreshCart(cart) {
         }else{
           html +='<div class ="adding_gift"><span tabindex="0" title="Add Gift Wrap?">Add Gift Wrap?</span></div>';
         }
-
         html +='</div><div class ="view_gift_larger"><a>Preview Gift Wrap</a></div></div>';
       }
       html += '</li>';
   }
   $(".cart-list").html(html);
   $(".cart-list").show();
-
 
   $(".sub-total .price").text('$'+cart.total_price/100);
   $(".checkout p a").text(cart.total_price/100+' Moon Points!');
@@ -1527,7 +1238,6 @@ function refreshCart(cart) {
     }
   }
 
-
   $('.progress-bar span').text(message);
   $('.progress').css('width', progress);
 
@@ -1539,9 +1249,6 @@ function add_moon_date(obj_moon_date, callback){
   if($.cookie("moon_dates")){
     moon_dates = $.parseJSON($.cookie("moon_dates"));
   }
-
-  //   var obj = moon_dates.find(o => o.current_date === obj_moon_date.current_date);
-
 
   var obj = {};//moon_dates.find(o => o.current_date === obj_moon_date.current_date);
   moon_dates.forEach(function(obj_date){
@@ -1563,13 +1270,6 @@ function add_moon_date(obj_moon_date, callback){
   }else{
     moon_dates.splice(0, 0, obj_moon_date);
     $.cookie("moon_dates", JSON.stringify(moon_dates),{path:"/"});
-    // $('#date-save-modal .modal_alert').removeClass('alert-danger');
-    // $('#date-save-modal .modal_alert').addClass('alert-success');
-    // $('#date-save-modal .modal_alert').text('Save the date successfuly.');
-    // $('#date-save-modal .modal_alert').show();
-    // setTimeout(() => {
-    //   $('#date-save-modal .modal_alert').hide();
-    // }, 5000);
     var result = true;
   }
   return result;
@@ -1580,9 +1280,6 @@ function validate_moon_date(obj_moon_date, selector){
   if($.cookie("moon_dates")){
     moon_dates = $.parseJSON($.cookie("moon_dates"));
   }
-
-  //   var obj = moon_dates.find(o => o.current_date === obj_moon_date.current_date);
-
 
   var obj = {};//moon_dates.find(o => o.current_date === obj_moon_date.current_date);
   moon_dates.forEach(function(obj_date){
@@ -1609,7 +1306,6 @@ function validate_moon_date(obj_moon_date, selector){
 function attach_moon_drop_html(){
   $(".header-left-links .my-moon .h8").text("My Moons");
   $(".moons .moon_list").html(create_moon_dates_html());
-
 }
 
 function create_moon_date_html(obj_moon_date){
@@ -1621,179 +1317,176 @@ function create_moon_date_html(obj_moon_date){
 
 function create_save_field(date, month, year, special_phase = null) {
   $('.product-moon-phase .special-phase').hide();
-if (special_phase != null) {
-  var moon = special_phase;
+  if (special_phase != null) {
+    var moon = special_phase;
 
-  $(".moon-code").text(moon);
-  $('.start').hide()
-  for (let i = 0; i < moon_phase_array.length; i++) {
-    const moon_item = moon_phase_array[i];
+    $(".moon-code").text(moon);
+    $('.start').hide()
+    for (let i = 0; i < moon_phase_array.length; i++) {
+      const moon_item = moon_phase_array[i];
 
-    if (moon_item.id == moon) {
-      var img = moon_item.content.image;
-      var icon = moon_item.content.icon;
-      var title = moon_item.content.title;
-      var desc = moon_item.content.desc;
-      $('.modal_moon_phase_img').attr('src', img);
-      $('.moon-icon div').html(icon);
-      $(".save-field .content-info .mark").text(title);
-      $(".save-field .content-info p:last-child").text(desc);
-    }
-  }
-
-  var moon_text = {
-    "NL": "New Moon",
-    "CA": "Waxing Crescent",
-    "1A": "Waxing Crescent",
-    "2A": "Waxing Crescent",
-    "3A": "Waxing Crescent",
-    "4A": "Waxing Gibbous",
-    "5A": "Waxing Gibbous",
-    "6A": "Waxing Gibbous",
-    "7A": "Waxing Gibbous",
-    "PL": "Full Moon",
-    "7D": "Waning Gibbous",
-    "6D": "Waning Gibbous",
-    "5D": "Waning Gibbous",
-    "4D": "Waning Gibbous",
-    "3D": "Waning Crescent",
-    "2D": "Waning Crescent",
-    "1D": "Waning Crescent",
-    "CD": "Waning Crescent",
-    "LE": "Lunar Eclipse",
-    "SE": "Solar Eclipse"
-  };
-
-  var moon_val = moon_text[moon];
-  var product_selector = '.'+moon_val.toLowerCase().replace(' ', '-');
-
-  $(".select-phase").attr('date-val', moon_val)
-  $('.content-field').hide();
-  $('.calendars').show();
-  $('.save-field').fadeIn();
-} else {
-  if(month  < 10){
-    var month_val = month.slice(1);
-  }else{
-    var month_val = month;
-  }
-
-  if(date  < 10){
-    var date_val = date.slice(1);
-  }else{
-    var date_val = date;
-  }
-
-  obj_moon_date = [];
-  var current = month_val+ "/" +date_val+ "/" +year;
-  $.ajax({
-    type: "GET",
-    url: moonglow_path,
-    datatype: "json",
-    beforeSend: function() {
-      // setting a timeout
-      $(".loader-section").show();
-    },
-    success: function(data){
-      $(".loader-section").hide();
-      var moon = data[current];
-
-      if (moon == undefined) {
-          $('.modal_alert').show();
-          setTimeout(() => {
-            $('.modal_alert').hide();
-          }, 5000);
-      }else{
-
-        $(".moon-code").text(moon);
-        $('.start').hide()
-        for (let i = 0; i < moon_phase_array.length; i++) {
-          const moon_item = moon_phase_array[i];
-
-          if (moon_item.id == moon) {
-            var img = moon_item.content.image;
-            var icon = moon_item.content.icon;
-            var title = moon_item.content.title;
-            var desc = moon_item.content.desc;
-            $('.modal_moon_phase_img').attr('src', img);
-            $('.moon-icon div').html(icon);
-            $(".save-field .content-info .mark").text(title);
-            $(".save-field .content-info p:last-child").text(desc);
-          }
-        }
-
-
-        var month_name = {
-          "01" : "January",
-          "02" : "February",
-          "03" : "March",
-          "04" : "April",
-          "05" : "May",
-          "06" : "June",
-          "07" : "July",
-          "08" : "August",
-          "09" : "September",
-          "10" : "October",
-          "11" : "November",
-          "12" : "December"
-        };
-
-        var month_val = month_name[month];
-        $('.date-header p .date').text(date);
-        $('.date-header p .month').text(month_val);
-        $('.date-header p .year').text(year);
-
-        var result_date = month_val +' '+ date +', '+year;
-
-        var trimmed_next = $.trim(result_date);
-        var handle_next = trimmed_next.replace(/[^a-z0-9-]/gi, '-'). replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
-
-        var moon_text = {
-          "NL": "New Moon",
-          "CA": "Waxing Crescent",
-          "1A": "Waxing Crescent",
-          "2A": "Waxing Crescent",
-          "3A": "Waxing Crescent",
-          "4A": "Waxing Gibbous",
-          "5A": "Waxing Gibbous",
-          "6A": "Waxing Gibbous",
-          "7A": "Waxing Gibbous",
-          "PL": "Full Moon",
-          "7D": "Waning Gibbous",
-          "6D": "Waning Gibbous",
-          "5D": "Waning Gibbous",
-          "4D": "Waning Gibbous",
-          "3D": "Waning Crescent",
-          "2D": "Waning Crescent",
-          "1D": "Waning Crescent",
-          "CD": "Waning Crescent",
-          "LE": "Lunar Eclips",
-          "SE": "Solar Eclipse"
-        };
-
-        var moon_val = moon_text[moon];
-        var handle = '/collections/'+moon_val.replace(' ','-').toLowerCase()+'?date='+result_date;
-        var product_selector = '.'+moon_val.toLowerCase().replace(' ', '-');
-        if ($('.col_handle_name').hasClass(moon_val.toLowerCase().replace(' ', '-'))) {
-          $('.col_handle_name').hide();
-          $(product_selector).show();
-        }
-
-        $('.shop-date').attr('href', handle);
-        $(".select-phase").attr('date-val', month+"/"+date+"/"+year)
-        obj_moon_date = {"current_date":current,"handle_next":handle_next,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
-        // var result = validate_moon_date(obj_moon_date,'.modal_alert');
-
-        $('.content-field').hide();
-        $('.calendars').show();
-        $('.save-field').fadeIn();
-
+      if (moon_item.id == moon) {
+        var img = moon_item.content.image;
+        var icon = moon_item.content.icon;
+        var title = moon_item.content.title;
+        var desc = moon_item.content.desc;
+        $('.modal_moon_phase_img').attr('src', img);
+        $('.moon-icon div').html(icon);
+        $(".save-field .content-info .mark").text(title);
+        $(".save-field .content-info p:last-child").text(desc);
       }
     }
-  });
-}
 
+    var moon_text = {
+      "NL": "New Moon",
+      "CA": "Waxing Crescent",
+      "1A": "Waxing Crescent",
+      "2A": "Waxing Crescent",
+      "3A": "Waxing Crescent",
+      "4A": "Waxing Gibbous",
+      "5A": "Waxing Gibbous",
+      "6A": "Waxing Gibbous",
+      "7A": "Waxing Gibbous",
+      "PL": "Full Moon",
+      "7D": "Waning Gibbous",
+      "6D": "Waning Gibbous",
+      "5D": "Waning Gibbous",
+      "4D": "Waning Gibbous",
+      "3D": "Waning Crescent",
+      "2D": "Waning Crescent",
+      "1D": "Waning Crescent",
+      "CD": "Waning Crescent",
+      "LE": "Lunar Eclipse",
+      "SE": "Solar Eclipse"
+    };
 
+    var moon_val = moon_text[moon];
+    var product_selector = '.'+moon_val.toLowerCase().replace(' ', '-');
+
+    $(".select-phase").attr('date-val', moon_val)
+    $('.content-field').hide();
+    $('.calendars').show();
+    $('.save-field').fadeIn();
+  } else {
+    if(month  < 10){
+      var month_val = month.slice(1);
+    }else{
+      var month_val = month;
+    }
+
+    if(date  < 10){
+      var date_val = date.slice(1);
+    }else{
+      var date_val = date;
+    }
+
+    obj_moon_date = [];
+    var current = month_val+ "/" +date_val+ "/" +year;
+    $.ajax({
+      type: "GET",
+      url: moonglow_path,
+      datatype: "json",
+      beforeSend: function() {
+        // setting a timeout
+        $(".loader-section").show();
+      },
+      success: function(data){
+        $(".loader-section").hide();
+        var moon = data[current];
+
+        if (moon == undefined) {
+            $('.modal_alert').show();
+            setTimeout(() => {
+              $('.modal_alert').hide();
+            }, 5000);
+        }else{
+
+          $(".moon-code").text(moon);
+          $('.start').hide()
+          for (let i = 0; i < moon_phase_array.length; i++) {
+            const moon_item = moon_phase_array[i];
+
+            if (moon_item.id == moon) {
+              var img = moon_item.content.image;
+              var icon = moon_item.content.icon;
+              var title = moon_item.content.title;
+              var desc = moon_item.content.desc;
+              $('.modal_moon_phase_img').attr('src', img);
+              $('.moon-icon div').html(icon);
+              $(".save-field .content-info .mark").text(title);
+              $(".save-field .content-info p:last-child").text(desc);
+            }
+          }
+
+          var month_name = {
+            "01" : "January",
+            "02" : "February",
+            "03" : "March",
+            "04" : "April",
+            "05" : "May",
+            "06" : "June",
+            "07" : "July",
+            "08" : "August",
+            "09" : "September",
+            "10" : "October",
+            "11" : "November",
+            "12" : "December"
+          };
+
+          var month_val = month_name[month];
+          $('.date-header p .date').text(date);
+          $('.date-header p .month').text(month_val);
+          $('.date-header p .year').text(year);
+
+          var result_date = month_val +' '+ date +', '+year;
+
+          var trimmed_next = $.trim(result_date);
+          var handle_next = trimmed_next.replace(/[^a-z0-9-]/gi, '-'). replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
+
+          var moon_text = {
+            "NL": "New Moon",
+            "CA": "Waxing Crescent",
+            "1A": "Waxing Crescent",
+            "2A": "Waxing Crescent",
+            "3A": "Waxing Crescent",
+            "4A": "Waxing Gibbous",
+            "5A": "Waxing Gibbous",
+            "6A": "Waxing Gibbous",
+            "7A": "Waxing Gibbous",
+            "PL": "Full Moon",
+            "7D": "Waning Gibbous",
+            "6D": "Waning Gibbous",
+            "5D": "Waning Gibbous",
+            "4D": "Waning Gibbous",
+            "3D": "Waning Crescent",
+            "2D": "Waning Crescent",
+            "1D": "Waning Crescent",
+            "CD": "Waning Crescent",
+            "LE": "Lunar Eclips",
+            "SE": "Solar Eclipse"
+          };
+
+          var moon_val = moon_text[moon];
+          var handle = '/collections/'+moon_val.replace(' ','-').toLowerCase()+'?date='+result_date;
+          var product_selector = '.'+moon_val.toLowerCase().replace(' ', '-');
+          if ($('.col_handle_name').hasClass(moon_val.toLowerCase().replace(' ', '-'))) {
+            $('.col_handle_name').hide();
+            $(product_selector).show();
+          }
+
+          $('.shop-date').attr('href', handle);
+          $(".select-phase").attr('date-val', month+"/"+date+"/"+year)
+          obj_moon_date = {"current_date":current,"handle_next":handle_next,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
+          // var result = validate_moon_date(obj_moon_date,'.modal_alert');
+
+          $('.content-field').hide();
+          $('.calendars').show();
+          $('.save-field').fadeIn();
+
+        }
+      }
+    });
+  }
 }
 
 function create_save_modal(date, month, year) {
@@ -1838,7 +1531,6 @@ function create_save_modal(date, month, year) {
       }else{
         $(".moon-code").text(moon);
         $('.start').hide()
-
 
         for (let i = 0; i < moon_phase_array.length; i++) {
           const element = moon_phase_array[i];
@@ -1918,7 +1610,6 @@ function create_save_modal(date, month, year) {
           $('.content-field').hide();
           $('.calendars').show();
           $('.save-field').fadeIn();
-
         }
       }
     }
@@ -2042,8 +1733,299 @@ simply.hideBackBg = function(){
   $('.dark-bg').removeClass('dark-bg-white').hide();
 }
 
+window.onFoursixtyCartAdded = function (product){
+  $.ajax({
+    url: '/cart.js',
+    dataType: "json",
+    cache: false,
+    beforeSend: function() {
+      $(".loading").fadeIn('slow');
+    },
+    success: function(cart) {
+      $(".loading").fadeOut('slow');
+      setTimeout(function() {
+        refreshCart(cart);
+        window.scrollTo(0,0);
+        $(".header-menu .grid__item a span").text(cart.item_count)
+        $('a.cart').trigger('click');
+      }, 500)
+    }
+  });
+}
+
+// document ready
 $(document).ready(function () {
 
+  if ($.cookie("permissionAccess") === undefined) {
+    $('.cookie_banner_popup').show();
+  }
+
+  $('.s4com-helpcenter .aa-input').keypress(function (e) {
+      if(e.keyCode == 13){
+        e.preventDefault();
+      }
+  });
+
+  if ($('body').innerWidth() < 768) {
+    var height = $('#shopify-section-header').outerHeight();
+    var height_simple = $('#shopify-section-header-simple').outerHeight();
+    if (height != undefined) {
+      $('#MainContent').css('margin-top', height);
+    }else{
+      $('#MainContent').css('margin-top', height_simple);
+    }
+  }
+
+  $.ajax({
+    type: "Get",
+    url: moon_eclipse_url,
+    success: function (response) {
+      moon_phase_data = response;
+    }
+  });
+
+  var i = 0;
+  var item = '.pagination .grid__item';
+  var item_hidden = ".pagination .hide";
+  var val = $(item).length - $(item_hidden).length;
+  $(".load_more_btn").text("load more ( " + val + "/" + $(item).length + " )")
+
+  $(item).slice(0, val-1).show();
+  if ($(item_hidden).length != 0) {
+    i = $(item_hidden).length;
+    $(".load_more_btn").show();
+  }else{
+    $(".load_more_btn").hide();
+  }
+
+  var j = 1;
+  $(".load_more_btn").on('click', function (e) {
+    e.preventDefault();
+    j ++ ;
+
+    if($(item_hidden).length > val){
+      var num = j * val;
+    }else{
+      var num = $(item).length;
+    }
+    $(item).slice(0, num).removeClass('hide');
+    $(item).slice(0, num).slideDown();
+    $(".load_more_btn").text("load more ( " + num + "/" + $(item).length + " )")
+    if ($(item_hidden).length == 0) {
+      $(".load_more_btn").fadeOut('slow');
+    }
+  });
+  var num = 0;
+  $(window).scroll(function() {
+    $(".blogs-block .animated").each(function(){
+
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          if (num < 3) {
+            num += 1;
+          }
+
+          setTimeout(() => {
+            $(this).addClass("fadeIn");
+          }, 500*num);
+
+        }
+    });
+  });
+
+  $(".questions-ans h2").click(function () {
+    if ($(this).hasClass('active')) {
+      $(this).parent().find('.que-ans-wrap').slideDown();
+      $(this).removeClass('active');
+    }else{
+      $(this).parent().find('.que-ans-wrap').slideUp();
+      $(this).addClass('active');
+    }
+  });
+  $('.question').click(function () {
+    if ($(this).hasClass('active')) {
+      $('.que-ans-wrap p:not(.question)').slideUp();
+      $('.question').removeClass('active');
+    }else{
+      $(this).addClass('active');
+      $(this).parent().find('p:not(.question)').slideDown();
+    }
+  });
+  $(".menu .link-list .active").click(function (e) {
+    e.preventDefault();
+    $(".menu .link-list li:not(.active)").fadeToggle();
+  });
+  $(".menu .link-list li").click(function (e) {
+    if (!$(this).hasClass('active')) {
+      location = $(this).find('a').attr('href');
+    }
+  });
+
+  $("#carousel-content").owlCarousel({
+    loop:true,
+    margin:10,
+    merge:true,
+    responsive:{
+      0:{
+        items:3,
+        mergeFit:true
+      },
+      678:{
+        items:5,
+        mergeFit:true
+      },
+      1000:{
+        items:8,
+        mergeFit:false
+      }
+    }
+  });
+
+  if ($('body').innerWidth() < 978) {
+    $('#owl-main .item').each(function () {
+      var mobile_img = $(this).attr('mobile_image');
+      $(this).css('background-image', 'url('+mobile_img+')');
+    })
+  }
+
+  $(".gf-sort-wrap .filter").click(function () {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('#gf-tree').fadeOut();
+    }else{
+      $(this).addClass('active');
+      $('#gf-tree').fadeIn();
+    }
+  });
+  $('.sort-by-toggle').click(function () {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('.select-box').fadeOut();
+    }else{
+      $(this).addClass('active');
+      $('.select-box').fadeIn();
+    }
+  });
+
+  $('.select-box li').click(function (e) {
+    e.preventDefault();
+    var val = $(this).attr('data-target');
+    $('#changeSortBy').val(val).change();
+    $('.select-box').hide();
+  });
+  $('#gf-tree .gf-filter-contents .gf-option-block h3 span').click(function () {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $(this).parent().parent().parent().find.slideUp();
+    }else{
+      $(this).addClass('active');
+      $(this).parent().parent().parent().find('.gf-filter-content').slideDown();
+    }
+  });
+
+  $('#shopify-section-register-template .register .grid .pannel .content form span').click(function () {
+    $('.news-letter').trigger('click');
+    if ($(this).hasClass('checked')) {
+
+      $(this).removeClass('checked');
+    }else{
+      $(this).addClass('checked');
+    }
+  });
+
+  $('.set-default label').click(function () {
+    $('.set-default input').trigger('click');
+    if ($(this).hasClass('checked')) {
+
+      $(this).removeClass('checked');
+    }else{
+      $(this).addClass('checked');
+    }
+  });
+
+  $('#datepicker').change(function () {
+    $('.datepicker-dropdown').hide();
+  })
+  $('.datepicker').change(function () {
+    $('.datepicker-dropdown').hide();
+  })
+  if ($.cookie('moon_dates')) {
+    var moon_dates = $.parseJSON($.cookie("moon_dates"));
+    var html = "<option>Or select from your saved dates</option>";
+    for (let index = 0; index < moon_dates.length; index++) {
+      const element = moon_dates[index];
+      if (index == 0) {
+        for (let i = 0; i < moon_phase_array.length; i++) {
+          const moon_item = moon_phase_array[i];
+          if (moon_item.id == element.image_code) {
+            var moon_img = moon_item.content.image;
+            var icon = moon_item.content.icon;
+          }
+        }
+        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text_title .find_moon_pannel .date_picker h5').text(element.result_date);
+        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text__image img').attr('src', moon_img);
+        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text__image img').attr('srcset', moon_img);
+        $('#shopify-section-collection-moon-section .collection-image-text .image-with-text_title .find_moon_pannel .moon-phase').css("background", icon);
+      }
+
+      html += "<option value="+ element.current_date +">"+element.current_date+"-"+element.occasion+"-"+element.moon_val+"</option>";
+    }
+  }
+
+  $('.product-info').each(function () {
+    if ($(this).hasClass('free_gift_product')) {
+      free_gift_old = free_gift_variant_id;
+      free_gift_variant_id = '';
+    }
+  });
+
+  var moon_text = {
+    "new moon" : "NL",
+    "waxing crescent" : "CA",
+    "waxing crescent" : "1A",
+    "waxing crescent" : "2A",
+    "waxing crescent" : "3A",
+    "waxing gibbous" : "4A",
+    "waxing gibbous" : "5A",
+    "waxing gibbous" : "6A",
+    "waxing gibbous" : "7A",
+    "full moon" : "PL",
+    "waning gibbous" : "7D",
+    "waning gibbous" : "6D",
+    "waning gibbous" : "5D",
+    "waning gibbous" : "4D",
+    "waning crescent" : "3D",
+    "waning crescent" : "2D",
+    "waning crescent" : "1D",
+    "waning crescent" : "CD",
+    "lunar eclipse" : "LE",
+    "solar eclipse" : "SE"
+  };
+  setTimeout(() => {
+    if (indecator != undefined) {
+      var id = moon_text[indecator];
+      for (let i = 0; i < moon_phase_array.length; i++) {
+        const element = moon_phase_array[i];
+
+        if(element.id == id){
+          var url = window.location.href;
+          var arr = url.split('?date=').reverse();
+          if(arr[1] != undefined){
+            var date = decodeURI(arr[0]).replace("%2C", ", ");
+          }else{
+            var date = "";
+          }
+          $('#shopify-section-collection-moon-section .image-with-text__image img').attr('src', element.content.image);
+          $('#shopify-section-collection-moon-section .find_moon_pannel .moon-phase').html(element.content.icon);
+          $('#shopify-section-collection-moon-section .find_moon_pannel .date_picker h5').html(date);
+          $('#shopify-section-collection-moon-section .image-with-text_title h3').text(element.content.title);
+          $('#shopify-section-collection-moon-section .image-with-text_title p:last-child').text(element.content.desc);
+        }
+      }
+    }
+  }, 500);
 
   $(".update_cart_btn").click(function (e) {
     e.preventDefault();
@@ -2075,102 +2057,26 @@ $(document).ready(function () {
         setTimeout(() => {
           $('.alert-cart').hide();
         }, 5000);
-
       }
     });
   })
 
   setTimeout(() => {
     var html = $(".collection-list-banner").html();
-
     $('#gf-products .grid__item:nth-child(5)').before(html);
-}, 2000);
+  }, 2000);
 
-window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-  if(key == 'checkout_url'){
-    var checkout_url = value;
-    $(".return_url").val(checkout_url);
-  }
-});
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    if(key == 'checkout_url'){
+      var checkout_url = value;
+      $(".return_url").val(checkout_url);
+    }
+  });
 
   if(!cn(simply.customer_id)){
     simply.displySelectedOcassion();
   }
 
-});
-
-window.onFoursixtyCartAdded = function (product){
-  $.ajax({
-    url: '/cart.js',
-    dataType: "json",
-    cache: false,
-    beforeSend: function() {
-      $(".loading").fadeIn('slow');
-    },
-    success: function(cart) {
-      $(".loading").fadeOut('slow');
-      setTimeout(function() {
-        refreshCart(cart);
-        window.scrollTo(0,0);
-        $(".header-menu .grid__item a span").text(cart.item_count)
-        $('a.cart').trigger('click');
-      }, 500)
-    }
-  });
-}
-
-
-$(document).ready(function () {
-  var moon_text = {
-    "new moon" : "NL",
-    "waxing crescent" : "CA",
-    "waxing crescent" : "1A",
-    "waxing crescent" : "2A",
-    "waxing crescent" : "3A",
-    "waxing gibbous" : "4A",
-    "waxing gibbous" : "5A",
-    "waxing gibbous" : "6A",
-    "waxing gibbous" : "7A",
-    "full moon" : "PL",
-    "waning gibbous" : "7D",
-    "waning gibbous" : "6D",
-    "waning gibbous" : "5D",
-    "waning gibbous" : "4D",
-    "waning crescent" : "3D",
-    "waning crescent" : "2D",
-    "waning crescent" : "1D",
-    "waning crescent" : "CD",
-    "lunar eclipse" : "LE",
-    "solar eclipse" : "SE"
-  };
-  setTimeout(() => {
-    if (indecator != undefined) {
-      var id = moon_text[indecator];
-      for (let i = 0; i < moon_phase_array.length; i++) {
-        const element = moon_phase_array[i];
-
-        if(element.id == id){
-          var url = window.location.href
-          var arr = url.split('?date=').reverse();
-          if(arr[1] != undefined){
-            var date = decodeURI(arr[0]).replace("%2C", ", ");
-          }else{
-            var date = "";
-          }
-          $('#shopify-section-collection-moon-section .image-with-text__image img').attr('src', element.content.image);
-          $('#shopify-section-collection-moon-section .find_moon_pannel .moon-phase').html(element.content.icon);
-          $('#shopify-section-collection-moon-section .find_moon_pannel .date_picker h5').html(date);
-          $('#shopify-section-collection-moon-section .image-with-text_title h3').text(element.content.title);
-          $('#shopify-section-collection-moon-section .image-with-text_title p:last-child').text(element.content.desc);
-        }
-      }
-    }
-
-  }, 500);
-
-})
-
-$(document).ready(function () {
   var quantity = 0;
   var gift_status = false;
   $('.responsive-table-row .qty').each(function () {
@@ -2189,7 +2095,6 @@ $(document).ready(function () {
     }
 
   }else if(quantity > 1 && !gift_status){
-
       $.ajax({
         url: '/cart/add.js',
         dataType: 'json',
@@ -2238,7 +2143,6 @@ $(document).ready(function () {
     var gift_status = false;
     $('.responsive-table-row .qty').each(function () {
       engraving_num += $(this).val() * $(this).parent().find('.engrave_num').val()
-
     });
 
     $('.engraving_cart .qty').val(engraving_num);
@@ -2252,7 +2156,6 @@ $(document).ready(function () {
     var gift_status = false;
     $('.responsive-table-row .qty').each(function () {
       engraving_num += $(this).val() * $(this).parent().find('.engrave_num').val()
-
     });
 
     $('.engraving_cart .qty').val(engraving_num);

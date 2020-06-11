@@ -36,7 +36,6 @@ const selectors = {
   product_detail: 'product_detail',
 };
 
-
 register('product', {
   async onLoad() {
     const productFormElement = document.querySelector(selectors.productForm);
@@ -228,7 +227,7 @@ $('.select-pannel .moon_phase').each(function () {
     $('#moon-phase').attr('data-target', $(this).attr('data-target'));
     $('#moon-phase .special-phase').show();
     $(".dark-bg").show();
-  })
+  });
 
   $(this).change(function () {
 
@@ -239,9 +238,8 @@ $('.select-pannel .moon_phase').each(function () {
     var date_cls = "."+$(this).attr('data-target')+"-save-date-button";
     find_variant(date[0],date[1],date[2], chain, $(this).parent().parent().find('.mark-img').find('img.moon_image'),date_cls);
 
-
-  })
-})
+  });
+});
 $('#moon-phase .select-phase').click(function () {
 
   var date_val = $(this).attr('date-val');
@@ -287,7 +285,7 @@ $('#moon-phase .select-phase').click(function () {
     $(".dark-bg").hide();
   }
 
-})
+});
 
 $(".moon_phase_cookie .saved-dates").change(function () {
   if( $(this).val() != "" ){
@@ -300,8 +298,7 @@ $(".moon_phase_cookie .saved-dates").change(function () {
     product_date = $(this).val();
     $(this).closest('.js').find('.save-date').show();
   }
-
-})
+});
 
 $(".js label").click(function () {
   $(".js label").removeClass('active');
@@ -317,8 +314,7 @@ $(".js label").click(function () {
     var sdate = $('.moon_phase_val').val()
     find_variant_special(sdate, chain);
   }
-
-})
+});
 $("#thumbs-carousel").owlCarousel({
   loop:true,
   margin:10,
@@ -352,8 +348,7 @@ $('.engrange_checkbox').click(function () {
     $('.engraving-input.second').attr('name', 'properties[engraving2]');
     $('.engraving-input.charm').attr('name', 'properties[Charm]');
   }
-})
-
+});
 
 $(document).ready(function () {
   setTimeout(() => {
@@ -400,20 +395,14 @@ $(document).ready(function () {
     });
   }, 2000);
 
-
-
   $('.chain-type').change(function () {
     var id = "#"+$(this).val();
     var variant = $(id).val();
     $('#variant_id').val(variant);
-  })
+  });
 
 });
 
-
-$(document).ready(function () {
-
-});
 
 $(document).ready(function () {
   var date_val = "";
@@ -434,7 +423,6 @@ $(document).ready(function () {
       $('.line-item #line_date').val("");
     }
 
-
   });
   $('.astro-location input').change(function () {
     location_val = "";
@@ -450,9 +438,7 @@ $(document).ready(function () {
     }else{
       $('.line-item #line_location').val("");
     }
-
-
-  })
+  });
   $('.astro-time .shop-moon-drop select').change(function () {
     time_val  ='';
     $('.astro-time .shop-moon-drop select').each(function () {
@@ -472,7 +458,7 @@ $(document).ready(function () {
       $('.line-item #line_time').val("");
     }
   });
-})
+});
 
 function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', query_date = 'null', cls = 'null'){
   obj_moon_date = [];
@@ -509,122 +495,121 @@ function find_variant(moon_month,moon_date,moon_year, chain, query = 'null', que
     url: moonglow_path,
     datatype: "json",
     beforeSend: function() {
-    // setting a timeout
-    $(".loader-section").show();
-  },
-  success: function(data){
+      // setting a timeout
+      $(".loader-section").show();
+    },
+    success: function(data){
 
-    setTimeout(() => {
-      $(".loader-section").hide();
-    }, 1000);
-    var moon = data[currenttemp];
-
-    var moon_phase = '';
-    moon_phase = select_moon_phase(moon_month+"/"+moon_date+"/"+moon_year);
-    if (moon != undefined && query != 'null' ) {
-      for (let i = 0; i < moon_phase_array.length; i++) {
-        const moon_item = moon_phase_array[i];
-        if (moon_item.id == moon) {
-          var img = moon_item.content.image;
-        }
-      }
-
-      query.attr('src', img);
-      if (query_date != 'null') {
-        query_date.val(current+"--"+moon);
-      }
-      query_date.parent().parent().parent().find('.phase-name').hide();
-      if (moon_phase == 'LE' | moon_phase == 'SE') {
-        var class_moon = '.'+moon_phase;
-        query_date.parent().parent().parent().find('.phase-name').show();
-        query_date.parent().parent().parent().find('.phase-name').find('span').hide();
-        query_date.parent().parent().parent().find('.phase-name').find(class_moon).show();
-        query_date.parent().parent().parent().find('.phase-name').show();
-      }
-
-      $('.scroll-box .moon_image').attr('src', img);
-      $('.scroll-box .moon_image').trigger('click');
       setTimeout(() => {
-        $('.main-image .moon_image').attr('src', img);
+        $(".loader-section").hide();
+      }, 1000);
+      var moon = data[currenttemp];
 
-      }, 500);
+      var moon_phase = '';
+      moon_phase = select_moon_phase(moon_month+"/"+moon_date+"/"+moon_year);
+      if (moon != undefined && query != 'null' ) {
+        for (let i = 0; i < moon_phase_array.length; i++) {
+          const moon_item = moon_phase_array[i];
+          if (moon_item.id == moon) {
+            var img = moon_item.content.image;
+          }
+        }
 
+        query.attr('src', img);
+        if (query_date != 'null') {
+          query_date.val(current+"--"+moon);
+        }
+        query_date.parent().parent().parent().find('.phase-name').hide();
+        if (moon_phase == 'LE' | moon_phase == 'SE') {
+          var class_moon = '.'+moon_phase;
+          query_date.parent().parent().parent().find('.phase-name').show();
+          query_date.parent().parent().parent().find('.phase-name').find('span').hide();
+          query_date.parent().parent().parent().find('.phase-name').find(class_moon).show();
+          query_date.parent().parent().parent().find('.phase-name').show();
+        }
+
+        $('.scroll-box .moon_image').attr('src', img);
+        $('.scroll-box .moon_image').trigger('click');
+        setTimeout(() => {
+          $('.main-image .moon_image').attr('src', img);
+
+        }, 500);
+
+      }
+
+      if (chain == undefined) {
+        chain ='';
+      }
+
+      var id =("#"+moon+'-'+chain).toString().replace(" ", "");
+      var variant = $(id).val();
+      if (variant != undefined ) {
+        $('#variant_id').val(variant);
+      }else if (chain != '') {
+        variant = $('#'+chain).val();
+
+        $('#variant_id').val(variant);
+      }else if($('#DefaultTitle-').val() != undefined ) {
+        $('#variant_id').val($('#DefaultTitle-').val());
+      }
+
+      var moon_text = {
+        "NL": "New Moon",
+        "CA": "Waxing Crescent",
+        "1A": "Waxing Crescent",
+        "2A": "Waxing Crescent",
+        "3A": "Waxing Crescent",
+        "4A": "Waxing Gibbous",
+        "5A": "Waxing Gibbous",
+        "6A": "Waxing Gibbous",
+        "7A": "Waxing Gibbous",
+        "PL": "Full Moon",
+        "7D": "Waning Gibbous",
+        "6D": "Waning Gibbous",
+        "5D": "Waning Gibbous",
+        "4D": "Waning Gibbous",
+        "3D": "Waning Crescent",
+        "2D": "Waning Crescent",
+        "1D": "Waning Crescent",
+        "CD": "Waning Crescent",
+        "LE": "Lunar Eclipse",
+        "SE": "Solar Eclipse"
+      };
+
+      var month_name = {
+        "01" : "January",
+        "02" : "February",
+        "03" : "March",
+        "04" : "April",
+        "05" : "May",
+        "06" : "June",
+        "07" : "July",
+        "08" : "August",
+        "09" : "September",
+        "10" : "October",
+        "11" : "November",
+        "12" : "December"
+      };
+
+      var month = month_name[moon_month];
+
+      var result_date = month +' '+moon_date+', '+moon_year;
+      var moon_val = moon_text[moon];
+      if (moon_val != undefined ) {
+        var handle = '.collection_products_main .container .'+moon_val.replace(' ','-').toLowerCase();
+      }
+      obj_moon_date = {"current_date":current,"handle_next":handle,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
+
+      $('.collection_products_main').show();
+      $('.col_handle_name').removeClass('active');
+      $(handle).addClass("active");
+      $('.datepicker-dropdown').hide();
+
+      if(obj_moon_date.current_date != ''){
+        $(cls).show();
+      }
     }
-
-    if (chain == undefined) {
-      chain ='';
-    }
-
-    var id =("#"+moon+'-'+chain).toString().replace(" ", "");
-    var variant = $(id).val();
-    if (variant != undefined ) {
-      $('#variant_id').val(variant);
-    }else if (chain != '') {
-      variant = $('#'+chain).val();
-
-      $('#variant_id').val(variant);
-    }else if($('#DefaultTitle-').val() != undefined ) {
-      $('#variant_id').val($('#DefaultTitle-').val());
-    }
-
-    var moon_text = {
-      "NL": "New Moon",
-      "CA": "Waxing Crescent",
-      "1A": "Waxing Crescent",
-      "2A": "Waxing Crescent",
-      "3A": "Waxing Crescent",
-      "4A": "Waxing Gibbous",
-      "5A": "Waxing Gibbous",
-      "6A": "Waxing Gibbous",
-      "7A": "Waxing Gibbous",
-      "PL": "Full Moon",
-      "7D": "Waning Gibbous",
-      "6D": "Waning Gibbous",
-      "5D": "Waning Gibbous",
-      "4D": "Waning Gibbous",
-      "3D": "Waning Crescent",
-      "2D": "Waning Crescent",
-      "1D": "Waning Crescent",
-      "CD": "Waning Crescent",
-      "LE": "Lunar Eclipse",
-      "SE": "Solar Eclipse"
-    };
-
-    var month_name = {
-      "01" : "January",
-      "02" : "February",
-      "03" : "March",
-      "04" : "April",
-      "05" : "May",
-      "06" : "June",
-      "07" : "July",
-      "08" : "August",
-      "09" : "September",
-      "10" : "October",
-      "11" : "November",
-      "12" : "December"
-    };
-
-    var month = month_name[moon_month];
-
-    var result_date = month +' '+moon_date+', '+moon_year;
-    var moon_val = moon_text[moon];
-    if (moon_val != undefined ) {
-      var handle = '.collection_products_main .container .'+moon_val.replace(' ','-').toLowerCase();
-    }
-    obj_moon_date = {"current_date":current,"handle_next":handle,"image_code":moon,"moon_val":moon_val,"result_date":result_date};
-
-    $('.collection_products_main').show();
-    $('.col_handle_name').removeClass('active');
-    $(handle).addClass("active");
-    $('.datepicker-dropdown').hide();
-
-    if(obj_moon_date.current_date != ''){
-      $(cls).show();
-    }
-  }
-});
-
+  });
 };
 
 function find_variant_special(date, chain, query = 'null'){
@@ -667,7 +652,6 @@ function find_variant_special(date, chain, query = 'null'){
     }else if($('#DefaultTitle-').val() != undefined ) {
       $('#variant_id').val($('#DefaultTitle-').val());
     }
-
 };
 
 function select_moon_phase(date) {
