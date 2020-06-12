@@ -73,7 +73,7 @@
               <div class="grid">
                 <div class="grid__item text-center one-third sm--one-half md--one-half xs--one-whole xm--one-half img_one_width" data-tab="moon_{{i}}">
                   <div class="moon-image" data-tab="moon_{{i}}">
-                    <img alt="Moonglow Jewelry Moonphase" src="https://cdn.shopify.com/s/files/1/2486/3224/files/small.png?v=1577858132">
+                    <img alt="Moonglow Jewelry Moonphase" src="{{ 'small.png' | img_url: 'original' }}">
                     <div class="image-wrap">
                       <img src="{{ 'PL.jpeg' | asset_img_url: '230x230' }}" alt="Full Moon" />
                     </div>
@@ -191,7 +191,7 @@
 
                     <div class="result xs_result_nodate no_date">
                       <h5 tabindex="0"><span>Your Results</span></h5>
-                      <div class="moon-data" style="">
+                      <div class="moon-data">
                         <div class="results-sec res-sate" tabindex="0">
                           <h8>Phase:</h8>
                           <p class="h8 result-date" data-resultdata=""></p>
@@ -209,9 +209,9 @@
                   </div>
                 </div>
 
-                <div class="result no_date" style="display:none">
+                <div class="result no_date hide">
                   <h5 tabindex="0"><span>Your Results</span></h5>
-                  <div class="moon-data" style="">
+                  <div class="moon-data">
                     <div class="results-sec res-sate" tabindex="0">
                       <h8>Date:</h8>
                       <p class="h8 result-date" data-resultdata=""></p>

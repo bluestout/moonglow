@@ -76,7 +76,8 @@
     },
     "nav": {
       "banner_title_1": "Gifts Under $100",
-      "banner_title_2": "Best Sellers"
+      "banner_title_2": "Best Sellers",
+      "favorites": "Favorites"
     },
     "modal": {
       "close_button_1": "Back to store",

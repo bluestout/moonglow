@@ -667,6 +667,17 @@ $(document).on('click', '.ajax-submit', function(e) {
                 }
               }
 
+              if(itemData.properties['Charm'] != undefined && itemData.properties['Charm'] != "") {
+                engraving_num = cart.items[0].properties['Charm'].length;
+                if (engraving_num > 10) {
+                  num += 4;
+                }else if(engraving_num > 5){
+                  num += 3;
+                }else if(engraving_num > 0){
+                  num += 2;
+                }
+              }
+
               if(engraving_num > 0 ){
 
                 var post_data = {
@@ -1111,7 +1122,7 @@ function refreshCart(cart) {
       }else{
         html += '<li class="items engraving" data-item="'+ i +'" data-key="'+item.key.replace(',',"_")+'" >';
       }
-      html += '<a class="remove"><img src="https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/close_ico.png?v=7795779005768485368"></a>';
+      html += '<a class="remove"><img src="' + close_icon + '"></a>';
       html += '<a href="'+item.url+'">';
       html += '<img class="product-img" src="'+item.featured_image.url+'">';
       html += '<div class="product-info '+ free_cls +'">';
@@ -1166,6 +1177,21 @@ function refreshCart(cart) {
           num += 2;
         }
         html += '<p class="attribute color__dark_blue">'+ 'Engraving2 : '+ item.properties['engraving2'] +'</p>';
+      }
+
+      if(item.properties['Charm'] != undefined && item.properties['Charm'] != "") {
+        engraving_num = item.properties['Charm'].length;
+        if (engraving_num > 10) {
+          final_price += 2000;
+          num += 4;
+        }else if(engraving_num > 5){
+          final_price += 1500;
+          num += 3;
+        }else if(engraving_num > 0){
+          final_price += 1000;
+          num += 2;
+        }
+        html += '<p class="attribute color__dark_blue">'+ 'Charm : '+ item.properties['Charm'] +'</p>';
       }
 
       if (item.properties['Birthstone']) {
@@ -1306,13 +1332,6 @@ function validate_moon_date(obj_moon_date, selector){
 function attach_moon_drop_html(){
   $(".header-left-links .my-moon .h8").text("My Moons");
   $(".moons .moon_list").html(create_moon_dates_html());
-}
-
-function create_moon_date_html(obj_moon_date){
-  moon_html = "";
-  img_path = "//cdn.shopify.com/s/files/1/2486/3224/t/3/assets/"+obj_moon_date.image_code+"_60x60.jpeg";
-  moon_html = '<div class="custom-input-wrapper moon-inner clearfix custom-checkbox"><a href="javascript:void(0);" onclick="remove_moon_list($(this))" class="close" data-date="'+obj_moon_date.current_date+'"><img src="{{\'Close.png\'| asset_url}}"></a><input placeholder="name" id="custom-moon_'+obj_moon_date.handle_next+'" name="custom_moon" data-date="'+obj_moon_date.current_date+'" type="checkbox" class="check_moon" ><div class="custom-input-wrapper-inner"></div><label for="custom-moon_'+obj_moon_date.handle_next+'"><div class="image-wrap moon-image"><img src="'+img_path+'" data-result="'+obj_moon_date.image_code+'" alt="'+obj_moon_date.moon_val+'" /></div><div class="date-name"><h8 class="light">'+obj_moon_date.result_date+'</h8><h8 data-day="'+obj_moon_date.moon_val+'">'+obj_moon_date.moon_val+'</h8></div></label></div>';
-  return moon_html;
 }
 
 function create_save_field(date, month, year, special_phase = null) {

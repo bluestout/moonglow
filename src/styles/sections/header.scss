@@ -117,7 +117,6 @@
                             &:hover{
                                 color: $header_menu_hover_color;
                             }
-
                         }
 
                         .sub-link {
@@ -132,7 +131,6 @@
                             width: 100%;
                             ul{
                                 li {
-
                                     a {
                                         color: $mega_menu_color;
                                         font-size: $mega_menu_title_size;
@@ -147,7 +145,6 @@
                                                     color: $header_menu_hover_color;
                                                     &:before{
                                                         content: " ";
-                                                        background: url('https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/dimond_ico.svg?v=4321893028173185640') no-repeat center;
                                                         width: 12px;
                                                         height: 15px;
                                                         display: table;
@@ -159,7 +156,7 @@
                                                 }
                                             }
                                         }
-                                        
+
                                     }
                                     .child-link {
                                         margin-top: 15px;
@@ -179,7 +176,6 @@
                                                         color: $mega_menu_hover_color;
                                                         &:before{
                                                             content: " ";
-                                                            background: url('https://cdn.shopify.com/s/files/1/2486/3224/t/224/assets/dimond_ico.svg?v=4321893028173185640') no-repeat center;
                                                             width: 12px;
                                                             height: 15px;
                                                             display: table;
@@ -377,7 +373,7 @@
                                         transform: rotate(-180deg);
                                     }
                                 }
-                                svg{
+                                svg,img{
                                     width: 15px;
                                     transform: none;
                                     margin-right: 5px;
@@ -442,6 +438,16 @@
                                     }
                                 }
                             }
+                        }
+                        @include media-query('medium-down') {
+                          li {
+                            a {
+                              svg {
+                                position: relative;
+                                top: 2px;
+                              }
+                            }
+                          }
                         }
                     }
                     &.normal-menu {
@@ -520,6 +526,7 @@
                             &.wishlist-button{
                                 @include media-query('medium-down'){
                                     padding-left: 12px;
+                                    display: none;
                                 }
                                 svg{
                                     vertical-align: bottom;
@@ -556,6 +563,9 @@
                                 }
                                 span{
                                     vertical-align: top;
+                                }
+                                @include media-query('medium-down') {
+                                  padding: 10px 15px;
                                 }
                             }
                             &.reward {
@@ -723,7 +733,7 @@
                         }
                     }
                 }
-                
+
             }
         }
         .modal-body{
@@ -795,7 +805,7 @@
                             }
                         }
                     }
-                    
+
                     .content{
                         .modal_alert{
                             width: 300px;

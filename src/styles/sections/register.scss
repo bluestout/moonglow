@@ -84,9 +84,20 @@
                             }
                         }
                     }
-                   
                 }
             }
         }
     }
+}
+
+.shopify-challenge__container {
+  margin: 50px auto;
+  .shopify-challenge__button {
+    height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #2E4676;
+    color: #FFF;
+    max-width: 350px;
+  }
 }

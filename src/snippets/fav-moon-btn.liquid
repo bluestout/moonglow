@@ -9,7 +9,7 @@
       data-process="Adding....."
       data-remove="Removing..." tabindex="0" title="save this moment">
       <span class='alter_text'>{{- saveBtnText -}}</span> 
-      <img class="mob_show" src="https://cdn.shopify.com/s/files/1/2486/3224/t/159/assets/ico-select.svg?587057"/ alt="save this button">
+      <img class="mob_show" src="{{ 'ico-select.svg' | asset_url }}" alt="save this button">
     </a>
   {% else %}
     {% if template contains 'page.moon-calculator'%}

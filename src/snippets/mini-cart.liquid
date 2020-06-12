@@ -234,7 +234,18 @@
                   {% endif %}
 
 
-
+                  {% if item.properties['Charm'] != blank %}
+                    {% assign engraving = item.properties['Charm'] | size %}
+                    {% assign engrave_price_val = 0 %}
+                    {% if  engraving > 10 %}
+                      {% assign engrave_price_val = 500 | times: 4 %}
+                    {% elsif engraving <= 10 and engraving > 5 %}
+                      {% assign engrave_price_val = 500 | times: 3 %}
+                    {% elsif engraving <= 5 and engraving > 0 %}
+                      {% assign engrave_price_val = 500 | times: 2 %}
+                    {% endif %}
+                    {% assign final_price = final_price | plus: engrave_price_val %}
+                  {% endif %}
 
 
                   <p class="price">{{ item.quantity }} x {{ final_price | money }}</p>
