@@ -156,7 +156,6 @@
         "id": "favicon_enable",
         "label": "Use custom icon"
       },
-
       {
         "type": "image_picker",
         "id": "favicon",
@@ -820,6 +819,17 @@
         "id": "awtag",
         "label": "Awa tag (like: AW-778630455)",
         "default": "AW-996068966"
+      }
+    ]
+  },
+  {
+    "name": "Bing",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "bing_enable",
+        "label": "Enable",
+        "default": true
       }
     ]
   },

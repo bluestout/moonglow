@@ -350,6 +350,40 @@ $('.engrange_checkbox').click(function () {
   }
 });
 
+$('.engraving-input').keyup(function () {
+
+  var str = $(this).val();
+  if( /[^a-zA-Z0-9\-\&\+\ \.\,]/.test( str ) ) {
+    var new_val = str.slice(0,-1);
+    $(this).val(new_val);
+  }
+
+  var length_val = $(this).val().length;
+
+  $('.engraving-pricing li').css({'color':'black', 'font-weight':"normal"});
+  if (length_val > 10) {
+    $('.engraving-pricing li:last-child').css({'color':'red', 'font-weight':"bold"});
+  }else if(length_val > 5){
+    $('.engraving-pricing li:nth-child(2)').css({'color':'red', 'font-weight':"bold"});
+  }else{
+    $('.engraving-pricing li:first-child').css({'color':'red', 'font-weight':"bold"});
+  }
+})
+
+$('.engraving-input').click(function () {
+
+  var length_val = $(this).val().length;
+  
+  $('.engraving-pricing li').css({'color':'black', 'font-weight':"normal"});
+  if (length_val > 10) {
+    $('.engraving-pricing li:last-child').css({'color':'red', 'font-weight':"bold"});
+  }else if(length_val > 5){
+    $('.engraving-pricing li:nth-child(2)').css({'color':'red', 'font-weight':"bold"});
+  }else{
+    $('.engraving-pricing li:first-child').css({'color':'red', 'font-weight':"bold"});
+  }
+})
+
 $(document).ready(function () {
   setTimeout(() => {
     var tmp = $('.title .text-m').text().split(" ");

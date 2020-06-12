@@ -10,6 +10,7 @@
                     <li><a class="link" href="/pages/my-wishlist">{{ 'customer.account.links.wishlist' | t }}</a></li>
                     <li><a class="link" href="/pages/rewards">{{ 'customer.account.links.rewards' | t }}</a></li>
                     <li><a class="link" href="/apps/parcelpanel">{{ 'customer.account.links.trackorder' | t }}</a></li>
+                    <li><a class="link" href="/pages/about-us">{{ 'customer.account.links.aboutus' | t }}</a></li>
                 </ul>
             </div>
         </div>
@@ -27,6 +28,7 @@
                             <th>{{ 'customer.orders.payment_status' | t }}</th>
                             <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
                             <th>{{ 'customer.orders.total' | t }}</th>
+                            <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +39,7 @@
                                 <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
                                 <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
                                 <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                                <td data-label="{{ 'customer.orders.view_detail' | t }}"><a class="detail button blue" href="{{ order.customer_url }}">{{ 'customer.orders.view_detail' | t}}</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -70,7 +73,7 @@
                             <li>
                                 <div class="grid">
                                     <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.total' | t }}</p></div>
-                                    <div class="grid__item one-half">{{ order.total_price | money }}</div>
+                                    <div class="grid__item one-half">{{ order.total_price | money }} <a class="detail button blue" href="{{ order.customer_url }}">{{ 'customer.orders.view_detail' | t}}</a></div>
                                 </div>
                             </li>
                         </ul>

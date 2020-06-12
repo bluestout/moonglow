@@ -425,7 +425,7 @@ $(document).on("click", '#side_cart .qty .spinner .plus', (function (e) {
   if ($(this).parent().parent().parent().parent().find('.product-info').find('.engrave-num').val() != undefined) {
     var num = parseInt($(this).parent().parent().parent().parent().find('.product-info').find('.engrave-num').val());
   }else{
-    var num = 0;
+    var num  = 0;
   }
   var id = i + 1;
   var engrave_id = $('.engraving').find('.product-info').find('.id').val();
@@ -641,42 +641,45 @@ $(document).on('click', '.ajax-submit', function(e) {
             success: function(cart) {
               var engraving_num = 0;
               var num = 0;
-              if (itemData.properties['engraving'] != undefined && itemData.properties['engraving'] != ""){
-                engraving_num = itemData.properties['engraving'].length;
-                if (engraving_num > 10) {
-                  num += 4;
-                }else if(engraving_num > 5){
-                  num += 3;
-                }else if(engraving_num > 0){
-                  num += 2;
+              if (itemData.properties != null) {
+                if (itemData.properties['engraving'] != undefined && itemData.properties['engraving'] != ""){
+                  engraving_num = itemData.properties['engraving'].length;
+                  if (engraving_num > 10) {
+                    num += 4;
+                  }else if(engraving_num > 5){
+                    num += 3;
+                  }else if(engraving_num > 0){
+                    num += 2;
+                  }
+                }
+                if(itemData.properties['Engrave_ring'] != undefined && itemData.properties['Engrave_ring'] != ""){
+                  if(itemData.properties['Engrave_ring'].length > 5){
+                    num += 1;
+                  }
+                }
+                if(itemData.properties['engraving2'] != undefined && itemData.properties['engraving2'] != "") {
+                  engraving_num = itemData.properties['engraving2'].length;
+                  if (engraving_num > 10) {
+                    num += 4;
+                  }else if(engraving_num > 5){
+                    num += 3;
+                  }else if(engraving_num > 0){
+                    num += 2;
+                  }
+                }
+  
+                if(itemData.properties['Charm'] != undefined && itemData.properties['Charm'] != "") {
+                  engraving_num = itemData.properties['Charm'].length;
+                  if (engraving_num > 10) {
+                    num += 4;
+                  }else if(engraving_num > 5){
+                    num += 3;
+                  }else if(engraving_num > 0){
+                    num += 2;
+                  }
                 }
               }
-              if(itemData.properties['Engrave_ring'] != undefined && itemData.properties['Engrave_ring'] != ""){
-                if(itemData.properties['Engrave_ring'].length > 5){
-                  num += 1;
-                }
-              }
-              if(itemData.properties['engraving2'] != undefined && itemData.properties['engraving2'] != "") {
-                engraving_num = cart.items[0].properties['engraving2'].length;
-                if (engraving_num > 10) {
-                  num += 4;
-                }else if(engraving_num > 5){
-                  num += 3;
-                }else if(engraving_num > 0){
-                  num += 2;
-                }
-              }
-
-              if(itemData.properties['Charm'] != undefined && itemData.properties['Charm'] != "") {
-                engraving_num = cart.items[0].properties['Charm'].length;
-                if (engraving_num > 10) {
-                  num += 4;
-                }else if(engraving_num > 5){
-                  num += 3;
-                }else if(engraving_num > 0){
-                  num += 2;
-                }
-              }
+              
 
               if(engraving_num > 0 ){
 
@@ -780,69 +783,59 @@ $(document).on('click', '.ajax-submit', function(e) {
                   }
                 });
               }else{
-                $.ajax({
-                  url: '/cart.js',
-                  dataType: "json",
-                  cache: false,
-                  beforeSend: function() {
-                    $(".loading").fadeIn('slow');
-                  },
-                  success: function(cart) {
-                    var total_val = 0;
-                    if (free_gift_type == 'moon_stud') {
-                      total_val = cart.item_count;
-                    }else{
-                      total_val = cart.total_price;
-                    }
-                    for (let i = 0; i < cart.items.length; i++) {
-                      if (cart.items[i].product_type == 'letters') {
-                        total_val = total_val - cart.items[i].quantity;
-                      }
-                    }
-                    if (total_val >= range && free_gift_variant_id != '' ) {
+                var total_val = 0;
+                if (free_gift_type == 'moon_stud') {
+                  total_val = cart.item_count;
+                }else{
+                  total_val = cart.total_price;
+                }
+                for (let i = 0; i < cart.items.length; i++) {
+                  if (cart.items[i].product_type == 'letters') {
+                    total_val = total_val - cart.items[i].quantity;
+                  }
+                }
+                if (total_val >= range && free_gift_variant_id != '' ) {
+                  $.ajax({
+                    url: '/cart/add.js',
+                    dataType: 'json',
+                    cache: false,
+                    type: 'post',
+                    data: {
+                      form_type: "product",
+                      utf8: "✓",
+                      id: free_gift_variant_id,
+                      quantity: 1
+                    },
+                    success: function(itemData) {
                       $.ajax({
-                        url: '/cart/add.js',
-                        dataType: 'json',
+                        url: '/cart.js',
+                        dataType: "json",
                         cache: false,
-                        type: 'post',
-                        data: {
-                          form_type: "product",
-                          utf8: "✓",
-                          id: free_gift_variant_id,
-                          quantity: 1
+                        beforeSend: function() {
+                          $(".loading").fadeIn('slow');
                         },
-                        success: function(itemData) {
-                          $.ajax({
-                            url: '/cart.js',
-                            dataType: "json",
-                            cache: false,
-                            beforeSend: function() {
-                              $(".loading").fadeIn('slow');
-                            },
-                            success: function(cart) {
-                              $(".loading").fadeOut('slow');
-                              setTimeout(function() {
-                                refreshCart(cart);
-                                window.scrollTo(0,0);
-                                $(".header-menu .grid__item a span").text(cart.item_count)
-                                $('a.cart').trigger('click');
-                              }, 500)
-                            }
-                          });
+                        success: function(cart) {
+                          $(".loading").fadeOut('slow');
+                          setTimeout(function() {
+                            refreshCart(cart);
+                            window.scrollTo(0,0);
+                            $(".header-menu .grid__item a span").text(cart.item_count)
+                            $('a.cart').trigger('click');
+                          }, 500)
                         }
                       });
-
-                    }else{
-                      $(".loading").fadeOut('slow');
-                      setTimeout(function() {
-                        refreshCart(cart);
-                        window.scrollTo(0,0);
-                        $(".header-menu .grid__item a span").text(cart.item_count)
-                        $('a.cart').trigger('click');
-                      }, 500);
                     }
-                  }
-                });
+                  });
+
+                }else{ 
+                  $(".loading").fadeOut('slow');
+                  setTimeout(function() {
+                    refreshCart(cart);
+                    window.scrollTo(0,0);
+                    $(".header-menu .grid__item a span").text(cart.item_count)
+                    $('a.cart').trigger('click');
+                  }, 500);
+                }
               }
             }
           });
@@ -890,7 +883,16 @@ function update_cart(data, engrave_data = null) {
           $(".loading").fadeIn('slow');
         },
         success: function(cart) {
-          if (engrave_data != null) {
+          if ( data.quantity != 0 ) {
+            if (cart.items[data.line - 1].quantity != data.quantity) {
+              var add_status = false;
+            }else{
+              var add_status = true;
+            }
+          }else{
+            var add_status = true;
+          }
+          if (engrave_data != null && add_status ) {
             $.ajax({
               url: '/cart/change.js',
               dataType: 'json',
@@ -1221,7 +1223,7 @@ function refreshCart(cart) {
         html += '<div class ="inline_displaying">';
       }
       html += '<div class="qty cart_item"><div class="spinner"><div class="min">-</div>';
-      html += '<input type="number" name="updates[]" id="updates_' + item.key + '" class="product_qty nojs" value="' + item.quantity + '" min="0" data-id="' + item.key +'">';
+      html += '<input type="number" name="updates[]" readonly id="updates_' + item.key + '" class="product_qty nojs" value="' + item.quantity + '" min="0" data-id="' + item.key +'">';
       html += '<div class="plus">+</div></div></div></div>';
 
       if (item.product_type != 'Gift wrap') {

@@ -73,7 +73,7 @@
                     <div class="banner">
                       <a href="{{ section.settings.first_banner_url }}">
                         <img src="{{ section.settings.first_banner | img_url: 'large' }}" alt="{{gchildlink.object.image}}">
-                        <p class="title">{{ 'general.nav.banner_title_1' | t }}</p>
+                        <p class="title">{{ section.settings.first_banner_title }}</p>
                       </a>
                     </div>
                   {% endif %}
@@ -82,7 +82,7 @@
                     <div class="banner">
                       <a href="{{ section.settings.second_banner_url }}">
                         <img src="{{ section.settings.second_banner | img_url: 'large' }}" alt="second banner">
-                        <p class="title">{{ 'general.nav.banner_title_2' | t }}</p>
+                        <p class="title">{{ section.settings.second_banner_title }}</p>
                       </a>
                     </div>
                   {% endif %}
@@ -202,10 +202,11 @@
         {% endif %}
       </li>
       <li>
-        <a href="/account/{% if customer %}dashboard{% else %}register{% endif %}" class="creat_account"> {{ section.settings.register_icon }}  {{ section.settings.register_label }}<span class="alert right">{{ 'general.alert_message.signup_alert' | t }}</span></a>
-      </li>
-      <li>
         <a href="/pages/about-us" class="creat_account"> <img src="{{ section.settings.about_us_icon | img_url: 'original' }}" class="left" >   {{ section.settings.about_us_label }}</a>
       </li>
+      <li>
+        <a href="/account/{% if customer %}dashboard{% else %}register{% endif %}" class="creat_account"> {{ section.settings.register_icon }}  {{ section.settings.register_label }}<span class="alert right">{{ 'general.alert_message.signup_alert' | t }}</span></a>
+      </li>
+      
     </ul>
   </nav>

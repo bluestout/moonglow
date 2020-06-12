@@ -177,7 +177,8 @@
         "detail": "account detail",
         "wishlist": "wishlist",
         "rewards": "rewards",
-        "trackorder": "track order"
+        "trackorder": "track order",
+        "aboutus": "About Us"
       }
     },
     "activate_account": {
@@ -229,7 +230,8 @@
       "payment_status": "Payment",
       "fulfillment_status": "Status",
       "total": "Total",
-      "none": "You haven't placed any orders yet."
+      "none": "You haven't placed any orders yet.",
+      "view_detail": "view order"
     },
     "order": {
       "title": "Order {{ name }}",

@@ -729,6 +729,18 @@
                                     width: auto!important;
                                 }
                             }
+                            .desktop{
+                                display: block;
+                                @include media-query('medium-down'){
+                                    display: none;
+                                }
+                            }
+                            .mobile{
+                                display: none;
+                                @include media-query('medium-down'){
+                                    display: block;
+                                }
+                            }
                             p{
                                 strong{
                                     font-weight: normal;
@@ -790,6 +802,18 @@
                             width: 70px;
                         }
                     }
+                    .desktop{
+                        display: block;
+                        @include media-query('medium-down'){
+                            display: none;
+                        }
+                    }
+                    .mobile{
+                        display: none;
+                        @include media-query('medium-down'){
+                            display: block;
+                        }
+                    }
                     p{
                         margin-top: $margin*2/5;
                         text-align: center;
@@ -808,9 +832,6 @@
                         }
                         &:last-child{
                             margin-top: $margin;
-                            @include media-query('medium-down'){
-                                display: none;
-                            }
                         }
                     }
                 }
@@ -837,7 +858,8 @@
                 .info{
                     max-width: $padding*10;
                     margin: auto;
-                    img{
+                    display: grid;
+                    img, svg{
                         @include media-query('medium-down'){
                             margin: auto;
                             display: table;
@@ -849,6 +871,18 @@
                         @include media-query('medium-down'){
                             text-align: center;
                             line-height: 50px;
+                        }
+                    }
+                    .desktop{
+                        display: block;
+                        @include media-query('medium-down'){
+                            display: none;
+                        }
+                    }
+                    .mobile{
+                        display: none;
+                        @include media-query('medium-down'){
+                            display: block;
                         }
                     }
                 }

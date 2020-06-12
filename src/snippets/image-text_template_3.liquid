@@ -29,7 +29,12 @@
                 <div class="devider"></div>
               {% endif %}
 
-              {{ block.settings.desc }}
+              <div class="left desktop">{{ block.settings.desc }}</div>
+              {% if block.settings.desc_mobile != blank %}
+                <div class="left mobile">{{ block.settings.desc_mobile }}</div>
+              {% else %}
+                <div class="left mobile">{{ block.settings.desc }}</div>
+              {% endif %}
             </div>
           </div>
       </div>
