@@ -44,40 +44,48 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                    {% for order in customer.orders %}
-                        <ul class="order-list">
-                            <li>
-                                <div class="grid">
-                                    <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.order_number' | t }}</p></div>
-                                    <div class="grid__item one-half">{{ order.name | link_to: order.customer_url }}</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="grid">
-                                    <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.date' | t }}</p></div>
-                                    <div class="grid__item one-half">{{ order.created_at | date: format: 'month_day_year' }}</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="grid">
-                                    <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.payment_status' | t }}</p></div>
-                                    <div class="grid__item one-half">{{ order.financial_status_label }}</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="grid">
-                                    <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.fulfillment_status' | t }}</p></div>
-                                    <div class="grid__item one-half">{{ order.fulfillment_status_label }}</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="grid">
-                                    <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.total' | t }}</p></div>
-                                    <div class="grid__item one-half">{{ order.total_price | money }} <a class="detail button blue" href="{{ order.customer_url }}">{{ 'customer.orders.view_detail' | t}}</a></div>
-                                </div>
-                            </li>
-                        </ul>
-                    {% endfor %}
+                    <div class="mobile-view">
+                        {% for order in customer.orders %}
+                            <ul class="order-list">
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.order_number' | t }}</p></div>
+                                        <div class="grid__item one-half">{{ order.name | link_to: order.customer_url }}</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.date' | t }}</p></div>
+                                        <div class="grid__item one-half">{{ order.created_at | date: format: 'month_day_year' }}</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.payment_status' | t }}</p></div>
+                                        <div class="grid__item one-half">{{ order.financial_status_label }}</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.fulfillment_status' | t }}</p></div>
+                                        <div class="grid__item one-half">{{ order.fulfillment_status_label }}</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-half"> <p class="mark uppercase left">{{ 'customer.orders.total' | t }}</p></div>
+                                        <div class="grid__item one-half"> {{ order.total_price | money }}  </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-whole"><a class="detail button blue" href="{{ order.customer_url }}">{{ 'customer.orders.view_detail' | t}}</a></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                    
                 {% else %}
                     <p class="order-empty">{{ 'customer.orders.none' | t }}</p>
                 {% endif %}

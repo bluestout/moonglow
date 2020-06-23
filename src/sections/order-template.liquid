@@ -5,8 +5,8 @@
         <div class="grid__item two-eighths medium-down--one-whole">
             <div class="menu">
                 <ul class="link-list">
+                    <li class="active hide"><a class="link">{{ 'customer.account.links.orderDetail' | t }}</a></li>
                     <li><a class="link" href="/account">{{ 'customer.account.links.dashboard' | t }}</a></li>
-                    <!-- <li class="active"><a class="link" href="">order history</a></li> -->
                     <li><a class="link" href="/account/addresses">{{ 'customer.account.links.detail' | t }}</a></li>
                     <li><a class="link" href="/pages/my-wishlist">{{ 'customer.account.links.wishlist' | t }}</a></li>
                     <li><a class="link" href="/pages/rewards">{{ 'customer.account.links.rewards' | t }}</a></li>
@@ -20,6 +20,7 @@
             <div class="content">
                 <h4 class="title">{{ 'customer.order.title' | t: name: order.name }}</h4>
                 <a data-target="request" class="modal_btn mark uppercase return_request">request return</a>
+                
                 {% if customer.orders.size != 0 %}
                     <table class="responsive-table  small--hide order-detail">
                         <thead>
@@ -32,7 +33,7 @@
                         </thead>
                         <tbody>
                             {% for line_item in order.line_items %}
-
+                            <script>console.log({{ line_item | json }})</script>
                             <tr class="responsive-table-row">
                                 <td>
                                     <img src="{{ line_item.image | img_url : 'original ' }}" alt="{{ option.name }}: {{ option.value }}">
@@ -43,7 +44,7 @@
                                 </td>
                                 <td>{{ line_item.quantity }}</td>
                                 <td width="150">{{ order.created_at | date: format: 'month_day_year' }}</td>
-                                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                                <td data-label="{{ 'customer.orders.total' | t }}">{{ line_item.original_price | money }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -54,24 +55,31 @@
                             </tr>
                         </tfoot>
                     </table>
-                    {% for line_item in order.line_items %}
-                        <ul class="order-list">
-                            <li>
-                                <div class="grid">
-                                    <div class="grid__item one-whole">
-                                        {{ line_item.product.title | link_to: line_item.product.url }}
-                                        {% for option in line_item.options_with_values %}
-                                            <p class="variant">{{ option.name }}: {{ option.value }}</p>
-                                        {% endfor %}
+                    <div class="mobile-view">
+                        {% for line_item in order.line_items %}
+                            <ul class="order-list">
+                                <li>
+                                    <div class="grid">
+                                        <div class="grid__item one-whole">
+                                            <img src="{{ line_item.image | img_url : 'original ' }}" alt="{{ option.name }}: {{ option.value }}">
+                                            <div class="info">
+                                                {{ line_item.product.title | link_to: line_item.product.url }}
+                                                {% for option in line_item.options_with_values %}
+                                                    <p class="variant">{{ option.name }}: {{ option.value }}</p>
+                                                {% endfor %}
+                                            </div>  
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="grid" style="margin-top: 20px;">
-                                    <div class="grid__item one-half"><p class="mark"> {{ line_item.quantity}} </p></div>
-                                    <div class="grid__item one-half"><p class="mark text-right">{{ line_item.final_price | money }}</p></div>
-                                </div>
-                            </li>
+                                </li>
+                                <li>
+                                    <div class="grid" style="margin-top: 20px;">
+                                        <div class="grid__item one-half"><p class="mark"> {{ line_item.quantity}} </p></div>
+                                        <div class="grid__item one-half"><p class="mark text-right">{{ line_item.price | money }}</p></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                        <ul class="total">
                             <li>
                                 <div class="grid">
                                     <div class="grid__item two-thirds"> <p class="mark uppercase right">{{ 'customer.orders.total' | t }}</p></div>
@@ -79,7 +87,8 @@
                                 </div>
                             </li>
                         </ul>
-                    {% endfor %}
+                    </div>
+                    
                 {% else %}
                     <p>{{ 'customer.orders.none' | t }}</p>
                 {% endif %}
@@ -88,7 +97,7 @@
     </div>
 </section>
 <div id="request" class="modal request-modal">
-    <a class="close">{{ 'general.modal.back_button_1' | t }} <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
+    <a class="close">{{ 'general.modal.back_button' | t }} <img src="{{'close_ico.png' | asset_url}}" alt="close button"></a>
     <div class="modal-body">
         <h3>Return Request</h3>
         <iframe src="https://formbuilder.hulkapps.com/corepage/customform?id=BHGThjXvZqL2bvjGezLqgQ" id="frame_BHGThjXvZqL2bvjGezLqgQ" frameborder="0" width="100%" style="height: 665px;"></iframe>

@@ -499,6 +499,10 @@
                         float: left;
                         width: 33%;
                         text-align: center;
+                        &.active{
+                            font-family: $font_brand;
+                            color: $base_link_color!important;
+                        }
                     }
                 }
             }

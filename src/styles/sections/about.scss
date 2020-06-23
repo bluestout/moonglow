@@ -22,6 +22,7 @@
                 @include media-query('medium-down'){
                     font-family: $font-body;
                     font-size: $p_size;
+                    color: white;
                 }
             }
             .video_btn{

@@ -73,7 +73,21 @@
                                   <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
                               </div>
                               <div class="price">
-                                  <h4 class="text-center">{{ product_price | money  }}</h4>
+                                {% if product.available %}
+                                    {% if product.price_min > 0 %}
+                                        <h4 class="text-center">
+                                        {{ product.price_min | money }}
+                                        {% if product.compare_at_price > product.price %}
+                                            <del class="was_price">{{ product.compare_at_price | money }}</del>
+                                            <span class="sale__off-percent">{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max | floor }}% OFF!</span>
+                                        {% endif %}
+                                        </h4>
+                                    {% else %}
+                                        {{ free_price_text }}
+                                    {% endif %}
+                                {% else %}
+                                    <h4 class="text-center sold_out">sold out</h4>
+                                {% endif %}
                               </div>
                           </div>
                       </div>
@@ -108,7 +122,21 @@
                                   <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
                               </div>
                               <div class="price" >
-                                  <h4 class="text-center">{{ product_price | money  }}</h4>
+                                {% if product.available %}
+                                    {% if product.price_min > 0 %}
+                                        <h4 class="text-center">
+                                        {{ product.price_min | money }}
+                                        {% if product.compare_at_price > product.price %}
+                                            <del class="was_price">{{ product.compare_at_price | money }}</del>
+                                            <span class="sale__off-percent">{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max | floor }}% OFF!</span>
+                                        {% endif %}
+                                        </h4>
+                                    {% else %}
+                                        {{ free_price_text }}
+                                    {% endif %}
+                                {% else %}
+                                    <h4 class="text-center sold_out">sold out</h4>
+                                {% endif %}
                               </div>
                           </div>
                       </div>
@@ -150,7 +178,21 @@
                               <p class="text-center">{{ product.title }}</p>
                           </div>
                           <div class="price">
-                              <h4 class="text-center">{{ product_price | money  }}</p>
+                            {% if product.available %}
+                                {% if product.price_min > 0 %}
+                                    <h4 class="text-center">
+                                    {{ product.price_min | money }}
+                                    {% if product.compare_at_price > product.price %}
+                                        <del class="was_price">{{ product.compare_at_price | money }}</del>
+                                        <span class="sale__off-percent">{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max | floor }}% OFF!</span>
+                                    {% endif %}
+                                    </h4>
+                                {% else %}
+                                    {{ free_price_text }}
+                                {% endif %}
+                            {% else %}
+                                <h4 class="text-center sold_out">sold out</h4>
+                            {% endif %}
                           </div>
                       </div>
                   </a>

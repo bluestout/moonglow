@@ -29,6 +29,8 @@ $(document).ready(function () {
        var html = $(".refer-block").html();
        $('#rp-campaigns-region div.swell-unauthenticated:nth-child(4)').after(html)
        $('#rp-campaigns-region div.campaign:nth-child(4)').after(html)
+     } else {
+       $(".refer-block").removeClass('hide');
      }
    }
    if ($('.swell-free-product-list').find("li").hasClass('swell-redemption-product')) {
@@ -59,6 +61,16 @@ $(document).ready(function () {
    if (!$('#rp-campaigns-region div').hasClass('rewards-page-preloader') && !$('#redeem-options-region div').hasClass('rewards-page-preloader')) {
     clearInterval(inter_val);
    }
+   $('.login-btn a').each(function() {
+    var href = $(this).attr('href')+'?checkout_url=/pages/rewards';
+    $(this).attr('href', href);
+   });
  }, 1000);
+ $(document).on('click', '.swell-free-product-list .swell-redemption-product', function(){
+   if (!$('.swell-free-product-list').hasClass('logged-in')) {
+     window.location = '/account/login?checkout_url=/pages/rewards';
+   }
+ })
 
+ 
 });

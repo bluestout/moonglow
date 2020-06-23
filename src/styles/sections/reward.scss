@@ -234,13 +234,11 @@
                         }
                         .swell-redemption-product-content{
                             div{
-                                display: none;
                                 font-size: $h5_size;
                                 font-family: $font_title;
                                 text-align: center;
                                 @include media-query('medium-down'){
                                     font-size: 13px;
-                                    padding-top: 150px!important;
                                 }
                                 &.swell-redemption-product-cost{
                                     margin-top: 10px;

@@ -175,6 +175,7 @@
       "links": {
         "dashboard": "dashboard",
         "detail": "account detail",
+        "orderDetail": "Order Detail",
         "wishlist": "wishlist",
         "rewards": "rewards",
         "trackorder": "track order",

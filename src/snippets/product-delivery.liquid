@@ -6,27 +6,25 @@
 {%- assign today = 'now' | date: "%s"  -%}
 {% assign days = 7 %}
 {% if current_store =='usa' %}
-{%- for i in (1..3) -%}  
+{%- for i in (1..3) -%}
 {%- assign today =  today | plus:86400 -%}
 {%- assign current_day = today | date:'%a' -%}
 {%- if current_day == 'Sat' %}
 {%- assign today =  today | plus:172800 -%}
-{%- endif -%}  
+{%- endif -%}
 {%- endfor -%}
 {%- else -%}
-{%- for i in (1..7) -%}  
+{%- for i in (1..7) -%}
 {%- assign today =  today | plus:86400 -%}
 {%- assign current_day = today | date:'%a' -%}
 {%- if current_day == 'Sat' %}
 {%- assign today =  today | plus:172800 -%}
-{%- endif -%}  
+{%- endif -%}
 {%- endfor -%}
 {%- endif -%}
 {% assign d =  today | date: "%b %d, %Y" %}
 <div  class="product_date">
   <span> {% if template contains 'product' %} <b class ="get_it"> Get it as soon as: </b> {% else %} Estimated delivery date: {% endif%}<b>{{d}}</b></br>
-  {% if current_store == 'usa' %} with standard shipping. {% else %} if you order today. {% endif %}
+  {% if current_store == 'usa' %} with express shipping. {% else %} if you order today. {% endif %}
   </span>
 </div>
-
- 

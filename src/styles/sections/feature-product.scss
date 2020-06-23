@@ -37,6 +37,17 @@
                 }
                 .price{
                     margin-bottom: $margin / 5;
+                    h4{
+                        del{
+                            height: 14px;
+                            font-size: 13px;
+                        }
+                        span{
+                            color: #2E4676;
+                            font-size: 15px;
+                            font-weight: bold;
+                        }
+                    }
                 }
                 .review-sec{
                     .bottomLine{

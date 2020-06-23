@@ -360,13 +360,13 @@ $('.engraving-input').keyup(function () {
 
   var length_val = $(this).val().length;
 
-  $('.engraving-pricing li').css({'color':'black', 'font-weight':"normal"});
+  $('.engraving-pricing li').removeClass('active');
   if (length_val > 10) {
-    $('.engraving-pricing li:last-child').css({'color':'red', 'font-weight':"bold"});
+    $('.engraving-pricing li:last-child').addClass('active');
   }else if(length_val > 5){
-    $('.engraving-pricing li:nth-child(2)').css({'color':'red', 'font-weight':"bold"});
+    $('.engraving-pricing li:nth-child(2)').addClass('active');
   }else{
-    $('.engraving-pricing li:first-child').css({'color':'red', 'font-weight':"bold"});
+    $('.engraving-pricing li:first-child').addClass('active');
   }
 })
 
@@ -374,13 +374,13 @@ $('.engraving-input').click(function () {
 
   var length_val = $(this).val().length;
   
-  $('.engraving-pricing li').css({'color':'black', 'font-weight':"normal"});
+  $('.engraving-pricing li').removeClass('active');
   if (length_val > 10) {
-    $('.engraving-pricing li:last-child').css({'color':'red', 'font-weight':"bold"});
+    $('.engraving-pricing li:last-child').addClass('active');
   }else if(length_val > 5){
-    $('.engraving-pricing li:nth-child(2)').css({'color':'red', 'font-weight':"bold"});
+    $('.engraving-pricing li:nth-child(2)').addClass('active');
   }else{
-    $('.engraving-pricing li:first-child').css({'color':'red', 'font-weight':"bold"});
+    $('.engraving-pricing li:first-child').addClass('active');
   }
 })
 

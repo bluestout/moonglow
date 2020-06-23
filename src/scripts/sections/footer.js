@@ -123,11 +123,13 @@ $('.save-date').click(function () {
     var $el = $(this);
     var originalMsg = $el.closest('.modal').find('.alert-message').data('text');
     var logintext = $el.closest('.modal').find('.alert-message').data('logintext');
+    console.log(logintext)
     if(logintext) {
-      $el.closest('.modal').find('.alert-message').text(logintext).show();
-      setTimeout(() => {
-        $el.closest('.modal').find('.alert-message').hide().text(originalMsg);
-      }, 5000);
+      $el.closest('.modal').find('.alert-message').html(logintext).show();
+      $el.closest('.modal').find('.alert-message').addClass('login-message');
+      // setTimeout(() => {
+      //   $el.closest('.modal').find('.alert-message').hide().text(originalMsg);
+      // }, 5000);
     }
     return false;
   }
@@ -154,7 +156,10 @@ $('.save-date').click(function () {
   $('#date-save-modal').show();
 
 });
-
+$(document).on('click', '.login-message', function() {
+  console.log($(this).attr('href'));
+  window.location = '/account/login';
+});
 $('.save_ocassion_btn').click(function () {
   var occasion = $('.occasion').val();
   if(occasion != ''){

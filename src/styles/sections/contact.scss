@@ -25,7 +25,17 @@
             p{
                 font-size: 14px;
                 line-height: 24px;
-                b, strong{
+                margin: 10px 0;
+                b{
+                    font-size: 14px;
+                    font-family: $font_title;
+                    padding-right: 5px;
+                    @include media-query('small'){
+                        display: block;
+                        margin-top: 10px;
+                    }
+                }
+                strong{
                     font-size: 14px;
                     font-family: $font_title;
                     padding-right: 5px;
